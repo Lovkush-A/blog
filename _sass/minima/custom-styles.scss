@@ -24,6 +24,11 @@ h3 {
     color: $purple;
 }
 
-header {
+a {
   color: $purple;
+}
+
+a: hover{
+    color: $purple;
+    text-decoration: underline;
 }
