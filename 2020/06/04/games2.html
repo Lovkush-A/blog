@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>AIs for Games, Part II | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="AIs for Games, Part II" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Here I created an algorithm and the code to search through the game-tree to a given maximum depth. This has been written for the game Pentago specifically. The code seems to work, but is highly inefficient." />
+<meta property="og:description" content="Here I created an algorithm and the code to search through the game-tree to a given maximum depth. This has been written for the game Pentago specifically. The code seems to work, but is highly inefficient." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/2020/06/04/games2.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/2020/06/04/games2.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-04T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Here I created an algorithm and the code to search through the game-tree to a given maximum depth. This has been written for the game Pentago specifically. The code seems to work, but is highly inefficient.","@type":"BlogPosting","headline":"AIs for Games, Part II","dateModified":"2020-06-04T00:00:00-05:00","datePublished":"2020-06-04T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/2020/06/04/games2.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/2020/06/04/games2.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>AIs for Games, Part II | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="AIs for Games, Part II" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Here I created an algorithm and the code to search through the game-tree to a given maximum depth. This has been written for the game Pentago specifically. The code seems to work, but is highly inefficient." />
+<meta property="og:description" content="Here I created an algorithm and the code to search through the game-tree to a given maximum depth. This has been written for the game Pentago specifically. The code seems to work, but is highly inefficient." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/2020/06/04/games2.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/2020/06/04/games2.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-04T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Here I created an algorithm and the code to search through the game-tree to a given maximum depth. This has been written for the game Pentago specifically. The code seems to work, but is highly inefficient.","@type":"BlogPosting","headline":"AIs for Games, Part II","dateModified":"2020-06-04T00:00:00-05:00","datePublished":"2020-06-04T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/2020/06/04/games2.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/2020/06/04/games2.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">AIs for Games, Part II</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-04T00:00:00-05:00" itemprop="datePublished">
+        Jun 4, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Here I created an algorithm and the code to search through the game-tree to a given maximum depth. This has been written for the game Pentago specifically. The code seems to work, but is highly inefficient.</p>
+
+<h2 id="other-posts-in-series">Other posts in series</h2>
+
+<ul>
+  <li>
+    <p><a href="/2020/06/09/games3.html">AIs for Games, Part III</a></p>
+  </li>
+  <li>
+    <p><a href="/2020/05/20/games1.html">AIs for Games, Part I</a></p>
+  </li>
+</ul>
+
+<h2 id="the-algorithm">The algorithm</h2>
+<p>In my last post, I said I wanted to code up an alpha-beta pruning algorithm. (See this <a href="https://youtu.be/WbzNRTTrX0g">CS50 Intro to AI</a> lecture for background on tree-based search and alpha-beta pruning). Over the past couple of weeks, I have been thinking about exactly how the algorithm would work and how I would code it up, and it was surprisingly tricky. I therefore decided to just focus on creating an algorithm that would search through a game-tree up to some maximum depth, but in a way that I could add in the pruning.</p>
+
+<p>The algorithm should determine the ‘value’ of the current board state and the move that would achieve that value. A value of 1 means that Player 1 will win (with perfect play) and a value of 0 means that Player 0 will win (with perfect play). A value in the middle indicates which player is more likely to win, as judged by the algorithm.</p>
+
+<p>The general idea of the algorithm is straightforward:</p>
+<ol>
+  <li>Given a board position, create an initial node and add it to the frontier.</li>
+  <li>While the initial node does not have a value, pick a node from the frontier and do the following:
+    <ul>
+      <li>Check if the game has ended. If so, determine who won, and set the value of the node appropriately. Then update the value of parent nodes appropriately.</li>
+      <li>Check if the depth of the node is the maximum depth. If so, then estimate the value of the position. For now, I just set this as 0.5, but in future, this will be determined via a neural network. Then update the value of parent nodes appropriately.</li>
+      <li>Create a list of legal moves and possible board positions arising from this node. Create new nodes and add them to the frontier.</li>
+    </ul>
+  </li>
+  <li>Once the initial node has a value, pick a move whose resulting board position has the same value.</li>
+</ol>
+
+<p>The tricky part was the step ‘update the value of the parent nodes appropriately’. It took me some time to flesh out all the details and determine exactly when a parent node should have its value updated. I had to do this in a way so that I could add on the pruning later without having to change the structure of the code. The main ideas were:</p>
+
+<ul>
+  <li>
+    <p>Whenever a node has its value determined, the upper or lower bounds of its parent’s node, and only its parent’s node, needs to be updated.</p>
+  </li>
+  <li>
+    <p>Whenever all of a node’s children’s values are determined, the node’s value can be determined. This will sometimes lead to some recursive updating of node values.</p>
+  </li>
+</ul>
+
+<p>A big sticking point for me was how to decide when to prune a node: it felt like I needed knowledge of uncle/aunt nodes to do this, but following the ideas above, the grandparent node and parent node should contain enough information to decide if a node can be pruned or not.</p>
+
+<p>In the end, I managed to get it altogether. The code, at this stage of the project, can be found on <a href="https://github.com/Lovkush-A/games/tree/e8a8e0afe6d25030d82cf0f0269c5edab625e463">github</a>.</p>
+
+<h2 id="an-example">An example</h2>
+<p><img src="/assets/images/games_21.png" alt="image" /></p>
+
+<p>The image above shows an example winning position for player 1. If it is Player 1’s move, the algorithm finds a winning move using a depth-1 search (play in bottom left, and then rotate bottom left clockwise, giving 5-in-a-row column on left-hand-side).  If it is Player 2’s move, the algorithm returns <code class="highlighter-rouge">None</code> using a depth-2 search, because no matter what 2 does on this turn, 1 will always win.</p>
+
+<h2 id="the-code">The code</h2>
+<p>The code, at this stage of project, can be found on <a href="https://github.com/Lovkush-A/games/tree/e8a8e0afe6d25030d82cf0f0269c5edab625e463">github</a>.</p>
+
+<h2 id="areas-of-improvement">Areas of improvement</h2>
+<p>The algorithm is highly inefficient. It takes roughly 10-50 seconds to do depth-2 searches, and on the order of hours for depth-3 search. This is way too long! The number of possible positions after 3 moves is roughly a few million, so that shouldn’t take hours to sort through.</p>
+
+<p>There are many inefficiencies I am aware of and will fix them for my next post. Examples include:</p>
+<ul>
+  <li>Dealing with repeat positions. Right now, I only avoid positions that repeat if they arise from the same parent.</li>
+  <li>I currently use a list to track which positions have been visited in the search, to check for repeats. This is less efficient than a set, but I can’t use arrays in sets and all my boards are coded as arrays. I will try changing everything to tuples.</li>
+  <li>If a winning/losing sequence is found, it will keep on searching. This is not necessarily a bad thing, because we might want to analyse all the lines, but it definitely slows things down.</li>
+  <li>Not using alpha-beta pruning, yet.</li>
+  <li>Not doing any time analysis. I will run cProfile to systematically find inefficiencies.</li>
+</ul>
+
+
+  </div><a class="u-url" href="/blog/2020/06/04/games2.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

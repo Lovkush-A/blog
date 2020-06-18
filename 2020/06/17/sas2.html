@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Stop and Search, Part II, Data Cleaning | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Stop and Search, Part II, Data Cleaning" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this post, I describe the cleaning I did on the data." />
+<meta property="og:description" content="In this post, I describe the cleaning I did on the data." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/2020/06/17/sas2.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/2020/06/17/sas2.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-17T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"In this post, I describe the cleaning I did on the data.","@type":"BlogPosting","headline":"Stop and Search, Part II, Data Cleaning","dateModified":"2020-06-17T00:00:00-05:00","datePublished":"2020-06-17T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/2020/06/17/sas2.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/2020/06/17/sas2.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Stop and Search, Part II, Data Cleaning | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Stop and Search, Part II, Data Cleaning" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In this post, I describe the cleaning I did on the data." />
+<meta property="og:description" content="In this post, I describe the cleaning I did on the data." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/2020/06/17/sas2.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/2020/06/17/sas2.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-17T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"In this post, I describe the cleaning I did on the data.","@type":"BlogPosting","headline":"Stop and Search, Part II, Data Cleaning","dateModified":"2020-06-17T00:00:00-05:00","datePublished":"2020-06-17T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/2020/06/17/sas2.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/2020/06/17/sas2.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Stop and Search, Part II, Data Cleaning</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-17T00:00:00-05:00" itemprop="datePublished">
+        Jun 17, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>In this post, I describe the cleaning I did on the data.</p>
+
+<h2 id="other-posts-in-series">Other posts in series</h2>
+
+<ul>
+  <li><a href="/2020/06/15/sas1.html">Stop and Search, Part I, Data Collection</a></li>
+</ul>
+
+<h2 id="the-cleaning">The cleaning</h2>
+<p>I cleaned each column, one by one. Note I call the original frame <code class="highlighter-rouge">sas</code> and created a copy <code class="highlighter-rouge">sas_clean</code> in which I would do the cleaning.</p>
+
+<ul>
+  <li>To see a list of all the columns, I ran the code <code class="highlighter-rouge">sas.columns</code>.</li>
+  <li>To investigate the distribution of values in a column (before and after cleaning), I would use the code <code class="highlighter-rouge">sas_clean.column.value_counts(dropna = False)</code></li>
+  <li>Some columns required no cleaning:
+    <ul>
+      <li>age_range</li>
+      <li>gender</li>
+      <li>location.latitude and location.longitude (except I renamed thse columns)</li>
+      <li>force</li>
+      <li>month</li>
+    </ul>
+  </li>
+  <li>The other columns did require some cleaning:
+    <ul>
+      <li>self_defined_ethnicity and officer_defined_ethnicity</li>
+      <li>type</li>
+      <li>outcome</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="ethnicity">Ethnicity</h2>
+<p><code class="highlighter-rouge">officer_defined_ethnicity</code> was mostly clean. The distribution of values were:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>White    608092
+Black    259504
+Asian    139531
+NaN       91601
+Other     31845
+Mixed      2563
+</code></pre></div></div>
+
+<p>The only change I made was to combine mixed with other.</p>
+
+<p><br />
+<br />
+<code class="highlighter-rouge">self_defined_ethnicity</code> was less clean, and the distribution of values were:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>White - English/Welsh/Scottish/Northern Irish/British                                   475167
+Other ethnic group - Not stated                                                         154802
+White - Any other White background                                                       85322
+Black/African/Caribbean/Black British - Any other Black/African/Caribbean background     78340
+Black/African/Caribbean/Black British - African                                          66072
+Black/African/Caribbean/Black British - Caribbean                                        49736
+Asian/Asian British - Any other Asian background                                         44517
+NaN                                                                                      41149
+Asian/Asian British - Pakistani                                                          33907
+Asian/Asian British - Bangladeshi                                                        24128
+Other ethnic group - Any other ethnic group                                              16449
+Mixed/Multiple ethnic groups - Any other Mixed/Multiple ethnic background                15560
+Asian/Asian British - Indian                                                             14929
+Mixed/Multiple ethnic groups - White and Black Caribbean                                 14063
+White - Irish                                                                             7843
+Mixed/Multiple ethnic groups - White and Black African                                    4246
+Mixed/Multiple ethnic groups - White and Asian                                            3598
+White - Gypsy or Irish Traveller                                                          1689
+Asian/Asian British - Chinese                                                             1476
+Other ethnic group - Arab                                                                  143
+</code></pre></div></div>
+
+<p>I decided to group these up according to the same categories used in <code class="highlighter-rouge">officer_defined_ethnicity</code>. This was done using <code class="highlighter-rouge">.replace</code>:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def simplify_eth(ethnicity):
+    if isinstance(ethnicity, float) or 'Not stated' in ethnicity:
+        return np.nan
+    elif 'Other' in ethnicity or 'Mixed' in ethnicity:
+        return 'Other'
+    elif 'Asian' in ethnicity:
+        return 'Asian'
+    elif 'Black' in ethnicity:
+        return 'Black'
+    elif 'White' in ethnicity:
+        return 'White'
+
+ethnicities = {eth: simplify_eth(eth) for eth in sas.self_defined_ethnicity.unique()}
+sas_clean = sas_clean.replace(to_replace = ethnicities)
+</code></pre></div></div>
+
+<p><br />
+<br />
+Finally, I wanted to create a column <code class="highlighter-rouge">ethnicity</code> that combines these two columns. I started by renaming the other two columns, creating the new column, and filling it in with values where there is no disagreement between the officer defined and self defined ethnicity.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sas_clean.rename(columns = {'self_defined_ethnicity': 'self',
+                            'officer_defined_ethnicity': 'officer'}, inplace = True)
+sas_clean['ethnicity'] = np.nan
+
+# if officer and self agree, set ethnicity to either.
+indices = (sas_clean.officer == sas_clean.self)
+sas_clean.loc[indices, 'ethnicity'] = sas_clean.officer[indices]
+
+# if officer is null, set ethnicity to self, and vice versa
+indices = (sas_clean.officer.isnull())
+sas_clean.loc[indices, 'ethnicity'] = sas_clean.self[indices]
+
+indices = (sas_clean.self.isnull())
+sas_clean.loc[indices, 'ethnicity'] = sas_clean.officer[indices]
+</code></pre></div></div>
+
+<p><br />
+<br />
+I created a column <code class="highlighter-rouge">conflicted</code> to list all the cases where the stated ethnicity differs:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sas_clean['conflicted'] = np.nan
+indices = (sas_clean.officer != sas_clean.self) &amp; (sas_clean.officer.notna()) &amp; (sas_clean.self.notna())
+sas_clean.loc[indices, 'conflicted'] = sas_clean.officer[indices] + '_' + sas_clean.self[indices]
+sas_clean.conflicted.value_counts()
+</code></pre></div></div>
+
+<p>The output was:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Black_Other      18774
+White_Other      12423
+Asian_Other       6240
+Other_Asian       5319
+Other_White       4243
+Black_White       2924
+Asian_White       2394
+White_Asian       2027
+Black_Asian       1990
+White_Black       1935
+Other_Black       1764
+Asian_Black       1577
+</code></pre></div></div>
+
+<p><br />
+<br />
+To decide how to deal with this, I went back into the original <code class="highlighter-rouge">self_defined_ethnicity</code> to determine what the appropriate label ought to be.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for i in sas_clean.conflicted.unique():
+    print(i)
+    indices = (sas_clean.conflicted == i)
+    print(sas.loc[indices, 'self_defined_ethnicity'].value_counts())
+    print()
+</code></pre></div></div>
+
+<p>A sample of the output is:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Black_Other
+Mixed/Multiple ethnic groups - White and Black Caribbean                     9158
+Mixed/Multiple ethnic groups - Any other Mixed/Multiple ethnic background    4891
+Mixed/Multiple ethnic groups - White and Black African                       2689
+Other ethnic group - Any other ethnic group                                  1835
+Mixed/Multiple ethnic groups - White and Asian                                194
+
+White_Black
+Black/African/Caribbean/Black British - Any other Black/African/Caribbean background    815
+Black/African/Caribbean/Black British - African                                         633
+Black/African/Caribbean/Black British - Caribbean                                       487
+
+Other_Black
+Black/African/Caribbean/Black British - African                                         819
+Black/African/Caribbean/Black British - Any other Black/African/Caribbean background    750
+Black/African/Caribbean/Black British - Caribbean                                       195
+</code></pre></div></div>
+
+<p>Deciding how to deal with these cases was the trickiest part of the cleaning. First, this is a sensitive issue and it feels wrong for me to decide how people should be labelled. Second, there is clearly no ‘right’ answer here, and I have to use my judgement.  In the end, for most cases, I chose the self_defined_ethnicity.  However, the two big exceptions were when the officer identified the person as Black or White but the person identified themselves as mixed. There were 30000 such cases. If I added them to the ‘Other’ category, this would grossly skew the numbers and misrepresent the situation, so I decided to assign these Black and White (respectively).  Different people will make different judgements on this, and I suppose this is one way our own biases can creep into the data analysis.</p>
+
+<p>In the end, the distribution of ethnicities in this new column is:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>White    645261
+Black    269286
+Asian    143468
+NaN       40383
+Other     34738
+</code></pre></div></div>
+
+<h2 id="type">Type</h2>
+<p>There are 3 types of stop-and-search:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Person search                861870
+Person and Vehicle search    246976
+Vehicle search                24290
+</code></pre></div></div>
+
+<p>Theoretically, a vehicle search does not involve any people, and thus should not have any ethnicity attached to it. However, a quick query shows this is not the case:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sas_clean.loc[(sas_clean.type == 'Vehicle search'), 'ethnicity'].value_counts(dropna = False)
+
+NaN      20762
+White     1796
+Black      843
+Asian      619
+Other      270
+</code></pre></div></div>
+
+<p>This gives some indication of how much inherent noise there is in the data.  Given the numbers are relatively small, I did not worry about ignoring these entries and so just removed all Vehicle search entries.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sas_clean = sas_clean[sas_clean.type != 'Vehicle search']
+</code></pre></div></div>
+
+<h2 id="outcome">Outcome</h2>
+<p>Last, I cleaned the outcome column. The distribution of values were:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A no further action disposal                                    675585
+Arrest                                                          126538
+False                                                           115566
+Community resolution                                             50906
+Suspect arrested                                                 30616
+Khat or Cannabis warning                                         26428
+NaN                                                              22090
+Summons / charged by post                                        16366
+Penalty Notice for Disorder                                      13617
+Offender given drugs possession warning                          12717
+Local resolution                                                  4709
+Caution (simple or conditional)                                   4520
+Suspect summonsed to court                                        2941
+Offender given penalty notice                                     2802
+Article found - Detailed outcome unavailable                      2651
+Offender cautioned                                                 778
+Suspected psychoactive substances seized - No further action        16
+</code></pre></div></div>
+
+<p>I decided to replace these with a numerical value, where 0 represents that the stop-and-search discovered nothing inappropriate, 1 represents a minor infringement with minimal action and 2 represents a major infringement with significant action.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>replacements = {'A no further action disposal': 0,
+               'Arrest': 2,
+               'False': 0,
+               'Community resolution': 1,
+               'Suspect arrested': 2,
+               'Khat or Cannabis warning': 1,
+               'Summons / charged by post': 2,
+               'Penalty Notice for Disorder': 2,
+               'Offender given drugs possession warning': 1,
+               'Local resolution': 1,
+               'Caution (simple or conditional)': 1,
+                'Suspect summonsed to court': 2,
+                'Offender given penalty notice': 2,
+                'Article found - Detailed outcome unavailable': 1,
+                'Offender cautioned': 1,
+                'Suspected psychoactive substances seized - No further action': 1
+               }
+
+sas_clean['outcome'] = sas_clean.outcome.replace(to_replace = replacements)
+sas_clean.outcome.value_counts(dropna = False)
+</code></pre></div></div>
+
+<p>The final distribution of values for outcomes is as follows:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0.0    791151
+2.0    192880
+1.0    102725
+NaN     22090
+</code></pre></div></div>
+
+<p>It is surprising the the majority of stop-and-searches amount to nothing. It makes me wonder what the reasons for this are, and if there is a more efficient means of detecting the actual crimes with fewer false positives.</p>
+
+<h2 id="conclusion-and-thoughts">Conclusion and thoughts</h2>
+<p>That is end of the cleaning and tomorrow I will try to illustrate the patterns in the data with appropriate charts.</p>
+
+<p>The two main lessons:</p>
+<ul>
+  <li>Data is inherently noisy, and one should not treat data as objective truth. (Though, it is the closest we have got!)</li>
+  <li>A data scientist has significant power to adjust the story, by grouping and cleaning the data differently. It seems that good practice is to be open about how you processed the data and to check how different choices affect the final results.</li>
+</ul>
+
+  </div><a class="u-url" href="/blog/2020/06/17/sas2.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

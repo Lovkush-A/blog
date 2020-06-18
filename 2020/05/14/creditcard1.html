@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Investigating Credit Card Fraud, Part I | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Investigating Credit Card Fraud, Part I" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included." />
+<meta property="og:description" content="I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-14T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included.","@type":"BlogPosting","headline":"Investigating Credit Card Fraud, Part I","dateModified":"2020-05-14T00:00:00-05:00","datePublished":"2020-05-14T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Investigating Credit Card Fraud, Part I | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Investigating Credit Card Fraud, Part I" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included." />
+<meta property="og:description" content="I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-14T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included.","@type":"BlogPosting","headline":"Investigating Credit Card Fraud, Part I","dateModified":"2020-05-14T00:00:00-05:00","datePublished":"2020-05-14T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Investigating Credit Card Fraud, Part I</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-14T00:00:00-05:00" itemprop="datePublished">
+        May 14, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included.</p>
+
+<h2 id="other-posts-in-series">Other posts in series</h2>
+
+<ul>
+  <li>
+    <p><a href="/2020/05/30/creditcard5.html">Investigating Credit Card Fraud, Part V</a></p>
+  </li>
+  <li>
+    <p><a href="/2020/05/29/creditcard4.html">Investigating Credit Card Fraud, Part IV</a></p>
+  </li>
+  <li>
+    <p><a href="/2020/05/19/creditcard3.html">Investigating Credit Card Fraud, Part III</a></p>
+  </li>
+  <li>
+    <p><a href="/2020/05/16/creditcard2.html">Investigating Credit Card Fraud, Part II</a></p>
+  </li>
+</ul>
+
+<h2 id="quick-personal-background">Quick Personal Background</h2>
+<p>I have been studying programming and data science using various resources. The main resources I have used so far, for data science specifically, are the <a href="https://www.kaggle.com/learn/overview">Kaggle Courses</a>.  I have completed:</p>
+
+<ul>
+  <li>Intro to Machine Learning</li>
+  <li>Intermediate Machine Learning</li>
+  <li>Pandas</li>
+  <li>Data Visualisation</li>
+</ul>
+
+<p>Following the advice I have read in numerous places, I decided I should try to do some data science of my own - not just follow some exercises. I skimmed through the Kaggle datasets, and <a href="https://www.kaggle.com/mlg-ulb/creditcardfraud">this dataset</a> on credit card fraud caught my fancy, so I jumped right in!</p>
+
+<h2 id="first-steps">First steps</h2>
+<p>In the description, it said that there are 284807 transactions with only 492 labelled as fraudulent. The task is to create a model to predict which transactions are fraudulent. The description also said that because the percentage of fraudulent cases is so small, it is best to use “AUPRC”, Area Under the Precision-Recall Curve, to evaluate the model. I had not heard of this yet so I did some Googling.</p>
+
+<p>I found <a href="https://machinelearningmastery.com/roc-curves-and-precision-recall-curves-for-classification-in-python/">this blog post</a> by Jason Brownlee, which explained what AUPRC is with some examples. This was helpful and I used the same packages he did.</p>
+
+<p>Before going onto AUPRC and my models, I should say that there was no need to do any data cleaning for this dataset. It had already been cleaned and the data has been anonymised via a PCA. Again, I have not studied this yet, but a brief skim of <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">this wikipedia article</a> on PCAs gives me some basic insight. It looks neat actually - it replaces the original data with new data which captures the variation in the old data but in such a way that the features in the new data have minimal correlation between them. My intuition is that the less correlation there is between features, the better the models works. PCA is definitely something I need to look into more at some point!</p>
+
+<h2 id="auprc">AUPRC</h2>
+<p>I will try to summarise the idea behind AUPRC.</p>
+<ol>
+  <li>The framework.
+    <ul>
+      <li>We have features <code class="highlighter-rouge">X</code> and we are trying to predict <code class="highlighter-rouge">y</code>. In this case, <code class="highlighter-rouge">y</code> says whether the transaction is fraudulent or not. If <code class="highlighter-rouge">y=0</code> then the transaction is not fraudulent, and if <code class="highlighter-rouge">y=1</code> then it is.</li>
+      <li>The models produce values of <code class="highlighter-rouge">y</code> between 0 and 1, representing the probability of a transaction being fraudulent.</li>
+      <li>To decide if a transaction is fraudulent or not, we need to also specify a threshold probability, <code class="highlighter-rouge">p</code>. If <code class="highlighter-rouge">y&gt;p</code>, we label that transaction as fraudulent.</li>
+    </ul>
+  </li>
+  <li>Precision and Recall
+    <ul>
+      <li>Precision is the fraction of transactions that are labelled as fraudulent that actually are fraudulent. I somehow find it easier to think about 1-Precision, which measures how many false-positives we have.</li>
+      <li>Recall is the fraction of actually fraudulent transactions the model manages to label as fraudulent. Again, I find it easier to think about 1-Recall, which measures how many false-negatives we have.</li>
+      <li>A perfect model has a precision and a recall of 1. This is not possible and we need to make a trade-off between them. This trade-off is achieved by varying the threshold probability <code class="highlighter-rouge">p</code>.</li>
+    </ul>
+  </li>
+  <li>The Precision Recall curve
+    <ul>
+      <li>For different values of <code class="highlighter-rouge">p</code>, we produce different precision-recall values. We plot these precision-recall values to produce the Precision Recall curve.</li>
+      <li>When <code class="highlighter-rouge">p=1</code>, we are saying all transactions are not fraudulent (because you need to assign a probability greater than 1 in order it to be considered fraudulent, which is not possible). Therefore, there are no false positives so we have a precision of 1, but we have not found any of the fraudulent transactions, so the recall is 0.</li>
+      <li>When <code class="highlighter-rouge">p=0</code>, we are saying all transactions are fraudulent. Therefore, all the fraudulent transactions are found so we have a recall of 1, but we have a huge number of false positives, so a precision almost equal to 0.</li>
+      <li>As we vary <code class="highlighter-rouge">p</code> from 1 to 0, we move from the the coordinate (0,1) to (1,0), and we are hoping to get as close to the coordinate (1,1) as possible.</li>
+    </ul>
+  </li>
+  <li>The Area Under the Precision-Recall Curve
+    <ul>
+      <li>The closer we get to (1,1), the larger the area under the curve is.</li>
+      <li>A perfect model would reach (1,1) and achieve an area of 1.</li>
+      <li>The worst model, where you assign probabilities at random, will produce a straight line connecting (0,1) to (1,0), giving an area of 0.5.</li>
+      <li>Thus the AUPRC is a measure of the model, with a value between 0.5 and 1.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="enough-text-time-for-pictures">Enough text, time for pictures</h2>
+<p>Below you will find the precision-recall charts for the various models that were created, along with their AUPRC metric.</p>
+
+<h3 id="basic-model">Basic model</h3>
+<p>I started by creating a basic model, where it just assigns a probability of 0.1% for any transaction to be fraudulent.</p>
+
+<p><img src="/assets/images/creditcard_1_basic.png" alt="image" /></p>
+
+<p>As you can see from the chart and the AUPRC of 0.501, this model is poor. No surprises here, which I suppose is a good thing.</p>
+
+<h3 id="logistic-regression">Logistic Regression</h3>
+<p>I have not studied logistic regression yet so I do not actually know what it does differently to linear regression. I decided to still use it because it is the model Jason Brownlee used in their example, and I wanted to follow their example before exploring on my own.</p>
+
+<p><img src="/assets/images/creditcard_1_logistic.png" alt="image" /></p>
+
+<p>Huzzah! My first non-trivial AUC curve. The model can identify 60% of the fraudulent cases without too many false positives (roughly 20%). The precision falls dramatically if you try to increase the recall.</p>
+
+<h3 id="decision-tree">Decision Tree</h3>
+<p>Next I tried a Decision Tree model. (This is the first model taught in Kaggle).</p>
+
+<p><img src="/assets/images/creditcard_1_tree.png" alt="image" /></p>
+
+<p>Curve looks very simple, but it has actually extracted some information. It can identify ~75% of the fraudulent cases with a precision of roughly 0.75. I would argue this is better than the logistic regression, because the cost of fraud is greater than the cost of mis-identifying something as fraud.</p>
+
+<h3 id="random-forest">Random Forest</h3>
+<p>Next I tried a Random Forest model. (This is the second model taught in Kaggle).</p>
+
+<p><img src="/assets/images/creditcard_1_forest.png" alt="image" /></p>
+
+<p>Woh! I was surprised by how good this is. 80% of the fraudulent cases identified with a precision of 95%!  Lets see if the infamous XGBoost can do better.</p>
+
+<h3 id="xgboost">XGBoost</h3>
+<p>Drum roll please…</p>
+
+<p><img src="/assets/images/creditcard_1_xgb.png" alt="image" /></p>
+
+<p>Looks very similar to the random forest model. I do not know if this is surprising or not - hopefully I will get more intuition for these kind of things with more practice.</p>
+
+<h2 id="next-steps">Next steps</h2>
+<p>There are various things I would like to try.</p>
+<ul>
+  <li>Exploring the data a bit and creating a crude handmade model. Something like find the average of Xi in fraudulent cases and in non-fraudulent cases. Then the probability of being fraudulent is determined by whether you are closer to the fraudulent means than the non-fraudulent means.</li>
+  <li>Hyper-parameter optimisations. I used only default settings for all the models. I just wanted to get something made and published before trying to mess around with settings.</li>
+  <li>Seeing what happens if I randomly delete 90% of the fraudulent cases from the training. My prediction is there will not be significant loss in information but there should be significant time savings. (The random forest model took a few minutes to run.) This will make hyper-parameter training quicker.</li>
+  <li>Exploring the models themselves. What are the probabilities produced by the models? What patterns have the models found?</li>
+  <li>After I have done my own investigations, find out what other people did.</li>
+</ul>
+
+<h2 id="the-code">The code</h2>
+<p>Below is the code to produce the XGBoost model. The code for other models is identical but with ‘XGB’ replaced as appropriate. (At some point in future, I will use for loops to loop through the models.)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># import modules
+import numpy as np
+import pandas as pd
+
+from sklearn.model_selection import train_test_split
+
+from sklearn.metrics import precision_recall_curve
+from sklearn.metrics import auc
+from matplotlib import pyplot
+
+from sklearn.linear_model import LogisticRegression
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
+
+
+
+# create test validation split
+y = data.Class
+X = data.drop(['Class'], axis = 1)
+Xt, Xv, yt, yv = train_test_split(X,y, random_state=0)
+
+
+
+# create model and predictions
+model_xgb = XGBClassifier(random_state = 0)
+model_xgb.fit(Xt, yt)
+predictions_xgb = model_xgb.predict_proba(Xv)
+predictions_xgb = predictions_xgb[:,1]
+
+# calculate precision, recall and AUC
+xgb_precision, xgb_recall, _ = precision_recall_curve(yv, predictions_xgb)
+xgb_auc = auc(xgb_recall, xgb_precision)
+
+# plot precision recall curve
+pyplot.plot(xgb_recall, xgb_precision, marker='.', label='basic')
+pyplot.xlabel('Recall')
+pyplot.ylabel('Precision')
+pyplot.title(f'XGBoost model. AUC ={xgb_auc:.3f}')
+pyplot.savefig('creditcard_1_xgb.png')
+
+
+</code></pre></div></div>
+
+
+  </div><a class="u-url" href="/blog/2020/05/14/creditcard1.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

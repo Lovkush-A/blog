@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Stop and Search, Part I, Data Collection | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Stop and Search, Part I, Data Collection" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In light of the current prominence of BlackLivesMatter, I decided to investigate crime in relation to race. Here I describe how I collected the data I will be analysing." />
+<meta property="og:description" content="In light of the current prominence of BlackLivesMatter, I decided to investigate crime in relation to race. Here I describe how I collected the data I will be analysing." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/2020/06/15/sas1.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/2020/06/15/sas1.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-15T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"In light of the current prominence of BlackLivesMatter, I decided to investigate crime in relation to race. Here I describe how I collected the data I will be analysing.","@type":"BlogPosting","headline":"Stop and Search, Part I, Data Collection","dateModified":"2020-06-15T00:00:00-05:00","datePublished":"2020-06-15T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/2020/06/15/sas1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/2020/06/15/sas1.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Stop and Search, Part I, Data Collection | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Stop and Search, Part I, Data Collection" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="In light of the current prominence of BlackLivesMatter, I decided to investigate crime in relation to race. Here I describe how I collected the data I will be analysing." />
+<meta property="og:description" content="In light of the current prominence of BlackLivesMatter, I decided to investigate crime in relation to race. Here I describe how I collected the data I will be analysing." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/2020/06/15/sas1.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/2020/06/15/sas1.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-15T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"In light of the current prominence of BlackLivesMatter, I decided to investigate crime in relation to race. Here I describe how I collected the data I will be analysing.","@type":"BlogPosting","headline":"Stop and Search, Part I, Data Collection","dateModified":"2020-06-15T00:00:00-05:00","datePublished":"2020-06-15T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/2020/06/15/sas1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/2020/06/15/sas1.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Stop and Search, Part I, Data Collection</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-15T00:00:00-05:00" itemprop="datePublished">
+        Jun 15, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>In light of the current prominence of BlackLivesMatter, I decided to investigate crime in relation to race. Here I describe how I collected the data I will be analysing.</p>
+
+<h2 id="other-posts-in-series">Other posts in series</h2>
+
+<ul>
+  <li><a href="/2020/06/17/sas2.html">Stop and Search, Part II, Data Cleaning</a></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+<p>In both traditional and social media, the issue of racial discrimination within the police is a hot topic. I decided to investigate this issue and better understand the statistics that go around.</p>
+
+<p>I googled ‘crime data’ and one of the top results was <a href="data.police.uk">data.police.uk</a>, which seems like a reliable source of data for crime in the UK. With regard to race, the only data available on this website is about ‘stop-and-search’ (as opposed to prison data, for example).</p>
+
+<h2 id="stop-and-search">Stop and search</h2>
+<p>In the UK, a police officer has the legal authority to stop and search you if they have ‘reasonable grounds’ to suspect you’re involved in a crime, e.g. carrying an illegal item.  This <a href="https://www.gov.uk/police-powers-to-stop-and-search-your-rights">UK Government website</a> provides a short and clear summary of the rules, this <a href="https://www.gov.scot/publications/guide-stop-search-scotland/">Scottish Government website</a> also provides clear summary of the rules but with more detail on what counts as reasonable and how a search should be conducted, and finally <a href="http://www.legislation.gov.uk/ukpga/1984/60/part/I">here</a> is the actual legislation, which is predictably written in unclear legalese.</p>
+
+<h2 id="downloading-the-data">Downloading the data</h2>
+<p>I will only describe the final and clean code used to obtain the information I wanted, after several attempts necessary to get everything correct.</p>
+
+<p>First, I downloaded a JSON file listing the name and ‘id’ of each police force, stored it in a pandas dataframe, and saved it as a csv file. The id is just a shortened version of their name and is used in all the other data sources.  The code to do this is:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>forces_response = requests.get('https://data.police.uk/api/forces')
+forces_json = forces_response.json()
+
+force_df = pd.DataFrame({'id':[], 'name': []})
+
+for entry in forces_json:
+    force_df.loc[force_df.shape[0]] = [entry['id'], entry['name']]
+
+force_df.to_csv('force.csv')
+</code></pre></div></div>
+
+<p><br />
+<br />
+Next I downloaded a JSON file describing for which months and for which forces stop-and-search data was available:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availability_response = requests.get('https://data.police.uk/api/crimes-street-dates')
+availability_json = availability_response.json()
+
+availability_df = pd.DataFrame({'month':[], 'id': []})
+
+for entry in availability_json:
+    date = pd.to_datetime(entry['date'], format='%Y-%m').to_period('M')
+    for id in entry['stop-and-search']:
+        availability_df.loc[availability_df.shape[0]] = [date, id]
+</code></pre></div></div>
+
+<p><br />
+<br />
+I then loop through this information and download the stop-and-search data, saving the data onto my laptop.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for i in range(availability_df.shape[0]):
+    force = availability_df.iloc[i].id
+    month = availability_df.iloc[i].month.strftime('%Y-%m')
+    response = requests.get(f"https://data.police.uk/api/stops-force?force={force}&amp;date={month}")
+    if response.status_code == 200:
+        data = response.json()
+        with open(f'{month}_{force}.json', 'w') as f:
+            json.dump(data, f)
+</code></pre></div></div>
+
+<p><br />
+<br />
+I add a column to the availability dataframe to track which pieces of data were actually successfully downloaded or not. I do this by trying to open each file, and recording a fail if an error occurs while trying to open it. (While writing this paragraph, I realise I could have done this at the same time as the previous step.)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>availability_df['downloaded'] = True
+
+for i in range(availability_df.shape[0]):
+    force = availability_df.iloc[i].id
+    month = availability_df.iloc[i].month.strftime('%Y-%m')
+    try:
+        file = open(f'{month}_{force}.json', 'r')
+        file.close()
+    except:
+        availability_df.iloc[i,2] = False
+        print(f'{month}_{force}')
+
+availability_df.to_csv('availability.csv')
+</code></pre></div></div>
+
+<p><br />
+<br />
+Lastly, I combine all of the data into one mega pandas dataframe, keeping only those columns that I think will be relevant to my investigations.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cols = ['age_range', 'outcome', 'self_defined_ethnicity',
+       'gender', 'officer_defined_ethnicity', 'type',
+       'location.latitude', 'location.longitude', 'force', 'month']
+
+sas_df = pd.DataFrame({col:[] for col in cols})
+
+for i in range(availability_df.shape[0]):
+    if availability_df.iloc[i,2]:
+        force = availability_df.iloc[i].id
+        month = availability_df.iloc[i].month
+        month_str = month.strftime('%Y-%m')
+        
+        file = open(f'{month_str}_{force}.json', 'r')
+        data = json.load(file)
+        new = pd.json_normalize(data)
+        new['force'] = force
+        new['month'] = month
+        
+        sas_df = sas_df.append(new, ignore_index=True)[cols]
+
+sas_df.to_csv('sas.csv')
+</code></pre></div></div>
+
+<h2 id="a-chart">A chart</h2>
+<p>It would be sad for this post to have no charts whatsoever, so I quickly created one which just counts the number of stops-and-searches, grouped by ethnicity.</p>
+
+<p><img src="/assets/images/sas1.png" alt="image" /></p>
+
+<p>One might say, ‘Look, white people are stopped more than black people, so the police are not racist.’ This is obviously simplistic. The aim of the project is to dig deeper into the data and see what patterns I can find.</p>
+
+  </div><a class="u-url" href="/blog/2020/06/15/sas1.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
