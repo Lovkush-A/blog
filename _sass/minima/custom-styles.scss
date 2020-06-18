@@ -6,6 +6,24 @@
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
-
 // If you want to turn off dark background for syntax highlighting, comment or delete the below line.
 @import "minima/fastpages-dracula-highlight"; 
+
+$purple: #a74ac7;
+$light_purple: #DD93F6;
+
+h1 {
+    color: $purple;
+}
+
+h2 {
+    color: $purple;
+}
+
+h3 {
+    color: $purple;
+}
+
+header {
+  color: $purple;
+}
