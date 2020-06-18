@@ -9,7 +9,7 @@ I present my initial attempts at predicting credit card fraud using a Kaggle dat
 ## Other posts in series
 {% for post in site.posts %}
 {% if (post.title contains "Credit Card Fraud") and (post.title != page.title) %}
-* [{{ post.title }}]({{ post_list.html }})
+* [{{ post.title }}]({{ post.html }})  Testing: {%- include post_list.html -%}
 {% endif %}
 {% endfor %}
 
