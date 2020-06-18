@@ -4,7 +4,11 @@ title: About Me
 permalink: /about/
 ---
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+My name is Lovkush Agarwal. I recently decided to change careers and become a
+data scientist. Following [David Robinson's'](http://varianceexplained.org/r/start-blog/)
+advice, I decided to create this blog.
+
+To find out more about me, check out [my personal website](http://www.lovkush.com).
 
 This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
 
