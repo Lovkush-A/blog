@@ -6,14 +6,6 @@ title: Investigating Credit Card Fraud, Part I
 I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included.
 
 
-## Other posts in series
-{% for post in site.posts %}
-{% if (post.title contains "Credit Card Fraud") and (post.title != page.title) %}
-* [{{ post.title }}]({{ post.html }})
-{% endif %}
-{% endfor %}
-
-
 ## Quick Personal Background
 I have been studying programming and data science using various resources. The main resources I have used so far, for data science specifically, are the [Kaggle Courses](https://www.kaggle.com/learn/overview).  I have completed:
 
@@ -67,35 +59,35 @@ Below you will find the precision-recall charts for the various models that were
 ### Basic model
 I started by creating a basic model, where it just assigns a probability of 0.1% for any transaction to be fraudulent.
 
-![image](/assets/images/creditcard_1_basic.png)
-
+![image]({{ site.baseurl }}/images/creditcard_1_basic.png)
+![]({{ site.baseurl }}/images/logo.png "fast.ai's logo")
 As you can see from the chart and the AUPRC of 0.501, this model is poor. No surprises here, which I suppose is a good thing.
 
 ### Logistic Regression
 I have not studied logistic regression yet so I do not actually know what it does differently to linear regression. I decided to still use it because it is the model Jason Brownlee used in their example, and I wanted to follow their example before exploring on my own.
 
-![image](/assets/images/creditcard_1_logistic.png)
+![image]({{ site.baseurl }}/images/creditcard_1_logistic.png)
 
 Huzzah! My first non-trivial AUC curve. The model can identify 60% of the fraudulent cases without too many false positives (roughly 20%). The precision falls dramatically if you try to increase the recall.
 
 ### Decision Tree
 Next I tried a Decision Tree model. (This is the first model taught in Kaggle).
 
-![image](/assets/images/creditcard_1_tree.png)
+![image]({{ site.baseurl }}/images/creditcard_1_tree.png)
 
 Curve looks very simple, but it has actually extracted some information. It can identify ~75% of the fraudulent cases with a precision of roughly 0.75. I would argue this is better than the logistic regression, because the cost of fraud is greater than the cost of mis-identifying something as fraud.
 
 ### Random Forest
 Next I tried a Random Forest model. (This is the second model taught in Kaggle).
 
-![image](/assets/images/creditcard_1_forest.png)
+![image]({{ site.baseurl }}/images/creditcard_1_forest.png)
 
 Woh! I was surprised by how good this is. 80% of the fraudulent cases identified with a precision of 95%!  Lets see if the infamous XGBoost can do better.
 
 ### XGBoost
 Drum roll please...
 
-![image](/assets/images/creditcard_1_xgb.png)
+![image]({{ site.baseurl }}/images/creditcard_1_xgb.png)
 
 Looks very similar to the random forest model. I do not know if this is surprising or not - hopefully I will get more intuition for these kind of things with more practice.
 
