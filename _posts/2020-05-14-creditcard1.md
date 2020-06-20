@@ -60,7 +60,7 @@ Below you will find the precision-recall charts for the various models that were
 I started by creating a basic model, where it just assigns a probability of 0.1% for any transaction to be fraudulent.
 
 ![image]({{ site.baseurl }}/images/creditcard_1_basic.png)
-![]({{ site.baseurl }}/images/logo.png "fast.ai's logo")
+
 As you can see from the chart and the AUPRC of 0.501, this model is poor. No surprises here, which I suppose is a good thing.
 
 ### Logistic Regression

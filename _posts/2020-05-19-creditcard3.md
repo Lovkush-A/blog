@@ -27,13 +27,13 @@ And that's it! This is not sophisticated at all, but I am interested to see how 
 ## Results
 Below is the precision-recall graph for the model.
 
-![image](/assets/images/creditcard_3.png)
+![image]({{ site.baseurl }}/images/creditcard_3.png)
 
 The AUC score is not great, only 0.616, but the model manages to identify ~70% of fraudulent claims with a precision of 0.8, which is not too bad!
 
 At the end of the previous post, I said I hoped to achieve a score of 0.7. To do this, I just flattened the above precision-recall curve, by grouping together all the 'high probability' transactions (see code for explicit details).  See the new curve:
 
-![image](/assets/images/creditcard_3_2.png)
+![image]({{ site.baseurl }}/images/creditcard_3_2.png)
 
 An AUC of 0.68! Not quite 0.7, but not too shabby.
 

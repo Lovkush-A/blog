@@ -37,23 +37,23 @@ I repeated the first attempt 20 times and stored the results in a pandas datafra
 
 
 ### n_estimators=10
-![image](/assets/images/creditcard_4_forest_n_est10_hist.png)
-![image](/assets/images/creditcard_4_forest_n_est10_scatter.png)
+![image]({{ site.baseurl }}/images/creditcard_4_forest_n_est10_hist.png)
+![image]({{ site.baseurl }}/images/creditcard_4_forest_n_est10_scatter.png)
 
 The histogram shows that the distribution of AUC values when the number of estimators is 10 is worse than the default values.  The scatterplot shows the default setting has a better AUC on the majority of folds - but not every time!
 
 ### n_estimators=50
-![image](/assets/images/creditcard_4_forest_n_est50_hist.png)
-![image](/assets/images/creditcard_4_forest_n_est50_scatter.png)
+![image]({{ site.baseurl }}/images/creditcard_4_forest_n_est50_hist.png)
+![image]({{ site.baseurl }}/images/creditcard_4_forest_n_est50_scatter.png)
 
 The histograms almost perfectly overlap! But we do see a little extra blue on the right and extra orange on the left which means n=50 is better.  The scatterplot makes this clearer, showing that having 50 estimators produces larger AUC in most of the folds.
 
 ### n_estimators=200 and n_estimators=500
-![image](/assets/images/creditcard_4_forest_n_est200_hist.png)
-![image](/assets/images/creditcard_4_forest_n_est200_scatter.png)
+![image]({{ site.baseurl }}/images/creditcard_4_forest_n_est200_hist.png)
+![image]({{ site.baseurl }}/images/creditcard_4_forest_n_est200_scatter.png)
 
-![image](/assets/images/creditcard_4_forest_n_est500_hist.png)
-![image](/assets/images/creditcard_4_forest_n_est500_scatter.png)
+![image]({{ site.baseurl }}/images/creditcard_4_forest_n_est500_hist.png)
+![image]({{ site.baseurl }}/images/creditcard_4_forest_n_est500_scatter.png)
 
 From these charts, we see that as we increase the number of estimators beyond 100, the model performs worse. Though we can see this in the table in the first attempt, these charts make it much clearer.
 

@@ -29,19 +29,19 @@ To better understand the effect removing data has, I tried removing different am
 ## Results for Random Forests
 The charts below show what happened as I varied how much data was removed.
 
-![image](/assets/images/creditcard_2_forest_times.png)
-![image](/assets/images/creditcard_2_forest_aucs.png)
+![image]({{ site.baseurl }}/images/creditcard_2_forest_times.png)
+![image]({{ site.baseurl }}/images/creditcard_2_forest_aucs.png)
 
 As I hoped, the time taken for the fitting to take place reduces as the dataset is made smaller. (In fact, time taken is linear with size of dataset. I don't know if this is surprising or not, but I imagine it is clear if one knows implementation details of the algorithms). Also as I predicted, the effectiveness does not drop considerably by removing data.
 
 The charts below show some of the resulting AUC curves, so we can see where the drop in performance occurs.
 
-![image](/assets/images/creditcard_2_forest_100.png)
-![image](/assets/images/creditcard_2_forest_50.png)
-![image](/assets/images/creditcard_2_forest_20.png)
-![image](/assets/images/creditcard_2_forest_10.png)
-![image](/assets/images/creditcard_2_forest_5.png)
-![image](/assets/images/creditcard_2_forest_1.png)
+![image]({{ site.baseurl }}/images/creditcard_2_forest_100.png)
+![image]({{ site.baseurl }}/images/creditcard_2_forest_50.png)
+![image]({{ site.baseurl }}/images/creditcard_2_forest_20.png)
+![image]({{ site.baseurl }}/images/creditcard_2_forest_10.png)
+![image]({{ site.baseurl }}/images/creditcard_2_forest_5.png)
+![image]({{ site.baseurl }}/images/creditcard_2_forest_1.png)
 
 We can see that removing non-fraudulent data has resulted in reduced precision, with no visible drop in recall.  This makes sense: I did not remove any of the fraudulent entries, so it looks like the models were still able extract the same information about them.
 
@@ -51,14 +51,14 @@ This is encouraging. In the context of credit card fraud, recall is more importa
 ## Results for XGBoost
 I ran the process on XGBoost models too. The charts are below.
 
-![image](/assets/images/creditcard_2_xgb_times.png)
-![image](/assets/images/creditcard_2_xgb_aucs.png)
-![image](/assets/images/creditcard_2_xgb_100.png)
-![image](/assets/images/creditcard_2_xgb_50.png)
-![image](/assets/images/creditcard_2_xgb_20.png)
-![image](/assets/images/creditcard_2_xgb_10.png)
-![image](/assets/images/creditcard_2_xgb_5.png)
-![image](/assets/images/creditcard_2_xgb_1.png)
+![image]({{ site.baseurl }}/images/creditcard_2_xgb_times.png)
+![image]({{ site.baseurl }}/images/creditcard_2_xgb_aucs.png)
+![image]({{ site.baseurl }}/images/creditcard_2_xgb_100.png)
+![image]({{ site.baseurl }}/images/creditcard_2_xgb_50.png)
+![image]({{ site.baseurl }}/images/creditcard_2_xgb_20.png)
+![image]({{ site.baseurl }}/images/creditcard_2_xgb_10.png)
+![image]({{ site.baseurl }}/images/creditcard_2_xgb_5.png)
+![image]({{ site.baseurl }}/images/creditcard_2_xgb_1.png)
 
 The results are similar to those for the random forest. The compute time is linear with the amount of data kept, and performance does not drop much either. Surprisingly, the performance is almost the same with only 10% of the data: only a 0.007 drop in the AUC! It looks like XGBoost is more 'data-efficient' than Random Forest: to get good performance, XGBoost requires less data than Random Forests.
 

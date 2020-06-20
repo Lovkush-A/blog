@@ -57,8 +57,8 @@ A few things were found by doing this:
 ## Forest model, final model
 Using these hyper-parameters, I created a the final Random Forest model. The precision-recall curve is below:
 
-![image](/assets/images/creditcard_5_forest.png)
-![image](/assets/images/creditcard_1_forest.png)
+![image]({{ site.baseurl }}/images/creditcard_5_forest.png)
+![image]({{ site.baseurl }}/images/creditcard_1_forest.png)
 
 
 For comparison, the very first random forest model is also included. As can be seen, there is an improvement but a seemingly minimal one. Based on examples I have seen elsewhere, these minor improvements are what can be expected from hyper-parameter optimisations.
@@ -93,8 +93,8 @@ n_estimators  max_depth  learning_rate    auc
 
 Using the settings from the top row, I created my final model, whose precision-recall curve is below.  I have included the original curve, too.
 
-![image](/assets/images/creditcard_5_xgb.png)
-![image](/assets/images/creditcard_1_xgb.png)
+![image]({{ site.baseurl }}/images/creditcard_5_xgb.png)
+![image]({{ site.baseurl }}/images/creditcard_1_xgb.png)
 
 !! After doing the optimisations, the model became worse! The AUC decreased by 0.002. The  explanation for this must be that removing 99% of the data actually changes the behaviour of the model.
 
@@ -123,8 +123,8 @@ n_estimators  max_depth  learning_rate    auc
 ```
 The optimal parameters changed (thankfully!).  I then re-created the final model and this time there was an improvement:
 
-![image](/assets/images/creditcard_5_xgb2.png)
-![image](/assets/images/creditcard_1_xgb.png)
+![image]({{ site.baseurl }}/images/creditcard_5_xgb2.png)
+![image]({{ site.baseurl }}/images/creditcard_1_xgb.png)
 
 
 ## Next time
