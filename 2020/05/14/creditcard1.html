@@ -118,23 +118,6 @@ window.onload = wrap_img;
   <div class="post-content e-content" itemprop="articleBody">
     <p>I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included.</p>
 
-<h2 id="other-posts-in-series">Other posts in series</h2>
-
-<ul>
-  <li>
-    <p><a href="">Investigating Credit Card Fraud, Part V</a></p>
-  </li>
-  <li>
-    <p><a href="">Investigating Credit Card Fraud, Part IV</a></p>
-  </li>
-  <li>
-    <p><a href="">Investigating Credit Card Fraud, Part III</a></p>
-  </li>
-  <li>
-    <p><a href="">Investigating Credit Card Fraud, Part II</a></p>
-  </li>
-</ul>
-
 <h2 id="quick-personal-background">Quick Personal Background</h2>
 <p>I have been studying programming and data science using various resources. The main resources I have used so far, for data science specifically, are the <a href="https://www.kaggle.com/learn/overview">Kaggle Courses</a>.  I have completed:</p>
 
@@ -195,35 +178,35 @@ window.onload = wrap_img;
 <h3 id="basic-model">Basic model</h3>
 <p>I started by creating a basic model, where it just assigns a probability of 0.1% for any transaction to be fraudulent.</p>
 
-<p><img src="/assets/images/creditcard_1_basic.png" alt="image" /></p>
-
-<p>As you can see from the chart and the AUPRC of 0.501, this model is poor. No surprises here, which I suppose is a good thing.</p>
+<p><img src="/blog/images/creditcard_1_basic.png" alt="image" />
+<img src="/blog/images/logo.png" alt="" title="fast.ai's logo" />
+As you can see from the chart and the AUPRC of 0.501, this model is poor. No surprises here, which I suppose is a good thing.</p>
 
 <h3 id="logistic-regression">Logistic Regression</h3>
 <p>I have not studied logistic regression yet so I do not actually know what it does differently to linear regression. I decided to still use it because it is the model Jason Brownlee used in their example, and I wanted to follow their example before exploring on my own.</p>
 
-<p><img src="/assets/images/creditcard_1_logistic.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_1_logistic.png" alt="image" /></p>
 
 <p>Huzzah! My first non-trivial AUC curve. The model can identify 60% of the fraudulent cases without too many false positives (roughly 20%). The precision falls dramatically if you try to increase the recall.</p>
 
 <h3 id="decision-tree">Decision Tree</h3>
 <p>Next I tried a Decision Tree model. (This is the first model taught in Kaggle).</p>
 
-<p><img src="/assets/images/creditcard_1_tree.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_1_tree.png" alt="image" /></p>
 
 <p>Curve looks very simple, but it has actually extracted some information. It can identify ~75% of the fraudulent cases with a precision of roughly 0.75. I would argue this is better than the logistic regression, because the cost of fraud is greater than the cost of mis-identifying something as fraud.</p>
 
 <h3 id="random-forest">Random Forest</h3>
 <p>Next I tried a Random Forest model. (This is the second model taught in Kaggle).</p>
 
-<p><img src="/assets/images/creditcard_1_forest.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_1_forest.png" alt="image" /></p>
 
 <p>Woh! I was surprised by how good this is. 80% of the fraudulent cases identified with a precision of 95%!  Lets see if the infamous XGBoost can do better.</p>
 
 <h3 id="xgboost">XGBoost</h3>
 <p>Drum roll please…</p>
 
-<p><img src="/assets/images/creditcard_1_xgb.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_1_xgb.png" alt="image" /></p>
 
 <p>Looks very similar to the random forest model. I do not know if this is surprising or not - hopefully I will get more intuition for these kind of things with more practice.</p>
 
