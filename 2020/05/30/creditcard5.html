@@ -177,8 +177,8 @@ n_estimators  max_depth  max_features    auc
 <h2 id="forest-model-final-model">Forest model, final model</h2>
 <p>Using these hyper-parameters, I created a the final Random Forest model. The precision-recall curve is below:</p>
 
-<p><img src="/assets/images/creditcard_5_forest.png" alt="image" />
-<img src="/assets/images/creditcard_1_forest.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_5_forest.png" alt="image" />
+<img src="/blog/images/creditcard_1_forest.png" alt="image" /></p>
 
 <p>For comparison, the very first random forest model is also included. As can be seen, there is an improvement but a seemingly minimal one. Based on examples I have seen elsewhere, these minor improvements are what can be expected from hyper-parameter optimisations.</p>
 
@@ -210,8 +210,8 @@ n_estimators  max_depth  max_features    auc
 
 <p>Using the settings from the top row, I created my final model, whose precision-recall curve is below.  I have included the original curve, too.</p>
 
-<p><img src="/assets/images/creditcard_5_xgb.png" alt="image" />
-<img src="/assets/images/creditcard_1_xgb.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_5_xgb.png" alt="image" />
+<img src="/blog/images/creditcard_1_xgb.png" alt="image" /></p>
 
 <p>!! After doing the optimisations, the model became worse! The AUC decreased by 0.002. The  explanation for this must be that removing 99% of the data actually changes the behaviour of the model.</p>
 
@@ -239,8 +239,8 @@ n_estimators  max_depth  max_features    auc
 </code></pre></div></div>
 <p>The optimal parameters changed (thankfully!).  I then re-created the final model and this time there was an improvement:</p>
 
-<p><img src="/assets/images/creditcard_5_xgb2.png" alt="image" />
-<img src="/assets/images/creditcard_1_xgb.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_5_xgb2.png" alt="image" />
+<img src="/blog/images/creditcard_1_xgb.png" alt="image" /></p>
 
 <h2 id="next-time">Next time</h2>
 <p>My next blog post will be the final one in this series. I will summarise what I have done and what I have learnt. I will also have a look at what others did and see what I can learn from them.</p>

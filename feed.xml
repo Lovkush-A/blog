@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-20T09:33:43-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stop and Search, Part II, Data Cleaning</title><link href="https://lovkush-a.github.io/blog/2020/06/17/sas2.html" rel="alternate" type="text/html" title="Stop and Search, Part II, Data Cleaning" /><published>2020-06-17T00:00:00-05:00</published><updated>2020-06-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/2020/06/17/sas2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/2020/06/17/sas2.html">&lt;p&gt;In this post, I describe the cleaning I did on the data.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-20T09:42:15-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stop and Search, Part II, Data Cleaning</title><link href="https://lovkush-a.github.io/blog/2020/06/17/sas2.html" rel="alternate" type="text/html" title="Stop and Search, Part II, Data Cleaning" /><published>2020-06-17T00:00:00-05:00</published><updated>2020-06-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/2020/06/17/sas2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/2020/06/17/sas2.html">&lt;p&gt;In this post, I describe the cleaning I did on the data.&lt;/p&gt;
 
 &lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
@@ -303,8 +303,8 @@ NaN     22090
 &lt;h2 id=&quot;the-charts&quot;&gt;The charts&lt;/h2&gt;
 &lt;p&gt;Below are the charts for the Physics modules. The x-axis shows the day a student opened an e-assessment and the y-axis shows the number of student who started on each day. The different colours correspond to the different assessments.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/homework1.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/assets/images/homework2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/homework1.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;/blog/images/homework2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Physics 1, 2 and 4 all have the same patterns.&lt;/p&gt;
 &lt;ul&gt;
@@ -320,7 +320,7 @@ NaN     22090
 &lt;br /&gt;
 Below are a sample of charts showing the breakdown of timings during Sunday and Monday.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/homework3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/homework3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;I do not think there is anything particularly noteworthy in these charts. The main pattern is that most people who started the work on Sunday did so after 6pm. The thing which struck me was that for each assessment, there were several students who started the work between 3am and 9am.&lt;/p&gt;
 
@@ -330,7 +330,7 @@ Below are a sample of charts showing the breakdown of timings during Sunday and 
 &lt;br /&gt;
 Below are the charts for the two maths modules.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/homework4.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/homework4.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Recall that in Maths 1, there was a single deadline for all the assessments, which was the weekend before exam week.&lt;/p&gt;
 &lt;ul&gt;
@@ -511,7 +511,7 @@ sas_df.to_csv('sas.csv')
 &lt;h2 id=&quot;a-chart&quot;&gt;A chart&lt;/h2&gt;
 &lt;p&gt;It would be sad for this post to have no charts whatsoever, so I quickly created one which just counts the number of stops-and-searches, grouped by ethnicity.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/sas1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/sas1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;One might say, ‘Look, white people are stopped more than black people, so the police are not racist.’ This is obviously simplistic. The aim of the project is to dig deeper into the data and see what patterns I can find.&lt;/p&gt;</content><author><name></name></author><summary type="html">In light of the current prominence of BlackLivesMatter, I decided to investigate crime in relation to race. Here I describe how I collected the data I will be analysing.</summary></entry><entry><title type="html">AIs for Games, Part III</title><link href="https://lovkush-a.github.io/blog/2020/06/09/games3.html" rel="alternate" type="text/html" title="AIs for Games, Part III" /><published>2020-06-09T00:00:00-05:00</published><updated>2020-06-09T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/2020/06/09/games3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/2020/06/09/games3.html">&lt;p&gt;I describe the various ways I made the algorithm from Part II more efficient. These resulted in big improvements in the efficiency.&lt;/p&gt;
 
@@ -705,7 +705,7 @@ sas_df.to_csv('sas.csv')
 &lt;p&gt;The code, at this stage of project, can be found on &lt;a href=&quot;https://github.com/Lovkush-A/games/tree/94649838b4e348772a12dbf13c5954b665354371&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-boards-used-for-testing&quot;&gt;The boards used for testing&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/games_31.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">I describe the various ways I made the algorithm from Part II more efficient. These resulted in big improvements in the efficiency.</summary></entry><entry><title type="html">AIs for Games, Part II</title><link href="https://lovkush-a.github.io/blog/2020/06/04/games2.html" rel="alternate" type="text/html" title="AIs for Games, Part II" /><published>2020-06-04T00:00:00-05:00</published><updated>2020-06-04T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/2020/06/04/games2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/2020/06/04/games2.html">&lt;p&gt;Here I created an algorithm and the code to search through the game-tree to a given maximum depth. This has been written for the game Pentago specifically. The code seems to work, but is highly inefficient.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/games_31.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">I describe the various ways I made the algorithm from Part II more efficient. These resulted in big improvements in the efficiency.</summary></entry><entry><title type="html">AIs for Games, Part II</title><link href="https://lovkush-a.github.io/blog/2020/06/04/games2.html" rel="alternate" type="text/html" title="AIs for Games, Part II" /><published>2020-06-04T00:00:00-05:00</published><updated>2020-06-04T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/2020/06/04/games2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/2020/06/04/games2.html">&lt;p&gt;Here I created an algorithm and the code to search through the game-tree to a given maximum depth. This has been written for the game Pentago specifically. The code seems to work, but is highly inefficient.&lt;/p&gt;
 
 &lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
@@ -752,7 +752,7 @@ sas_df.to_csv('sas.csv')
 &lt;p&gt;In the end, I managed to get it altogether. The code, at this stage of the project, can be found on &lt;a href=&quot;https://github.com/Lovkush-A/games/tree/e8a8e0afe6d25030d82cf0f0269c5edab625e463&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;an-example&quot;&gt;An example&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/games_21.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/games_21.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The image above shows an example winning position for player 1. If it is Player 1’s move, the algorithm finds a winning move using a depth-1 search (play in bottom left, and then rotate bottom left clockwise, giving 5-in-a-row column on left-hand-side).  If it is Player 2’s move, the algorithm returns &lt;code class=&quot;highlighter-rouge&quot;&gt;None&lt;/code&gt; using a depth-2 search, because no matter what 2 does on this turn, 1 will always win.&lt;/p&gt;
 
@@ -830,8 +830,8 @@ n_estimators  max_depth  max_features    auc
 &lt;h2 id=&quot;forest-model-final-model&quot;&gt;Forest model, final model&lt;/h2&gt;
 &lt;p&gt;Using these hyper-parameters, I created a the final Random Forest model. The precision-recall curve is below:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/creditcard_5_forest.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/assets/images/creditcard_1_forest.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_5_forest.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;/blog/images/creditcard_1_forest.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;For comparison, the very first random forest model is also included. As can be seen, there is an improvement but a seemingly minimal one. Based on examples I have seen elsewhere, these minor improvements are what can be expected from hyper-parameter optimisations.&lt;/p&gt;
 
@@ -863,8 +863,8 @@ n_estimators  max_depth  max_features    auc
 
 &lt;p&gt;Using the settings from the top row, I created my final model, whose precision-recall curve is below.  I have included the original curve, too.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/creditcard_5_xgb.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/assets/images/creditcard_1_xgb.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_5_xgb.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;/blog/images/creditcard_1_xgb.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;!! After doing the optimisations, the model became worse! The AUC decreased by 0.002. The  explanation for this must be that removing 99% of the data actually changes the behaviour of the model.&lt;/p&gt;
 
@@ -892,8 +892,8 @@ n_estimators  max_depth  max_features    auc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;The optimal parameters changed (thankfully!).  I then re-created the final model and this time there was an improvement:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/creditcard_5_xgb2.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/assets/images/creditcard_1_xgb.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_5_xgb2.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;/blog/images/creditcard_1_xgb.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;next-time&quot;&gt;Next time&lt;/h2&gt;
 &lt;p&gt;My next blog post will be the final one in this series. I will summarise what I have done and what I have learnt. I will also have a look at what others did and see what I can learn from them.&lt;/p&gt;
@@ -1058,23 +1058,23 @@ n_estimators  max_depth  max_features    auc
 &lt;p&gt;I repeated the first attempt 20 times and stored the results in a pandas dataframe. I then plotted scatterplots and histograms to visualise the patterns.  In each of them, I compared the performance against the default of 100 estimators. As always, the code for this is at the bottom.&lt;/p&gt;
 
 &lt;h3 id=&quot;n_estimators10&quot;&gt;n_estimators=10&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/creditcard_4_forest_n_est10_hist.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/assets/images/creditcard_4_forest_n_est10_scatter.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_4_forest_n_est10_hist.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;/blog/images/creditcard_4_forest_n_est10_scatter.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The histogram shows that the distribution of AUC values when the number of estimators is 10 is worse than the default values.  The scatterplot shows the default setting has a better AUC on the majority of folds - but not every time!&lt;/p&gt;
 
 &lt;h3 id=&quot;n_estimators50&quot;&gt;n_estimators=50&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/creditcard_4_forest_n_est50_hist.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/assets/images/creditcard_4_forest_n_est50_scatter.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_4_forest_n_est50_hist.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;/blog/images/creditcard_4_forest_n_est50_scatter.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The histograms almost perfectly overlap! But we do see a little extra blue on the right and extra orange on the left which means n=50 is better.  The scatterplot makes this clearer, showing that having 50 estimators produces larger AUC in most of the folds.&lt;/p&gt;
 
 &lt;h3 id=&quot;n_estimators200-and-n_estimators500&quot;&gt;n_estimators=200 and n_estimators=500&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/creditcard_4_forest_n_est200_hist.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/assets/images/creditcard_4_forest_n_est200_scatter.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_4_forest_n_est200_hist.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;/blog/images/creditcard_4_forest_n_est200_scatter.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/creditcard_4_forest_n_est500_hist.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/assets/images/creditcard_4_forest_n_est500_scatter.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_4_forest_n_est500_hist.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;/blog/images/creditcard_4_forest_n_est500_scatter.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;From these charts, we see that as we increase the number of estimators beyond 100, the model performs worse. Though we can see this in the table in the first attempt, these charts make it much clearer.&lt;/p&gt;
 
@@ -1293,19 +1293,19 @@ n_estimators  max_depth  max_features    auc
 
 &lt;p&gt;1) I run the program, select the AI to play first, and respond to its first move.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/games_11.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/games_11.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;2) The AI plays in the top left, forcing me to play in the middle left.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/games_12.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/games_12.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;3) The end is nigh. The AI creates two threats at once. I stop one of them…&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/games_13.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/games_13.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;4) But I cannot stop both.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/games_14.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/games_14.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;AI: 1, Humans: 0.&lt;/p&gt;
 
@@ -1346,13 +1346,13 @@ n_estimators  max_depth  max_features    auc
 &lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
 &lt;p&gt;Below is the precision-recall graph for the model.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/creditcard_3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The AUC score is not great, only 0.616, but the model manages to identify ~70% of fraudulent claims with a precision of 0.8, which is not too bad!&lt;/p&gt;
 
 &lt;p&gt;At the end of the previous post, I said I hoped to achieve a score of 0.7. To do this, I just flattened the above precision-recall curve, by grouping together all the ‘high probability’ transactions (see code for explicit details).  See the new curve:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/creditcard_3_2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_3_2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;An AUC of 0.68! Not quite 0.7, but not too shabby.&lt;/p&gt;
 

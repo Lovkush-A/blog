@@ -193,23 +193,23 @@ window.onload = wrap_img;
 <p>I repeated the first attempt 20 times and stored the results in a pandas dataframe. I then plotted scatterplots and histograms to visualise the patterns.  In each of them, I compared the performance against the default of 100 estimators. As always, the code for this is at the bottom.</p>
 
 <h3 id="n_estimators10">n_estimators=10</h3>
-<p><img src="/assets/images/creditcard_4_forest_n_est10_hist.png" alt="image" />
-<img src="/assets/images/creditcard_4_forest_n_est10_scatter.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_4_forest_n_est10_hist.png" alt="image" />
+<img src="/blog/images/creditcard_4_forest_n_est10_scatter.png" alt="image" /></p>
 
 <p>The histogram shows that the distribution of AUC values when the number of estimators is 10 is worse than the default values.  The scatterplot shows the default setting has a better AUC on the majority of folds - but not every time!</p>
 
 <h3 id="n_estimators50">n_estimators=50</h3>
-<p><img src="/assets/images/creditcard_4_forest_n_est50_hist.png" alt="image" />
-<img src="/assets/images/creditcard_4_forest_n_est50_scatter.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_4_forest_n_est50_hist.png" alt="image" />
+<img src="/blog/images/creditcard_4_forest_n_est50_scatter.png" alt="image" /></p>
 
 <p>The histograms almost perfectly overlap! But we do see a little extra blue on the right and extra orange on the left which means n=50 is better.  The scatterplot makes this clearer, showing that having 50 estimators produces larger AUC in most of the folds.</p>
 
 <h3 id="n_estimators200-and-n_estimators500">n_estimators=200 and n_estimators=500</h3>
-<p><img src="/assets/images/creditcard_4_forest_n_est200_hist.png" alt="image" />
-<img src="/assets/images/creditcard_4_forest_n_est200_scatter.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_4_forest_n_est200_hist.png" alt="image" />
+<img src="/blog/images/creditcard_4_forest_n_est200_scatter.png" alt="image" /></p>
 
-<p><img src="/assets/images/creditcard_4_forest_n_est500_hist.png" alt="image" />
-<img src="/assets/images/creditcard_4_forest_n_est500_scatter.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_4_forest_n_est500_hist.png" alt="image" />
+<img src="/blog/images/creditcard_4_forest_n_est500_scatter.png" alt="image" /></p>
 
 <p>From these charts, we see that as we increase the number of estimators beyond 100, the model performs worse. Though we can see this in the table in the first attempt, these charts make it much clearer.</p>
 
