@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      5 min read
     
 </span></p>
 
@@ -131,8 +131,10 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#grouped-by-ethnicity">Grouped by ethnicity</a></li>
 <li class="toc-entry toc-h3"><a href="#including-population">Including population</a></li>
+<li class="toc-entry toc-h3"><a href="#including-outcomes">Including outcomes</a></li>
 </ul>
 </li>
+<li class="toc-entry toc-h2"><a href="#conclusions">Conclusions</a></li>
 <li class="toc-entry toc-h2"><a href="#code">Code</a></li>
 </ul><h2 id="total-number-of-stops-and-searches">
 <a class="anchor" href="#total-number-of-stops-and-searches" aria-hidden="true"><span class="octicon octicon-link"></span></a>Total number of stops and searches</h2>
@@ -166,6 +168,34 @@ window.onload = wrap_img;
 <p><img src="/blog/images/sas3_sankey_gen.png" alt=""></p>
 
 <p><img src="/blog/images/sas3_sankey_age.png" alt=""></p>
+
+<p>The majority of people would not look at these charts and conclude that the police are sexist or ageist, so one should not use the chart above for ethnicity to automatically conclude the police are racist.</p>
+
+<p>To try to shed some light on the question of racism, I will take into account the outcome of the stop-and-search.</p>
+
+<h3 id="including-outcomes">
+<a class="anchor" href="#including-outcomes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Including outcomes</h3>
+<p>The following stacked barchart shows the breakdown of outcomes for each ethnicity.</p>
+
+<p><img src="/blog/images/sas3_sankey_age.png" alt=""></p>
+
+<p>This is not at all what I was expecting. I was expecting to find that black people would have more false stop and searches than white people. It is shocking how consistent the ratio is across ethnicities - almost suspiciously so.  There is some discrepancy if you look closely, but dramatically less than what the Sankey diagram above suggested.</p>
+
+<h2 id="conclusions">
+<a class="anchor" href="#conclusions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusions</h2>
+<p>My main goal for this was to gain some better understanding of crime data, and the process of cleaning and summarising data.  To my surprise, it seems from this simple analysis that police stop-and-search is not inherently racist, but there is a high chance I have not accounted for something or that my process is over-simplistic.  Of course, you should refer to more authoritative sources for conclusions on these complex issues, and not base your opinions on an amateur blog.</p>
+
+<p>Some key lessons I learnt:</p>
+<ul>
+  <li>I had to make some key decisions about how to group the data, namely, how to deal with discrepancy between officer and self defined ethnicity. In particular, it is not clear how one ought to group people of mixed race. Given how even the ratios were in the final chart, I don’t think this decision made a major difference, but it is something that I now know to consider when reading research in this area.</li>
+  <li>Dramatically different stories can be told depending on how the data is presented. This is something I already knew, but this is the first time I have experienced creating the charts for myself. With great power, comes great responsibility.</li>
+  <li>The quality of this analysis totally depends on the quality of the underlying data.
+    <ul>
+      <li>I did not mention this before, but there are gaps in the data: there are some police forces who do not provide the data for every month. This does not affect my simplistic analysis, but it would matter for more nuanced analyses.</li>
+      <li>I have to, and do, trust that the data provided is accurate. It is scary to think how easily a government could skew the data, or simply withhold it. Going through this experience lets me better understand the dystopia in <em>1984</em>.</li>
+    </ul>
+  </li>
+</ul>
 
 <h2 id="code">
 <a class="anchor" href="#code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code</h2>
@@ -221,6 +251,36 @@ window.onload = wrap_img;
 
 <span class="c1"># create sankey diagram
 </span><span class="n">create_sankey</span><span class="p">(</span><span class="n">sas_eth_pop</span><span class="p">,</span> <span class="s">'Stop and Searches by Ethnicity'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Here is the code to produce the stacked barcharts at the end:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># group data by ethnicity and outcome. 
+</span><span class="n">sas_eth_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">sas</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'ethnicity'</span><span class="p">,</span> <span class="s">'outcome'</span><span class="p">])</span><span class="o">.</span><span class="n">outcome</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+<span class="n">sas_eth_out</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s">'outcome'</span><span class="p">:</span> <span class="s">'frequency'</span><span class="p">},</span> <span class="n">inplace</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">sas_eth_out</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># convert frequencies into percentages
+</span><span class="n">sas_eth_total</span> <span class="o">=</span> <span class="n">sas_eth_out</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">'ethnicity'</span><span class="p">])</span><span class="o">.</span><span class="n">frequency</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span>
+<span class="n">sas_eth_out</span><span class="p">[</span><span class="s">'total'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sas_eth_out</span><span class="o">.</span><span class="n">ethnicity</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">eth</span><span class="p">:</span> <span class="n">sas_eth_total</span><span class="p">[</span><span class="n">eth</span><span class="p">])</span>
+<span class="n">sas_eth_out</span><span class="p">[</span><span class="s">'percentage'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sas_eth_out</span><span class="o">.</span><span class="n">frequency</span> <span class="o">/</span> <span class="n">sas_eth_out</span><span class="o">.</span><span class="n">total</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># pivot table, and re-order the rows
+</span><span class="n">sas_new</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">sas_eth_out</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="s">'percentage'</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="s">'outcome'</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="s">'ethnicity'</span><span class="p">)</span>
+<span class="n">sas_new</span>  <span class="o">=</span> <span class="n">sas_new</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s">'White'</span><span class="p">,</span> <span class="s">'Black'</span><span class="p">,</span> <span class="s">'Asian'</span><span class="p">,</span> <span class="s">'Other'</span><span class="p">]]</span>
+
+<span class="c1"># plot the graph
+</span><span class="n">sas_new</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">stacked</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Ethnicity'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Percent of Stop and Searches'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Breakdown of Outcomes of Stop and Searches'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s">'False / no further action'</span><span class="p">,</span>
+                    <span class="s">'Minor further action'</span><span class="p">,</span>
+                    <span class="s">'Major further action'</span><span class="p">],</span>
+           <span class="n">loc</span><span class="o">=</span><span class="s">'center left'</span><span class="p">,</span>
+           <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'sas3_outcome.png'</span><span class="p">)</span>
 </code></pre></div></div>
 
   </div><a class="u-url" href="/blog/python/data%20science/2020/06/22/sas3.html" hidden></a>
