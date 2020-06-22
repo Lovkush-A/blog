@@ -130,6 +130,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#total-number-of-stops-and-searches">Total number of stops and searches</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#grouped-by-ethnicity">Grouped by ethnicity</a></li>
+<li class="toc-entry toc-h3"><a href="#including-population">Including population</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#code">Code</a></li>
@@ -142,11 +143,17 @@ window.onload = wrap_img;
 
 <p><img src="/blog/images/sas3_sas_eth.png" alt=""></p>
 
-<p>Python code and output:</p>
+<p>From this chart, a simplistic conlusion would be that white people are searched significantly more than other ethnicities, so there is no racism in the system. This is clearly a bad reasoning, as we need to account for the underlying population.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Prints '2'
-</span><span class="k">print</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div></div>
+<h3 id="including-population">
+<a class="anchor" href="#including-population" aria-hidden="true"><span class="octicon octicon-link"></span></a>Including population</h3>
+<p>Population data is taken from <a href="https://www.ethnicity-facts-figures.service.gov.uk/uk-population-by-ethnicity/national-and-regional-populations/population-of-england-and-wales/latest#:~:text=the%20total%20population%20of%20England%20and%20Wales%20was%2056.1%20million,White%20ethnic%20group%20(4.4%25)">here</a>. I use this data to produce the following chart. Note that I grouped the various numbers together in the same way I grouped ethnicities together in producing the ethnicities column.</p>
+
+<p><img src="/blog/images/sas3_pop_eth.png" alt=""></p>
+
+<p>Now things look bad. There is clearly a discrepancy between the population and the number of stop and searches.</p>
+
+<p>To visualise this discrepancy more clearly, I decided to create a <a href="http://www.sankey-diagrams.com/">Sankey diagram</a> using <a href="https://plotly.com/python/sankey-diagram/">Plotly</a>.</p>
 
 <h2 id="code">
 <a class="anchor" href="#code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code</h2>
