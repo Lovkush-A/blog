@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-22T18:45:28-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stop and Sarch, Part III, Data Analysis</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html" rel="alternate" type="text/html" title="Stop and Sarch, Part III, Data Analysis" /><published>2020-06-22T00:00:00-05:00</published><updated>2020-06-22T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html">&lt;h2 id=&quot;total-number-of-stops-and-searches&quot;&gt;Total number of stops and searches&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-22T18:57:23-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stop and Search, Part III, Data Analysis</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html" rel="alternate" type="text/html" title="Stop and Search, Part III, Data Analysis" /><published>2020-06-22T00:00:00-05:00</published><updated>2020-06-22T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html">&lt;h2 id=&quot;total-number-of-stops-and-searches&quot;&gt;Total number of stops and searches&lt;/h2&gt;
 
 &lt;h3 id=&quot;grouped-by-ethnicity&quot;&gt;Grouped by ethnicity&lt;/h3&gt;
 &lt;p&gt;I start by plotting the total number of stops and searches (since May 2017 because that is the earliest data of the dataset), grouped by ethnicity.&lt;/p&gt;
@@ -35,7 +35,7 @@
 &lt;h3 id=&quot;including-outcomes&quot;&gt;Including outcomes&lt;/h3&gt;
 &lt;p&gt;The following stacked barchart shows the breakdown of outcomes for each ethnicity.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/images/sas3_sankey_age.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/sas3_outcome.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;This is not at all what I was expecting. I was expecting to find that black people would have more false stop and searches than white people. It is shocking how consistent the ratio is across ethnicities - almost suspiciously so.  There is some discrepancy if you look closely, but dramatically less than what the Sankey diagram above suggested.&lt;/p&gt;
 
@@ -142,7 +142,12 @@
 &lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/2020/06/15/sas1.html&quot;&gt;Stop and Search, Part I, Data Collection&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/python/data%20science/2020/06/22/sas3.html&quot;&gt;Stop and Search, Part III, Data Analysis&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/2020/06/15/sas1.html&quot;&gt;Stop and Search, Part I, Data Collection&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;the-cleaning&quot;&gt;The cleaning&lt;/h2&gt;
@@ -545,7 +550,12 @@ but actually only finish it on the weekend.&lt;/li&gt;
 &lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/2020/06/17/sas2.html&quot;&gt;Stop and Search, Part II, Data Cleaning&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/python/data%20science/2020/06/22/sas3.html&quot;&gt;Stop and Search, Part III, Data Analysis&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/2020/06/17/sas2.html&quot;&gt;Stop and Search, Part II, Data Cleaning&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
