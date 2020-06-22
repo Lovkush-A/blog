@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -157,6 +157,16 @@ window.onload = wrap_img;
 
 <p><img src="/blog/images/sas3_sankey_eth.png" alt=""></p>
 
+<p>The diagram makes the discrepancy quite plain to see. Black people are stopped disproportionately more than other ethnic groups. There is evidently a big problem here.</p>
+
+<p>However, and unfortunately, this diagram does not tell us where exactly the problem is. Is the problem with the police or is there a deeper problem? Are the police racist for stopping black people more often, or, is this a reflection of crime rates and the underlying social issues?</p>
+
+<p>Some people would look at the above diagram and wonder how this is not conclusive evidence of police racism. To illustrate the idea, consider the following two charts:</p>
+
+<p><img src="/blog/images/sas3_sankey_gen.png" alt=""></p>
+
+<p><img src="/blog/images/sas3_sankey_age.png" alt=""></p>
+
 <h2 id="code">
 <a class="anchor" href="#code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code</h2>
 <p>Here I provide sample of the code used to produce the charts.</p>
@@ -177,6 +187,40 @@ window.onload = wrap_img;
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Number of Stop and Searches'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'sas3_sas_eth.png'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Here is the code to produce Sankey diagrams.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># create function that plots Sankey diagram given appropriate dataframe
+</span>
+<span class="k">def</span> <span class="nf">create_sankey</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+    <span class="nb">len</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Sankey</span><span class="p">(</span>
+    <span class="n">node</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+      <span class="n">pad</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>
+      <span class="n">thickness</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
+      <span class="n">line</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s">"black"</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">),</span>
+      <span class="n">label</span> <span class="o">=</span> <span class="p">[</span><span class="s">'Proportion of Population'</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s">'Proportion of Stop and Searches'</span><span class="p">],</span>
+      <span class="n">color</span> <span class="o">=</span> <span class="s">"blue"</span>
+    <span class="p">),</span>
+    <span class="n">link</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+      <span class="n">source</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="o">+</span><span class="mi">1</span><span class="p">)),</span>
+      <span class="n">target</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="p">[</span><span class="nb">len</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">,</span>
+      <span class="n">value</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+    <span class="p">))])</span>
+
+    <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># create dataframe containing population and stop and search data by ethnicity
+</span><span class="n">sas_eth_pop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'population'</span><span class="p">:</span> <span class="n">population</span><span class="p">,</span> <span class="s">'sas'</span><span class="p">:</span> <span class="n">sas_ethnicity</span><span class="p">,</span> <span class="p">},</span> <span class="n">index</span> <span class="o">=</span> <span class="n">sas_ethnicity</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">sas_eth_pop</span> <span class="o">=</span> <span class="n">sas_eth_pop</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s">'White'</span><span class="p">,</span> <span class="s">'Black'</span><span class="p">,</span> <span class="s">'Asian'</span><span class="p">,</span> <span class="s">'Other'</span><span class="p">]]</span>
+<span class="n">sas_eth_pop</span><span class="o">.</span><span class="n">sas</span> <span class="o">=</span> <span class="n">sas_eth_pop</span><span class="o">.</span><span class="n">sas</span><span class="o">/</span><span class="n">sas_eth_pop</span><span class="o">.</span><span class="n">sas</span><span class="o">.</span><span class="nb">sum</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span>
+
+
+<span class="c1"># create sankey diagram
+</span><span class="n">create_sankey</span><span class="p">(</span><span class="n">sas_eth_pop</span><span class="p">,</span> <span class="s">'Stop and Searches by Ethnicity'</span><span class="p">)</span>
 </code></pre></div></div>
 
   </div><a class="u-url" href="/blog/python/data%20science/2020/06/22/sas3.html" hidden></a>
