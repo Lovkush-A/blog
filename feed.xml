@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-22T09:06:44-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stop and Sarch, Part III, Data Analysis</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html" rel="alternate" type="text/html" title="Stop and Sarch, Part III, Data Analysis" /><published>2020-06-22T00:00:00-05:00</published><updated>2020-06-22T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html">&lt;h2 id=&quot;total-number-of-stops-and-searches&quot;&gt;Total number of stops and searches&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-22T09:56:14-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stop and Sarch, Part III, Data Analysis</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html" rel="alternate" type="text/html" title="Stop and Sarch, Part III, Data Analysis" /><published>2020-06-22T00:00:00-05:00</published><updated>2020-06-22T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html">&lt;h2 id=&quot;total-number-of-stops-and-searches&quot;&gt;Total number of stops and searches&lt;/h2&gt;
 
 &lt;h3 id=&quot;grouped-by-ethnicity&quot;&gt;Grouped by ethnicity&lt;/h3&gt;
 &lt;p&gt;I start by plotting the total number of stops and searches (since May 2017 because that is the earliest data of the dataset), grouped by ethnicity.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/blog/images/sas3_sas_eth.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;From this chart, a simplistic conlusion would be that white people are searched significantly more than other ethnicities, so there is no racism in the system. This is clearly a bad reasoning, as we need to account for the underlying population.&lt;/p&gt;
+&lt;p&gt;From this chart, a simplistic conlusion would be that white people are searched significantly more than other ethnicities, so there is no racism in the system. This is clearly bad reasoning, as we need to account for the underlying population.&lt;/p&gt;
 
 &lt;h3 id=&quot;including-population&quot;&gt;Including population&lt;/h3&gt;
 &lt;p&gt;Population data is taken from &lt;a href=&quot;https://www.ethnicity-facts-figures.service.gov.uk/uk-population-by-ethnicity/national-and-regional-populations/population-of-england-and-wales/latest#:~:text=the%20total%20population%20of%20England%20and%20Wales%20was%2056.1%20million,White%20ethnic%20group%20(4.4%25)&quot;&gt;here&lt;/a&gt;. I use this data to produce the following chart. Note that I grouped the various numbers together in the same way I grouped ethnicities together in producing the ethnicities column.&lt;/p&gt;
@@ -15,6 +15,8 @@
 &lt;p&gt;Now things look bad. There is clearly a discrepancy between the population and the number of stop and searches.&lt;/p&gt;
 
 &lt;p&gt;To visualise this discrepancy more clearly, I decided to create a &lt;a href=&quot;http://www.sankey-diagrams.com/&quot;&gt;Sankey diagram&lt;/a&gt; using &lt;a href=&quot;https://plotly.com/python/sankey-diagram/&quot;&gt;Plotly&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/sas3_sankey_eth.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
 &lt;p&gt;Here I provide sample of the code used to produce the charts.&lt;/p&gt;
