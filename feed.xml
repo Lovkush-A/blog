@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-21T17:40:49-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stop and Search, Part II, Data Cleaning</title><link href="https://lovkush-a.github.io/blog/2020/06/17/sas2.html" rel="alternate" type="text/html" title="Stop and Search, Part II, Data Cleaning" /><published>2020-06-17T00:00:00-05:00</published><updated>2020-06-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/2020/06/17/sas2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/2020/06/17/sas2.html">&lt;p&gt;In this post, I describe the cleaning I did on the data.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-22T08:45:28-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stop and Sarch, Part III, Data Analysis</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html" rel="alternate" type="text/html" title="Stop and Sarch, Part III, Data Analysis" /><published>2020-06-22T00:00:00-05:00</published><updated>2020-06-22T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html">&lt;h2 id=&quot;total-number-of-stops-and-searches&quot;&gt;Total number of stops and searches&lt;/h2&gt;
+
+&lt;h3 id=&quot;grouped-by-ethnicity&quot;&gt;Grouped by ethnicity&lt;/h3&gt;
+&lt;p&gt;I start by plotting the total number of stops and searches (since May 2017 because that is the earliest data of the dataset), grouped by ethnicity.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/sas3_sas_eth.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Python code and output:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Prints '2'
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
+&lt;p&gt;Here I provide sample of the code used to produce the charts.&lt;/p&gt;
+
+&lt;p&gt;Below is the code to produce the first bar chart.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;colours_255&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;66&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;133&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;244&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;234&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;67&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;53&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;251&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;188&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;52&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;168&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;83&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;colours&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;tuple&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;colour&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;colour&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;colours_255&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sns&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;barplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sas_ethnicity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sas_ethnicity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+           &lt;span class=&quot;n&quot;&gt;order&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'White'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Black'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Asian'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Other'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+           &lt;span class=&quot;n&quot;&gt;palette&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;colours&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'y'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Stop and Searches since May 2017, by Ethnicity'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xlabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Ethnicity'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ylabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Number of Stop and Searches'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tight_layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'sas3_sas_eth.png'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Total number of stops and searches</summary></entry><entry><title type="html">Stop and Search, Part II, Data Cleaning</title><link href="https://lovkush-a.github.io/blog/2020/06/17/sas2.html" rel="alternate" type="text/html" title="Stop and Search, Part II, Data Cleaning" /><published>2020-06-17T00:00:00-05:00</published><updated>2020-06-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/2020/06/17/sas2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/2020/06/17/sas2.html">&lt;p&gt;In this post, I describe the cleaning I did on the data.&lt;/p&gt;
 
 &lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
@@ -1317,109 +1349,4 @@ n_estimators  max_depth  max_features    auc
   &lt;li&gt;Coding up more complicated games. I have already done this for Pentago (see &lt;a href=&quot;https://github.com/Lovkush-A/games&quot;&gt;github&lt;/a&gt;).&lt;/li&gt;
   &lt;li&gt;Coding up the alpha-beta pruning algorithm&lt;/li&gt;
   &lt;li&gt;Coding up a neural network to create a heuristic function&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">I want to create AIs that can play games using neural networks. To start off, I coded up TicTacToe and then had an AI play it using a brute force algorithm. The code for this is available on github.</summary></entry><entry><title type="html">Investigating Credit Card Fraud, Part III</title><link href="https://lovkush-a.github.io/blog/2020/05/19/creditcard3.html" rel="alternate" type="text/html" title="Investigating Credit Card Fraud, Part III" /><published>2020-05-19T00:00:00-05:00</published><updated>2020-05-19T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/2020/05/19/creditcard3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/2020/05/19/creditcard3.html">&lt;p&gt;I create a simple hand-made model for the &lt;a href=&quot;https://www.kaggle.com/mlg-ulb/creditcardfraud&quot;&gt;Kaggle Credit Card Fraud&lt;/a&gt;, by just asking how many features are closer to the fraudulent mean than to the non-fraudulent mean. This achieves an AUC of 0.68.&lt;/p&gt;
-
-&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/2020/05/30/creditcard5.html&quot;&gt;Investigating Credit Card Fraud, Part V&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/2020/05/29/creditcard4.html&quot;&gt;Investigating Credit Card Fraud, Part IV&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/2020/05/16/creditcard2.html&quot;&gt;Investigating Credit Card Fraud, Part II&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/2020/05/14/creditcard1.html&quot;&gt;Investigating Credit Card Fraud, Part I&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;the-hand-made-model&quot;&gt;The hand-made model&lt;/h2&gt;
-&lt;p&gt;Given the training data, for each feature, I compute the mean of that feature amongst all fraudulent transactions and the non-fraudulent transactions. For example, the mean value of the transaction was $124 for fraudulent transactions and $88 for non-fraudulent transactions.&lt;/p&gt;
-
-&lt;p&gt;Then, given some unseen transaction, I ask how many of its features are closer to the fraudulent mean or non-fraudulent mean. For example, if the value of a transaction is $115, then it is closer to the fraudulent mean of $124, so this is evidence the transaction is fraudulent.&lt;/p&gt;
-
-&lt;p&gt;And that’s it! This is not sophisticated at all, but I am interested to see how much information is contained in the means, and more importantly, how much information is gained by using more sophisticated models like Random Forests and XGBoosts.&lt;/p&gt;
-
-&lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
-&lt;p&gt;Below is the precision-recall graph for the model.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The AUC score is not great, only 0.616, but the model manages to identify ~70% of fraudulent claims with a precision of 0.8, which is not too bad!&lt;/p&gt;
-
-&lt;p&gt;At the end of the previous post, I said I hoped to achieve a score of 0.7. To do this, I just flattened the above precision-recall curve, by grouping together all the ‘high probability’ transactions (see code for explicit details).  See the new curve:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_3_2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;An AUC of 0.68! Not quite 0.7, but not too shabby.&lt;/p&gt;
-
-&lt;h2 id=&quot;final-thoughts&quot;&gt;Final thoughts&lt;/h2&gt;
-&lt;p&gt;There are several ways one could easily improve this model. One example is that I weighted each of the features equally, but some features ought to be more weighted than others.  Another example is that I did not consider how much closer a value was to the fraudulent mean compared to the non-fraudulent mean. There are many more possibilities. However, all of these are just the initial steps to creating one of the standard models - this hand-made model is just a (bad) Random Forest after all!&lt;/p&gt;
-
-&lt;p&gt;Doing this hands-on modelling has been quite satisfying. Though Random Forests and XGBoosts produce much better models, they did not actually teach me anything. Of course, one big reason for this is that I do not yet know how to extract information from those models - I have only learnt how to create them.  Even so, there is something immediately tangible in the simplicity of this hand-made model: 70% of fraudulent transactions follow the average trends of previous fraudulent claims. Though I am prepared to be wrong, I doubt the insights from XGBoosts will be as easy to formulate as that!&lt;/p&gt;
-
-&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# import modules
-import numpy as np
-import pandas as pd
-
-from sklearn.model_selection import train_test_split
-
-from sklearn.metrics import precision_recall_curve
-from sklearn.metrics import auc
-from matplotlib import pyplot as plt
-
-
-
-# import data and create train_test split
-data = pd.read_csv(&quot;creditcard.csv&quot;)
-y = data.Class
-X = data.drop(['Class'], axis = 1)
-Xt, Xv, yt, yv = train_test_split(X,y, random_state=0)
-
-
-
-# calculate means for fraudulent and non-fraudulent claims for training data
-data_t = pd.concat([Xt, yt], axis = 1)
-means = data_t.groupby('Class').mean()
-means_mid_point = (means.loc[0] + means.loc[1])/2
-
-
-
-# create function to create predictions
-def make_prob(row):
-    prob = 0
-    for col in row.index:
-        if (row[col] &amp;gt; means_mid_point[col]) and (means.loc[1, col] &amp;gt; means.loc[0, col]):
-            prob += 1
-        elif (row[col] &amp;lt; means_mid_point[col]) and (means.loc[1, col] &amp;lt; means.loc[0, col]):
-            prob += 1
-    return prob/30
-
-
-# create predictions, calculate AUC and plot PRC
-preds = Xv.apply(make_prob, axis = 1)
-precision, recall, _ = precision_recall_curve(yv, preds)
-auc_handmade = auc(recall, precision)
-
-plt.plot(recall, precision, marker = '.')
-plt.xlabel('Recall')
-plt.ylabel('Precision')
-plt.title(f'Hand-made model. AUC = {auc_handmade:.3f}')
-plt.savefig('creditcard_3_handmade')
-
-
-# tweak predictions to 'flatten the curve'
-preds2 = []
-
-for pred in preds:
-    if pred &amp;gt; 0.7:
-        preds2.append(0.8)
-    else:
-        preds2.append(pred)
-
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">I create a simple hand-made model for the Kaggle Credit Card Fraud, by just asking how many features are closer to the fraudulent mean than to the non-fraudulent mean. This achieves an AUC of 0.68.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">I want to create AIs that can play games using neural networks. To start off, I coded up TicTacToe and then had an AI play it using a brute force algorithm. The code for this is available on github.</summary></entry></feed>
