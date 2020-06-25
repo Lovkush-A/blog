@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-22T19:31:39-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stop and Search, Part III, Data Analysis</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html" rel="alternate" type="text/html" title="Stop and Search, Part III, Data Analysis" /><published>2020-06-22T00:00:00-05:00</published><updated>2020-06-22T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html">&lt;h2 id=&quot;total-number-of-stops-and-searches&quot;&gt;Total number of stops and searches&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-25T06:43:51-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Credit Card Fraud, Part VI, Summary and Lessons from Kaggle</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html" rel="alternate" type="text/html" title="Credit Card Fraud, Part VI, Summary and Lessons from Kaggle" /><published>2020-06-25T00:00:00-05:00</published><updated>2020-06-25T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html">&lt;h2 id=&quot;summaries&quot;&gt;Summaries&lt;/h2&gt;
+&lt;h3 id=&quot;part-i&quot;&gt;Part I&lt;/h3&gt;
+&lt;p&gt;In Part I, I describe the framework and create the first set of models using default settings. I tried logistic regression, decision tree, random forest and xgboost models, and they respectively achieved an AUPRC of 0.616, 0.746, 0.842 and 0.856. Since then, I have learnt about more models and if I were to do this project again, I would also have included a support vector machine model and a k-nearest-neighbour model.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_1_logistic.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/blog/images/creditcard_1_tree.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/blog/images/creditcard_1_forest.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Summaries Part I In Part I, I describe the framework and create the first set of models using default settings. I tried logistic regression, decision tree, random forest and xgboost models, and they respectively achieved an AUPRC of 0.616, 0.746, 0.842 and 0.856. Since then, I have learnt about more models and if I were to do this project again, I would also have included a support vector machine model and a k-nearest-neighbour model.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://lovkush-a.github.io/blog/images/creditcard_6_xgb_roc2.png" /><media:content medium="image" url="https://lovkush-a.github.io/blog/images/creditcard_6_xgb_roc2.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Stop and Search, Part III, Data Analysis</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html" rel="alternate" type="text/html" title="Stop and Search, Part III, Data Analysis" /><published>2020-06-22T00:00:00-05:00</published><updated>2020-06-22T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/22/sas3.html">&lt;h2 id=&quot;total-number-of-stops-and-searches&quot;&gt;Total number of stops and searches&lt;/h2&gt;
 
 &lt;h3 id=&quot;grouped-by-ethnicity&quot;&gt;Grouped by ethnicity&lt;/h3&gt;
 &lt;p&gt;I start by plotting the total number of stops and searches (since May 2017 because that is the earliest data of the dataset), grouped by ethnicity.&lt;/p&gt;
@@ -925,6 +931,9 @@ sas_df.to_csv('sas.csv')
 
 &lt;ul&gt;
   &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/python/data%20science/2020/06/25/creditcard6.html&quot;&gt;Credit Card Fraud, Part VI, Summary and Lessons from Kaggle&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/2020/05/29/creditcard4.html&quot;&gt;Investigating Credit Card Fraud, Part IV&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -1136,6 +1145,9 @@ n_estimators  max_depth  max_features    auc
 &lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/python/data%20science/2020/06/25/creditcard6.html&quot;&gt;Credit Card Fraud, Part VI, Summary and Lessons from Kaggle&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/2020/05/30/creditcard5.html&quot;&gt;Investigating Credit Card Fraud, Part V&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
@@ -1425,46 +1437,4 @@ n_estimators  max_depth  max_features    auc
   &lt;li&gt;Chuck Berry and Eric Clapton starred in Chuck Berry Hail! Hail! Rock ‘n’ Roll&lt;/li&gt;
   &lt;li&gt;Eric Clapton and Tom Cruise starred in Close Up&lt;/li&gt;
   &lt;li&gt;Tom Cruise and Kevin Bacon starred in A Few Good Men&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><summary type="html">I create a table of actors and their bacon numbers using recursion in SQL. The largest finite bacon number is 13.</summary></entry><entry><title type="html">AIs for Games, Part I</title><link href="https://lovkush-a.github.io/blog/2020/05/20/games1.html" rel="alternate" type="text/html" title="AIs for Games, Part I" /><published>2020-05-20T00:00:00-05:00</published><updated>2020-05-20T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/2020/05/20/games1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/2020/05/20/games1.html">&lt;p&gt;I want to create AIs that can play games using neural networks. To start off, I coded up TicTacToe and then had an AI play it using a brute force algorithm. The code for this is available on &lt;a href=&quot;https://github.com/Lovkush-A/games&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/2020/06/09/games3.html&quot;&gt;AIs for Games, Part III&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/2020/06/04/games2.html&quot;&gt;AIs for Games, Part II&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;the-ai-in-action&quot;&gt;The AI in Action&lt;/h2&gt;
-&lt;p&gt;Below are screenshots illustrating the AI in action.&lt;/p&gt;
-
-&lt;p&gt;1) I run the program, select the AI to play first, and respond to its first move.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/games_11.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;2) The AI plays in the top left, forcing me to play in the middle left.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/games_12.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;3) The end is nigh. The AI creates two threats at once. I stop one of them…&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/games_13.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;4) But I cannot stop both.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/games_14.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;AI: 1, Humans: 0.&lt;/p&gt;
-
-&lt;h2 id=&quot;comments&quot;&gt;Comments&lt;/h2&gt;
-&lt;p&gt;This program is highly inefficient. E.g it will search through every possible move, even if it has already found a winning sequence. My focus was on getting something working, rather than trying to optimise it.&lt;/p&gt;
-
-&lt;p&gt;My next steps are:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Coding up more complicated games. I have already done this for Pentago (see &lt;a href=&quot;https://github.com/Lovkush-A/games&quot;&gt;github&lt;/a&gt;).&lt;/li&gt;
-  &lt;li&gt;Coding up the alpha-beta pruning algorithm&lt;/li&gt;
-  &lt;li&gt;Coding up a neural network to create a heuristic function&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">I want to create AIs that can play games using neural networks. To start off, I coded up TicTacToe and then had an AI play it using a brute force algorithm. The code for this is available on github.</summary></entry></feed>
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">I create a table of actors and their bacon numbers using recursion in SQL. The largest finite bacon number is 13.</summary></entry></feed>
