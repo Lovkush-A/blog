@@ -77,7 +77,7 @@ Here, the effect is far more dramatic and very clearly shows how unfit AUROC is 
 
 
 ### Under- and over-sampling
-It turns out my idea from Part III, to remove non-fraudulent data, has a name: under-sampling. However, it sounds like there is an expection that under-sampling could actually improve the performance of the models. This is surprising to me; unless you are systematially removing unrepresenative data, how can the model improve with less information?! A quick skim of the wikipedia article suggests I have not completely missed the point: 'the reasons to use undersampling are mainly practical and related to resource costs'.
+It turns out my idea from Part III, to remove non-fraudulent data, has a name: under-sampling. However, it sounds like there is an expectation that under-sampling could actually improve the performance of the models. This is surprising to me; unless you are systematially removing unrepresenative data, how can the model improve with less information?! A quick skim of the wikipedia article suggests I have not completely missed the point: 'the reasons to use undersampling are mainly practical and related to resource costs'.
 
 Over-sampling looks like an interesting idea, in which you create new artificial data to pad out the under-represented class. Some people on Kaggle used SMOTE, where you take two nearby points, and introduce new points directly in between these two points. Something to keep in mind for future!
 
@@ -85,16 +85,16 @@ Over-sampling looks like an interesting idea, in which you create new artificial
 A simple idea: try to find entries in the training data that are not representative and remove them to avoid skewing the models / to avoid over-fitting. Based on my limited understanding, I think tree-based models are not sensitive to extreme data (in the same way the median is not sensitive to extreme data), so this particular idea is unlikely to have helped me improve the models for this example. However, this is another tool I will keep in mind for future projects.
 
 ### Dimensionality reduction and clustering
-Again another interesting idea: try to find a mapping of the data into a smaller dimension that preserves the clusters. The algorithm somebody used was t-SNE which is explained in this [YouTube video](https://www.youtube.com/watch?v=NEaUSP4YerM). A couple of other algorithms used were PCA and truncated SVD.  I do not yet understand how I could use this to improve the models (in the example, this was done to give a visual indication of whether frauduluent and non-frauduluent data could be distinguished).
+An interesting idea: try to find a mapping of the data into a smaller dimension that preserves the clusters. The algorithm somebody used was t-SNE which is explained in this [YouTube video](https://www.youtube.com/watch?v=NEaUSP4YerM). A couple of other algorithms used were PCA and truncated SVD.  I do not yet understand how I could use this to improve the models (in the example, this was done to give a visual indication of whether frauduluent and non-frauduluent data could be distinguished).
 
 ### Normalising data
 Useful idea I should always keep in mind! Again, I don't think this matters for tree-based models, but something I should keep in mind.
 
 ### Outlier detection algorithms
-[One person](https://www.kaggle.com/pavansanagapati/anomaly-detection-credit-card-fraud-analysis/notebook) used a bunch of (unsupervised?) learning algorithms: isolation forests, local outlifer factor algorithm, SVM-based algorithms. More things for me to learn about!
+[One person](https://www.kaggle.com/pavansanagapati/anomaly-detection-credit-card-fraud-analysis/notebook) used a bunch of (unsupervised?) learning algorithms: isolation forests, local outlier factor algorithm, SVM-based algorithms. More things for me to learn about!
 
 ### Auto-encoders and latent representation
-[This person](https://www.kaggle.com/shivamb/semi-supervised-classification-using-autoencoders) used 'semi-supervised learning' via auto-encoders. This was particular interesting, especially because he had a visual showing how their auto-encoder was better at separating fraudulent and non-fraudulent data than t-SNE. This is definitely something for me to delve deeper into some time, especially because of how visually striking it is.
+[This person](https://www.kaggle.com/shivamb/semi-supervised-classification-using-autoencoders) used 'semi-supervised learning' via auto-encoders. This was particularly interesting, especially because they had a visual showing how their auto-encoder was better at separating fraudulent and non-fraudulent data than t-SNE. This is definitely something for me to delve deeper into some time, especially because of how visually striking it is.
 
 ### Visualising the features
 [Here](https://www.kaggle.com/currie32/predicting-fraud-with-tensorflow/notebook) and [here](https://www.kaggle.com/shelars1985/anomaly-detection-using-gaussian-distribution/notebook) are examples of a nice way of visualising the range of values of each feature for frauduluent and non-frauduluent data. The key thing is that they normalised the histograms, but I am not sure how they did that. Something for me to learn!
