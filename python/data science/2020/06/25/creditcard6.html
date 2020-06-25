@@ -235,7 +235,7 @@ window.onload = wrap_img;
 
 <h3 id="under--and-over-sampling">
 <a class="anchor" href="#under--and-over-sampling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Under- and over-sampling</h3>
-<p>It turns out my idea from Part III, to remove non-fraudulent data, has a name: under-sampling. However, it sounds like there is an expection that under-sampling could actually improve the performance of the models. This is surprising to me; unless you are systematially removing unrepresenative data, how can the model improve with less information?! A quick skim of the wikipedia article suggests I have not completely missed the point: ‘the reasons to use undersampling are mainly practical and related to resource costs’.</p>
+<p>It turns out my idea from Part III, to remove non-fraudulent data, has a name: under-sampling. However, it sounds like there is an expectation that under-sampling could actually improve the performance of the models. This is surprising to me; unless you are systematially removing unrepresenative data, how can the model improve with less information?! A quick skim of the wikipedia article suggests I have not completely missed the point: ‘the reasons to use undersampling are mainly practical and related to resource costs’.</p>
 
 <p>Over-sampling looks like an interesting idea, in which you create new artificial data to pad out the under-represented class. Some people on Kaggle used SMOTE, where you take two nearby points, and introduce new points directly in between these two points. Something to keep in mind for future!</p>
 
@@ -245,7 +245,7 @@ window.onload = wrap_img;
 
 <h3 id="dimensionality-reduction-and-clustering">
 <a class="anchor" href="#dimensionality-reduction-and-clustering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dimensionality reduction and clustering</h3>
-<p>Again another interesting idea: try to find a mapping of the data into a smaller dimension that preserves the clusters. The algorithm somebody used was t-SNE which is explained in this <a href="https://www.youtube.com/watch?v=NEaUSP4YerM">YouTube video</a>. A couple of other algorithms used were PCA and truncated SVD.  I do not yet understand how I could use this to improve the models (in the example, this was done to give a visual indication of whether frauduluent and non-frauduluent data could be distinguished).</p>
+<p>An interesting idea: try to find a mapping of the data into a smaller dimension that preserves the clusters. The algorithm somebody used was t-SNE which is explained in this <a href="https://www.youtube.com/watch?v=NEaUSP4YerM">YouTube video</a>. A couple of other algorithms used were PCA and truncated SVD.  I do not yet understand how I could use this to improve the models (in the example, this was done to give a visual indication of whether frauduluent and non-frauduluent data could be distinguished).</p>
 
 <h3 id="normalising-data">
 <a class="anchor" href="#normalising-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Normalising data</h3>
@@ -253,11 +253,11 @@ window.onload = wrap_img;
 
 <h3 id="outlier-detection-algorithms">
 <a class="anchor" href="#outlier-detection-algorithms" aria-hidden="true"><span class="octicon octicon-link"></span></a>Outlier detection algorithms</h3>
-<p><a href="https://www.kaggle.com/pavansanagapati/anomaly-detection-credit-card-fraud-analysis/notebook">One person</a> used a bunch of (unsupervised?) learning algorithms: isolation forests, local outlifer factor algorithm, SVM-based algorithms. More things for me to learn about!</p>
+<p><a href="https://www.kaggle.com/pavansanagapati/anomaly-detection-credit-card-fraud-analysis/notebook">One person</a> used a bunch of (unsupervised?) learning algorithms: isolation forests, local outlier factor algorithm, SVM-based algorithms. More things for me to learn about!</p>
 
 <h3 id="auto-encoders-and-latent-representation">
 <a class="anchor" href="#auto-encoders-and-latent-representation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Auto-encoders and latent representation</h3>
-<p><a href="https://www.kaggle.com/shivamb/semi-supervised-classification-using-autoencoders">This person</a> used ‘semi-supervised learning’ via auto-encoders. This was particular interesting, especially because he had a visual showing how their auto-encoder was better at separating fraudulent and non-fraudulent data than t-SNE. This is definitely something for me to delve deeper into some time, especially because of how visually striking it is.</p>
+<p><a href="https://www.kaggle.com/shivamb/semi-supervised-classification-using-autoencoders">This person</a> used ‘semi-supervised learning’ via auto-encoders. This was particularly interesting, especially because they had a visual showing how their auto-encoder was better at separating fraudulent and non-fraudulent data than t-SNE. This is definitely something for me to delve deeper into some time, especially because of how visually striking it is.</p>
 
 <h3 id="visualising-the-features">
 <a class="anchor" href="#visualising-the-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Visualising the features</h3>
