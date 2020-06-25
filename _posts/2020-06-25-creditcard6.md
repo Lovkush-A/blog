@@ -41,16 +41,16 @@ Here I actually carry out the hyper-parameter optimisations, and train the final
 
 
 ## Lessons learnt from Kaggle
-I had a skim through the several most up-voted kernels on Kaggle. Below are the the things I found out by doing so.
+I had a skim through the several most up-voted kernels on Kaggle. Below are the the things I found out by doing so. There is a lot for me to learn!
 
 ### AUROC versus AUPRC
-Many of the examples (including the most upvoted [example](https://www.kaggle.com/janiobachmann/credit-fraud-dealing-with-imbalanced-datasets/notebook)!) use AUROC instead of AUPRC. The main reason this surprised me is that the desription of the dataset recommended using AUPRC; I suppose there was an advantage to not knowing much before hand! The second reason this surprised me is that AUPRC is a more informative measure than AUROC for unbalanced data. I try to explain why.
+Many of the examples (including the most upvoted [example](https://www.kaggle.com/janiobachmann/credit-fraud-dealing-with-imbalanced-datasets/notebook)!) use AUROC instead of AUPRC. The main reason this surprised me is that the description of the dataset recommended using AUPRC; I suppose there was an advantage to not knowing much before hand! The second reason this surprised me is that AUPRC is a more informative measure than AUROC for unbalanced data. I try to explain why.
 
 The PRC and ROC are quite similar. They are both plots that visualise false positives against false negatives.
-* False negatives are recorded in the same way in both plots, namely, using recall/true positive rate. Recall tells you what percentage of truly fraudulent transactions that the model successfully labels as fraudulent. (And so 1 - Recall measures how many false negatives we have, as a percentage of truly fraudulent claims.)
+* False negatives are measured in the same way in both plots, namely, using recall/true positive rate. Recall tells you what percentage of truly fraudulent transactions the model successfully labels as fraudulent. (And so 1 - Recall measures how many false negatives we have, as a percentage of truly fraudulent claims.)
 * False positive are recorded differently in the two plots.
     * In PRC, precision is used. This is the percentage of transactions labelled as fraudulent that actually are fraudulent. Equivalently, 1-PRC is the number of false positives expressed as a percentage of *claims labelled as fraudulent*.
-    * In ROC, the false-positive rate is used. This is the number of false positives expressed  s a percentage of *truly non-fraudulent transactions*.
+    * In ROC, the false-positive rate is used. This is the number of false positives expressed as a percentage of *truly non-fraudulent transactions*.
 
 To make this more concrete, lets put some numbers to this:
 * Imagine there are 100100 transactions altogether, 100 which are fraudulent and 100000 which are not.
@@ -66,3 +66,40 @@ I have also decided to plot PRC and ROC for a couple of the models in this serie
 **PRC and ROC for the final XGBoost model**
 ![]({{ site.baseurl }}/images/creditcard_5_xgb2.png)
 ![]({{ site.baseurl }}/images/creditcard_6_xgb_roc2.png)
+
+ROC makes the model look much better than PRC does. And it is deceiving: one might look at that second chart and say we can identify 90% of fraudulent claims without many false positives.
+
+**PRC and ROC for the handmade model**
+![]({{ site.baseurl }}/images/creditcard_3_2.png)
+![]({{ site.baseurl }}/images/creditcard_6_handmade.png)
+
+Here, the effect is far more dramatic and very clearly shows how unfit AUROC is for unbalanced ata.
+
+
+### Under- and over-sampling
+It turns out my idea from Part III, to remove non-fraudulent data, has a name: under-sampling. However, it sounds like there is an expection that under-sampling could actually improve the performance of the models. This is surprising to me; unless you are systematially removing unrepresenative data, how can the model improve with less information?! A quick skim of the wikipedia article suggests I have not completely missed the point: 'the reasons to use undersampling are mainly practical and related to resource costs'.
+
+Over-sampling looks like an interesting idea, in which you create new artificial data to pad out the under-represented class. Some people on Kaggle used SMOTE, where you take two nearby points, and introduce new points directly in between these two points. Something to keep in mind for future!
+
+### Removing anomalous data
+A simple idea: try to find entries in the training data that are not representative and remove them to avoid skewing the models / to avoid over-fitting. Based on my limited understanding, I think tree-based models are not sensitive to extreme data (in the same way the median is not sensitive to extreme data), so this particular idea is unlikely to have helped me improve the models for this example. However, this is another tool I will keep in mind for future projects.
+
+### Dimensionality reduction and clustering
+Again another interesting idea: try to find a mapping of the data into a smaller dimension that preserves the clusters. The algorithm somebody used was t-SNE which is explained in this [YouTube video](https://www.youtube.com/watch?v=NEaUSP4YerM). A couple of other algorithms used were PCA and truncated SVD.  I do not yet understand how I could use this to improve the models (in the example, this was done to give a visual indication of whether frauduluent and non-frauduluent data could be distinguished).
+
+### Normalising data
+Useful idea I should always keep in mind! Again, I don't think this matters for tree-based models, but something I should keep in mind.
+
+### Outlier detection algorithms
+[One person](https://www.kaggle.com/pavansanagapati/anomaly-detection-credit-card-fraud-analysis/notebook) used a bunch of (unsupervised?) learning algorithms: isolation forests, local outlifer factor algorithm, SVM-based algorithms. More things for me to learn about!
+
+### Auto-encoders and latent representation
+[This person](https://www.kaggle.com/shivamb/semi-supervised-classification-using-autoencoders) used 'semi-supervised learning' via auto-encoders. This was particular interesting, especially because he had a visual showing how their auto-encoder was better at separating fraudulent and non-fraudulent data than t-SNE. This is definitely something for me to delve deeper into some time, especially because of how visually striking it is.
+
+### Visualising the features
+[Here](https://www.kaggle.com/currie32/predicting-fraud-with-tensorflow/notebook) and [here](https://www.kaggle.com/shelars1985/anomaly-detection-using-gaussian-distribution/notebook) are examples of a nice way of visualising the range of values of each feature for frauduluent and non-frauduluent data. The key thing is that they normalised the histograms, but I am not sure how they did that. Something for me to learn!
+
+### GBM vs xgboost vs lightGBM
+[This kernel](https://www.kaggle.com/nschneider/gbm-vs-xgboost-vs-lightgbm/notebook) compared three algorithms. I quite liked this because it felt historical, and helps me appreciate how the community learns. The person compared the accuracy and time taken for each of the algorithms, and also describes some new settings and options they recently discovered.
+
+
