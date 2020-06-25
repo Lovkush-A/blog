@@ -109,7 +109,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      7 min read
     
 </span></p>
 
@@ -141,6 +141,14 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#lessons-learnt-from-kaggle">Lessons learnt from Kaggle</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#auroc-versus-auprc">AUROC versus AUPRC</a></li>
+<li class="toc-entry toc-h3"><a href="#under--and-over-sampling">Under- and over-sampling</a></li>
+<li class="toc-entry toc-h3"><a href="#removing-anomalous-data">Removing anomalous data</a></li>
+<li class="toc-entry toc-h3"><a href="#dimensionality-reduction-and-clustering">Dimensionality reduction and clustering</a></li>
+<li class="toc-entry toc-h3"><a href="#normalising-data">Normalising data</a></li>
+<li class="toc-entry toc-h3"><a href="#outlier-detection-algorithms">Outlier detection algorithms</a></li>
+<li class="toc-entry toc-h3"><a href="#auto-encoders-and-latent-representation">Auto-encoders and latent representation</a></li>
+<li class="toc-entry toc-h3"><a href="#visualising-the-features">Visualising the features</a></li>
+<li class="toc-entry toc-h3"><a href="#gbm-vs-xgboost-vs-lightgbm">GBM vs xgboost vs lightGBM</a></li>
 </ul>
 </li>
 </ul><h2 id="summaries">
@@ -183,19 +191,19 @@ window.onload = wrap_img;
 
 <h2 id="lessons-learnt-from-kaggle">
 <a class="anchor" href="#lessons-learnt-from-kaggle" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lessons learnt from Kaggle</h2>
-<p>I had a skim through the several most up-voted kernels on Kaggle. Below are the the things I found out by doing so.</p>
+<p>I had a skim through the several most up-voted kernels on Kaggle. Below are the the things I found out by doing so. There is a lot for me to learn!</p>
 
 <h3 id="auroc-versus-auprc">
 <a class="anchor" href="#auroc-versus-auprc" aria-hidden="true"><span class="octicon octicon-link"></span></a>AUROC versus AUPRC</h3>
-<p>Many of the examples (including the most upvoted <a href="https://www.kaggle.com/janiobachmann/credit-fraud-dealing-with-imbalanced-datasets/notebook">example</a>!) use AUROC instead of AUPRC. The main reason this surprised me is that the desription of the dataset recommended using AUPRC; I suppose there was an advantage to not knowing much before hand! The second reason this surprised me is that AUPRC is a more informative measure than AUROC for unbalanced data. I try to explain why.</p>
+<p>Many of the examples (including the most upvoted <a href="https://www.kaggle.com/janiobachmann/credit-fraud-dealing-with-imbalanced-datasets/notebook">example</a>!) use AUROC instead of AUPRC. The main reason this surprised me is that the description of the dataset recommended using AUPRC; I suppose there was an advantage to not knowing much before hand! The second reason this surprised me is that AUPRC is a more informative measure than AUROC for unbalanced data. I try to explain why.</p>
 
 <p>The PRC and ROC are quite similar. They are both plots that visualise false positives against false negatives.</p>
 <ul>
-  <li>False negatives are recorded in the same way in both plots, namely, using recall/true positive rate. Recall tells you what percentage of truly fraudulent transactions that the model successfully labels as fraudulent. (And so 1 - Recall measures how many false negatives we have, as a percentage of truly fraudulent claims.)</li>
+  <li>False negatives are measured in the same way in both plots, namely, using recall/true positive rate. Recall tells you what percentage of truly fraudulent transactions the model successfully labels as fraudulent. (And so 1 - Recall measures how many false negatives we have, as a percentage of truly fraudulent claims.)</li>
   <li>False positive are recorded differently in the two plots.
     <ul>
       <li>In PRC, precision is used. This is the percentage of transactions labelled as fraudulent that actually are fraudulent. Equivalently, 1-PRC is the number of false positives expressed as a percentage of <em>claims labelled as fraudulent</em>.</li>
-      <li>In ROC, the false-positive rate is used. This is the number of false positives expressed  s a percentage of <em>truly non-fraudulent transactions</em>.</li>
+      <li>In ROC, the false-positive rate is used. This is the number of false positives expressed as a percentage of <em>truly non-fraudulent transactions</em>.</li>
     </ul>
   </li>
 </ul>
@@ -216,6 +224,49 @@ window.onload = wrap_img;
 <p><strong>PRC and ROC for the final XGBoost model</strong>
 <img src="/blog/images/creditcard_5_xgb2.png" alt="">
 <img src="/blog/images/creditcard_6_xgb_roc2.png" alt=""></p>
+
+<p>ROC makes the model look much better than PRC does. And it is deceiving: one might look at that second chart and say we can identify 90% of fraudulent claims without many false positives.</p>
+
+<p><strong>PRC and ROC for the handmade model</strong>
+<img src="/blog/images/creditcard_3_2.png" alt="">
+<img src="/blog/images/creditcard_6_handmade.png" alt=""></p>
+
+<p>Here, the effect is far more dramatic and very clearly shows how unfit AUROC is for unbalanced ata.</p>
+
+<h3 id="under--and-over-sampling">
+<a class="anchor" href="#under--and-over-sampling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Under- and over-sampling</h3>
+<p>It turns out my idea from Part III, to remove non-fraudulent data, has a name: under-sampling. However, it sounds like there is an expection that under-sampling could actually improve the performance of the models. This is surprising to me; unless you are systematially removing unrepresenative data, how can the model improve with less information?! A quick skim of the wikipedia article suggests I have not completely missed the point: ‘the reasons to use undersampling are mainly practical and related to resource costs’.</p>
+
+<p>Over-sampling looks like an interesting idea, in which you create new artificial data to pad out the under-represented class. Some people on Kaggle used SMOTE, where you take two nearby points, and introduce new points directly in between these two points. Something to keep in mind for future!</p>
+
+<h3 id="removing-anomalous-data">
+<a class="anchor" href="#removing-anomalous-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removing anomalous data</h3>
+<p>A simple idea: try to find entries in the training data that are not representative and remove them to avoid skewing the models / to avoid over-fitting. Based on my limited understanding, I think tree-based models are not sensitive to extreme data (in the same way the median is not sensitive to extreme data), so this particular idea is unlikely to have helped me improve the models for this example. However, this is another tool I will keep in mind for future projects.</p>
+
+<h3 id="dimensionality-reduction-and-clustering">
+<a class="anchor" href="#dimensionality-reduction-and-clustering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dimensionality reduction and clustering</h3>
+<p>Again another interesting idea: try to find a mapping of the data into a smaller dimension that preserves the clusters. The algorithm somebody used was t-SNE which is explained in this <a href="https://www.youtube.com/watch?v=NEaUSP4YerM">YouTube video</a>. A couple of other algorithms used were PCA and truncated SVD.  I do not yet understand how I could use this to improve the models (in the example, this was done to give a visual indication of whether frauduluent and non-frauduluent data could be distinguished).</p>
+
+<h3 id="normalising-data">
+<a class="anchor" href="#normalising-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Normalising data</h3>
+<p>Useful idea I should always keep in mind! Again, I don’t think this matters for tree-based models, but something I should keep in mind.</p>
+
+<h3 id="outlier-detection-algorithms">
+<a class="anchor" href="#outlier-detection-algorithms" aria-hidden="true"><span class="octicon octicon-link"></span></a>Outlier detection algorithms</h3>
+<p><a href="https://www.kaggle.com/pavansanagapati/anomaly-detection-credit-card-fraud-analysis/notebook">One person</a> used a bunch of (unsupervised?) learning algorithms: isolation forests, local outlifer factor algorithm, SVM-based algorithms. More things for me to learn about!</p>
+
+<h3 id="auto-encoders-and-latent-representation">
+<a class="anchor" href="#auto-encoders-and-latent-representation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Auto-encoders and latent representation</h3>
+<p><a href="https://www.kaggle.com/shivamb/semi-supervised-classification-using-autoencoders">This person</a> used ‘semi-supervised learning’ via auto-encoders. This was particular interesting, especially because he had a visual showing how their auto-encoder was better at separating fraudulent and non-fraudulent data than t-SNE. This is definitely something for me to delve deeper into some time, especially because of how visually striking it is.</p>
+
+<h3 id="visualising-the-features">
+<a class="anchor" href="#visualising-the-features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Visualising the features</h3>
+<p><a href="https://www.kaggle.com/currie32/predicting-fraud-with-tensorflow/notebook">Here</a> and <a href="https://www.kaggle.com/shelars1985/anomaly-detection-using-gaussian-distribution/notebook">here</a> are examples of a nice way of visualising the range of values of each feature for frauduluent and non-frauduluent data. The key thing is that they normalised the histograms, but I am not sure how they did that. Something for me to learn!</p>
+
+<h3 id="gbm-vs-xgboost-vs-lightgbm">
+<a class="anchor" href="#gbm-vs-xgboost-vs-lightgbm" aria-hidden="true"><span class="octicon octicon-link"></span></a>GBM vs xgboost vs lightGBM</h3>
+<p><a href="https://www.kaggle.com/nschneider/gbm-vs-xgboost-vs-lightgbm/notebook">This kernel</a> compared three algorithms. I quite liked this because it felt historical, and helps me appreciate how the community learns. The person compared the accuracy and time taken for each of the algorithms, and also describes some new settings and options they recently discovered.</p>
+
 
   </div><a class="u-url" href="/blog/python/data%20science/2020/06/25/creditcard6.html" hidden></a>
 </article>
