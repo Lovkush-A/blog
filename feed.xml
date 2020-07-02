@@ -1,4 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-06-25T15:18:46-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Credit Card Fraud, Part VI, Summary and Lessons from Kaggle</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html" rel="alternate" type="text/html" title="Credit Card Fraud, Part VI, Summary and Lessons from Kaggle" /><published>2020-06-25T00:00:00-05:00</published><updated>2020-06-25T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html">&lt;h2 id=&quot;summaries&quot;&gt;Summaries&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-01T19:28:06-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Credit Card Fraud, Part VI, Summary and Lessons from Kaggle</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html" rel="alternate" type="text/html" title="Credit Card Fraud, Part VI, Summary and Lessons from Kaggle" /><published>2020-07-01T00:00:00-05:00</published><updated>2020-07-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I have started a new project. I had another look at the Kaggle datasets and chose &lt;a href=&quot;&quot;&gt;this Santander&lt;/a&gt; dataset. The data is (superficially?) similar to that from the Credit Card Fraud dataset I have previously analysed: the data is clean, all numerical, and the task is to create a binary classifier.  A big difference is that this Santander dataset has 200 features, whereas the Credit Card Fraud one had only ?? features. I presume this will make a difference (maybe I have to do some feature selection?), but I guess I will find out soon! Another difference is that we have two datasets: a training dataset on which we should create our models, and a testing dataset on which we use our models to make predictions which are then submitted to Kaggle.&lt;/p&gt;
+
+&lt;p&gt;Like with the credit card fraud project, I will start this one by creating some default models, and hopefully gain some ideas on how I ought to progress.&lt;/p&gt;
+
+&lt;h2 id=&quot;default-models&quot;&gt;Default models&lt;/h2&gt;
+&lt;p&gt;Some minimal data exploration shows that 90% of the training data has a target feature of 0 and 10% has target feature of 1. Due to this skew, I decide to us AUPRC to evaluate the models. Note that I split this training set further into a sub-training set and sub-testing set, fit the models on the sub-training set and evaluate the models using AUPRC on the sub-testing test. (Is there better terminology for this kind of thing?!).&lt;/p&gt;
+
+&lt;p&gt;Also, I did minor pre-processing, namely, I re-scaled the features to have a mean of 0 and a standard deviation of 1.&lt;/p&gt;
+
+&lt;h3 id=&quot;logistic-regression&quot;&gt;Logistic Regression&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/santander1_logistic.png&quot; alt=&quot;&quot; /&gt;
+This does not look good. Lets see how other models do.&lt;/p&gt;
+
+&lt;h3 id=&quot;decision-tree&quot;&gt;Decision Tree&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/santander1_tree.png&quot; alt=&quot;&quot; /&gt;
+This does even worse! I guess this should be expected of decision trees. It is also worth noting that this took a couple of minutes to create, so I decided not to create a random forest, because I presume it would take a very long time.&lt;/p&gt;
+
+&lt;h3 id=&quot;knn&quot;&gt;kNN&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/santander1_knn.png&quot; alt=&quot;&quot; /&gt;
+This also does poorly. However, I recently started reading &lt;a href=&quot;&quot;&gt;Elements of Statistical Learning&lt;/a&gt; and it describes the ‘curse of dimensionality’, so I am not surprised by this low performance. Roughly, if you have many features, the nearest neighbours of a point are unlikely to be close to the point, and so not representative of that point.&lt;/p&gt;
+
+&lt;h3 id=&quot;xgboost&quot;&gt;XGboost&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/images/santander1_xgb.png&quot;&gt;&lt;/a&gt;
+This has basically the same PRC as logistic regression, and much worse than what was achieved in the default credit card dataset.&lt;/p&gt;
+
+&lt;h3 id=&quot;svm&quot;&gt;SVM&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/images/santander1_svm.png&quot;&gt;&lt;/a&gt;
+And once again, a similar PRC to logistic regression and xgboost. Note that this one took a few hours to complete, so I will not be using these again for this project.&lt;/p&gt;
+
+&lt;h3 id=&quot;handmade-model&quot;&gt;Handmade model&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/images/santander1_handmade.png&quot;&gt;&lt;/a&gt;
+I used the same &lt;a href=&quot;&quot;&gt;handmade model&lt;/a&gt; that I created in the credit card fraud project over here. As can be seen, this performance is in between the worst so far (decision tree and knn) and the best so far (xgboost, regression, svm). To me, this suggests that main issue is not with the number of features, but that maybe the dataset itself is difficult to work with and that it is hard to distinguish between the two classes.&lt;/p&gt;
+
+&lt;h3 id=&quot;random-model&quot;&gt;Random model&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;/blog/images/santander1_random.png&quot;&gt;&lt;/a&gt;
+Based on all these graphs above, it was clear I had misunderstood something basic about the PRC graph. I believed that the worst case scenario for this curve was a straight line joining the two corners, and initially thought that these models were doing either worse or just as good as a random model. After thinking for a bit, I realised my mis-understanding. To confirm my feelings, I created a purely random model and the PRC is above. This curve makes sense: we get a straight line with a precision of 0.1 because 10% of the data has a target value of 1. If you’re just making random guesses, then you should expect that 10% of the predicted positive cases are truly positive, i.e., you should expect to get a precision of 0.1.&lt;/p&gt;
+
+&lt;p&gt;I think this misunderstanding arose because I got mixed up with ROC curves, in which a random model does produce a straight line.&lt;/p&gt;
+
+&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
+&lt;p&gt;I will try to improve the models by doing some feature selection.&lt;/p&gt;
+
+&lt;h2 id=&quot;summaries&quot;&gt;Summaries&lt;/h2&gt;
+&lt;h3 id=&quot;part-i&quot;&gt;Part I&lt;/h3&gt;
+&lt;p&gt;In Part I, I described the framework and created the first set of models using default settings. I tried logistic regression, decision tree, random forest and xgboost models, and they respectively achieved an AUPRC of 0.616, 0.746, 0.842 and 0.856. Since then, I have learnt about more models and if I were to do this project again, I would also have included a support vector machine model and a k-nearest-neighbour model.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_1_logistic.png&quot; alt=&quot;&quot; /&gt;
+Many of the examples (including the most upvoted &lt;a href=&quot;https://www.kaggle.com/janiobachmann/credit-fraud-dealing-with-imbalanced-datasets/notebook&quot;&gt;example&lt;/a&gt;!) use AUROC instead of AUPRC. The main reason this surprised me is that the description of the dataset recommended using AUPRC; I suppose there was an advantage to not knowing much before hand! The second reason this surprised me is that AUPRC is a more informative measure than AUROC for unbalanced data. I try to explain why.&lt;/p&gt;</content><author><name></name></author><summary type="html">Introduction I have started a new project. I had another look at the Kaggle datasets and chose this Santander dataset. The data is (superficially?) similar to that from the Credit Card Fraud dataset I have previously analysed: the data is clean, all numerical, and the task is to create a binary classifier. A big difference is that this Santander dataset has 200 features, whereas the Credit Card Fraud one had only ?? features. I presume this will make a difference (maybe I have to do some feature selection?), but I guess I will find out soon! Another difference is that we have two datasets: a training dataset on which we should create our models, and a testing dataset on which we use our models to make predictions which are then submitted to Kaggle.</summary></entry><entry><title type="html">Credit Card Fraud, Part VI, Summary and Lessons from Kaggle</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html" rel="alternate" type="text/html" title="Credit Card Fraud, Part VI, Summary and Lessons from Kaggle" /><published>2020-06-25T00:00:00-05:00</published><updated>2020-06-25T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html">&lt;h2 id=&quot;summaries&quot;&gt;Summaries&lt;/h2&gt;
 &lt;h3 id=&quot;part-i&quot;&gt;Part I&lt;/h3&gt;
 &lt;p&gt;In Part I, I described the framework and created the first set of models using default settings. I tried logistic regression, decision tree, random forest and xgboost models, and they respectively achieved an AUPRC of 0.616, 0.746, 0.842 and 0.856. Since then, I have learnt about more models and if I were to do this project again, I would also have included a support vector machine model and a k-nearest-neighbour model.&lt;/p&gt;
 
@@ -1023,6 +1071,9 @@ sas_df.to_csv('sas.csv')
 
 &lt;ul&gt;
   &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/python/data%20science/2020/07/01/santander1.html&quot;&gt;Credit Card Fraud, Part VI, Summary and Lessons from Kaggle&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/python/data%20science/2020/06/25/creditcard6.html&quot;&gt;Credit Card Fraud, Part VI, Summary and Lessons from Kaggle&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -1238,6 +1289,9 @@ n_estimators  max_depth  max_features    auc
 
 &lt;ul&gt;
   &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/python/data%20science/2020/07/01/santander1.html&quot;&gt;Credit Card Fraud, Part VI, Summary and Lessons from Kaggle&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/python/data%20science/2020/06/25/creditcard6.html&quot;&gt;Credit Card Fraud, Part VI, Summary and Lessons from Kaggle&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -1422,111 +1476,4 @@ n_estimators  max_depth  max_features    auc
     &lt;span class=&quot;p&quot;&gt;#&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;update&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dataframe&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auc_df&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;latest&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;batch&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aucs&lt;/span&gt;    
     &lt;span class=&quot;n&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;auc_df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auc_df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;aucs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">I begin the hyper-parameter optimisations. I started by looking at n_estimators in the Random Forest model. The first attempt to determine which value was the best produced a surprising range of performances, so I delved further to better understand how the performance can depend on the folds.</summary></entry><entry><title type="html">Bacon numbers via Recursive SQL</title><link href="https://lovkush-a.github.io/blog/2020/05/24/recursion_sql.html" rel="alternate" type="text/html" title="Bacon numbers via Recursive SQL" /><published>2020-05-24T00:00:00-05:00</published><updated>2020-05-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/2020/05/24/recursion_sql</id><content type="html" xml:base="https://lovkush-a.github.io/blog/2020/05/24/recursion_sql.html">&lt;p&gt;I create a table of actors and their &lt;a href=&quot;https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon#Bacon_numbers&quot;&gt;bacon numbers&lt;/a&gt; using recursion in SQL. The largest finite bacon number is 13.&lt;/p&gt;
-
-&lt;h2 id=&quot;sql-in-python&quot;&gt;SQL in Python&lt;/h2&gt;
-&lt;p&gt;I ran the SQL commands in Python using the module sqlite3. I used &lt;a href=&quot;https://swcarpentry.github.io/sql-novice-survey/10-prog/index.html&quot;&gt;this article&lt;/a&gt; to help me set it all up. Below is the code to run queries on the database &lt;em&gt;movies.db&lt;/em&gt; in python.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    import sqlite3
-
-    def run_sql(query):
-        connection = sqlite3.connect('movies.db')
-        cursor = connection.cursor()
-        cursor.execute(query)
-        results = cursor.fetchall()
-        cursor.close()
-        connection.close()
-    
-    return results
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;understanding-the-database&quot;&gt;Understanding the database&lt;/h2&gt;
-&lt;p&gt;The data is in the form of a database, &lt;em&gt;movies.db&lt;/em&gt;, and was obtained from the online course &lt;a href=&quot;https://cs50.harvard.edu/x/2020/psets/7/movies/&quot;&gt;CS50&lt;/a&gt;, which in turn was obtained from imdb. To find out the structure of the tables in the database, I ran the following code (obtained from &lt;a href=&quot;https://stackoverflow.com/questions/305378/list-of-tables-db-schema-dump-etc-using-the-python-sqlite3-api&quot;&gt;stackoverflow&lt;/a&gt;).&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    def produce_schema():
-        sql = &quot;SELECT name FROM sqlite_master WHERE type = 'table';&quot;
-        tables = run_sql(sql)
-    
-        schema = {}
-        for table in tables:
-            sql = f&quot;SELECT sql FROM sqlite_master WHERE type = 'table' and name = '{table[0]}'&quot;
-            results = run_sql(sql)
-            print(results[0][0])
-            schema[table[0]] = results[0][0]
-    
-        return schema
-
-    produce_schema()
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;For the task of determining bacon numbers, the relevant tables and columns are:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;people&lt;/code&gt;, with columns &lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;name&lt;/code&gt;. Each person has a unique id. There are 1044499 people in the table.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;stars&lt;/code&gt;, with columns &lt;code class=&quot;highlighter-rouge&quot;&gt;movie_id&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;person_id&lt;/code&gt;. Each row tells you that the actor with id &lt;code class=&quot;highlighter-rouge&quot;&gt;person_id&lt;/code&gt; starred in the movie with id &lt;code class=&quot;highlighter-rouge&quot;&gt;movie_id&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Kevin Bacon has an id of 102, found by running the query &lt;code class=&quot;highlighter-rouge&quot;&gt;SELECT id FROM people WHERE name = 'Kevin Bacon' &lt;/code&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;the-recursive-query&quot;&gt;The recursive query&lt;/h2&gt;
-&lt;p&gt;To understand recursion in SQL, I recommend &lt;a href=&quot;https://www.essentialsql.com/recursive-ctes-explained/&quot;&gt;this guide&lt;/a&gt; which explains recursion and how to use recursion in SQL, and then the &lt;a href=&quot;https://www.sqlite.org/lang_with.html&quot;&gt;SQLite documentation&lt;/a&gt; to better understand some implementation details and what options are available to you.&lt;/p&gt;
-
-&lt;p&gt;The query I created to produce the table of bacon numbers is:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    WITH RECURSIVE
-     costars(id1, id2) AS
-     ( 
-       SELECT stars1.person_id, stars2.person_id
-       FROM stars AS stars1
-       JOIN stars AS stars2
-       ON stars1.movie_id = stars2.movie_id
-     ),
-     bacon(id, num) AS
-     (
-       VALUES(102, 0)
-       UNION
-       SELECT id2, num+1
-       FROM bacon JOIN costars
-       ON bacon.id = costars.id1
-       WHERE num &amp;lt; 13
-     )
-     SELECT bacon.id, name, MIN(num)
-     FROM bacon JOIN people ON bacon.id = people.id
-     GROUP BY bacon.id
-     ORDER BY num
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The table &lt;code class=&quot;highlighter-rouge&quot;&gt;costars&lt;/code&gt; lists all pairs of actors that co-starred in a movie. This is obtained by doing a self-join of the stars table.&lt;/li&gt;
-  &lt;li&gt;The table &lt;code class=&quot;highlighter-rouge&quot;&gt;bacon&lt;/code&gt; is the main table. &lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt; is the id of the actor and &lt;code class=&quot;highlighter-rouge&quot;&gt;num&lt;/code&gt; is the bacon number.
-    &lt;ul&gt;
-      &lt;li&gt;It starts off with the entry &lt;code class=&quot;highlighter-rouge&quot;&gt;(102,0)&lt;/code&gt;.  102 is Kevin Bacon’s id and 0 is Kevin Bacon’s Bacon number.&lt;/li&gt;
-      &lt;li&gt;Then for any entry &lt;code class=&quot;highlighter-rouge&quot;&gt;(id, num)&lt;/code&gt; already in the table, we add a new row &lt;code class=&quot;highlighter-rouge&quot;&gt;(id2, num+1)&lt;/code&gt;, whenever &lt;code class=&quot;highlighter-rouge&quot;&gt;id2&lt;/code&gt; co-starred with &lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;num &amp;lt; 13&lt;/code&gt; indicates we will only have a maximum bacon number of 13. Without this manual limit, the recursive query would never end. This is because the underlying data is not acyclic: e.g. if a is a co-star with b, then b is a co-star of a. The number 13 was chosen via trial-and-error. The resulting table does not change if I increase the limit further, which implies that the maximum bacon number is 13.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;In the end, I select the relevant data from this recursive construction. Because each actor can appear many times in this construction, I use &lt;code class=&quot;highlighter-rouge&quot;&gt;GROUP BY&lt;/code&gt; to ensure each actor appears only once. I use &lt;code class=&quot;highlighter-rouge&quot;&gt;MIN(num)&lt;/code&gt; to select each actor’s earliest appearance.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The two main problems with this query are that:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;It is inefficient. There is huge redundancy as actors appear many times in the recursive construction. I do not think there is a way of avoiding this within SQL.&lt;/li&gt;
-  &lt;li&gt;I have to know what the maximum Bacon number is for the query to produce a complete list. I found this using trial-and-error.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;bacon-number-of-13&quot;&gt;Bacon number of 13&lt;/h2&gt;
-&lt;p&gt;By running a simple query, I find there are two people with the maximum bacon number of 13, Javier Ordonez and Kimberly Peters.  Using the program created for &lt;a href=&quot;https://cs50.harvard.edu/ai/2020/projects/0/degrees/&quot;&gt;this CS50 AI&lt;/a&gt; project, I could find the path from these actors to Kevin Bacon. As expected, it takes 13 steps (always satisfying to see two different programs being consistent!) and they are below. Note they have the same path.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Javier Ordonez/Kimberly Peters and Amanda Brass starred in PRND&lt;/li&gt;
-  &lt;li&gt;Amanda Brass and Michael Bayouth starred in Park Reverse Neutral Drive, PRND (Director’s cut)&lt;/li&gt;
-  &lt;li&gt;Michael Bayouth and Brandy Bourdeaux starred in Grease Trek&lt;/li&gt;
-  &lt;li&gt;Brandy Bourdeaux and Kim Beuché starred in Murder Inside of Me&lt;/li&gt;
-  &lt;li&gt;Kim Beuché and Ed Baccari starred in Island, Alicia&lt;/li&gt;
-  &lt;li&gt;Ed Baccari and Aida Angotti starred in Late Watch&lt;/li&gt;
-  &lt;li&gt;Aida Angotti and Lamont Copeland starred in Bottom Out&lt;/li&gt;
-  &lt;li&gt;Lamont Copeland and Ashley Marie Arnold starred in Eye Was Blind&lt;/li&gt;
-  &lt;li&gt;Ashley Marie Arnold and Sid Bernstein starred in The Rodnees: We Mod Like Dat!&lt;/li&gt;
-  &lt;li&gt;Sid Bernstein and Chuck Berry starred in The Beatles: The Lost Concert&lt;/li&gt;
-  &lt;li&gt;Chuck Berry and Eric Clapton starred in Chuck Berry Hail! Hail! Rock ‘n’ Roll&lt;/li&gt;
-  &lt;li&gt;Eric Clapton and Tom Cruise starred in Close Up&lt;/li&gt;
-  &lt;li&gt;Tom Cruise and Kevin Bacon starred in A Few Good Men&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><summary type="html">I create a table of actors and their bacon numbers using recursion in SQL. The largest finite bacon number is 13.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">I begin the hyper-parameter optimisations. I started by looking at n_estimators in the Random Forest model. The first attempt to determine which value was the best produced a surprising range of performances, so I delved further to better understand how the performance can depend on the folds.</summary></entry></feed>
