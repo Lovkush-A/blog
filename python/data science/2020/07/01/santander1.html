@@ -3,19 +3,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Credit Card Fraud, Part VI, Summary and Lessons from Kaggle | Lovkush Agarwal</title>
+<title>Santander Dataset, Part I | Lovkush Agarwal</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Credit Card Fraud, Part VI, Summary and Lessons from Kaggle" />
+<meta property="og:title" content="Santander Dataset, Part I" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="I end this project by summarising what I did and summarising what I learnt by having a look at other people’s examples on Kaggle." />
-<meta property="og:description" content="I end this project by summarising what I did and summarising what I learnt by having a look at other people’s examples on Kaggle." />
+<meta name="description" content="I start a new project modelling another Kaggle dataset. To start things off, I create some default models, to establish a starting point for future models." />
+<meta property="og:description" content="I start a new project modelling another Kaggle dataset. To start things off, I create some default models, to establish a starting point for future models." />
 <link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html" />
 <meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html" />
 <meta property="og:site_name" content="Lovkush Agarwal" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-07-01T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"I end this project by summarising what I did and summarising what I learnt by having a look at other people’s examples on Kaggle.","@type":"BlogPosting","headline":"Credit Card Fraud, Part VI, Summary and Lessons from Kaggle","dateModified":"2020-07-01T00:00:00-05:00","datePublished":"2020-07-01T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html"},"@context":"https://schema.org"}</script>
+{"description":"I start a new project modelling another Kaggle dataset. To start things off, I create some default models, to establish a starting point for future models.","@type":"BlogPosting","headline":"Santander Dataset, Part I","dateModified":"2020-07-01T00:00:00-05:00","datePublished":"2020-07-01T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -28,19 +28,19 @@
 
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Credit Card Fraud, Part VI, Summary and Lessons from Kaggle | Lovkush Agarwal</title>
+<title>Santander Dataset, Part I | Lovkush Agarwal</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Credit Card Fraud, Part VI, Summary and Lessons from Kaggle" />
+<meta property="og:title" content="Santander Dataset, Part I" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="I end this project by summarising what I did and summarising what I learnt by having a look at other people’s examples on Kaggle." />
-<meta property="og:description" content="I end this project by summarising what I did and summarising what I learnt by having a look at other people’s examples on Kaggle." />
+<meta name="description" content="I start a new project modelling another Kaggle dataset. To start things off, I create some default models, to establish a starting point for future models." />
+<meta property="og:description" content="I start a new project modelling another Kaggle dataset. To start things off, I create some default models, to establish a starting point for future models." />
 <link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html" />
 <meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html" />
 <meta property="og:site_name" content="Lovkush Agarwal" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-07-01T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"I end this project by summarising what I did and summarising what I learnt by having a look at other people’s examples on Kaggle.","@type":"BlogPosting","headline":"Credit Card Fraud, Part VI, Summary and Lessons from Kaggle","dateModified":"2020-07-01T00:00:00-05:00","datePublished":"2020-07-01T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html"},"@context":"https://schema.org"}</script>
+{"description":"I start a new project modelling another Kaggle dataset. To start things off, I create some default models, to establish a starting point for future models.","@type":"BlogPosting","headline":"Santander Dataset, Part I","dateModified":"2020-07-01T00:00:00-05:00","datePublished":"2020-07-01T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -101,13 +101,13 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Credit Card Fraud, Part VI, Summary and Lessons from Kaggle</h1><p class="page-description">I end this project by summarising what I did and summarising what I learnt by having a look at other people's examples on Kaggle.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-07-01T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Santander Dataset, Part I</h1><p class="page-description">I start a new project modelling another Kaggle dataset. To start things off, I create some default models, to establish a starting point for future models.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-07-01T00:00:00-05:00" itemprop="datePublished">
         Jul 1, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      3 min read
     
 </span></p>
 
@@ -140,14 +140,9 @@ window.onload = wrap_img;
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#next-steps">Next steps</a></li>
-<li class="toc-entry toc-h2"><a href="#summaries">Summaries</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#part-i">Part I</a></li>
-</ul>
-</li>
 </ul><h2 id="introduction">
 <a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
-<p>I have started a new project. I had another look at the Kaggle datasets and chose <a href="">this Santander</a> dataset. The data is (superficially?) similar to that from the Credit Card Fraud dataset I have previously analysed: the data is clean, all numerical, and the task is to create a binary classifier.  A big difference is that this Santander dataset has 200 features, whereas the Credit Card Fraud one had only ?? features. I presume this will make a difference (maybe I have to do some feature selection?), but I guess I will find out soon! Another difference is that we have two datasets: a training dataset on which we should create our models, and a testing dataset on which we use our models to make predictions which are then submitted to Kaggle.</p>
+<p>I have started a new project. I had another look at the Kaggle datasets and chose <a href="https://www.kaggle.com/c/santander-customer-transaction-prediction">this Santander</a> dataset. The data is (superficially?) similar to that from the Credit Card Fraud dataset I have previously analysed: the data is clean, all numerical, and the task is to create a binary classifier.  A big difference is that this Santander dataset has 200 features, whereas the Credit Card Fraud one had only 30 features. I presume this will make a difference (maybe I have to do some feature selection?), but I guess I will find out soon! Another difference is that we have two datasets: a training dataset on which we should create our models, and a testing dataset on which we use our models to make predictions which are then submitted to Kaggle.</p>
 
 <p>Like with the credit card fraud project, I will start this one by creating some default models, and hopefully gain some ideas on how I ought to progress.</p>
 
@@ -170,26 +165,26 @@ This does even worse! I guess this should be expected of decision trees. It is a
 <h3 id="knn">
 <a class="anchor" href="#knn" aria-hidden="true"><span class="octicon octicon-link"></span></a>kNN</h3>
 <p><img src="/blog/images/santander1_knn.png" alt="">
-This also does poorly. However, I recently started reading <a href="">Elements of Statistical Learning</a> and it describes the ‘curse of dimensionality’, so I am not surprised by this low performance. Roughly, if you have many features, the nearest neighbours of a point are unlikely to be close to the point, and so not representative of that point.</p>
+This also does poorly. However, I recently started reading <a href="https://web.stanford.edu/~hastie/ElemStatLearn/">Elements of Statistical Learning</a> and it describes the ‘curse of dimensionality’, so I am not surprised by this low performance. Roughly, if you have many features, the nearest neighbours of a point are unlikely to be close to the point, and so not representative of that point.</p>
 
 <h3 id="xgboost">
 <a class="anchor" href="#xgboost" aria-hidden="true"><span class="octicon octicon-link"></span></a>XGboost</h3>
-<p><a href="/blog/images/santander1_xgb.png"></a>
+<p><img src="/blog/images/santander1_xgb.png" alt="">
 This has basically the same PRC as logistic regression, and much worse than what was achieved in the default credit card dataset.</p>
 
 <h3 id="svm">
 <a class="anchor" href="#svm" aria-hidden="true"><span class="octicon octicon-link"></span></a>SVM</h3>
-<p><a href="/blog/images/santander1_svm.png"></a>
+<p><img src="/blog/images/santander1_svm.png" alt="">
 And once again, a similar PRC to logistic regression and xgboost. Note that this one took a few hours to complete, so I will not be using these again for this project.</p>
 
 <h3 id="handmade-model">
 <a class="anchor" href="#handmade-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Handmade model</h3>
-<p><a href="/blog/images/santander1_handmade.png"></a>
-I used the same <a href="">handmade model</a> that I created in the credit card fraud project over here. As can be seen, this performance is in between the worst so far (decision tree and knn) and the best so far (xgboost, regression, svm). To me, this suggests that main issue is not with the number of features, but that maybe the dataset itself is difficult to work with and that it is hard to distinguish between the two classes.</p>
+<p><img src="/blog/images/santander1_handmade.png" alt="">
+I used the same <a href="/blog/2020/05/19/creditcard3.html">handmade model</a> that I created in the credit card fraud project over here. As can be seen, this performance is in between the worst so far (decision tree and knn) and the best so far (xgboost, regression, svm). To me, this suggests that main issue is not with the number of features, but that maybe the dataset itself is difficult to work with and that it is hard to distinguish between the two classes.</p>
 
 <h3 id="random-model">
 <a class="anchor" href="#random-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Random model</h3>
-<p><a href="/blog/images/santander1_random.png"></a>
+<p><img src="/blog/images/santander1_random.png" alt="">
 Based on all these graphs above, it was clear I had misunderstood something basic about the PRC graph. I believed that the worst case scenario for this curve was a straight line joining the two corners, and initially thought that these models were doing either worse or just as good as a random model. After thinking for a bit, I realised my mis-understanding. To confirm my feelings, I created a purely random model and the PRC is above. This curve makes sense: we get a straight line with a precision of 0.1 because 10% of the data has a target value of 1. If you’re just making random guesses, then you should expect that 10% of the predicted positive cases are truly positive, i.e., you should expect to get a precision of 0.1.</p>
 
 <p>I think this misunderstanding arose because I got mixed up with ROC curves, in which a random model does produce a straight line.</p>
@@ -197,16 +192,6 @@ Based on all these graphs above, it was clear I had misunderstood something basi
 <h2 id="next-steps">
 <a class="anchor" href="#next-steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next steps</h2>
 <p>I will try to improve the models by doing some feature selection.</p>
-
-<h2 id="summaries">
-<a class="anchor" href="#summaries" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summaries</h2>
-<h3 id="part-i">
-<a class="anchor" href="#part-i" aria-hidden="true"><span class="octicon octicon-link"></span></a>Part I</h3>
-<p>In Part I, I described the framework and created the first set of models using default settings. I tried logistic regression, decision tree, random forest and xgboost models, and they respectively achieved an AUPRC of 0.616, 0.746, 0.842 and 0.856. Since then, I have learnt about more models and if I were to do this project again, I would also have included a support vector machine model and a k-nearest-neighbour model.</p>
-
-<p><img src="/blog/images/creditcard_1_logistic.png" alt="">
-Many of the examples (including the most upvoted <a href="https://www.kaggle.com/janiobachmann/credit-fraud-dealing-with-imbalanced-datasets/notebook">example</a>!) use AUROC instead of AUPRC. The main reason this surprised me is that the description of the dataset recommended using AUPRC; I suppose there was an advantage to not knowing much before hand! The second reason this surprised me is that AUPRC is a more informative measure than AUROC for unbalanced data. I try to explain why.</p>
-
 
   </div><a class="u-url" href="/blog/python/data%20science/2020/07/01/santander1.html" hidden></a>
 </article>
