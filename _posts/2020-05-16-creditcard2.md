@@ -1,6 +1,9 @@
 ---
+toc: true
 layout: post
-title: Investigating Credit Card Fraud, Part II
+description: I see what happens if I remove entries from the dataset. The hope is that it reduces the time needed to create the models with too much reduction in performance.
+categories: [python, data science]
+title: Investigating Credit Card Fraud, Part II, Removing data
 ---
 
 I carry on my investigation into the [Kaggle Credit Card Fraud](https://www.kaggle.com/mlg-ulb/creditcardfraud) dataset by seeing what happens if I remove entries from the dataset. The hope is that it reduces the time needed to create the models without drastically reducing the effectiveness of the models.
@@ -70,7 +73,7 @@ The next steps will be to do some hyper-parameter optimisations. But before that
 ## The code
 Below is the code to produce the XGBoost models and charts. The code for Random Forest is similar.
 
-```
+```python
 # import modules
 import numpy as np
 import pandas as pd
