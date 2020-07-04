@@ -3,19 +3,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Investigating Credit Card Fraud, Part I | Lovkush Agarwal</title>
+<title>Investigating Credit Card Fraud, Part I, First Models | Lovkush Agarwal</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Investigating Credit Card Fraud, Part I" />
+<meta property="og:title" content="Investigating Credit Card Fraud, Part I, First Models" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included." />
 <meta property="og:description" content="I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included." />
-<link rel="canonical" href="https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html" />
-<meta property="og:url" content="https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html" />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/05/14/creditcard1.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/05/14/creditcard1.html" />
 <meta property="og:site_name" content="Lovkush Agarwal" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-05-14T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included.","@type":"BlogPosting","headline":"Investigating Credit Card Fraud, Part I","dateModified":"2020-05-14T00:00:00-05:00","datePublished":"2020-05-14T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html"},"@context":"https://schema.org"}</script>
+{"description":"I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included.","@type":"BlogPosting","headline":"Investigating Credit Card Fraud, Part I, First Models","dateModified":"2020-05-14T00:00:00-05:00","datePublished":"2020-05-14T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/2020/05/14/creditcard1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/05/14/creditcard1.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -28,19 +28,19 @@
 
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Investigating Credit Card Fraud, Part I | Lovkush Agarwal</title>
+<title>Investigating Credit Card Fraud, Part I, First Models | Lovkush Agarwal</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Investigating Credit Card Fraud, Part I" />
+<meta property="og:title" content="Investigating Credit Card Fraud, Part I, First Models" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included." />
 <meta property="og:description" content="I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included." />
-<link rel="canonical" href="https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html" />
-<meta property="og:url" content="https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html" />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/05/14/creditcard1.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/05/14/creditcard1.html" />
 <meta property="og:site_name" content="Lovkush Agarwal" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-05-14T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included.","@type":"BlogPosting","headline":"Investigating Credit Card Fraud, Part I","dateModified":"2020-05-14T00:00:00-05:00","datePublished":"2020-05-14T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/2020/05/14/creditcard1.html"},"@context":"https://schema.org"}</script>
+{"description":"I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included.","@type":"BlogPosting","headline":"Investigating Credit Card Fraud, Part I, First Models","dateModified":"2020-05-14T00:00:00-05:00","datePublished":"2020-05-14T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/2020/05/14/creditcard1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/05/14/creditcard1.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -101,7 +101,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Investigating Credit Card Fraud, Part I</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-14T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Investigating Credit Card Fraud, Part I, First Models</h1><p class="page-description">I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-14T00:00:00-05:00" itemprop="datePublished">
         May 14, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -112,13 +112,59 @@ window.onload = wrap_img;
 </span></p>
 
     
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
+        
+      
+      </p>
+    
 
     </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included.</p>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
+<li class="toc-entry toc-h2"><a href="#quick-personal-background">Quick Personal Background</a></li>
+<li class="toc-entry toc-h2"><a href="#first-steps">First steps</a></li>
+<li class="toc-entry toc-h2"><a href="#auprc">AUPRC</a></li>
+<li class="toc-entry toc-h2"><a href="#enough-text-time-for-pictures">Enough text, time for pictures</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#basic-model">Basic model</a></li>
+<li class="toc-entry toc-h3"><a href="#logistic-regression">Logistic Regression</a></li>
+<li class="toc-entry toc-h3"><a href="#decision-tree">Decision Tree</a></li>
+<li class="toc-entry toc-h3"><a href="#random-forest">Random Forest</a></li>
+<li class="toc-entry toc-h3"><a href="#xgboost">XGBoost</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#next-steps">Next steps</a></li>
+<li class="toc-entry toc-h2"><a href="#the-code">The code</a></li>
+</ul><h2 id="other-posts-in-series">
+<a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
 
-<h2 id="quick-personal-background">Quick Personal Background</h2>
+<ul>
+  <li>
+    <p><a href="/blog/python/data%20science/2020/06/25/creditcard6.html">Credit Card Fraud, Part VI, Summary and Lessons from Kaggle</a></p>
+  </li>
+  <li>
+    <p><a href="/blog/2020/05/30/creditcard5.html">Investigating Credit Card Fraud, Part V</a></p>
+  </li>
+  <li>
+    <p><a href="/blog/2020/05/29/creditcard4.html">Investigating Credit Card Fraud, Part IV</a></p>
+  </li>
+  <li>
+    <p><a href="/blog/2020/05/19/creditcard3.html">Investigating Credit Card Fraud, Part III</a></p>
+  </li>
+  <li>
+    <p><a href="/blog/python/data%20science/2020/05/16/creditcard2.html">Investigating Credit Card Fraud, Part II, Removing data</a></p>
+  </li>
+</ul>
+
+<h2 id="quick-personal-background">
+<a class="anchor" href="#quick-personal-background" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick Personal Background</h2>
 <p>I have been studying programming and data science using various resources. The main resources I have used so far, for data science specifically, are the <a href="https://www.kaggle.com/learn/overview">Kaggle Courses</a>.  I have completed:</p>
 
 <ul>
@@ -130,14 +176,16 @@ window.onload = wrap_img;
 
 <p>Following the advice I have read in numerous places, I decided I should try to do some data science of my own - not just follow some exercises. I skimmed through the Kaggle datasets, and <a href="https://www.kaggle.com/mlg-ulb/creditcardfraud">this dataset</a> on credit card fraud caught my fancy, so I jumped right in!</p>
 
-<h2 id="first-steps">First steps</h2>
+<h2 id="first-steps">
+<a class="anchor" href="#first-steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>First steps</h2>
 <p>In the description, it said that there are 284807 transactions with only 492 labelled as fraudulent. The task is to create a model to predict which transactions are fraudulent. The description also said that because the percentage of fraudulent cases is so small, it is best to use “AUPRC”, Area Under the Precision-Recall Curve, to evaluate the model. I had not heard of this yet so I did some Googling.</p>
 
 <p>I found <a href="https://machinelearningmastery.com/roc-curves-and-precision-recall-curves-for-classification-in-python/">this blog post</a> by Jason Brownlee, which explained what AUPRC is with some examples. This was helpful and I used the same packages he did.</p>
 
 <p>Before going onto AUPRC and my models, I should say that there was no need to do any data cleaning for this dataset. It had already been cleaned and the data has been anonymised via a PCA. Again, I have not studied this yet, but a brief skim of <a href="https://en.wikipedia.org/wiki/Principal_component_analysis">this wikipedia article</a> on PCAs gives me some basic insight. It looks neat actually - it replaces the original data with new data which captures the variation in the old data but in such a way that the features in the new data have minimal correlation between them. My intuition is that the less correlation there is between features, the better the models works. PCA is definitely something I need to look into more at some point!</p>
 
-<h2 id="auprc">AUPRC</h2>
+<h2 id="auprc">
+<a class="anchor" href="#auprc" aria-hidden="true"><span class="octicon octicon-link"></span></a>AUPRC</h2>
 <p>I will try to summarise the idea behind AUPRC.</p>
 <ol>
   <li>The framework.
@@ -156,7 +204,6 @@ window.onload = wrap_img;
   </li>
   <li>The Precision Recall curve
     <ul>
-      <li>For different values of <code class="highlighter-rouge">p</code>, we produce different precision-recall values. We plot these precision-recall values to produce the Precision Recall curve.</li>
       <li>When <code class="highlighter-rouge">p=1</code>, we are saying all transactions are not fraudulent (because you need to assign a probability greater than 1 in order it to be considered fraudulent, which is not possible). Therefore, there are no false positives so we have a precision of 1, but we have not found any of the fraudulent transactions, so the recall is 0.</li>
       <li>When <code class="highlighter-rouge">p=0</code>, we are saying all transactions are fraudulent. Therefore, all the fraudulent transactions are found so we have a recall of 1, but we have a huge number of false positives, so a precision almost equal to 0.</li>
       <li>As we vary <code class="highlighter-rouge">p</code> from 1 to 0, we move from the the coordinate (0,1) to (1,0), and we are hoping to get as close to the coordinate (1,1) as possible.</li>
@@ -172,45 +219,52 @@ window.onload = wrap_img;
   </li>
 </ol>
 
-<h2 id="enough-text-time-for-pictures">Enough text, time for pictures</h2>
+<h2 id="enough-text-time-for-pictures">
+<a class="anchor" href="#enough-text-time-for-pictures" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enough text, time for pictures</h2>
 <p>Below you will find the precision-recall charts for the various models that were created, along with their AUPRC metric.</p>
 
-<h3 id="basic-model">Basic model</h3>
+<h3 id="basic-model">
+<a class="anchor" href="#basic-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basic model</h3>
 <p>I started by creating a basic model, where it just assigns a probability of 0.1% for any transaction to be fraudulent.</p>
 
-<p><img src="/blog/images/creditcard_1_basic.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_1_basic.png" alt="image"></p>
 
 <p>As you can see from the chart and the AUPRC of 0.501, this model is poor. No surprises here, which I suppose is a good thing.</p>
 
-<h3 id="logistic-regression">Logistic Regression</h3>
+<h3 id="logistic-regression">
+<a class="anchor" href="#logistic-regression" aria-hidden="true"><span class="octicon octicon-link"></span></a>Logistic Regression</h3>
 <p>I have not studied logistic regression yet so I do not actually know what it does differently to linear regression. I decided to still use it because it is the model Jason Brownlee used in their example, and I wanted to follow their example before exploring on my own.</p>
 
-<p><img src="/blog/images/creditcard_1_logistic.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_1_logistic.png" alt="image"></p>
 
 <p>Huzzah! My first non-trivial AUC curve. The model can identify 60% of the fraudulent cases without too many false positives (roughly 20%). The precision falls dramatically if you try to increase the recall.</p>
 
-<h3 id="decision-tree">Decision Tree</h3>
+<h3 id="decision-tree">
+<a class="anchor" href="#decision-tree" aria-hidden="true"><span class="octicon octicon-link"></span></a>Decision Tree</h3>
 <p>Next I tried a Decision Tree model. (This is the first model taught in Kaggle).</p>
 
-<p><img src="/blog/images/creditcard_1_tree.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_1_tree.png" alt="image"></p>
 
 <p>Curve looks very simple, but it has actually extracted some information. It can identify ~75% of the fraudulent cases with a precision of roughly 0.75. I would argue this is better than the logistic regression, because the cost of fraud is greater than the cost of mis-identifying something as fraud.</p>
 
-<h3 id="random-forest">Random Forest</h3>
+<h3 id="random-forest">
+<a class="anchor" href="#random-forest" aria-hidden="true"><span class="octicon octicon-link"></span></a>Random Forest</h3>
 <p>Next I tried a Random Forest model. (This is the second model taught in Kaggle).</p>
 
-<p><img src="/blog/images/creditcard_1_forest.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_1_forest.png" alt="image"></p>
 
 <p>Woh! I was surprised by how good this is. 80% of the fraudulent cases identified with a precision of 95%!  Lets see if the infamous XGBoost can do better.</p>
 
-<h3 id="xgboost">XGBoost</h3>
+<h3 id="xgboost">
+<a class="anchor" href="#xgboost" aria-hidden="true"><span class="octicon octicon-link"></span></a>XGBoost</h3>
 <p>Drum roll please…</p>
 
-<p><img src="/blog/images/creditcard_1_xgb.png" alt="image" /></p>
+<p><img src="/blog/images/creditcard_1_xgb.png" alt="image"></p>
 
 <p>Looks very similar to the random forest model. I do not know if this is surprising or not - hopefully I will get more intuition for these kind of things with more practice.</p>
 
-<h2 id="next-steps">Next steps</h2>
+<h2 id="next-steps">
+<a class="anchor" href="#next-steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next steps</h2>
 <p>There are various things I would like to try.</p>
 <ul>
   <li>Exploring the data a bit and creating a crude handmade model. Something like find the average of Xi in fraudulent cases and in non-fraudulent cases. Then the probability of being fraudulent is determined by whether you are closer to the fraudulent means than the non-fraudulent means.</li>
@@ -220,55 +274,56 @@ window.onload = wrap_img;
   <li>After I have done my own investigations, find out what other people did.</li>
 </ul>
 
-<h2 id="the-code">The code</h2>
+<h2 id="the-code">
+<a class="anchor" href="#the-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>The code</h2>
 <p>Below is the code to produce the XGBoost model. The code for other models is identical but with ‘XGB’ replaced as appropriate. (At some point in future, I will use for loops to loop through the models.)</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># import modules
-import numpy as np
-import pandas as pd
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># import modules
+</span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
 
-from sklearn.model_selection import train_test_split
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 
-from sklearn.metrics import precision_recall_curve
-from sklearn.metrics import auc
-from matplotlib import pyplot
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_recall_curve</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">auc</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
 
-from sklearn.linear_model import LogisticRegression
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier
-from xgboost import XGBClassifier
-
-
-
-# create test validation split
-y = data.Class
-X = data.drop(['Class'], axis = 1)
-Xt, Xv, yt, yv = train_test_split(X,y, random_state=0)
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBClassifier</span>
 
 
 
-# create model and predictions
-model_xgb = XGBClassifier(random_state = 0)
-model_xgb.fit(Xt, yt)
-predictions_xgb = model_xgb.predict_proba(Xv)
-predictions_xgb = predictions_xgb[:,1]
+<span class="c1"># create test validation split
+</span><span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">Class</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s">'Class'</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Xt</span><span class="p">,</span> <span class="n">Xv</span><span class="p">,</span> <span class="n">yt</span><span class="p">,</span> <span class="n">yv</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-# calculate precision, recall and AUC
-xgb_precision, xgb_recall, _ = precision_recall_curve(yv, predictions_xgb)
-xgb_auc = auc(xgb_recall, xgb_precision)
 
-# plot precision recall curve
-pyplot.plot(xgb_recall, xgb_precision, marker='.', label='basic')
-pyplot.xlabel('Recall')
-pyplot.ylabel('Precision')
-pyplot.title(f'XGBoost model. AUC ={xgb_auc:.3f}')
-pyplot.savefig('creditcard_1_xgb.png')
+
+<span class="c1"># create model and predictions
+</span><span class="n">model_xgb</span> <span class="o">=</span> <span class="n">XGBClassifier</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">model_xgb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span> <span class="n">yt</span><span class="p">)</span>
+<span class="n">predictions_xgb</span> <span class="o">=</span> <span class="n">model_xgb</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">Xv</span><span class="p">)</span>
+<span class="n">predictions_xgb</span> <span class="o">=</span> <span class="n">predictions_xgb</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># calculate precision, recall and AUC
+</span><span class="n">xgb_precision</span><span class="p">,</span> <span class="n">xgb_recall</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">precision_recall_curve</span><span class="p">(</span><span class="n">yv</span><span class="p">,</span> <span class="n">predictions_xgb</span><span class="p">)</span>
+<span class="n">xgb_auc</span> <span class="o">=</span> <span class="n">auc</span><span class="p">(</span><span class="n">xgb_recall</span><span class="p">,</span> <span class="n">xgb_precision</span><span class="p">)</span>
+
+<span class="c1"># plot precision recall curve
+</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xgb_recall</span><span class="p">,</span> <span class="n">xgb_precision</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">'.'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">'basic'</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">'Recall'</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">'Precision'</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">f</span><span class="s">'XGBoost model. AUC ={xgb_auc:.3f}'</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s">'creditcard_1_xgb.png'</span><span class="p">)</span>
 
 
 </code></pre></div></div>
 
 
-  </div><a class="u-url" href="/blog/2020/05/14/creditcard1.html" hidden></a>
+  </div><a class="u-url" href="/blog/python/data%20science/2020/05/14/creditcard1.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
