@@ -1,9 +1,17 @@
 ---
+toc: true
 layout: post
-title: Investigating Credit Card Fraud, Part I
+description: I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included.
+categories: [python, data science]
+title: Investigating Credit Card Fraud, Part I, First Models
 ---
 
-I present my initial attempts at predicting credit card fraud using a Kaggle dataset. Charts and code are included.
+## Other posts in series
+{% for post in site.posts %}
+{% if (post.title contains "Credit Card Fraud") and (post.title != page.title) %}
+* [{{ post.title }}]({{ site.baseurl }}{{ post.url }})
+{% endif %}
+{% endfor %}
 
 
 ## Quick Personal Background
@@ -40,7 +48,6 @@ I will try to summarise the idea behind AUPRC.
     * A perfect model has a precision and a recall of 1. This is not possible and we need to make a trade-off between them. This trade-off is achieved by varying the threshold probability ```p```.
 
 3. The Precision Recall curve
-    * For different values of ```p```, we produce different precision-recall values. We plot these precision-recall values to produce the Precision Recall curve.
     * When ```p=1```, we are saying all transactions are not fraudulent (because you need to assign a probability greater than 1 in order it to be considered fraudulent, which is not possible). Therefore, there are no false positives so we have a precision of 1, but we have not found any of the fraudulent transactions, so the recall is 0.
     * When ```p=0```, we are saying all transactions are fraudulent. Therefore, all the fraudulent transactions are found so we have a recall of 1, but we have a huge number of false positives, so a precision almost equal to 0.
     * As we vary ```p``` from 1 to 0, we move from the the coordinate (0,1) to (1,0), and we are hoping to get as close to the coordinate (1,1) as possible.
@@ -105,7 +112,7 @@ There are various things I would like to try.
 ## The code
 Below is the code to produce the XGBoost model. The code for other models is identical but with 'XGB' replaced as appropriate. (At some point in future, I will use for loops to loop through the models.)
 
-```
+```python
 # import modules
 import numpy as np
 import pandas as pd
