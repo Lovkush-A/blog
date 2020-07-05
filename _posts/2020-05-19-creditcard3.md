@@ -1,18 +1,17 @@
 ---
+toc: true
 layout: post
-title: Investigating Credit Card Fraud, Part III
+description: I create a simple hand-made model by just asking how many features are closer to the fraudulent mean than to the non-fraudulent mean. This achieves an AUC of 0.68.
+categories: [python, data science]
+title: Investigating Credit Card Fraud, Part III, Handmade Model
 ---
-
-I create a simple hand-made model for the [Kaggle Credit Card Fraud](https://www.kaggle.com/mlg-ulb/creditcardfraud), by just asking how many features are closer to the fraudulent mean than to the non-fraudulent mean. This achieves an AUC of 0.68.
-
 
 ## Other posts in series
 {% for post in site.posts %}
 {% if (post.title contains "Credit Card Fraud") and (post.title != page.title) %}
-* [{{ post.title }}]({{ post.url }})
+* [{{ post.title }}]({{ site.baseurl }}{{ post.url }})
 {% endif %}
 {% endfor %}
-
 
 
 ## The hand-made model
@@ -46,7 +45,7 @@ Doing this hands-on modelling has been quite satisfying. Though Random Forests a
 
 
 ## The code
-```
+```python
 # import modules
 import numpy as np
 import pandas as pd

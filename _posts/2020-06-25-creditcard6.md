@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: I end this project by summarising what I did and summarising what I learnt by having a look at other people's examples on Kaggle.
 categories: [python, data science]
-title: Credit Card Fraud, Part VI, Summary and Lessons from Kaggle
+title:Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle
 image: "images/creditcard_6_xgb_roc2.png"
 ---
 ## Summaries

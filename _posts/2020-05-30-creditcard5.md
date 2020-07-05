@@ -1,15 +1,17 @@
 ---
+toc: true
 layout: post
-title: Investigating Credit Card Fraud, Part V
+description: I complete the hyper-parameter optimisations for the random forest and xgboost models. I then create a final model using these values to produce AUCs of 0.852 and 0.872.
+categories: [python, data science]
+title: Investigating Credit Card Fraud, Part V, Final Models
 ---
 
-I complete the hyper-parameter optimisations for the random forest and xgboost models. I then create a final model using these values to produce AUCs of 0.852 and 0.872.
 
 
 ## Other posts in series
 {% for post in site.posts %}
 {% if (post.title contains "Credit Card Fraud") and (post.title != page.title) %}
-* [{{ post.title }}]({{ post.url }})
+* [{{ post.title }}]({{ site.baseurl }}{{ post.url }})
 {% endif %}
 {% endfor %}
 
@@ -133,7 +135,7 @@ My next blog post will be the final one in this series. I will summarise what I 
 
 ## The code
 The code is provided for the Random Forest optimisation. The code for XGBoost is similar.
-```
+```python
 # import modules
 import numpy as np
 import pandas as pd

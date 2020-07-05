@@ -1,15 +1,15 @@
 ---
+toc: true
 layout: post
-title: Investigating Credit Card Fraud, Part IV
+description: I begin the hyper-parameter optimisations. The first attempt to optimise `n_estimators` had a surprising range of performances, so I delved further to better understand how the performance depends on the folds.
+categories: [python, data science]
+title: Investigating Credit Card Fraud, Part IV, `n_estimators`
 ---
-
-I begin the hyper-parameter optimisations. I started by looking at `n_estimators` in the Random Forest model. The first attempt to determine which value was the best produced a surprising range of performances, so I delved further to better understand how the performance can depend on the folds.
-
 
 ## Other posts in series
 {% for post in site.posts %}
 {% if (post.title contains "Credit Card Fraud") and (post.title != page.title) %}
-* [{{ post.title }}]({{ post.url }})
+* [{{ post.title }}]({{ site.baseurl }}{{ post.url }})
 {% endif %}
 {% endfor %}
 
@@ -69,7 +69,7 @@ Next time, I will complete the hyper-parameter optimisations and present my fina
 
 
 ## The code for first attempt
-```
+```python
 #create train-valid versus test split
 Xtv, X_test, ytv, y_test = train_test_split(X,y, random_state=0, test_size=0.2)
 
@@ -116,7 +116,7 @@ for n_estimator in n_estimators:
 ```
 
 ## Code for second attempt
-```
+```python
 # create list of n_estimators for RandomForest
 n_estimators = [10, 50, 100, 200, 500]
 

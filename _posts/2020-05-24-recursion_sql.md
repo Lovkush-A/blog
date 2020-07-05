@@ -1,18 +1,17 @@
 ---
+toc: true
 layout: post
+description: I create a table of actors and their [bacon numbers](https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon#Bacon_numbers) using recursion in SQL. The largest finite bacon number is 13.
+categories: [sql, python]
 title: Bacon numbers via Recursive SQL
 ---
-
-I create a table of actors and their [bacon numbers](https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon#Bacon_numbers) using recursion in SQL. The largest finite bacon number is 13.
-
-
 
 
 
 ## SQL in Python
 I ran the SQL commands in Python using the module sqlite3. I used [this article](https://swcarpentry.github.io/sql-novice-survey/10-prog/index.html) to help me set it all up. Below is the code to run queries on the database *movies.db* in python.
 
-```
+```python
     import sqlite3
 
     def run_sql(query):
@@ -31,7 +30,7 @@ I ran the SQL commands in Python using the module sqlite3. I used [this article]
 ## Understanding the database
 The data is in the form of a database, *movies.db*, and was obtained from the online course [CS50](https://cs50.harvard.edu/x/2020/psets/7/movies/), which in turn was obtained from imdb. To find out the structure of the tables in the database, I ran the following code (obtained from [stackoverflow](https://stackoverflow.com/questions/305378/list-of-tables-db-schema-dump-etc-using-the-python-sqlite3-api)).
 
-```
+```python
     def produce_schema():
         sql = "SELECT name FROM sqlite_master WHERE type = 'table';"
         tables = run_sql(sql)
@@ -60,7 +59,7 @@ Kevin Bacon has an id of 102, found by running the query `SELECT id FROM people 
 To understand recursion in SQL, I recommend [this guide](https://www.essentialsql.com/recursive-ctes-explained/) which explains recursion and how to use recursion in SQL, and then the [SQLite documentation](https://www.sqlite.org/lang_with.html) to better understand some implementation details and what options are available to you.
 
 The query I created to produce the table of bacon numbers is:
-```
+```sql
     WITH RECURSIVE
      costars(id1, id2) AS
      ( 
