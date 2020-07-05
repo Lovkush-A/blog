@@ -68,7 +68,7 @@ Next time, I will complete the hyper-parameter optimisations and present my fina
 
 
 
-## The code for first attempt
+## Code for first attempt
 ```python
 #create train-valid versus test split
 Xtv, X_test, ytv, y_test = train_test_split(X,y, random_state=0, test_size=0.2)
