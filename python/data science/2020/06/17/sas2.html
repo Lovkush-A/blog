@@ -9,13 +9,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="In this post, I describe the cleaning I did on the data." />
 <meta property="og:description" content="In this post, I describe the cleaning I did on the data." />
-<link rel="canonical" href="https://lovkush-a.github.io/blog/2020/06/17/sas2.html" />
-<meta property="og:url" content="https://lovkush-a.github.io/blog/2020/06/17/sas2.html" />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/17/sas2.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/06/17/sas2.html" />
 <meta property="og:site_name" content="Lovkush Agarwal" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-06-17T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"In this post, I describe the cleaning I did on the data.","@type":"BlogPosting","headline":"Stop and Search, Part II, Data Cleaning","dateModified":"2020-06-17T00:00:00-05:00","datePublished":"2020-06-17T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/2020/06/17/sas2.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/2020/06/17/sas2.html"},"@context":"https://schema.org"}</script>
+{"description":"In this post, I describe the cleaning I did on the data.","@type":"BlogPosting","headline":"Stop and Search, Part II, Data Cleaning","dateModified":"2020-06-17T00:00:00-05:00","datePublished":"2020-06-17T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/2020/06/17/sas2.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/06/17/sas2.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -34,13 +34,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="In this post, I describe the cleaning I did on the data." />
 <meta property="og:description" content="In this post, I describe the cleaning I did on the data." />
-<link rel="canonical" href="https://lovkush-a.github.io/blog/2020/06/17/sas2.html" />
-<meta property="og:url" content="https://lovkush-a.github.io/blog/2020/06/17/sas2.html" />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/17/sas2.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/06/17/sas2.html" />
 <meta property="og:site_name" content="Lovkush Agarwal" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-06-17T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"In this post, I describe the cleaning I did on the data.","@type":"BlogPosting","headline":"Stop and Search, Part II, Data Cleaning","dateModified":"2020-06-17T00:00:00-05:00","datePublished":"2020-06-17T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/2020/06/17/sas2.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/2020/06/17/sas2.html"},"@context":"https://schema.org"}</script>
+{"description":"In this post, I describe the cleaning I did on the data.","@type":"BlogPosting","headline":"Stop and Search, Part II, Data Cleaning","dateModified":"2020-06-17T00:00:00-05:00","datePublished":"2020-06-17T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/2020/06/17/sas2.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/06/17/sas2.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -101,7 +101,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Stop and Search, Part II, Data Cleaning</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-17T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Stop and Search, Part II, Data Cleaning</h1><p class="page-description">In this post, I describe the cleaning I did on the data.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-06-17T00:00:00-05:00" itemprop="datePublished">
         Jun 17, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -112,29 +112,47 @@ window.onload = wrap_img;
 </span></p>
 
     
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
+        
+      
+      </p>
+    
 
     </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>In this post, I describe the cleaning I did on the data.</p>
-
-<h2 id="other-posts-in-series">Other posts in series</h2>
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
+<li class="toc-entry toc-h2"><a href="#the-cleaning">The cleaning</a></li>
+<li class="toc-entry toc-h2"><a href="#ethnicity">Ethnicity</a></li>
+<li class="toc-entry toc-h2"><a href="#type">Type</a></li>
+<li class="toc-entry toc-h2"><a href="#outcome">Outcome</a></li>
+<li class="toc-entry toc-h2"><a href="#conclusion-and-thoughts">Conclusion and thoughts</a></li>
+</ul><h2 id="other-posts-in-series">
+<a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
 
 <ul>
   <li>
-    <p><a href="/python/data%20science/2020/06/22/sas3.html">Stop and Search, Part III, Data Analysis</a></p>
+    <p><a href="/blog/python/data%20science/2020/06/22/sas3.html">Stop and Search, Part III, Data Analysis</a></p>
   </li>
   <li>
-    <p><a href="/2020/06/15/sas1.html">Stop and Search, Part I, Data Collection</a></p>
+    <p><a href="/blog/python/data%20science/2020/06/15/sas1.html">Stop and Search, Part I, Data Collection</a></p>
   </li>
 </ul>
 
-<h2 id="the-cleaning">The cleaning</h2>
+<h2 id="the-cleaning">
+<a class="anchor" href="#the-cleaning" aria-hidden="true"><span class="octicon octicon-link"></span></a>The cleaning</h2>
 <p>I cleaned each column, one by one. Note I call the original frame <code class="highlighter-rouge">sas</code> and created a copy <code class="highlighter-rouge">sas_clean</code> in which I would do the cleaning.</p>
 
 <ul>
   <li>To see a list of all the columns, I ran the code <code class="highlighter-rouge">sas.columns</code>.</li>
-  <li>To investigate the distribution of values in a column (before and after cleaning), I would use the code <code class="highlighter-rouge">sas_clean.column.value_counts(dropna = False)</code></li>
+  <li>To investigate the distribution of values in a column (before and after cleaning), I would use the code <code class="highlighter-rouge">sas_clean.column.value_counts(dropna = False)</code>
+</li>
   <li>Some columns required no cleaning:
     <ul>
       <li>age_range</li>
@@ -153,7 +171,8 @@ window.onload = wrap_img;
   </li>
 </ul>
 
-<h2 id="ethnicity">Ethnicity</h2>
+<h2 id="ethnicity">
+<a class="anchor" href="#ethnicity" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ethnicity</h2>
 <p><code class="highlighter-rouge">officer_defined_ethnicity</code> was mostly clean. The distribution of values were:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>White    608092
 Black    259504
@@ -165,8 +184,8 @@ Mixed      2563
 
 <p>The only change I made was to combine mixed with other.</p>
 
-<p><br />
-<br />
+<p><br>
+<br>
 <code class="highlighter-rouge">self_defined_ethnicity</code> was less clean, and the distribution of values were:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>White - English/Welsh/Scottish/Northern Irish/British                                   475167
 Other ethnic group - Not stated                                                         154802
@@ -191,43 +210,43 @@ Other ethnic group - Arab                                                       
 </code></pre></div></div>
 
 <p>I decided to group these up according to the same categories used in <code class="highlighter-rouge">officer_defined_ethnicity</code>. This was done using <code class="highlighter-rouge">.replace</code>:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def simplify_eth(ethnicity):
-    if isinstance(ethnicity, float) or 'Not stated' in ethnicity:
-        return np.nan
-    elif 'Other' in ethnicity or 'Mixed' in ethnicity:
-        return 'Other'
-    elif 'Asian' in ethnicity:
-        return 'Asian'
-    elif 'Black' in ethnicity:
-        return 'Black'
-    elif 'White' in ethnicity:
-        return 'White'
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">simplify_eth</span><span class="p">(</span><span class="n">ethnicity</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ethnicity</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span> <span class="ow">or</span> <span class="s">'Not stated'</span> <span class="ow">in</span> <span class="n">ethnicity</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+    <span class="k">elif</span> <span class="s">'Other'</span> <span class="ow">in</span> <span class="n">ethnicity</span> <span class="ow">or</span> <span class="s">'Mixed'</span> <span class="ow">in</span> <span class="n">ethnicity</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">'Other'</span>
+    <span class="k">elif</span> <span class="s">'Asian'</span> <span class="ow">in</span> <span class="n">ethnicity</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">'Asian'</span>
+    <span class="k">elif</span> <span class="s">'Black'</span> <span class="ow">in</span> <span class="n">ethnicity</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">'Black'</span>
+    <span class="k">elif</span> <span class="s">'White'</span> <span class="ow">in</span> <span class="n">ethnicity</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">'White'</span>
 
-ethnicities = {eth: simplify_eth(eth) for eth in sas.self_defined_ethnicity.unique()}
-sas_clean = sas_clean.replace(to_replace = ethnicities)
+<span class="n">ethnicities</span> <span class="o">=</span> <span class="p">{</span><span class="n">eth</span><span class="p">:</span> <span class="n">simplify_eth</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span> <span class="k">for</span> <span class="n">eth</span> <span class="ow">in</span> <span class="n">sas</span><span class="o">.</span><span class="n">self_defined_ethnicity</span><span class="o">.</span><span class="n">unique</span><span class="p">()}</span>
+<span class="n">sas_clean</span> <span class="o">=</span> <span class="n">sas_clean</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="n">ethnicities</span><span class="p">)</span>
 </code></pre></div></div>
 
-<p><br />
-<br />
+<p><br>
+<br>
 Finally, I wanted to create a column <code class="highlighter-rouge">ethnicity</code> that combines these two columns. I started by renaming the other two columns, creating the new column, and filling it in with values where there is no disagreement between the officer defined and self defined ethnicity.</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sas_clean.rename(columns = {'self_defined_ethnicity': 'self',
-                            'officer_defined_ethnicity': 'officer'}, inplace = True)
-sas_clean['ethnicity'] = np.nan
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sas_clean</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s">'self_defined_ethnicity'</span><span class="p">:</span> <span class="s">'self'</span><span class="p">,</span>
+                            <span class="s">'officer_defined_ethnicity'</span><span class="p">:</span> <span class="s">'officer'</span><span class="p">},</span> <span class="n">inplace</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+<span class="n">sas_clean</span><span class="p">[</span><span class="s">'ethnicity'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
-# if officer and self agree, set ethnicity to either.
-indices = (sas_clean.officer == sas_clean.self)
-sas_clean.loc[indices, 'ethnicity'] = sas_clean.officer[indices]
+<span class="c1"># if officer and self agree, set ethnicity to either.
+</span><span class="n">indices</span> <span class="o">=</span> <span class="p">(</span><span class="n">sas_clean</span><span class="o">.</span><span class="n">officer</span> <span class="o">==</span> <span class="n">sas_clean</span><span class="o">.</span><span class="bp">self</span><span class="p">)</span>
+<span class="n">sas_clean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indices</span><span class="p">,</span> <span class="s">'ethnicity'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sas_clean</span><span class="o">.</span><span class="n">officer</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
 
-# if officer is null, set ethnicity to self, and vice versa
-indices = (sas_clean.officer.isnull())
-sas_clean.loc[indices, 'ethnicity'] = sas_clean.self[indices]
+<span class="c1"># if officer is null, set ethnicity to self, and vice versa
+</span><span class="n">indices</span> <span class="o">=</span> <span class="p">(</span><span class="n">sas_clean</span><span class="o">.</span><span class="n">officer</span><span class="o">.</span><span class="n">isnull</span><span class="p">())</span>
+<span class="n">sas_clean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indices</span><span class="p">,</span> <span class="s">'ethnicity'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sas_clean</span><span class="o">.</span><span class="bp">self</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
 
-indices = (sas_clean.self.isnull())
-sas_clean.loc[indices, 'ethnicity'] = sas_clean.officer[indices]
+<span class="n">indices</span> <span class="o">=</span> <span class="p">(</span><span class="n">sas_clean</span><span class="o">.</span><span class="bp">self</span><span class="o">.</span><span class="n">isnull</span><span class="p">())</span>
+<span class="n">sas_clean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indices</span><span class="p">,</span> <span class="s">'ethnicity'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sas_clean</span><span class="o">.</span><span class="n">officer</span><span class="p">[</span><span class="n">indices</span><span class="p">]</span>
 </code></pre></div></div>
 
-<p><br />
-<br />
+<p><br>
+<br>
 I created a column <code class="highlighter-rouge">conflicted</code> to list all the cases where the stated ethnicity differs:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sas_clean['conflicted'] = np.nan
 indices = (sas_clean.officer != sas_clean.self) &amp; (sas_clean.officer.notna()) &amp; (sas_clean.self.notna())
@@ -250,15 +269,15 @@ Other_Black       1764
 Asian_Black       1577
 </code></pre></div></div>
 
-<p><br />
-<br />
+<p><br>
+<br>
 To decide how to deal with this, I went back into the original <code class="highlighter-rouge">self_defined_ethnicity</code> to determine what the appropriate label ought to be.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for i in sas_clean.conflicted.unique():
-    print(i)
-    indices = (sas_clean.conflicted == i)
-    print(sas.loc[indices, 'self_defined_ethnicity'].value_counts())
-    print()
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sas_clean</span><span class="o">.</span><span class="n">conflicted</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">indices</span> <span class="o">=</span> <span class="p">(</span><span class="n">sas_clean</span><span class="o">.</span><span class="n">conflicted</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">sas</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">indices</span><span class="p">,</span> <span class="s">'self_defined_ethnicity'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+    <span class="k">print</span><span class="p">()</span>
 </code></pre></div></div>
 
 <p>A sample of the output is:</p>
@@ -290,7 +309,8 @@ NaN       40383
 Other     34738
 </code></pre></div></div>
 
-<h2 id="type">Type</h2>
+<h2 id="type">
+<a class="anchor" href="#type" aria-hidden="true"><span class="octicon octicon-link"></span></a>Type</h2>
 <p>There are 3 types of stop-and-search:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Person search                861870
 Person and Vehicle search    246976
@@ -311,7 +331,8 @@ Other      270
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sas_clean = sas_clean[sas_clean.type != 'Vehicle search']
 </code></pre></div></div>
 
-<h2 id="outcome">Outcome</h2>
+<h2 id="outcome">
+<a class="anchor" href="#outcome" aria-hidden="true"><span class="octicon octicon-link"></span></a>Outcome</h2>
 <p>Last, I cleaned the outcome column. The distribution of values were:</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A no further action disposal                                    675585
 Arrest                                                          126538
@@ -334,26 +355,26 @@ Suspected psychoactive substances seized - No further action        16
 
 <p>I decided to replace these with a numerical value, where 0 represents that the stop-and-search discovered nothing inappropriate, 1 represents a minor infringement with minimal action and 2 represents a major infringement with significant action.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>replacements = {'A no further action disposal': 0,
-               'Arrest': 2,
-               'False': 0,
-               'Community resolution': 1,
-               'Suspect arrested': 2,
-               'Khat or Cannabis warning': 1,
-               'Summons / charged by post': 2,
-               'Penalty Notice for Disorder': 2,
-               'Offender given drugs possession warning': 1,
-               'Local resolution': 1,
-               'Caution (simple or conditional)': 1,
-                'Suspect summonsed to court': 2,
-                'Offender given penalty notice': 2,
-                'Article found - Detailed outcome unavailable': 1,
-                'Offender cautioned': 1,
-                'Suspected psychoactive substances seized - No further action': 1
-               }
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">replacements</span> <span class="o">=</span> <span class="p">{</span><span class="s">'A no further action disposal'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+               <span class="s">'Arrest'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+               <span class="s">'False'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+               <span class="s">'Community resolution'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+               <span class="s">'Suspect arrested'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+               <span class="s">'Khat or Cannabis warning'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+               <span class="s">'Summons / charged by post'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+               <span class="s">'Penalty Notice for Disorder'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+               <span class="s">'Offender given drugs possession warning'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+               <span class="s">'Local resolution'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+               <span class="s">'Caution (simple or conditional)'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s">'Suspect summonsed to court'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s">'Offender given penalty notice'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s">'Article found - Detailed outcome unavailable'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s">'Offender cautioned'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s">'Suspected psychoactive substances seized - No further action'</span><span class="p">:</span> <span class="mi">1</span>
+               <span class="p">}</span>
 
-sas_clean['outcome'] = sas_clean.outcome.replace(to_replace = replacements)
-sas_clean.outcome.value_counts(dropna = False)
+<span class="n">sas_clean</span><span class="p">[</span><span class="s">'outcome'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sas_clean</span><span class="o">.</span><span class="n">outcome</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span> <span class="o">=</span> <span class="n">replacements</span><span class="p">)</span>
+<span class="n">sas_clean</span><span class="o">.</span><span class="n">outcome</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">dropna</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>The final distribution of values for outcomes is as follows:</p>
@@ -365,7 +386,8 @@ NaN     22090
 
 <p>It is surprising the the majority of stop-and-searches amount to nothing. It makes me wonder what the reasons for this are, and if there is a more efficient means of detecting the actual crimes with fewer false positives.</p>
 
-<h2 id="conclusion-and-thoughts">Conclusion and thoughts</h2>
+<h2 id="conclusion-and-thoughts">
+<a class="anchor" href="#conclusion-and-thoughts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion and thoughts</h2>
 <p>That is end of the cleaning and tomorrow I will try to illustrate the patterns in the data with appropriate charts.</p>
 
 <p>The two main lessons:</p>
@@ -374,7 +396,7 @@ NaN     22090
   <li>A data scientist has significant power to adjust the story, by grouping and cleaning the data differently. It seems that good practice is to be open about how you processed the data and to check how different choices affect the final results.</li>
 </ul>
 
-  </div><a class="u-url" href="/blog/2020/06/17/sas2.html" hidden></a>
+  </div><a class="u-url" href="/blog/python/data%20science/2020/06/17/sas2.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">

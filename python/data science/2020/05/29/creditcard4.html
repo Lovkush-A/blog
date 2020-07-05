@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Investigating Credit Card Fraud, Part IV, n_estimators | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Investigating Credit Card Fraud, Part IV, n_estimators" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I begin the hyper-parameter optimisations. The first attempt to optimise n_estimators had a surprising range of performances, so I delved further to better understand how the performance depends on the folds." />
+<meta property="og:description" content="I begin the hyper-parameter optimisations. The first attempt to optimise n_estimators had a surprising range of performances, so I delved further to better understand how the performance depends on the folds." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/05/29/creditcard4.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/05/29/creditcard4.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-29T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"I begin the hyper-parameter optimisations. The first attempt to optimise n_estimators had a surprising range of performances, so I delved further to better understand how the performance depends on the folds.","@type":"BlogPosting","headline":"Investigating Credit Card Fraud, Part IV, n_estimators","dateModified":"2020-05-29T00:00:00-05:00","datePublished":"2020-05-29T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/2020/05/29/creditcard4.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/05/29/creditcard4.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Investigating Credit Card Fraud, Part IV, n_estimators | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Investigating Credit Card Fraud, Part IV, n_estimators" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I begin the hyper-parameter optimisations. The first attempt to optimise n_estimators had a surprising range of performances, so I delved further to better understand how the performance depends on the folds." />
+<meta property="og:description" content="I begin the hyper-parameter optimisations. The first attempt to optimise n_estimators had a surprising range of performances, so I delved further to better understand how the performance depends on the folds." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/05/29/creditcard4.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/05/29/creditcard4.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-29T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"I begin the hyper-parameter optimisations. The first attempt to optimise n_estimators had a surprising range of performances, so I delved further to better understand how the performance depends on the folds.","@type":"BlogPosting","headline":"Investigating Credit Card Fraud, Part IV, n_estimators","dateModified":"2020-05-29T00:00:00-05:00","datePublished":"2020-05-29T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/2020/05/29/creditcard4.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/05/29/creditcard4.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Investigating Credit Card Fraud, Part IV, `n_estimators`</h1><p class="page-description">I begin the hyper-parameter optimisations. The first attempt to optimise `n_estimators` had a surprising range of performances, so I delved further to better understand how the performance depends on the folds.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-05-29T00:00:00-05:00" itemprop="datePublished">
+        May 29, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
+<li class="toc-entry toc-h2"><a href="#first-attempt">First attempt</a></li>
+<li class="toc-entry toc-h2"><a href="#second-attempt">Second attempt</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#n_estimators10">n_estimators=10</a></li>
+<li class="toc-entry toc-h3"><a href="#n_estimators50">n_estimators=50</a></li>
+<li class="toc-entry toc-h3"><a href="#n_estimators200-and-n_estimators500">n_estimators=200 and n_estimators=500</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#final-thoughts">Final thoughts</a></li>
+<li class="toc-entry toc-h2"><a href="#the-code-for-first-attempt">The code for first attempt</a></li>
+<li class="toc-entry toc-h2"><a href="#code-for-second-attempt">Code for second attempt</a></li>
+</ul><h2 id="other-posts-in-series">
+<a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
+
+<ul>
+  <li>
+    <p><a href="/blog/python/data%20science/2020/06/25/creditcard6.html">Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle</a></p>
+  </li>
+  <li>
+    <p><a href="/blog/python/data%20science/2020/05/30/creditcard5.html">Investigating Credit Card Fraud, Part V, Final Models</a></p>
+  </li>
+  <li>
+    <p><a href="/blog/python/data%20science/2020/05/19/creditcard3.html">Investigating Credit Card Fraud, Part III, Handmade Model</a></p>
+  </li>
+  <li>
+    <p><a href="/blog/python/data%20science/2020/05/16/creditcard2.html">Investigating Credit Card Fraud, Part II, Removing data</a></p>
+  </li>
+  <li>
+    <p><a href="/blog/python/data%20science/2020/05/14/creditcard1.html">Investigating Credit Card Fraud, Part I, First Models</a></p>
+  </li>
+</ul>
+
+<h2 id="first-attempt">
+<a class="anchor" href="#first-attempt" aria-hidden="true"><span class="octicon octicon-link"></span></a>First attempt</h2>
+<p>I used a k-fold cross validation with 4 folds to determine what is a good number of estimators for the Random Forest model. The code to do this is at the bottom. The table below shows the AUC metrics obtained.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Fold</th>
+      <th style="text-align: center">n_estimators = 10</th>
+      <th style="text-align: center">n_estimators = 50</th>
+      <th style="text-align: center">n_estimators = 100</th>
+      <th style="text-align: center">n_estimators = 200</th>
+      <th style="text-align: center">n_estimators = 500</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">0.765</td>
+      <td style="text-align: center">0.793</td>
+      <td style="text-align: center">0.775</td>
+      <td style="text-align: center">0.770</td>
+      <td style="text-align: center">0.756</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">0.683</td>
+      <td style="text-align: center">0.690</td>
+      <td style="text-align: center">0.691</td>
+      <td style="text-align: center">0.680</td>
+      <td style="text-align: center">0.664</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td style="text-align: center">0.766</td>
+      <td style="text-align: center">0.783</td>
+      <td style="text-align: center">0.781</td>
+      <td style="text-align: center">0.784</td>
+      <td style="text-align: center">0.774</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td style="text-align: center">0.815</td>
+      <td style="text-align: center">0.841</td>
+      <td style="text-align: center">0.838</td>
+      <td style="text-align: center">0.833</td>
+      <td style="text-align: center">0.826</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>From this table, we can see that the AUC depends a lot more on the fold rather than the hyper-parameter. I was surprised at how much the AUC could vary, depending on how the data was chopped up. Nevertheless, it is still clear that the optimal choice for the number of estimators is either 50 or 100. However, it is hard to judge if 50 is definitely better than the default of 100; it is better in 3 out of the 4 folds but maybe this was just a fluke.</p>
+
+<p>I wanted to better understand how the AUC depends on the folds, and make a better decision about which hyper-parameter is better, so I decided to repeat this process many times and see the resulting patterns.</p>
+
+<h2 id="second-attempt">
+<a class="anchor" href="#second-attempt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Second attempt</h2>
+<p>I repeated the first attempt 20 times and stored the results in a pandas dataframe. I then plotted scatterplots and histograms to visualise the patterns.  In each of them, I compared the performance against the default of 100 estimators. As always, the code for this is at the bottom.</p>
+
+<h3 id="n_estimators10">
+<a class="anchor" href="#n_estimators10" aria-hidden="true"><span class="octicon octicon-link"></span></a>n_estimators=10</h3>
+<p><img src="/blog/images/creditcard_4_forest_n_est10_hist.png" alt="image">
+<img src="/blog/images/creditcard_4_forest_n_est10_scatter.png" alt="image"></p>
+
+<p>The histogram shows that the distribution of AUC values when the number of estimators is 10 is worse than the default values.  The scatterplot shows the default setting has a better AUC on the majority of folds - but not every time!</p>
+
+<h3 id="n_estimators50">
+<a class="anchor" href="#n_estimators50" aria-hidden="true"><span class="octicon octicon-link"></span></a>n_estimators=50</h3>
+<p><img src="/blog/images/creditcard_4_forest_n_est50_hist.png" alt="image">
+<img src="/blog/images/creditcard_4_forest_n_est50_scatter.png" alt="image"></p>
+
+<p>The histograms almost perfectly overlap! But we do see a little extra blue on the right and extra orange on the left which means n=50 is better.  The scatterplot makes this clearer, showing that having 50 estimators produces larger AUC in most of the folds.</p>
+
+<h3 id="n_estimators200-and-n_estimators500">
+<a class="anchor" href="#n_estimators200-and-n_estimators500" aria-hidden="true"><span class="octicon octicon-link"></span></a>n_estimators=200 and n_estimators=500</h3>
+<p><img src="/blog/images/creditcard_4_forest_n_est200_hist.png" alt="image">
+<img src="/blog/images/creditcard_4_forest_n_est200_scatter.png" alt="image"></p>
+
+<p><img src="/blog/images/creditcard_4_forest_n_est500_hist.png" alt="image">
+<img src="/blog/images/creditcard_4_forest_n_est500_scatter.png" alt="image"></p>
+
+<p>From these charts, we see that as we increase the number of estimators beyond 100, the model performs worse. Though we can see this in the table in the first attempt, these charts make it much clearer.</p>
+
+<h2 id="final-thoughts">
+<a class="anchor" href="#final-thoughts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final thoughts</h2>
+<p>Visualisations are nice! Though the first k-fold validation gave the same conclusions as twenty k-fold validations, the latter is far more convincing and enlightening. In addition to being more certain that n=50 is a superior choice, I have gained knowledge about how much the AUC can vary as the data varies.</p>
+
+<p>Furthermore, the idea of removing data to speed up the fitting (from Part II of the series) really paid off. Generating these charts required 320 fittings altogether. Without removing the data, this would have taken multiple days, so I would never have done it.</p>
+
+<p>Next time, I will complete the hyper-parameter optimisations and present my final models.</p>
+
+<h2 id="the-code-for-first-attempt">
+<a class="anchor" href="#the-code-for-first-attempt" aria-hidden="true"><span class="octicon octicon-link"></span></a>The code for first attempt</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#create train-valid versus test split
+</span><span class="n">Xtv</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">ytv</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1">#create KFold object
+</span><span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+           <span class="n">shuffle</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+           <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1">#create function to determine auc given the data
+</span><span class="k">def</span> <span class="nf">auc_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">Xt</span><span class="p">,</span> <span class="n">Xv</span><span class="p">,</span> <span class="n">yt</span><span class="p">,</span> <span class="n">yv</span><span class="p">):</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xt</span><span class="p">,</span><span class="n">yt</span><span class="p">)</span>
+    <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">Xv</span><span class="p">)</span>
+    <span class="n">preds</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">precision_recall_curve</span><span class="p">(</span><span class="n">yv</span><span class="p">,</span> <span class="n">preds</span><span class="p">)</span>
+    <span class="n">auc_current</span> <span class="o">=</span> <span class="n">auc</span><span class="p">(</span><span class="n">recall</span><span class="p">,</span> <span class="n">precision</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">auc_current</span>
+
+<span class="c1"># create list of n_estimators for RandomForest
+</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">]</span>
+
+<span class="c1"># create variable to store aucs
+</span><span class="n">aucs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="c1"># loop through hyper-parameter values and folds
+</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">n_estimator</span> <span class="ow">in</span> <span class="n">n_estimators</span><span class="p">:</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="n">n_estimator</span><span class="p">,</span>
+                                   <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">valid</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">Xtv</span><span class="p">):</span>
+        <span class="n">Xt</span><span class="p">,</span> <span class="n">Xv</span><span class="p">,</span> <span class="n">yt</span><span class="p">,</span> <span class="n">yv</span> <span class="o">=</span> <span class="n">Xtv</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">Xtv</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">valid</span><span class="p">],</span> <span class="n">ytv</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">ytv</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">valid</span><span class="p">]</span>
+
+        <span class="c1"># remove 99% of the non-fraudulent claims from training data to speed up fitting
+</span>        <span class="n">selection</span> <span class="o">=</span> <span class="p">(</span><span class="n">Xt</span><span class="o">.</span><span class="n">index</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">yt</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">Xt_reduced</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[</span><span class="n">selection</span><span class="p">]</span>
+        <span class="n">yt_reduced</span> <span class="o">=</span> <span class="n">yt</span><span class="p">[</span><span class="n">selection</span><span class="p">]</span>
+
+        <span class="n">auc_current</span> <span class="o">=</span> <span class="n">auc_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">Xt_reduced</span><span class="p">,</span> <span class="n">Xv</span><span class="p">,</span> <span class="n">yt_reduced</span><span class="p">,</span> <span class="n">yv</span><span class="p">)</span>
+        <span class="n">aucs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">auc_current</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+</code></pre></div></div>
+
+<h2 id="code-for-second-attempt">
+<a class="anchor" href="#code-for-second-attempt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code for second attempt</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># create list of n_estimators for RandomForest
+</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">500</span><span class="p">]</span>
+
+<span class="c1"># create variables to store auc data
+</span><span class="n">aucs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">auc_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s">'n_estimators_'</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">n_estimators</span><span class="p">[</span><span class="n">i</span><span class="p">]):</span> <span class="p">[]</span>
+                       <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n_estimators</span><span class="p">))})</span>
+
+<span class="c1"># create 20 different KFolds, so we get 80 models for each value of hyperparameter
+</span><span class="k">for</span> <span class="n">random_state</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+               <span class="n">shuffle</span> <span class="o">=</span> <span class="bp">True</span><span class="p">,</span>
+               <span class="n">random_state</span> <span class="o">=</span> <span class="n">random_state</span><span class="p">)</span>
+    
+    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">n_estimator</span> <span class="ow">in</span> <span class="n">n_estimators</span><span class="p">:</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span> <span class="o">=</span> <span class="n">n_estimator</span><span class="p">,</span>
+                                       <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">train</span><span class="p">,</span> <span class="n">valid</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">Xtv</span><span class="p">):</span>
+            <span class="n">Xt</span><span class="p">,</span> <span class="n">Xv</span><span class="p">,</span> <span class="n">yt</span><span class="p">,</span> <span class="n">yv</span> <span class="o">=</span> <span class="n">Xtv</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">Xtv</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">valid</span><span class="p">],</span> <span class="n">ytv</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train</span><span class="p">],</span> <span class="n">ytv</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">valid</span><span class="p">]</span>
+
+            <span class="c1"># remove 99% of the non-fraudulent claims from training data to speed up fitting
+</span>            <span class="n">selection</span> <span class="o">=</span> <span class="p">(</span><span class="n">Xt</span><span class="o">.</span><span class="n">index</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">yt</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">Xt_reduced</span> <span class="o">=</span> <span class="n">Xt</span><span class="p">[</span><span class="n">selection</span><span class="p">]</span>
+            <span class="n">yt_reduced</span> <span class="o">=</span> <span class="n">yt</span><span class="p">[</span><span class="n">selection</span><span class="p">]</span>
+                
+            <span class="n">auc_current</span> <span class="o">=</span> <span class="n">auc_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">Xt_reduced</span><span class="p">,</span> <span class="n">Xv</span><span class="p">,</span> <span class="n">yt_reduced</span><span class="p">,</span> <span class="n">yv</span><span class="p">)</span>
+            <span class="n">aucs</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">auc_current</span>
+            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="c1"># update dataframe auc_df with latest batch of aucs    
+</span>    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+        <span class="n">auc_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">auc_df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">aucs</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span>
+</code></pre></div></div>
+
+
+  </div><a class="u-url" href="/blog/python/data%20science/2020/05/29/creditcard4.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
