@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-description: I see what happens if I remove entries from the dataset. The hope is that it reduces the time needed to create the models with too much reduction in performance.
+description: I see what happens if I remove entries from the dataset. The hope is that it reduces the time needed to create the models without too much reduction in performance.
 categories: [python, data science]
 title: Investigating Credit Card Fraud, Part II, Removing data
 ---
