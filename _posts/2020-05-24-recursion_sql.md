@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-description: I create a table of actors and their [bacon numbers](https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon#Bacon_numbers) using recursion in SQL. The largest finite bacon number is 13.
+description: I create a table of actors and their bacon numbers using recursion in SQL. The largest finite bacon number is 13.
 categories: [sql, python]
 title: Bacon numbers via Recursive SQL
 ---
