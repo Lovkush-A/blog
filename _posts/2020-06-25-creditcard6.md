@@ -6,6 +6,16 @@ categories: [python, data science]
 title: Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle
 image: "images/creditcard_6_xgb_roc2.png"
 ---
+
+## Other posts in series
+{% for post in site.posts %}
+{% if (post.title contains "Credit Card Fraud") and (post.title != page.title) %}
+* [{{ post.title }}]({{ site.baseurl }}{{ post.url }})
+{% endif %}
+{% endfor %}
+
+
+
 ## Summaries
 ### Part I
 In Part I, I described the framework and created the first set of models using default settings. I tried logistic regression, decision tree, random forest and xgboost models, and they respectively achieved an AUPRC of 0.616, 0.746, 0.842 and 0.856. Since then, I have learnt about more models and if I were to do this project again, I would also have included a support vector machine model and a k-nearest-neighbour model.
