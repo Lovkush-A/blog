@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      5 min read
     
 </span></p>
 
@@ -138,7 +138,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#the-code">The code</a></li>
 </ul><h2 id="introduction">
 <a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
-<p>I finally take the plunge and create my first neural network. I have been holding back because I wanted to create my first neural networks from scratch before using the ready-made packages like TensorFlow or PyTorch. This is so that I would develop a deeper understanding (and I should probably do the same thing for the other big algorithms I have already used, like Random Forests). I take the plunge now because I came across this <a href="http://neuralnetworksanddeeplearning.com/chap1.html">tutorial</a> by <a href="http://michaelnielsen.org/">Michael Nielsen</a> which explains everything from scratch. (Funnily, I found this tutorial indirectly, via Michael’s excellent article on <a href="https://quantum.country/">Quantum Computation</a>.</p>
+<p>I finally take the plunge and create my first neural network. I have been holding back because I wanted to create my first neural networks from scratch before using the ready-made packages like TensorFlow or PyTorch. This is so that I would develop a deeper understanding (and I should probably do the same thing for the other big algorithms I have already used, like Random Forests). I take the plunge now because I came across this <a href="http://neuralnetworksanddeeplearning.com/chap1.html">tutorial</a> by <a href="http://michaelnielsen.org/">Michael Nielsen</a> which explains everything from scratch. (Funnily, I found this tutorial indirectly, via Michael’s excellent article on <a href="https://quantum.country/">Quantum Computation</a>).</p>
 
 <p>The neural network I create is almost completely vanilla: no fancy architectures, the loss function is RSS, I use the sigmoid function for the activation function. The one non-vanilla idea was to use mini-batches to estimate the gradient of the cost function, instead of using the whole training dataset. After reading through Chapter 1 of Nielsen’s tutorial and skimming through the example code, I tried to create the program from scratch. I did check back with the example code on several occasions to check I was not going astray, so my code and his example are very similar.</p>
 
@@ -162,7 +162,7 @@ Accuracy on testing data: 0.968
 
 <h2 id="a-proud-moment">
 <a class="anchor" href="#a-proud-moment" aria-hidden="true"><span class="octicon octicon-link"></span></a>A proud moment</h2>
-<p>A part of doing things from scratch included deriving the back-propogation formulae from scratch. I found this trickier than I was expecting - afterall, I just have to use the Chain Rule over and over again. How hard can that be?? After straining my mind for some time, I think I have got it but am not sure.  Before trying to code it up, I have a look at Nielsen’s code to check, and I got it correct. I was chuffed with myself! :D</p>
+<p>A part of doing things from scratch included deriving the back-propogation formulae. I found this trickier than I was expecting - afterall, I just have to use the Chain Rule over and over again. How hard can that be?? After straining my mind for some time, I think I have got it but am not sure.  Before trying to code it up, I have a look at Nielsen’s code to check, and I got it correct. I was chuffed with myself! :D</p>
 
 <h2 id="learning-points">
 <a class="anchor" href="#learning-points" aria-hidden="true"><span class="octicon octicon-link"></span></a>Learning points</h2>
@@ -173,11 +173,160 @@ Accuracy on testing data: 0.968
 
 <h2 id="next-steps">
 <a class="anchor" href="#next-steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next steps</h2>
-<p>The immediate next step is to use this code to reading hand-writing using the MNIST dataset, and then work through the rest of Nielsen’s tutorial where we optimise the network in various ways. After that, the world is my oyster! At some point, I need to learn some RL, so I can continue on my AI for Games project.</p>
+<p>The immediate next step is to use this code to read hand-writing using the MNIST dataset, and then work through the rest of Nielsen’s tutorial where we optimise the network in various ways. After that, the world is my oyster! At some point, I need to learn some RL, so I can continue on my AI for Games project.</p>
 
 <h2 id="the-code">
 <a class="anchor" href="#the-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>The code</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">random</span>
 
+<span class="k">class</span> <span class="nc">Network</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sizes</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sizes</span> <span class="o">=</span> <span class="n">sizes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">biases</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="p">))</span> <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">sizes</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="n">size1</span><span class="p">,</span> <span class="n">size2</span><span class="p">))</span>
+                        <span class="k">for</span> <span class="n">size1</span><span class="p">,</span> <span class="n">size2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">sizes</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">sizes</span><span class="p">[</span><span class="mi">1</span><span class="p">:])]</span>
+    
+
+    <span class="k">def</span> <span class="nf">feed_forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">biases</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span>
+         
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">vsigmoid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+ 
+        <span class="k">return</span> <span class="n">a</span>
+    
+
+    <span class="k">def</span> <span class="nf">sgd</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_train</span><span class="p">,</span> <span class="n">epochs</span><span class="p">,</span> <span class="n">mini_batch_size</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">):</span>
+        <span class="n">n_dt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_train</span><span class="p">)</span>
+        <span class="n">mbs</span> <span class="o">=</span> <span class="n">mini_batch_size</span>
+
+        <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Epoch {epoch} starting.   "</span><span class="p">,</span> <span class="n">end</span> <span class="o">=</span> <span class="s">""</span><span class="p">)</span>
+            <span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">data_train</span><span class="p">)</span>
+            
+            <span class="n">mini_batches</span> <span class="o">=</span> <span class="p">[</span><span class="n">data_train</span><span class="p">[</span><span class="n">k</span><span class="p">:</span><span class="n">k</span><span class="o">+</span><span class="n">mbs</span><span class="p">]</span>
+                            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_dt</span><span class="p">,</span> <span class="n">mbs</span><span class="p">)]</span>
+
+            <span class="k">for</span> <span class="n">mini_batch</span> <span class="ow">in</span> <span class="n">mini_batches</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">update_via_minibatch</span><span class="p">(</span><span class="n">mini_batch</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">)</span>
+
+            <span class="n">acc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">data_train</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Epoch {epoch} done. Accuracy is {acc:.3f}"</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">None</span>
+    
+
+    <span class="k">def</span> <span class="nf">update_via_minibatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mini_batch</span><span class="p">,</span> <span class="n">learning_rate</span><span class="p">):</span>
+        <span class="n">mbs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">mini_batch</span><span class="p">)</span>
+        
+        <span class="n">delta_b</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="p">))</span> <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sizes</span><span class="p">[</span><span class="mi">1</span><span class="p">:]]</span>
+        <span class="n">delta_w</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">size1</span><span class="p">,</span> <span class="n">size2</span><span class="p">))</span>
+                    <span class="k">for</span> <span class="n">size1</span><span class="p">,</span> <span class="n">size2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sizes</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">sizes</span><span class="p">[</span><span class="mi">1</span><span class="p">:])]</span>
+
+        <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="n">mini_batch</span><span class="p">:</span>
+            <span class="n">db</span><span class="p">,</span> <span class="n">dw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">backprop</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+            <span class="n">delta_b</span> <span class="o">=</span> <span class="p">[</span><span class="n">b1</span> <span class="o">+</span> <span class="n">b2</span> <span class="k">for</span> <span class="n">b1</span><span class="p">,</span><span class="n">b2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">delta_b</span><span class="p">,</span> <span class="n">db</span><span class="p">)]</span>
+            <span class="n">delta_w</span> <span class="o">=</span> <span class="p">[</span><span class="n">w1</span> <span class="o">+</span> <span class="n">w2</span> <span class="k">for</span> <span class="n">w1</span><span class="p">,</span><span class="n">w2</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">delta_w</span><span class="p">,</span> <span class="n">dw</span><span class="p">)]</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">biases</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span> <span class="o">-</span> <span class="p">(</span><span class="n">learning_rate</span><span class="o">/</span><span class="n">mbs</span><span class="p">)</span><span class="o">*</span><span class="n">db</span>
+                        <span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">db</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">biases</span><span class="p">,</span> <span class="n">delta_b</span><span class="p">)]</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span> <span class="o">-</span> <span class="p">(</span><span class="n">learning_rate</span><span class="o">/</span><span class="n">mbs</span><span class="p">)</span><span class="o">*</span><span class="n">dw</span>
+                        <span class="k">for</span> <span class="n">w</span><span class="p">,</span> <span class="n">dw</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">,</span> <span class="n">delta_w</span><span class="p">)]</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+
+    <span class="k">def</span> <span class="nf">backprop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="c1"># introduce shorthand notation for weights and biases
+</span>        <span class="n">w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">biases</span>
+
+        <span class="c1"># feedforward. store values of a and z
+</span>        <span class="n">a_temp</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">z_temp</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">z_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a_temp</span><span class="p">,</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">a_temp</span> <span class="o">=</span> <span class="n">vsigmoid</span><span class="p">(</span><span class="n">z_temp</span><span class="p">)</span>
+            <span class="n">z</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z_temp</span><span class="p">)</span>
+            <span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a_temp</span><span class="p">)</span>
+        
+        <span class="c1"># define variables to store gradients
+</span>        <span class="n">grad_a</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">a</span><span class="p">]</span>
+        <span class="n">grad_z</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">z</span><span class="p">]</span>
+        <span class="n">grad_b</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">b</span><span class="p">]</span>
+        <span class="n">grad_w</span> <span class="o">=</span> <span class="p">[</span><span class="bp">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">w</span><span class="p">]</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span>
+
+        <span class="c1"># initialise gradients for a and z in final layer
+</span>        <span class="n">grad_a</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">vsigmoid_prime</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">grad_a</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">grad_z</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">temp</span>
+
+        <span class="c1"># back propogate
+</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">grad_b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">grad_z</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">grad_w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">grad_z</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">grad_a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">grad_z</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+            <span class="n">grad_z</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vsigmoid_prime</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">*</span><span class="n">grad_a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">grad_b</span><span class="p">,</span> <span class="n">grad_w</span>
+
+
+    <span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_test</span><span class="p">):</span>
+        <span class="n">acc</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="n">data_test</span><span class="p">:</span>
+            <span class="n">y_hat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">feed_forward</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">match</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_hat</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+            <span class="n">acc</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">match</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">acc</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_test</span><span class="p">)</span>
+
+
+
+
+<span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">sigmoid_prime</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span><span class="o">/</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">vsigmoid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">sigmoid</span><span class="p">)</span>
+<span class="n">vsigmoid_prime</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">sigmoid_prime</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="n">net</span> <span class="o">=</span> <span class="n">Network</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+    
+    <span class="n">data_train</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">data_train</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+
+    <span class="n">net</span><span class="o">.</span><span class="n">sgd</span><span class="p">(</span><span class="n">data_train</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>
+
+    <span class="n">data_test</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mf">0.15</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">data_test</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">"Accuracy on testing data: {net.accuracy(data_test)}"</span><span class="p">)</span>
+
+<span class="n">test</span><span class="p">()</span>
+</code></pre></div></div>
 
   </div><a class="u-url" href="/blog/python/data%20science/neural%20network/2020/07/09/neural1.html" hidden></a>
 </article>
