@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-13T06:34:25-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Neural Networks, Part I, Basic network from scratch</title><link href="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1.html" rel="alternate" type="text/html" title="Neural Networks, Part I, Basic network from scratch" /><published>2020-07-09T00:00:00-05:00</published><updated>2020-07-09T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-13T06:41:35-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Santander Dataset, Part II, Feature Selection</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2.html" rel="alternate" type="text/html" title="Santander Dataset, Part II, Feature Selection" /><published>2020-07-13T00:00:00-05:00</published><updated>2020-07-13T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/01/santander1.html&quot;&gt;Santander Dataset, Part I&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;After some Googling and reading of various blog posts and articles, I decide to carry out a few different feature selection techniques, record them all in a pandas frame, and pick out the important features as appropriate. The feature selection techniques I use are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Calculate ANOVA F-value between each feature and prediction target&lt;/li&gt;
+  &lt;li&gt;Obtain feature importances from XGBoost model&lt;/li&gt;
+  &lt;li&gt;Calculate correlations between each feature and prediction target&lt;/li&gt;
+  &lt;li&gt;Obtain coefficients from logistic regression with L1-regularisation&lt;/li&gt;
+  &lt;li&gt;Obtain coefficients from logistic regression with L2-regularisation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;visualising-the-feature-scores&quot;&gt;Visualising the feature scores&lt;/h2&gt;
+&lt;p&gt;Below are plots showing how the different methods of measuring feature importance compare with one another.
+&lt;img src=&quot;/blog/images/santander2_features.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The main takeaways for me are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The different measures are all strong correlated with one another. This is a good thing of course, because it means there really is a consistent notion of feature importance.&lt;/li&gt;
+  &lt;li&gt;The ANOVA F-values and correlations seem to provide exactly the same information. This is presumably not a coincidence, and there will probably be simple mathematical relationship between correlation and the F-values.&lt;/li&gt;
+  &lt;li&gt;The L1- and L2-regularisations have a perfect correlation. Visually scanning the coefficients also showed they were almost exactly the same. This makes me suspicious and wonder if I did something wrong. As far as I could tell I did not. This is something for me to investigate in future, because I was expecting L1 and L2 regularisations to produce some noticable difference.&lt;/li&gt;
+  &lt;li&gt;The logistic regressions and correlations have a very strong correlation. From my understanding this is not a coincidence - I believe there is a direct relationship between the coefficients and correlations (at least when there is only one feature variable).&lt;/li&gt;
+  &lt;li&gt;The XGBoost feature importances are least correlated with the others. I suppose this makes, because I think the other four quantities have direct mathematical relationships between them, whereas tree-models are qualitatively different.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To remove the non-linearity in some of the charts above, I decided to also plot feature &lt;em&gt;ranks&lt;/em&gt; that these different measures produce. 
+&lt;img src=&quot;/blog/images/santander2_ranks.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There is nothing new shown in these graphs - it just makes the patterns listed above a bit clearer.&lt;/p&gt;
+
+&lt;h2 id=&quot;models-with-only-the-most-important-features&quot;&gt;Models with only the most important features&lt;/h2&gt;
+&lt;p&gt;Next I produced several logistic models keeping differing amounts of features removed. I used logistic models because they were the quickest to create.
+&lt;img src=&quot;/blog/images/santander2_feat5.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/blog/images/santander2_feat10.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/blog/images/santander2_feat50.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/blog/images/santander2_feat100.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/blog/images/santander2_feat150.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;/blog/images/santander2_feat200.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The patterns here are clear. My takeaways are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;As you increase the number of features kept, the model improves.&lt;/li&gt;
+  &lt;li&gt;The 100 least important features provide very little information to the models.&lt;/li&gt;
+  &lt;li&gt;However, the 100 least important features do provide &lt;em&gt;some&lt;/em&gt; information. The models did not improve by removing them.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;It looks like removing the least important features has not improved our models. The one thing it did improve was the time taken to create the models. Also, in a real-life situation (where we knew what the variables corresponded to), we would have gained insight into which variables are important, which presumably would help in decision-making.&lt;/p&gt;
+
+&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
+&lt;p&gt;The next thing I will do is some hyper-parameter optimisations. After that, I will have used up all the tricks I have available, and then look at other people’s models and see what I can learn.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Santander Dataset, Part I</summary></entry><entry><title type="html">Neural Networks, Part I, Basic network from scratch</title><link href="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1.html" rel="alternate" type="text/html" title="Neural Networks, Part I, Basic network from scratch" /><published>2020-07-09T00:00:00-05:00</published><updated>2020-07-09T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I finally take the plunge and create my first neural network. I have been holding back because I wanted to create my first neural networks from scratch before using the ready-made packages like TensorFlow or PyTorch. This is so that I would develop a deeper understanding (and I should probably do the same thing for the other big algorithms I have already used, like Random Forests). I take the plunge now because I came across this &lt;a href=&quot;http://neuralnetworksanddeeplearning.com/chap1.html&quot;&gt;tutorial&lt;/a&gt; by &lt;a href=&quot;http://michaelnielsen.org/&quot;&gt;Michael Nielsen&lt;/a&gt; which explains everything from scratch. (Funnily, I found this tutorial indirectly, via Michael’s excellent article on &lt;a href=&quot;https://quantum.country/&quot;&gt;Quantum Computation&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;The neural network I create is almost completely vanilla: no fancy architectures, the loss function is RSS, I use the sigmoid function for the activation function. The one non-vanilla idea was to use mini-batches to estimate the gradient of the cost function, instead of using the whole training dataset. After reading through Chapter 1 of Nielsen’s tutorial and skimming through the example code, I tried to create the program from scratch. I did check back with the example code on several occasions to check I was not going astray, so my code and his example are very similar.&lt;/p&gt;
@@ -184,6 +238,10 @@ Accuracy on testing data: 0.968
 &lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Introduction I finally take the plunge and create my first neural network. I have been holding back because I wanted to create my first neural networks from scratch before using the ready-made packages like TensorFlow or PyTorch. This is so that I would develop a deeper understanding (and I should probably do the same thing for the other big algorithms I have already used, like Random Forests). I take the plunge now because I came across this tutorial by Michael Nielsen which explains everything from scratch. (Funnily, I found this tutorial indirectly, via Michael’s excellent article on Quantum Computation).</summary></entry><entry><title type="html">Santander Dataset, Part I</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html" rel="alternate" type="text/html" title="Santander Dataset, Part I" /><published>2020-07-01T00:00:00-05:00</published><updated>2020-07-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/13/santander2.html&quot;&gt;Santander Dataset, Part II, Feature Selection&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I have started a new project. I had another look at the Kaggle datasets and chose &lt;a href=&quot;https://www.kaggle.com/c/santander-customer-transaction-prediction&quot;&gt;this Santander&lt;/a&gt; dataset. The data is (superficially?) similar to that from the Credit Card Fraud dataset I have previously analysed: the data is clean, all numerical, and the task is to create a binary classifier.  A big difference is that this Santander dataset has 200 features, whereas the Credit Card Fraud one had only 30 features. I presume this will make a difference (maybe I have to do some feature selection?), but I guess I will find out soon! Another difference is that we have two datasets: a training dataset on which we should create our models, and a testing dataset on which we use our models to make predictions which are then submitted to Kaggle.&lt;/p&gt;
 
@@ -225,7 +283,7 @@ Based on all these graphs above, it was clear I had misunderstood something basi
 &lt;p&gt;I think this misunderstanding arose because I got mixed up with ROC curves, in which a random model does produce a straight line.&lt;/p&gt;
 
 &lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
-&lt;p&gt;I will try to improve the models by doing some feature selection.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html" rel="alternate" type="text/html" title="Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle" /><published>2020-06-25T00:00:00-05:00</published><updated>2020-06-25T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;I will try to improve the models by doing some feature selection.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Santander Dataset, Part II, Feature Selection</summary></entry><entry><title type="html">Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html" rel="alternate" type="text/html" title="Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle" /><published>2020-06-25T00:00:00-05:00</published><updated>2020-06-25T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1254,217 +1312,4 @@ Lastly, I combine all of the data into one mega pandas dataframe, keeping only t
   &lt;li&gt;If a winning/losing sequence is found, it will keep on searching. This is not necessarily a bad thing, because we might want to analyse all the lines, but it definitely slows things down.&lt;/li&gt;
   &lt;li&gt;Not using alpha-beta pruning, yet.&lt;/li&gt;
   &lt;li&gt;Not doing any time analysis. I will run cProfile to systematically find inefficiencies.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series AIs for Games, Part III, Pruning Min-Max for Pentago AIs for Games, Part I, Brute Force TicTacToe</summary></entry><entry><title type="html">Investigating Credit Card Fraud, Part V, Final Models</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/05/30/creditcard5.html" rel="alternate" type="text/html" title="Investigating Credit Card Fraud, Part V, Final Models" /><published>2020-05-30T00:00:00-05:00</published><updated>2020-05-30T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/05/30/creditcard5</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/05/30/creditcard5.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/06/25/creditcard6.html&quot;&gt;Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/05/29/creditcard4.html&quot;&gt;Investigating Credit Card Fraud, Part IV, &lt;code class=&quot;highlighter-rouge&quot;&gt;n_estimators&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/05/19/creditcard3.html&quot;&gt;Investigating Credit Card Fraud, Part III, Handmade Model&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/05/16/creditcard2.html&quot;&gt;Investigating Credit Card Fraud, Part II, Removing data&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/05/14/creditcard1.html&quot;&gt;Investigating Credit Card Fraud, Part I, First Models&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;forest-model-hyper-parameter-selection&quot;&gt;Forest model, hyper-parameter selection&lt;/h2&gt;
-&lt;p&gt;I tidied up the code from yesterday to allow me to optimise for more than one parameter at once. For each combination of hyper-parameters, I obtained 20 different AUCs (by using five 4-fold cross validations). The results were stored in a pandas dataframe. The code for this is at the bottom of the page.&lt;/p&gt;
-
-&lt;p&gt;I then averaged over all the folds and sorted the results. The code for this and the output is below.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;auc_forest.max_depth.fillna(value = 0, inplace = True)
-auc_forest_mean = auc_forest.groupby(['n_estimators', 'max_depth', 'max_features']).auc.mean()
-auc_forest_mean.sort_values(ascending = False).head(20)
-
-n_estimators  max_depth  max_features    auc
-50.0          0.0        10.0            0.774015
-              50.0       10.0            0.774015
-60.0          0.0        10.0            0.772589
-              50.0       10.0            0.772589
-              10.0       10.0            0.772573
-50.0          10.0       10.0            0.772328
-40.0          10.0       10.0            0.771290
-80.0          0.0        10.0            0.771108
-              50.0       10.0            0.771108
-40.0          0.0        10.0            0.770744
-              50.0       10.0            0.770744
-50.0          0.0        7.0             0.770522
-              50.0       7.0             0.770522
-80.0          10.0       10.0            0.770487
-50.0          10.0       7.0             0.770472
-60.0          50.0       7.0             0.770472
-              0.0        7.0             0.770472
-              10.0       7.0             0.770025
-40.0          50.0       5.0             0.769278
-                         auto            0.769278
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;A few things were found by doing this:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;The best options for the hyper-parameters are n_estimators = 50, max_depth = None and max_features = 10.&lt;/li&gt;
-  &lt;li&gt;max_depth = None and max_depth = 50 produced the same models. This means that maximum depth achieved without any limits is less than 50.&lt;/li&gt;
-  &lt;li&gt;max_features = auto and max_features = 5 produced the same models. This is obvious in retrospect: auto means taking the square root of the number of features, and we had about 30 features.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;forest-model-final-model&quot;&gt;Forest model, final model&lt;/h2&gt;
-&lt;p&gt;Using these hyper-parameters, I created a the final Random Forest model. The precision-recall curve is below:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_5_forest.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/blog/images/creditcard_1_forest.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;For comparison, the very first random forest model is also included. As can be seen, there is an improvement but a seemingly minimal one. Based on examples I have seen elsewhere, these minor improvements are what can be expected from hyper-parameter optimisations.&lt;/p&gt;
-
-&lt;h2 id=&quot;xgboost-model&quot;&gt;XGBoost model&lt;/h2&gt;
-&lt;p&gt;I repeated the process above for XGBoost models.  The best parameter settings were as follows:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;n_estimators  max_depth  learning_rate    auc
-50.0          5.0        0.05             0.761125
-100.0         5.0        0.02             0.760002
-50.0          10.0       0.05             0.759094
-              15.0       0.05             0.758146
-100.0         10.0       0.02             0.757185
-              15.0       0.02             0.756748
-200.0         10.0       0.02             0.747032
-              15.0       0.02             0.743830
-50.0          15.0       0.10             0.742954
-              10.0       0.10             0.739922
-100.0         10.0       0.05             0.737840
-              15.0       0.05             0.737013
-50.0          10.0       0.02             0.729299
-              15.0       0.02             0.729239
-              5.0        0.02             0.729049
-200.0         5.0        0.02             0.727433
-50.0          15.0       0.30             0.726696
-              5.0        0.20             0.726479
-100.0         5.0        0.20             0.724851
-              15.0       0.30             0.722728
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Using the settings from the top row, I created my final model, whose precision-recall curve is below.  I have included the original curve, too.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_5_xgb.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/blog/images/creditcard_1_xgb.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;!! After doing the optimisations, the model became worse! The AUC decreased by 0.002. The  explanation for this must be that removing 99% of the data actually changes the behaviour of the model.&lt;/p&gt;
-
-&lt;p&gt;I re-did the process but only removing 90% of the data (recall from Part II that in XGBoost, removing 90% of the data did not decrease performance that much). This time, the optimal settings were as follows:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;n_estimators  max_depth  learning_rate    auc
-200.0         10.0       0.10             0.816130
-              5.0        0.10             0.815648
-100.0         5.0        0.10             0.807745
-              10.0       0.10             0.806940
-200.0         10.0       0.05             0.805212
-              5.0        0.05             0.801478
-50.0          10.0       0.10             0.797015
-              5.0        0.10             0.794567
-100.0         5.0        0.05             0.793189
-              10.0       0.05             0.792732
-200.0         5.0        0.02             0.785652
-              10.0       0.02             0.783957
-50.0          5.0        0.05             0.779087
-              10.0       0.05             0.778968
-100.0         5.0        0.02             0.776565
-              10.0       0.02             0.775092
-50.0          5.0        0.02             0.761190
-              10.0       0.02             0.760388
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;The optimal parameters changed (thankfully!).  I then re-created the final model and this time there was an improvement:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/creditcard_5_xgb2.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/blog/images/creditcard_1_xgb.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;next-time&quot;&gt;Next time&lt;/h2&gt;
-&lt;p&gt;My next blog post will be the final one in this series. I will summarise what I have done and what I have learnt. I will also have a look at what others did and see what I can learn from them.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;The code is provided for the Random Forest optimisation. The code for XGBoost is similar.&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# import modules
-&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;pandas&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.model_selection&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;train_test_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KFold&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.metrics&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;precision_recall_curve&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.metrics&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auc&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;seaborn&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sns&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.ensemble&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RandomForestClassifier&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;xgboost&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;XGBClassifier&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;itertools&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;#import data
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creditcard.csv&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Class&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;drop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Class'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Time'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;axis&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;#create train-valid versus test split
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Xtv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;X_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ytv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y_test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;train_test_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;random_state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# create function which takes model and data
-# returns auc
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;auc_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Xt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Xv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Xt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-   
-    &lt;span class=&quot;n&quot;&gt;preds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;predict_proba&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Xv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;preds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;precision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;precision_recall_curve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;preds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;auc_current&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;recall&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;precision&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auc_current&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# create options for hyperparameter
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_estimators&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;40&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;max_depth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;max_features&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'auto'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;random_state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# create frame to store auc data
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auc_forest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataFrame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'n_estimators'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
-                           &lt;span class=&quot;s&quot;&gt;'max_depth'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
-                           &lt;span class=&quot;s&quot;&gt;'max_features'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
-                           &lt;span class=&quot;s&quot;&gt;'fold'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[],&lt;/span&gt;
-                           &lt;span class=&quot;s&quot;&gt;'auc'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-                          &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-
-
-&lt;span class=&quot;c1&quot;&gt;# loop through hyper parameter space
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;md&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;itertools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_estimators&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max_depth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max_features&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;random_state&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;kf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KFold&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_splits&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-           &lt;span class=&quot;n&quot;&gt;shuffle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-           &lt;span class=&quot;n&quot;&gt;random_state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RandomForestClassifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_estimators&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                                   &lt;span class=&quot;n&quot;&gt;max_depth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;md&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                                   &lt;span class=&quot;n&quot;&gt;max_features&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                                   &lt;span class=&quot;n&quot;&gt;random_state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    
-    &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;valid&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Xtv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Xt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Xv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yv&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Xtv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Xtv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;valid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ytv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ytv&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;valid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-        &lt;span class=&quot;c1&quot;&gt;# remove 99% of the non-fraudulent claims from training data to speed up fitting
-&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;selection&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Xt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Xt_reduced&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Xt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;selection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;yt_reduced&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;selection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;auc_current&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auc_model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Xt_reduced&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Xv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yt_reduced&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;auc_forest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auc_forest&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;md&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;auc_current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-        &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle Investigating Credit Card Fraud, Part IV, n_estimators Investigating Credit Card Fraud, Part III, Handmade Model Investigating Credit Card Fraud, Part II, Removing data Investigating Credit Card Fraud, Part I, First Models</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series AIs for Games, Part III, Pruning Min-Max for Pentago AIs for Games, Part I, Brute Force TicTacToe</summary></entry></feed>
