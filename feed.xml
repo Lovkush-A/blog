@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-13T06:41:35-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Santander Dataset, Part II, Feature Selection</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2.html" rel="alternate" type="text/html" title="Santander Dataset, Part II, Feature Selection" /><published>2020-07-13T00:00:00-05:00</published><updated>2020-07-13T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-14T14:54:29-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Neural Networks, Part II, First MNIST model</title><link href="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/14/neural2.html" rel="alternate" type="text/html" title="Neural Networks, Part II, First MNIST model" /><published>2020-07-14T00:00:00-05:00</published><updated>2020-07-14T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/14/neural2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/14/neural2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/neural%20network/2020/07/09/neural1.html&quot;&gt;Neural Networks, Part I, Basic network from scratch&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;first-mnist-model&quot;&gt;First MNIST model&lt;/h2&gt;
+&lt;p&gt;Using the neural network class from Part I, I train a neural network on the MNIST dataset.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;data_train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data_valid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data_test&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mnist_loader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load_data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;net&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;neural1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Network&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;784&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Accuracy on testing data: {net.accuracy(data_test)}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sgd&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data_train&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;3.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Accuracy on testing data: {net.accuracy(data_test)}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'network1.config'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;pickle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dump&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;net&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The results of running this were:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Accuracy on testing data: 0.08475
+Epoch 0 starting.   Epoch 0 done. Accuracy is 0.902
+Epoch 1 starting.   Epoch 1 done. Accuracy is 0.912
+Epoch 2 starting.   Epoch 2 done. Accuracy is 0.931
+Epoch 3 starting.   Epoch 3 done. Accuracy is 0.939
+Epoch 4 starting.   Epoch 4 done. Accuracy is 0.930
+Epoch 5 starting.   Epoch 5 done. Accuracy is 0.943
+Epoch 6 starting.   Epoch 6 done. Accuracy is 0.943
+Epoch 7 starting.   Epoch 7 done. Accuracy is 0.948
+Epoch 8 starting.   Epoch 8 done. Accuracy is 0.948
+Epoch 9 starting.   Epoch 9 done. Accuracy is 0.950
+Accuracy on testing data: 0.9496333333333333
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
+&lt;p&gt;I will continue to work through &lt;a href=&quot;http://neuralnetworksanddeeplearning.com/chap1.html&quot;&gt;Nielsen’s online book&lt;/a&gt;, learning more about neural networks.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Neural Networks, Part I, Basic network from scratch</summary></entry><entry><title type="html">Santander Dataset, Part II, Feature Selection</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2.html" rel="alternate" type="text/html" title="Santander Dataset, Part II, Feature Selection" /><published>2020-07-13T00:00:00-05:00</published><updated>2020-07-13T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/01/santander1.html&quot;&gt;Santander Dataset, Part I&lt;/a&gt;&lt;/li&gt;
@@ -52,7 +90,13 @@
 &lt;p&gt;It looks like removing the least important features has not improved our models. The one thing it did improve was the time taken to create the models. Also, in a real-life situation (where we knew what the variables corresponded to), we would have gained insight into which variables are important, which presumably would help in decision-making.&lt;/p&gt;
 
 &lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
-&lt;p&gt;The next thing I will do is some hyper-parameter optimisations. After that, I will have used up all the tricks I have available, and then look at other people’s models and see what I can learn.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Santander Dataset, Part I</summary></entry><entry><title type="html">Neural Networks, Part I, Basic network from scratch</title><link href="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1.html" rel="alternate" type="text/html" title="Neural Networks, Part I, Basic network from scratch" /><published>2020-07-09T00:00:00-05:00</published><updated>2020-07-09T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;The next thing I will do is some hyper-parameter optimisations. After that, I will have used up all the tricks I have available, and then look at other people’s models and see what I can learn.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Santander Dataset, Part I</summary></entry><entry><title type="html">Neural Networks, Part I, Basic network from scratch</title><link href="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1.html" rel="alternate" type="text/html" title="Neural Networks, Part I, Basic network from scratch" /><published>2020-07-09T00:00:00-05:00</published><updated>2020-07-09T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/neural%20network/2020/07/14/neural2.html&quot;&gt;Neural Networks, Part II, First MNIST model&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I finally take the plunge and create my first neural network. I have been holding back because I wanted to create my first neural networks from scratch before using the ready-made packages like TensorFlow or PyTorch. This is so that I would develop a deeper understanding (and I should probably do the same thing for the other big algorithms I have already used, like Random Forests). I take the plunge now because I came across this &lt;a href=&quot;http://neuralnetworksanddeeplearning.com/chap1.html&quot;&gt;tutorial&lt;/a&gt; by &lt;a href=&quot;http://michaelnielsen.org/&quot;&gt;Michael Nielsen&lt;/a&gt; which explains everything from scratch. (Funnily, I found this tutorial indirectly, via Michael’s excellent article on &lt;a href=&quot;https://quantum.country/&quot;&gt;Quantum Computation&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;The neural network I create is almost completely vanilla: no fancy architectures, the loss function is RSS, I use the sigmoid function for the activation function. The one non-vanilla idea was to use mini-batches to estimate the gradient of the cost function, instead of using the whole training dataset. After reading through Chapter 1 of Nielsen’s tutorial and skimming through the example code, I tried to create the program from scratch. I did check back with the example code on several occasions to check I was not going astray, so my code and his example are very similar.&lt;/p&gt;
@@ -236,7 +280,7 @@ Accuracy on testing data: 0.968
     &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Accuracy on testing data: {net.accuracy(data_test)}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Introduction I finally take the plunge and create my first neural network. I have been holding back because I wanted to create my first neural networks from scratch before using the ready-made packages like TensorFlow or PyTorch. This is so that I would develop a deeper understanding (and I should probably do the same thing for the other big algorithms I have already used, like Random Forests). I take the plunge now because I came across this tutorial by Michael Nielsen which explains everything from scratch. (Funnily, I found this tutorial indirectly, via Michael’s excellent article on Quantum Computation).</summary></entry><entry><title type="html">Santander Dataset, Part I</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html" rel="alternate" type="text/html" title="Santander Dataset, Part I" /><published>2020-07-01T00:00:00-05:00</published><updated>2020-07-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Neural Networks, Part II, First MNIST model</summary></entry><entry><title type="html">Santander Dataset, Part I</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html" rel="alternate" type="text/html" title="Santander Dataset, Part I" /><published>2020-07-01T00:00:00-05:00</published><updated>2020-07-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/13/santander2.html&quot;&gt;Santander Dataset, Part II, Feature Selection&lt;/a&gt;&lt;/li&gt;
@@ -1250,66 +1294,4 @@ Lastly, I combine all of the data into one mega pandas dataframe, keeping only t
 &lt;p&gt;The code, at this stage of project, can be found on &lt;a href=&quot;https://github.com/Lovkush-A/games/tree/94649838b4e348772a12dbf13c5954b665354371&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-boards-used-for-testing&quot;&gt;The boards used for testing&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/games_31.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series AIs for Games, Part II, Min-max for Pentago AIs for Games, Part I, Brute Force TicTacToe</summary></entry><entry><title type="html">AIs for Games, Part II, Min-max for Pentago</title><link href="https://lovkush-a.github.io/blog/ai/python/2020/06/04/games2.html" rel="alternate" type="text/html" title="AIs for Games, Part II, Min-max for Pentago" /><published>2020-06-04T00:00:00-05:00</published><updated>2020-06-04T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/ai/python/2020/06/04/games2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/ai/python/2020/06/04/games2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/ai/python/2020/06/09/games3.html&quot;&gt;AIs for Games, Part III, Pruning Min-Max for Pentago&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/ai/python/2020/05/20/games1.html&quot;&gt;AIs for Games, Part I, Brute Force TicTacToe&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;the-algorithm&quot;&gt;The algorithm&lt;/h2&gt;
-&lt;p&gt;In my last post, I said I wanted to code up an alpha-beta pruning algorithm. (See this &lt;a href=&quot;https://youtu.be/WbzNRTTrX0g&quot;&gt;CS50 Intro to AI&lt;/a&gt; lecture for background on tree-based search and alpha-beta pruning). Over the past couple of weeks, I have been thinking about exactly how the algorithm would work and how I would code it up, and it was surprisingly tricky. I therefore decided to just focus on creating an algorithm that would search through a game-tree up to some maximum depth, but in a way that I could add in the pruning.&lt;/p&gt;
-
-&lt;p&gt;The algorithm should determine the ‘value’ of the current board state and the move that would achieve that value. A value of 1 means that Player 1 will win (with perfect play) and a value of 0 means that Player 0 will win (with perfect play). A value in the middle indicates which player is more likely to win, as judged by the algorithm.&lt;/p&gt;
-
-&lt;p&gt;The general idea of the algorithm is straightforward:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Given a board position, create an initial node and add it to the frontier.&lt;/li&gt;
-  &lt;li&gt;While the initial node does not have a value, pick a node from the frontier and do the following:
-    &lt;ul&gt;
-      &lt;li&gt;Check if the game has ended. If so, determine who won, and set the value of the node appropriately. Then update the value of parent nodes appropriately.&lt;/li&gt;
-      &lt;li&gt;Check if the depth of the node is the maximum depth. If so, then estimate the value of the position. For now, I just set this as 0.5, but in future, this will be determined via a neural network. Then update the value of parent nodes appropriately.&lt;/li&gt;
-      &lt;li&gt;Create a list of legal moves and possible board positions arising from this node. Create new nodes and add them to the frontier.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Once the initial node has a value, pick a move whose resulting board position has the same value.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The tricky part was the step ‘update the value of the parent nodes appropriately’. It took me some time to flesh out all the details and determine exactly when a parent node should have its value updated. I had to do this in a way so that I could add on the pruning later without having to change the structure of the code. The main ideas were:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Whenever a node has its value determined, the upper or lower bounds of its parent’s node, and only its parent’s node, needs to be updated.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Whenever all of a node’s children’s values are determined, the node’s value can be determined. This will sometimes lead to some recursive updating of node values.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;A big sticking point for me was how to decide when to prune a node: it felt like I needed knowledge of uncle/aunt nodes to do this, but following the ideas above, the grandparent node and parent node should contain enough information to decide if a node can be pruned or not.&lt;/p&gt;
-
-&lt;p&gt;In the end, I managed to get it altogether. The code, at this stage of the project, can be found on &lt;a href=&quot;https://github.com/Lovkush-A/games/tree/e8a8e0afe6d25030d82cf0f0269c5edab625e463&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;an-example&quot;&gt;An example&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/games_21.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The image above shows an example winning position for player 1. If it is Player 1’s move, the algorithm finds a winning move using a depth-1 search (play in bottom left, and then rotate bottom left clockwise, giving 5-in-a-row column on left-hand-side).  If it is Player 2’s move, the algorithm returns &lt;code class=&quot;highlighter-rouge&quot;&gt;None&lt;/code&gt; using a depth-2 search, because no matter what 2 does on this turn, 1 will always win.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;The code, at this stage of project, can be found on &lt;a href=&quot;https://github.com/Lovkush-A/games/tree/e8a8e0afe6d25030d82cf0f0269c5edab625e463&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;areas-of-improvement&quot;&gt;Areas of improvement&lt;/h2&gt;
-&lt;p&gt;The algorithm is highly inefficient. It takes roughly 10-50 seconds to do depth-2 searches, and on the order of hours for depth-3 search. This is way too long! The number of possible positions after 3 moves is roughly a few million, so that shouldn’t take hours to sort through.&lt;/p&gt;
-
-&lt;p&gt;There are many inefficiencies I am aware of and will fix them for my next post. Examples include:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Dealing with repeat positions. Right now, I only avoid positions that repeat if they arise from the same parent.&lt;/li&gt;
-  &lt;li&gt;I currently use a list to track which positions have been visited in the search, to check for repeats. This is less efficient than a set, but I can’t use arrays in sets and all my boards are coded as arrays. I will try changing everything to tuples.&lt;/li&gt;
-  &lt;li&gt;If a winning/losing sequence is found, it will keep on searching. This is not necessarily a bad thing, because we might want to analyse all the lines, but it definitely slows things down.&lt;/li&gt;
-  &lt;li&gt;Not using alpha-beta pruning, yet.&lt;/li&gt;
-  &lt;li&gt;Not doing any time analysis. I will run cProfile to systematically find inefficiencies.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series AIs for Games, Part III, Pruning Min-Max for Pentago AIs for Games, Part I, Brute Force TicTacToe</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/blog/images/games_31.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series AIs for Games, Part II, Min-max for Pentago AIs for Games, Part I, Brute Force TicTacToe</summary></entry></feed>
