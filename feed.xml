@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-14T14:54:29-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Neural Networks, Part II, First MNIST model</title><link href="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/14/neural2.html" rel="alternate" type="text/html" title="Neural Networks, Part II, First MNIST model" /><published>2020-07-14T00:00:00-05:00</published><updated>2020-07-14T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/14/neural2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/14/neural2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-18T15:20:59-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/13/santander2.html&quot;&gt;Santander Dataset, Part II, Feature Selection&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/01/santander1.html&quot;&gt;Santander Dataset, Part I&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I did some hyper-parameter optimisations, but there was nothing particularly noteworthy. I got some incremental improvements using GridSearch and that’s about it. After that, I had a look at what other people on Kaggle did and see what I can learn from them.&lt;/p&gt;
+
+&lt;h2 id=&quot;read-the-instructions&quot;&gt;Read the instructions!&lt;/h2&gt;
+&lt;p&gt;For some reason, I thought that the metric for this contest was accuracy. I suspect it is because I had read this line from the instructions: “For each Id in the test set, you must make a binary prediction of the target variable.” However, other people were submitting probabilities, not just binary predictions. So, I tried submitting the raw probabilities from my model, and the score jumped up from around 0.77 to 0.86! Something is a amiss. Have I misunderstood accuracy.  I re-read the instructions and find that I somehow missed this line: “Submissions are evaluated on area under the ROC curve between the predicted probability and the observed target.” That makes more sense. But if they are using AUROC, then why do they ask for a binary prediction?!&lt;/p&gt;
+
+&lt;h2 id=&quot;eda&quot;&gt;EDA&lt;/h2&gt;
+&lt;p&gt;This is something that I should have done, having noticed other people doing it for the &lt;a href=&quot;/blog/blog/python/data%20science/2020/06/25/creditcard6.html&quot;&gt;credit card dataset&lt;/a&gt;, but forgot to do. I will make sure to do this for next time! (I did very minimal exploration, but there is clearly more I could do).&lt;/p&gt;
+
+&lt;h2 id=&quot;two-other-algorithms&quot;&gt;Two other algorithms&lt;/h2&gt;
+&lt;p&gt;There are two more algorithms to add to my toolbox: Naive Bayes and LightGBM.  Naive Bayes is intuitive and I am surprised I have not encountered it already. LightGBM seems to be a faster version of XGBoost, and this seems to be the most popular algorithm used in this challenge.&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-a-model-for-each-feature-separately&quot;&gt;Creating a model for each feature separately&lt;/h2&gt;
+&lt;p&gt;This idea seems to be first described in this &lt;a href=&quot;https://www.kaggle.com/ymatioun/santander-model-one-feature-at-a-time&quot;&gt;example&lt;/a&gt; and &lt;a href=&quot;https://www.kaggle.com/cdeotte/modified-naive-bayes-santander-0-899&quot;&gt;here&lt;/a&gt;. The intuition for why this works is that the features are seemingly independent, so you can combine the predictions made from considering each feature, one at a time. I can’t remember which example it is, but somebody else calculated all the pairwise correlations between features and found they were all very small.&lt;/p&gt;
+
+&lt;h2 id=&quot;using-frequency-as-new-feature&quot;&gt;Using frequency as new feature&lt;/h2&gt;
+&lt;p&gt;This idea was referred to as the magic feature (e.g. &lt;a href=&quot;https://www.kaggle.com/cdeotte/200-magical-models-santander-0-920&quot;&gt;here&lt;/a&gt;): for each feature ‘F’, add a new feature ‘F_freq’ which is the frequency of the first feature ‘F’. It is not intuitive to me why this improve the performance of the model.&lt;/p&gt;
+
+&lt;h2 id=&quot;visualising-a-tree-based-algorithm&quot;&gt;Visualising a tree-based algorithm&lt;/h2&gt;
+&lt;p&gt;In &lt;a href=&quot;https://www.kaggle.com/cdeotte/200-magical-models-santander-0-920&quot;&gt;example&lt;/a&gt;, there are excellent visuals demonstrating how LightGBM is making its predictions. In particular, it also shows clearly how including the magic frequency feature alters the behaviour of LightGBM’s fitting.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-remarkable-discovery&quot;&gt;A remarkable discovery&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.kaggle.com/yag320/list-of-fake-samples-and-public-private-lb-split&quot;&gt;YaG320&lt;/a&gt; made an incredible discovery: by looking at the frequencies that different values occur, they realised that half of the test data was synthetic, and then used this to figure out which entries in the test data were for the public leaderboard and which for the private leaderboard. The reasoning was clever: by noticing that there were fewer unique values in the test data than in the training data, they suspected that the test data started out as some real data and then augmented with some synthetic data. Furthermore, the synthetic data will only use values that occured in the real data. To sniff out the synthetic data, you have to ask yourself: are any of its feature values unique? If yes, then it cannot be synthetic (as synthetic only uses values that already occured in the real data), and if not, then it is very likely synthetic (not certain but very likely). YaG320 wrote code to implement this idea, and found that exactly half the code was real and half was synthetic. Impressive detective work! By removing the fake synthetic data from their training, people were able to improve their models.&lt;/p&gt;
+
+&lt;p&gt;It is unlikely this exact idea will be useful for me in any future projects I will do. However, it highlights the power and creativity of data science, and also the thrill involved. Just by looking at a bunch of numbers, one can make deductions that would otherwise be completely hidden.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;There is a lot for me still to learn! Trying to analyse these Kaggle datasets and then comparing my approach to others seems to be an excellent way to learn and I will be sure to continue it. However, I need to practice some data cleaning/data scraping, so I will start some projects in that vain soon.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Santander Dataset, Part II, Feature Selection Santander Dataset, Part I</summary></entry><entry><title type="html">Neural Networks, Part II, First MNIST model</title><link href="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/14/neural2.html" rel="alternate" type="text/html" title="Neural Networks, Part II, First MNIST model" /><published>2020-07-14T00:00:00-05:00</published><updated>2020-07-14T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/14/neural2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/14/neural2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/neural%20network/2020/07/09/neural1.html&quot;&gt;Neural Networks, Part I, Basic network from scratch&lt;/a&gt;&lt;/li&gt;
@@ -39,7 +77,12 @@ Accuracy on testing data: 0.9496333333333333
 &lt;p&gt;I will continue to work through &lt;a href=&quot;http://neuralnetworksanddeeplearning.com/chap1.html&quot;&gt;Nielsen’s online book&lt;/a&gt;, learning more about neural networks.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Neural Networks, Part I, Basic network from scratch</summary></entry><entry><title type="html">Santander Dataset, Part II, Feature Selection</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2.html" rel="alternate" type="text/html" title="Santander Dataset, Part II, Feature Selection" /><published>2020-07-13T00:00:00-05:00</published><updated>2020-07-13T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/01/santander1.html&quot;&gt;Santander Dataset, Part I&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/18/santander3.html&quot;&gt;Santander Dataset, Part III, Learning from others&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/01/santander1.html&quot;&gt;Santander Dataset, Part I&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -90,7 +133,7 @@ Accuracy on testing data: 0.9496333333333333
 &lt;p&gt;It looks like removing the least important features has not improved our models. The one thing it did improve was the time taken to create the models. Also, in a real-life situation (where we knew what the variables corresponded to), we would have gained insight into which variables are important, which presumably would help in decision-making.&lt;/p&gt;
 
 &lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
-&lt;p&gt;The next thing I will do is some hyper-parameter optimisations. After that, I will have used up all the tricks I have available, and then look at other people’s models and see what I can learn.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Santander Dataset, Part I</summary></entry><entry><title type="html">Neural Networks, Part I, Basic network from scratch</title><link href="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1.html" rel="alternate" type="text/html" title="Neural Networks, Part I, Basic network from scratch" /><published>2020-07-09T00:00:00-05:00</published><updated>2020-07-09T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;The next thing I will do is some hyper-parameter optimisations. After that, I will have used up all the tricks I have available, and then look at other people’s models and see what I can learn.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Santander Dataset, Part III, Learning from others Santander Dataset, Part I</summary></entry><entry><title type="html">Neural Networks, Part I, Basic network from scratch</title><link href="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1.html" rel="alternate" type="text/html" title="Neural Networks, Part I, Basic network from scratch" /><published>2020-07-09T00:00:00-05:00</published><updated>2020-07-09T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/neural%20network/2020/07/09/neural1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/neural%20network/2020/07/14/neural2.html&quot;&gt;Neural Networks, Part II, First MNIST model&lt;/a&gt;&lt;/li&gt;
@@ -283,7 +326,12 @@ Accuracy on testing data: 0.968
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Neural Networks, Part II, First MNIST model</summary></entry><entry><title type="html">Santander Dataset, Part I</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html" rel="alternate" type="text/html" title="Santander Dataset, Part I" /><published>2020-07-01T00:00:00-05:00</published><updated>2020-07-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/01/santander1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/13/santander2.html&quot;&gt;Santander Dataset, Part II, Feature Selection&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/18/santander3.html&quot;&gt;Santander Dataset, Part III, Learning from others&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/13/santander2.html&quot;&gt;Santander Dataset, Part II, Feature Selection&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -327,7 +375,7 @@ Based on all these graphs above, it was clear I had misunderstood something basi
 &lt;p&gt;I think this misunderstanding arose because I got mixed up with ROC curves, in which a random model does produce a straight line.&lt;/p&gt;
 
 &lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
-&lt;p&gt;I will try to improve the models by doing some feature selection.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Santander Dataset, Part II, Feature Selection</summary></entry><entry><title type="html">Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html" rel="alternate" type="text/html" title="Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle" /><published>2020-06-25T00:00:00-05:00</published><updated>2020-06-25T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;I will try to improve the models by doing some feature selection.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Santander Dataset, Part III, Learning from others Santander Dataset, Part II, Feature Selection</summary></entry><entry><title type="html">Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html" rel="alternate" type="text/html" title="Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle" /><published>2020-06-25T00:00:00-05:00</published><updated>2020-06-25T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/25/creditcard6.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1104,194 +1152,4 @@ Lastly, I combine all of the data into one mega pandas dataframe, keeping only t
 
 &lt;p&gt;&lt;img src=&quot;/blog/images/sas1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;One might say, ‘Look, white people are stopped more than black people, so the police are not racist.’ This is obviously simplistic. The aim of the project is to dig deeper into the data and see what patterns I can find.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stop and Search, Part III, Data Analysis Stop and Search, Part II, Data Cleaning</summary></entry><entry><title type="html">AIs for Games, Part III, Pruning Min-Max for Pentago</title><link href="https://lovkush-a.github.io/blog/ai/python/2020/06/09/games3.html" rel="alternate" type="text/html" title="AIs for Games, Part III, Pruning Min-Max for Pentago" /><published>2020-06-09T00:00:00-05:00</published><updated>2020-06-09T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/ai/python/2020/06/09/games3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/ai/python/2020/06/09/games3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/ai/python/2020/06/04/games2.html&quot;&gt;AIs for Games, Part II, Min-max for Pentago&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/ai/python/2020/05/20/games1.html&quot;&gt;AIs for Games, Part I, Brute Force TicTacToe&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;performance-before-any-optimisations&quot;&gt;Performance before any optimisations&lt;/h2&gt;
-&lt;p&gt;I created a few boards and timed how long it took the algorithm to run a depth-2 search on these boards, starting with both Player 0 and Player 1. An image showing the boards used is at the end of the post.  The results are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Board: 0, Player: 0, Time taken: 1.59&lt;/li&gt;
-  &lt;li&gt;Board: 0, Player: 1, Time taken: 1.58&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 0, Time taken: 0.00117&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 1, Time taken: 0.00103&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 0, Time taken: 5.04&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 1, Time taken: 4.94&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 0, Time taken: 29.2&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 1, Time taken: 32.0&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 0, Time taken: 9.55&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 1, Time taken: 9.25&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I also tried running a depth-3 search on Board 4 for Player 1 (because Player 1 can find a winning move with this depth), but it did not finish running even after a couple of hours of running.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-optimisations&quot;&gt;The optimisations&lt;/h2&gt;
-&lt;p&gt;I made several optimisations. I describe them here chronologically, i.e., in the order I tried implementing them.&lt;/p&gt;
-
-&lt;h3 id=&quot;alpha-beta-pruning&quot;&gt;Alpha-beta pruning&lt;/h3&gt;
-&lt;p&gt;There are situations where a board position does not need to be analysed, because based on the boards we have already analysed, this board position will definitely not be chosen in optimal player. This resulted in the following times:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Board: 0, Player: 0, Time taken: 1.34&lt;/li&gt;
-  &lt;li&gt;Board: 0, Player: 1, Time taken: 1.39&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 0, Time taken: 0.00120&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 1, Time taken: 0.00104&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 0, Time taken: 5.28&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 1, Time taken: 4.61&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 0, Time taken: 26.1&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 1, Time taken: 29.4&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 0, Time taken: 8.62&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 1, Time taken: 8.28&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;This was not a significant improvement in the times. I was surprised by this. I decided to run cProfile to try to determine why there was not a significant time-save. It seemed to be that the process of creating new boards was taking up a lot of time - and I was only pruning a board after the board was created. I needed to prune before the board was created.&lt;/p&gt;
-
-&lt;p&gt;To achieve this, I had to significantly re-structure the whole program, removing the frontier and instead writing the main function &lt;code class=&quot;highlighter-rouge&quot;&gt;find_move&lt;/code&gt; recursively. The resulting times were a significant improvement:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Board: 0, Player: 0, Time taken: 1.07&lt;/li&gt;
-  &lt;li&gt;Board: 0, Player: 1, Time taken: 1.06&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 0, Time taken: 0.00118&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 1, Time taken: 0.00102&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 0, Time taken: 1.90&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 1, Time taken: 1.86&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 0, Time taken: 5.33&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 1, Time taken: 5.41&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 0, Time taken: 2.98&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 1, Time taken: 2.90&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Phew! It was satisfying to see the times drop so much, and this motivated me to keep going.&lt;/p&gt;
-
-&lt;h3 id=&quot;stop-if-winning-move-found&quot;&gt;Stop if winning move found&lt;/h3&gt;
-&lt;p&gt;If a winning move was found in a current board position, there is no need to continue analysing this position, so can stop this early. Pruning does not detect this (at least, not how I implemented it. This could be a sign I did it wrong…), so I had to manually add this. This resulted in further improvements:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Board: 0, Player: 0, Time taken: 1.09&lt;/li&gt;
-  &lt;li&gt;Board: 0, Player: 1, Time taken: 1.11&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 0, Time taken: 0.00104&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 1, Time taken: 0.00119&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 0, Time taken: 0.324&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 1, Time taken: 0.344&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 0, Time taken: 0.141&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 1, Time taken: 0.897&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 0, Time taken: 3.12&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 1, Time taken: 2.93&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I also tried running the depth-3 search on board 4, and to my surprise it ended in under a minute!&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Board: 4, Depth 3, Time taken: 59.1&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Note this would not be representative of a generic depth-3 search, because the winning move is found about 1/6 of the way into the full search.&lt;/p&gt;
-
-&lt;h3 id=&quot;lists-within-lists&quot;&gt;Lists within lists&lt;/h3&gt;
-&lt;p&gt;Running cProfile revealed that having nested lists to encode the board slows things down considerably, so I re-wrote the program so that the board was represented by a single list. I was worried this would take a lot of effort, but fortunately it consisted of replacing &lt;code class=&quot;highlighter-rouge&quot;&gt;board[i][j]&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;board[6*i + j]&lt;/code&gt;, and other similar simple changes.  This halved the times:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Board: 0, Player: 0, Time taken: 0.407&lt;/li&gt;
-  &lt;li&gt;Board: 0, Player: 1, Time taken: 0.411&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 0, Time taken: 0.000520&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 1, Time taken: 0.000450&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 0, Time taken: 0.175&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 1, Time taken: 0.161&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 0, Time taken: 0.0645&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 1, Time taken: 0.424&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 0, Time taken: 1.41&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 1, Time taken: 1.41&lt;/li&gt;
-  &lt;li&gt;Board: 4, Depth 3, Time taken: 30.7&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;checking-if-the-game-is-over&quot;&gt;Checking if the game is over&lt;/h3&gt;
-&lt;p&gt;Running cProfile again showed that the new bottle-neck was checking if the game had ended. This involved looping through the set of all possible winning lines, and checking to see if Player 0 or Player 1 occupied all the positions in each line.&lt;/p&gt;
-
-&lt;p&gt;Originally, I had one for-loop to check if Player 1 won, then another to check if Player 0 won. I changed this to have a single loop, and for each line check if Player 1 or Player 0 won. This resulted in another big chunk of time-saving.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Board: 0, Player: 0, Time taken: 0.292&lt;/li&gt;
-  &lt;li&gt;Board: 0, Player: 1, Time taken: 0.283&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 0, Time taken: 0.000499&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 1, Time taken: 0.000334&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 0, Time taken: 0.101&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 1, Time taken: 0.107&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 0, Time taken: 0.0359&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 1, Time taken: 0.261&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 0, Time taken: 0.943&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 1, Time taken: 0.915&lt;/li&gt;
-  &lt;li&gt;Board: 4, Depth 3, Time taken: 21.6&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Checking cProfile showed that I had halved the time to check if the game had ended, but it was still the biggest bottle neck.&lt;/p&gt;
-
-&lt;p&gt;I then tried to re-design the program to cut down further, but to no avail. For example, I tried to group the set of lines into groups that could be ruled out together, e.g. if I know that position &lt;code class=&quot;highlighter-rouge&quot;&gt;(2,2)&lt;/code&gt; in the board is empty, that rules out 7 of the lines. It will be interesting to know if there is a more efficient way to check if the game has ended!&lt;/p&gt;
-
-&lt;h3 id=&quot;tidying-up-and-fixing-a-bug&quot;&gt;Tidying up and fixing a “bug”&lt;/h3&gt;
-&lt;p&gt;My code was becoming untidy (I was not using version control properly, and instead was creating multiple versions of functions in the same file) so I tidied up all the code. While doing this, I discovered that I did not correctly update the prune function during the ‘Lists within lists’ step: I was only pruning boards of at least depth 2, when it could be pruning board of depth 1.  I made the necessary tweak, resulting in the following times:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Board: 0, Player: 0, Time taken: 0.0896&lt;/li&gt;
-  &lt;li&gt;Board: 0, Player: 1, Time taken: 0.0682&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 0, Time taken: 0.000272&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 1, Time taken: 0.000204&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 0, Time taken: 0.100&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 1, Time taken: 0.0539&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 0, Time taken: 0.313&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 1, Time taken: 1.13&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 0, Time taken: 0.204&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 1, Time taken: 0.310&lt;/li&gt;
-  &lt;li&gt;Board: 4, Depth 3, Time taken: 3.18&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Woohoo! What big progress. What used to take hours now only takes 3 seconds.&lt;/p&gt;
-
-&lt;h3 id=&quot;duplicate-board-positions&quot;&gt;Duplicate board positions&lt;/h3&gt;
-&lt;p&gt;The last thing I wanted to try was dealing with repeat positions. Previously I only skipped these if the same position occurred and they had same parent. But now I wanted to have a way of skipping board positions regardless of where they were in the game-tree. This took many hours to get correct, because my first attempt caused the algorithm to produce sub-optimal moves, and I had no idea why.&lt;/p&gt;
-
-&lt;p&gt;The error was that when I pruned a board, I would finalise the board’s value, though the board was not fully analysed. Then, when the board occurred somewhere else in the tree, I would use this incomplete value and miss out all the analysis that was pruned the first time around.&lt;/p&gt;
-
-&lt;p&gt;After fixing the bug, the new times are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Board: 0, Player: 0, Time taken: 0.2888009548187256&lt;/li&gt;
-  &lt;li&gt;Board: 0, Player: 1, Time taken: 0.15045881271362305&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 0, Time taken: 0.00028705596923828125&lt;/li&gt;
-  &lt;li&gt;Board: 1, Player: 1, Time taken: 0.0002300739288330078&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 0, Time taken: 0.0822603702545166&lt;/li&gt;
-  &lt;li&gt;Board: 2, Player: 1, Time taken: 0.03888416290283203&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 0, Time taken: 0.30017614364624023&lt;/li&gt;
-  &lt;li&gt;Board: 3, Player: 1, Time taken: 0.7593698501586914&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 0, Time taken: 0.3503570556640625&lt;/li&gt;
-  &lt;li&gt;Board: 4, Player: 1, Time taken: 0.3380570411682129&lt;/li&gt;
-  &lt;li&gt;Board: 4, Depth 3, Time taken: 3.19&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The times are not always better, and some are worse.&lt;/p&gt;
-
-&lt;h2 id=&quot;next-steps-and-final-thoughts&quot;&gt;Next steps and final thoughts&lt;/h2&gt;
-&lt;p&gt;The next step is to introduce neural networks. A brief google search reveals that min-max is not appropriate and that I should have been using reinforcement learning. Doh! In the back of my mind, I was curious as to how the neural network could learn the heuristic function; what would the loss/error be that it would minimise?&lt;/p&gt;
-
-&lt;p&gt;Though the optimisation of the min-max algorithm is incomplete (e.g. I do not understand why the latest version is not faster than the previous version), I will end it here. This is because I have already spent a couple of days on this, I have already learnt from this, and it is not necessary for the bigger goal of developing a neural network.&lt;/p&gt;
-
-&lt;p&gt;Some final takeaways:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;I should have sketched out a plan of the whole project. Though I had basic knowledge of neural networks, I should have researched a bit more and found out that min-max is not appropriate for neural networks.&lt;/li&gt;
-  &lt;li&gt;Be more thorough with testing. It makes spotting bugs easier and quicker.&lt;/li&gt;
-  &lt;li&gt;Seed random number generators. I used used random heuristics (to see effects of pruning), but I did not seed them. This means the times above are not fair comparisons, as some random numbers could have lead to more pruning than others.&lt;/li&gt;
-  &lt;li&gt;Use proper version control. My code got hideous at one point. At least now I have a better sense of the workflow of git.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;The code, at this stage of project, can be found on &lt;a href=&quot;https://github.com/Lovkush-A/games/tree/94649838b4e348772a12dbf13c5954b665354371&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-boards-used-for-testing&quot;&gt;The boards used for testing&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/games_31.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series AIs for Games, Part II, Min-max for Pentago AIs for Games, Part I, Brute Force TicTacToe</summary></entry></feed>
+&lt;p&gt;One might say, ‘Look, white people are stopped more than black people, so the police are not racist.’ This is obviously simplistic. The aim of the project is to dig deeper into the data and see what patterns I can find.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stop and Search, Part III, Data Analysis Stop and Search, Part II, Data Cleaning</summary></entry></feed>
