@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T07:10:53-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T08:04:13-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn the talks.&lt;/p&gt;
@@ -310,6 +310,7 @@ f   * Make images identifiable&lt;/li&gt;
   &lt;li&gt;This might be standard knowlege for people who already work in software engineering. But somebody with maths background, say, this kind of automation and workflow is not obvious.&lt;/li&gt;
   &lt;li&gt;This will make your life easier!&lt;/li&gt;
   &lt;li&gt;Has video showing example of making small change to chat bot, and how much is automated.&lt;/li&gt;
+  &lt;li&gt;See examples on &lt;a href=&quot;https://gitlab.com/warias/pycon2020&quot;&gt;github&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-4&quot;&gt;My thoughts&lt;/h3&gt;
@@ -318,16 +319,71 @@ f   * Make images identifiable&lt;/li&gt;
 &lt;h2 id=&quot;1315-building-models-with-no-expertise-with-automl-laurent-picard&quot;&gt;13:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/C8WFfBR-building-smarter-solutions-with-no-expertise-in-machine-learning/&quot;&gt;Building models with no expertise with AutoML&lt;/a&gt;, Laurent Picard&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-of-the-talk-5&quot;&gt;Notes of the talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Background, French, ebook pioneer, cofounder of bookeen&lt;/li&gt;
+  &lt;li&gt;Their definition of ML: given data, extract data.&lt;/li&gt;
+  &lt;li&gt;Correct definition: AI contains machine learning contains deep learning.&lt;/li&gt;
+  &lt;li&gt;Graph showing increase of ‘Brain Model’ at Google. Number of directories using it. At 7000 around 2017.&lt;/li&gt;
+  &lt;li&gt;AutoML - somewhere between ML APIs (developer skills) and ML (machine learning skills).&lt;/li&gt;
+  &lt;li&gt;Ready-to-use models.&lt;/li&gt;
+  &lt;li&gt;Vision API. Laurent in 90s tried to detect edges, and it was very hard.
+    &lt;ul&gt;
+      &lt;li&gt;Label detection. What is in picture?&lt;/li&gt;
+      &lt;li&gt;Locate picture by matching with google’s database&lt;/li&gt;
+      &lt;li&gt;Bounding boxes for objects in the picture, e.g. box for trousers, box for person&lt;/li&gt;
+      &lt;li&gt;Face detection. Emotion prediction.&lt;/li&gt;
+      &lt;li&gt;Text detection. Identify blocks of text. Works even if image is slanted.&lt;/li&gt;
+      &lt;li&gt;Hand-writing detection. Not as good as text detection (obviously), but still good.&lt;/li&gt;
+      &lt;li&gt;Web entity detection/image matching. Identify source of image, identify topic of image. E.g. picture of Tolkien identified as Tolkien and its source found.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;from google.cloud import vision&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Video intelligence
+    &lt;ul&gt;
+      &lt;li&gt;Apply image analysis to each frame&lt;/li&gt;
+      &lt;li&gt;from google.cloud import videointelligence&lt;/li&gt;
+      &lt;li&gt;codelabs.developers.google.com/codelabs/cloud-video-intelligence-python3&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;NLP
+    &lt;ul&gt;
+      &lt;li&gt;Syntax analysis. Language detection, syntax analysis (dependency, grammar, etc.)&lt;/li&gt;
+      &lt;li&gt;Entity detection. Understands context. Given match, gives unique id and wikipedia link!&lt;/li&gt;
+      &lt;li&gt;Content classification.&lt;/li&gt;
+      &lt;li&gt;Sentiment analysis. E.g helps company judge how people are talking about their service or product.&lt;/li&gt;
+      &lt;li&gt;Tutorials available on codelabs&lt;/li&gt;
+      &lt;li&gt;Translation API.&lt;/li&gt;
+      &lt;li&gt;Speech-to-text API&lt;/li&gt;
+      &lt;li&gt;Speech timestamps. Given script and audio, attach&lt;/li&gt;
+      &lt;li&gt;Text-to-speech. WaveNet by DeepMind&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cloud AutomL
+    &lt;ul&gt;
+      &lt;li&gt;You provide data. AutoML does training, deployment and serving&lt;/li&gt;
+      &lt;li&gt;Can create your own API for cloud model&lt;/li&gt;
+      &lt;li&gt;For offline, can get TF Lite model for mobile, TF model for browser, or container for anywhere.&lt;/li&gt;
+      &lt;li&gt;Example of identifying between different types of clouds. Upload around thousand images. Can specify computer hours and visualise results.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-5&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;Not sure what my takeaway message is here. Looks like a useful and easy to use set of tools. But not sure when I will use it.&lt;/p&gt;
+
+&lt;h2 id=&quot;1415-simulating-hours-of-robots-work-in-minutes&quot;&gt;14:15, &lt;a href=&quot;Eran Friedman&quot;&gt;Simulating hours of robots’ work in minutes&lt;/a&gt;&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-of-the-talk-6&quot;&gt;Notes of the talk&lt;/h3&gt;
 
 &lt;h3 id=&quot;my-thoughts-6&quot;&gt;My thoughts&lt;/h3&gt;
 
+&lt;h2 id=&quot;1445-parallel-stream-processing-at-massive-scale&quot;&gt;14:45, &lt;a href=&quot;Alejandro Saucedo&quot;&gt;Parallel Stream Processing at Massive Scale&lt;/a&gt;&lt;/h2&gt;
+
 &lt;h3 id=&quot;notes-of-the-talk-7&quot;&gt;Notes of the talk&lt;/h3&gt;
 
-&lt;h3 id=&quot;my-thoughts-7&quot;&gt;My thoughts&lt;/h3&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;h3 id=&quot;my-thoughts-7&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1515&quot;&gt;15:15,&lt;/h2&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
