@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T09:22:40-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T10:07:14-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn the talks.&lt;/p&gt;
@@ -429,11 +429,23 @@ f   * Make images identifiable&lt;/li&gt;
 &lt;h3 id=&quot;my-thoughts-7&quot;&gt;My thoughts&lt;/h3&gt;
 &lt;p&gt;Good to learn about this newer workflow and the tools available for stream processing. Again, at this stage of my learning, I am unlikely to use the ideas directly any time soon, but it is good to have an awareness.&lt;/p&gt;
 
-&lt;h2 id=&quot;1515-analysing-solar-panels-from-aerial-imagery-adrian-meyer&quot;&gt;15:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/detecting-and-analyzing-solar-panels-switzerland-using-aerial-imagery/&quot;&gt;Analysing Solar Panels from Aerial Imagery&lt;/a&gt;, Adrian Meyer&lt;/h2&gt;
+&lt;h2 id=&quot;1830-a-brief-history-of-jupyter-notebooks-william-horton&quot;&gt;18:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/7UBMYed-a-brief-history-of-jupyter-notebooks/&quot;&gt;A Brief History of Jupyter Notebooks&lt;/a&gt;, William Horton&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-of-the-talk-8&quot;&gt;Notes of the talk&lt;/h3&gt;
 
-&lt;h3 id=&quot;my-thoughts-8&quot;&gt;My thoughts&lt;/h3&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;h3 id=&quot;my-thoughts-8&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1900-quickly-prototype-translation-from-scratch-and-serve-it-in-production-shreya-khurana&quot;&gt;19:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/7W3cA68-train-serve-deploy-story-of-a-nlp-model-ft-pytorch-docker-uwsgi-and-nginx/&quot;&gt;Quickly prototype translation from scratch and serve it in production&lt;/a&gt;, Shreya Khurana&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-of-the-talk-9&quot;&gt;Notes of the talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-9&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1930-painless-machine-learning-in-production-chase-stevens&quot;&gt;19:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/3iErRxw-painless-machine-learning-in-production/&quot;&gt;Painless Machine Learning in Production&lt;/a&gt;, Chase Stevens&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-of-the-talk-10&quot;&gt;Notes of the talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-10&quot;&gt;My thoughts&lt;/h3&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
