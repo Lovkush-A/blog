@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T08:04:13-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T08:30:42-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn the talks.&lt;/p&gt;
@@ -369,21 +369,32 @@ f   * Make images identifiable&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-5&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Not sure what my takeaway message is here. Looks like a useful and easy to use set of tools. But not sure when I will use it.&lt;/p&gt;
+&lt;p&gt;Not sure what my takeaway message is here. Looks like a useful and easy to use set of tools. But not sure when I will use it given that I am aiming to become a data scientist.&lt;/p&gt;
 
-&lt;h2 id=&quot;1415-simulating-hours-of-robots-work-in-minutes&quot;&gt;14:15, &lt;a href=&quot;Eran Friedman&quot;&gt;Simulating hours of robots’ work in minutes&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;1415-simulating-hours-of-robots-work-in-minutes-eran-friedman&quot;&gt;14:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/9k2qHA7-boosting-simulation-performance-with-python/&quot;&gt;Simulating hours of robots’ work in minutes&lt;/a&gt;, Eran Friedman&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-of-the-talk-6&quot;&gt;Notes of the talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Works at Fabric. Helps develop ground robot.&lt;/li&gt;
+  &lt;li&gt;SimPy library. Discreate event simulation&lt;/li&gt;
+  &lt;li&gt;Three objects: environment, …&lt;/li&gt;
+  &lt;li&gt;And I stopped taking notes.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-6&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;I do not anticipate needing to know about simulations any time soon, and I am feeling exhausted from first several hours of talks, so I decided to take a break. SimPy looks cool, but not for me.&lt;/p&gt;
 
-&lt;h2 id=&quot;1445-parallel-stream-processing-at-massive-scale&quot;&gt;14:45, &lt;a href=&quot;Alejandro Saucedo&quot;&gt;Parallel Stream Processing at Massive Scale&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;1445-parallel-stream-processing-at-massive-scale-alejandro-saucedo&quot;&gt;14:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/Ccb6D5Z-real-time-stream-processing-for-machine-learning-at-massive-scale/&quot;&gt;Parallel Stream Processing at Massive Scale&lt;/a&gt;, Alejandro Saucedo&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-of-the-talk-7&quot;&gt;Notes of the talk&lt;/h3&gt;
 
 &lt;h3 id=&quot;my-thoughts-7&quot;&gt;My thoughts&lt;/h3&gt;
 
-&lt;h2 id=&quot;1515&quot;&gt;15:15,&lt;/h2&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;h2 id=&quot;1515-analysing-solar-panels-from-aerial-imagery-adrian-meyer&quot;&gt;15:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/detecting-and-analyzing-solar-panels-switzerland-using-aerial-imagery/&quot;&gt;Analysing Solar Panels from Aerial Imagery&lt;/a&gt;, Adrian Meyer&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-of-the-talk-8&quot;&gt;Notes of the talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-8&quot;&gt;My thoughts&lt;/h3&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
