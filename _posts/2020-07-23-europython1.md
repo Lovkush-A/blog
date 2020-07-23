@@ -70,4 +70,112 @@ f   * Make images identifiable
     * Use a linter. E.g. VSCode has docker extension
     
 ### My thoughts
-A lot of this went over my head. The main lesson I learnt is that I should expect things to be tricky when I eventually do start using Docker. I will refer back to this video when I do start using Docker. 
+A lot of this went over my head. The main lesson I learnt is that I should expect things to be tricky when I eventually do start using Docker. I will refer back to this video when I do start using Docker.
+
+
+## 10:00 [Spacy](https://ep2020.europython.eu/talks/7TXpVro-15-things-you-should-know-about-spacy/), Alexander Hendorf
+
+### Notes of the talk
+* NLP: avalanche of unstructured data
+* Estimate 20:80 split between structured and unstructured ata
+* Examples of NLP: chatbots, translation, sentiment analysis, speech-to-texxt or vice versa, spelling/grammar, text completion ([GPT-3](https://github.com/openai/gpt-3)! :D)
+* Example of Alexander's work: certain group had large number of documents and search engine was not helping them. Used NLP to create clusters of documnets, create keywords, create summaries.
+* spaCy. Open source library for NLP, comes with pretrained language models, fast and efficient, designed for production usage, lots of out-of-the-box support.
+* Building blocks of spaCy
+    * Tokenization
+    * Part of speech tagging. E.g. which words are nouns or verbs, etc.
+    * Lemmatization. cats->cat
+    * Sentence boundary detection
+    * Named Entity Recognition. (Apple -> company). Depends on context!
+    * Serialization. saving
+    * Dependency parsing. How different tokens depend on each other
+    * Entity linking
+    * Training. Updating models
+    * Text classification 
+    * Rule-based matching
+* Built-in rules
+    * Rules for specific languages, e.g., adding 's' to end of noun makes it plural in English.
+    * Usually does not cover many exceptions
+    * Most languages won't be supported. Most research done on English.
+* Built-in models
+    * Language models. E.g. word vectors
+    * Can train your own models with nlp.update()
+    * Need a lot of data to train these models. Few documents is not enough
+* spaCy is pythonic
+    * should understand objects, iterations, comprehensions, classes, methods
+    * Might be overwhelming, but not as overwhelming as Pandas yet!
+* Pipelines
+    * Has nice image in slides
+    * default pipline: tokenize, tag, parse, then your own stuff
+* Visualisation
+    * used to be separate package displacy
+    * visualisation of sentence grammar/dependencies
+    * visualise entities. e.g. given sentence, highlight grouping of nounes. e.g. is a word a person, or a date, or an animal, or...
+* Serialization
+    * uses pickle
+* Danger zones
+    * Privacy, bias, law, language is not fixed in stone
+* Can't do all languages
+* Extensions
+    * spaCy universe
+    * E.g. NeuralCoref.  Matching up 'Angela Merkel' and 'chancellor' recognised as same person.
+* Bugs
+    * spaCy will maintained, and quick response to bug reports
+    * Extensions more variable
+* Status
+    * Other options: NLTK, Gensin, TextBlob, Pattern
+    * spaCy: usually close to the state of the art, especially for language models, flexible, extendable via spacy universe, fast (powered by cython)
+    * For special cases, probably use other models. E.g. RASA for contextual textbots
+
+
+### My thoughts
+I have not yet done any NLP, but when I do, I will be sure to look into spaCy after this talk!
+
+## 10:30 [Differential Privacy](https://ep2020.europython.eu/talks/6Js4E4r-diffprivlib-privacy-preserving-machine-learning-with-scikit-learn/), Naoise Holohan
+
+
+### Notes of the talk
+
+### My thoughts
+
+
+
+
+
+### Notes of the talk
+
+### My thoughts
+
+
+
+
+### Notes of the talk
+
+### My thoughts
+
+
+
+
+### Notes of the talk
+
+### My thoughts
+
+
+
+
+### Notes of the talk
+
+### My thoughts
+
+
+
+
+
+### Notes of the talk
+
+### My thoughts
+
+
+
+
+
