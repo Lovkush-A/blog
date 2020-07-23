@@ -285,6 +285,29 @@ I do not anticipate needing to know about simulations any time soon, and I am fe
 ## 14:45, [Parallel Stream Processing at Massive Scale](https://ep2020.europython.eu/talks/Ccb6D5Z-real-time-stream-processing-for-machine-learning-at-massive-scale/), Alejandro Saucedo
 
 ### Notes of the talk
+* Chief Scientist at Institue for Ethical AI. Director at Seldon.
+* Realtime ML in today's talk, conceptual intro to stream processing, tradeoffs in different tools, example case
+* Real-time ML model for reddit comments. To help automate comment moderation.
+* ETL, Extract Transform Load framework for data transformation. Batch processing. Variations: ETL, ELT, EL, LT. Many specialised tools. Image of about 40 different packages that deal with this.
+    * EL, Nifi and Flume
+    * ETL, Oozie, Airflow
+    * ELT, Elasticsearch, Data Warehouse
+    * Jupyter notebook?
+* Batch vs streaming
+    * Data processed in batches. E.g. periodically
+    * Stream processing. Process data as it comes in, each data entry at a time. Real time
+    * In reality, have combination of the two. Rarely all or nothing.
+* Stream concepts
+    * Windows. Can have moving window or tumbling window
+    * Checkpoints. Keep track of stream progress. Leads to other ideas, e.g. processing at most/at least once.
+    * Water mark. Somehow allows you to deal with data that arrives later than is expected
+* Some tools. Flink, Kafka, Spark, Faust, Apache Beam, Seldon
+* Traditional ML workflow. Train a model on cleaning training data. Obtain 'persisted' model. Then get unseen data, and use model to make predictions.
+    * Reddit example: clean text, spaCy tokenizer, TFIDF vectoriser, logistic regression.
+    * `You are a DUMMY!!!!` -> `You are dummy` -> `[PRON, IS, DUMB]` -> `[0010, 1000, 1100]` -> `1` (which equals moderated).
+* Stream-based workflow.
+![image]({{ site.baseurl }}/images/europython_2.png)
+* Gives example code in video for each step in workflow.
 
 ### My thoughts
 
