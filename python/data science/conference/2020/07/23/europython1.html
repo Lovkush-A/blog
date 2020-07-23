@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      13 min read
+      15 min read
     
 </span></p>
 
@@ -669,18 +669,74 @@ f   * Make images identifiable</li>
 
 <h3 id="notes-of-the-talk-8">
 <a class="anchor" href="#notes-of-the-talk-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
+<ul>
+  <li>Tension between traditional python IDE and jupyter notebooks
+    <ul>
+      <li>“I don’t like notebooks” - Joel Grus</li>
+      <li>First Notebook War, Martin Skarynski. Talk at PyData 2018</li>
+    </ul>
+  </li>
+  <li>Instead of arguing, lets understand the history. Better understanding as as result
+    <ul>
+      <li>No significant piece of software doesn’t come out of nowhere</li>
+    </ul>
+  </li>
+  <li>Long-term trends: scientific computing, literate programming, proprietary vs open source, python</li>
+  <li>Mathematica, 1988. By Stephen Wolfram. Theodore Gray created Notebook interface. Well received at the time.
+    <ul>
+      <li>Had two parts to notebooks. Kernel and front-end. Notebooks are objects in themselves that could be manipulated by mathematica.</li>
+    </ul>
+  </li>
+  <li>The Art of Computer Programming, by Knuth.
+    <ul>
+      <li>Literate programming. Implemented ‘WEB’ system.</li>
+      <li>TANGLE - generates compilable source code</li>
+      <li>WEAVE - generate formatted documentation</li>
+      <li>Used this idea to implement Tex!</li>
+    </ul>
+  </li>
+  <li>Maple. In 1992, had ‘worksheet’ interface.</li>
+  <li>Maple, Mathematica.
+    <ul>
+      <li>Mathematical entry vs programming style entry, enter vs shift+enter, etc.</li>
+      <li>But both expensive and propritary</li>
+    </ul>
+  </li>
+  <li>Open source. SciPy, IPython and Matplotlib</li>
+  <li>Big name: Fernando Perez. Created IPython in 2001 as grad student.</li>
+  <li>…</li>
+</ul>
 
 <h3 id="my-thoughts-8">
 <a class="anchor" href="#my-thoughts-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>I stopped taking notes, because I do not think I will need to refer back to this. Time to just enjoy the talk!</p>
 
 <h2 id="1900-quickly-prototype-translation-from-scratch-and-serve-it-in-production-shreya-khurana">
 <a class="anchor" href="#1900-quickly-prototype-translation-from-scratch-and-serve-it-in-production-shreya-khurana" aria-hidden="true"><span class="octicon octicon-link"></span></a>19:00, <a href="https://ep2020.europython.eu/talks/7W3cA68-train-serve-deploy-story-of-a-nlp-model-ft-pytorch-docker-uwsgi-and-nginx/">Quickly prototype translation from scratch and serve it in production</a>, Shreya Khurana</h2>
 
 <h3 id="notes-of-the-talk-9">
 <a class="anchor" href="#notes-of-the-talk-9" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
+<ul>
+  <li>Background. Data Scientist at GoDaddy, deep learning NLP</li>
+  <li>Workflow in academia is different to business use. Deployment is whole extra part of the workflow.</li>
+  <li>Lots of new tools that you wouldn’t be familiar with from just training models.</li>
+  <li>Example: seq2seq model i.e. translation. E.g. german sentence to english sentence.
+    <ul>
+      <li>Small dataset from TedTalk transcripts.</li>
+    </ul>
+  </li>
+  <li>Fairseq. Used for preprocessing, training, model serving. In some unknown language - shell script?</li>
+  <li>Flask. Tool to create API. Development server. Example code given in talk.</li>
+  <li>uwsgi. Helps make Flask app secure / ready for production. There is uwsgi.ini file to configure stuff.</li>
+  <li>nginx. (pronounced ‘engine-x’). Idea of QPS - queries per second. Make sure all requests are appropriately routed to server. Unknown language for nginx.</li>
+  <li>supervisord. coordinates nginx and uwsgi.</li>
+  <li>Docker. The above system has many dependencies. Docker creates containers where you can isolate all the requirements and programs, which can loaded up and run remotely.</li>
+  <li>General good practice: check logs frequently, caching, unit tests.</li>
+</ul>
 
 <h3 id="my-thoughts-9">
 <a class="anchor" href="#my-thoughts-9" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>A lot of useful information here. I will be returning to this when I have to put a model into production.</p>
 
 <h2 id="1930-painless-machine-learning-in-production-chase-stevens">
 <a class="anchor" href="#1930-painless-machine-learning-in-production-chase-stevens" aria-hidden="true"><span class="octicon octicon-link"></span></a>19:30, <a href="https://ep2020.europython.eu/talks/3iErRxw-painless-machine-learning-in-production/">Painless Machine Learning in Production</a>, Chase Stevens</h2>

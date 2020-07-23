@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T10:07:14-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T13:34:23-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn the talks.&lt;/p&gt;
@@ -432,14 +432,70 @@ f   * Make images identifiable&lt;/li&gt;
 &lt;h2 id=&quot;1830-a-brief-history-of-jupyter-notebooks-william-horton&quot;&gt;18:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/7UBMYed-a-brief-history-of-jupyter-notebooks/&quot;&gt;A Brief History of Jupyter Notebooks&lt;/a&gt;, William Horton&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-of-the-talk-8&quot;&gt;Notes of the talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Tension between traditional python IDE and jupyter notebooks
+    &lt;ul&gt;
+      &lt;li&gt;“I don’t like notebooks” - Joel Grus&lt;/li&gt;
+      &lt;li&gt;First Notebook War, Martin Skarynski. Talk at PyData 2018&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Instead of arguing, lets understand the history. Better understanding as as result
+    &lt;ul&gt;
+      &lt;li&gt;No significant piece of software doesn’t come out of nowhere&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Long-term trends: scientific computing, literate programming, proprietary vs open source, python&lt;/li&gt;
+  &lt;li&gt;Mathematica, 1988. By Stephen Wolfram. Theodore Gray created Notebook interface. Well received at the time.
+    &lt;ul&gt;
+      &lt;li&gt;Had two parts to notebooks. Kernel and front-end. Notebooks are objects in themselves that could be manipulated by mathematica.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The Art of Computer Programming, by Knuth.
+    &lt;ul&gt;
+      &lt;li&gt;Literate programming. Implemented ‘WEB’ system.&lt;/li&gt;
+      &lt;li&gt;TANGLE - generates compilable source code&lt;/li&gt;
+      &lt;li&gt;WEAVE - generate formatted documentation&lt;/li&gt;
+      &lt;li&gt;Used this idea to implement Tex!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Maple. In 1992, had ‘worksheet’ interface.&lt;/li&gt;
+  &lt;li&gt;Maple, Mathematica.
+    &lt;ul&gt;
+      &lt;li&gt;Mathematical entry vs programming style entry, enter vs shift+enter, etc.&lt;/li&gt;
+      &lt;li&gt;But both expensive and propritary&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Open source. SciPy, IPython and Matplotlib&lt;/li&gt;
+  &lt;li&gt;Big name: Fernando Perez. Created IPython in 2001 as grad student.&lt;/li&gt;
+  &lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-8&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;I stopped taking notes, because I do not think I will need to refer back to this. Time to just enjoy the talk!&lt;/p&gt;
 
 &lt;h2 id=&quot;1900-quickly-prototype-translation-from-scratch-and-serve-it-in-production-shreya-khurana&quot;&gt;19:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/7W3cA68-train-serve-deploy-story-of-a-nlp-model-ft-pytorch-docker-uwsgi-and-nginx/&quot;&gt;Quickly prototype translation from scratch and serve it in production&lt;/a&gt;, Shreya Khurana&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-of-the-talk-9&quot;&gt;Notes of the talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Background. Data Scientist at GoDaddy, deep learning NLP&lt;/li&gt;
+  &lt;li&gt;Workflow in academia is different to business use. Deployment is whole extra part of the workflow.&lt;/li&gt;
+  &lt;li&gt;Lots of new tools that you wouldn’t be familiar with from just training models.&lt;/li&gt;
+  &lt;li&gt;Example: seq2seq model i.e. translation. E.g. german sentence to english sentence.
+    &lt;ul&gt;
+      &lt;li&gt;Small dataset from TedTalk transcripts.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Fairseq. Used for preprocessing, training, model serving. In some unknown language - shell script?&lt;/li&gt;
+  &lt;li&gt;Flask. Tool to create API. Development server. Example code given in talk.&lt;/li&gt;
+  &lt;li&gt;uwsgi. Helps make Flask app secure / ready for production. There is uwsgi.ini file to configure stuff.&lt;/li&gt;
+  &lt;li&gt;nginx. (pronounced ‘engine-x’). Idea of QPS - queries per second. Make sure all requests are appropriately routed to server. Unknown language for nginx.&lt;/li&gt;
+  &lt;li&gt;supervisord. coordinates nginx and uwsgi.&lt;/li&gt;
+  &lt;li&gt;Docker. The above system has many dependencies. Docker creates containers where you can isolate all the requirements and programs, which can loaded up and run remotely.&lt;/li&gt;
+  &lt;li&gt;General good practice: check logs frequently, caching, unit tests.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-9&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;A lot of useful information here. I will be returning to this when I have to put a model into production.&lt;/p&gt;
 
 &lt;h2 id=&quot;1930-painless-machine-learning-in-production-chase-stevens&quot;&gt;19:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/3iErRxw-painless-machine-learning-in-production/&quot;&gt;Painless Machine Learning in Production&lt;/a&gt;, Chase Stevens&lt;/h2&gt;
 
