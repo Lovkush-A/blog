@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T03:50:31-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T04:33:05-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn the talks.&lt;/p&gt;
@@ -85,7 +85,125 @@ f   * Make images identifiable&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;A lot of this went over my head. The main lesson I learnt is that I should expect things to be tricky when I eventually do start using Docker. I will refer back to this video when I do start using Docker.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;A lot of this went over my head. The main lesson I learnt is that I should expect things to be tricky when I eventually do start using Docker. I will refer back to this video when I do start using Docker.&lt;/p&gt;
+
+&lt;h2 id=&quot;1000-spacy-alexander-hendorf&quot;&gt;10:00 &lt;a href=&quot;https://ep2020.europython.eu/talks/7TXpVro-15-things-you-should-know-about-spacy/&quot;&gt;Spacy&lt;/a&gt;, Alexander Hendorf&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-of-the-talk-1&quot;&gt;Notes of the talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;NLP: avalanche of unstructured data&lt;/li&gt;
+  &lt;li&gt;Estimate 20:80 split between structured and unstructured ata&lt;/li&gt;
+  &lt;li&gt;Examples of NLP: chatbots, translation, sentiment analysis, speech-to-texxt or vice versa, spelling/grammar, text completion (&lt;a href=&quot;https://github.com/openai/gpt-3&quot;&gt;GPT-3&lt;/a&gt;! :D)&lt;/li&gt;
+  &lt;li&gt;Example of Alexander’s work: certain group had large number of documents and search engine was not helping them. Used NLP to create clusters of documnets, create keywords, create summaries.&lt;/li&gt;
+  &lt;li&gt;spaCy. Open source library for NLP, comes with pretrained language models, fast and efficient, designed for production usage, lots of out-of-the-box support.&lt;/li&gt;
+  &lt;li&gt;Building blocks of spaCy
+    &lt;ul&gt;
+      &lt;li&gt;Tokenization&lt;/li&gt;
+      &lt;li&gt;Part of speech tagging. E.g. which words are nouns or verbs, etc.&lt;/li&gt;
+      &lt;li&gt;Lemmatization. cats-&amp;gt;cat&lt;/li&gt;
+      &lt;li&gt;Sentence boundary detection&lt;/li&gt;
+      &lt;li&gt;Named Entity Recognition. (Apple -&amp;gt; company). Depends on context!&lt;/li&gt;
+      &lt;li&gt;Serialization. saving&lt;/li&gt;
+      &lt;li&gt;Dependency parsing. How different tokens depend on each other&lt;/li&gt;
+      &lt;li&gt;Entity linking&lt;/li&gt;
+      &lt;li&gt;Training. Updating models&lt;/li&gt;
+      &lt;li&gt;Text classification&lt;/li&gt;
+      &lt;li&gt;Rule-based matching&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Built-in rules
+    &lt;ul&gt;
+      &lt;li&gt;Rules for specific languages, e.g., adding ‘s’ to end of noun makes it plural in English.&lt;/li&gt;
+      &lt;li&gt;Usually does not cover many exceptions&lt;/li&gt;
+      &lt;li&gt;Most languages won’t be supported. Most research done on English.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Built-in models
+    &lt;ul&gt;
+      &lt;li&gt;Language models. E.g. word vectors&lt;/li&gt;
+      &lt;li&gt;Can train your own models with nlp.update()&lt;/li&gt;
+      &lt;li&gt;Need a lot of data to train these models. Few documents is not enough&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;spaCy is pythonic
+    &lt;ul&gt;
+      &lt;li&gt;should understand objects, iterations, comprehensions, classes, methods&lt;/li&gt;
+      &lt;li&gt;Might be overwhelming, but not as overwhelming as Pandas yet!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pipelines
+    &lt;ul&gt;
+      &lt;li&gt;Has nice image in slides&lt;/li&gt;
+      &lt;li&gt;default pipline: tokenize, tag, parse, then your own stuff&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Visualisation
+    &lt;ul&gt;
+      &lt;li&gt;used to be separate package displacy&lt;/li&gt;
+      &lt;li&gt;visualisation of sentence grammar/dependencies&lt;/li&gt;
+      &lt;li&gt;visualise entities. e.g. given sentence, highlight grouping of nounes. e.g. is a word a person, or a date, or an animal, or…&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Serialization
+    &lt;ul&gt;
+      &lt;li&gt;uses pickle&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Danger zones
+    &lt;ul&gt;
+      &lt;li&gt;Privacy, bias, law, language is not fixed in stone&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Can’t do all languages&lt;/li&gt;
+  &lt;li&gt;Extensions
+    &lt;ul&gt;
+      &lt;li&gt;spaCy universe&lt;/li&gt;
+      &lt;li&gt;E.g. NeuralCoref.  Matching up ‘Angela Merkel’ and ‘chancellor’ recognised as same person.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Bugs
+    &lt;ul&gt;
+      &lt;li&gt;spaCy will maintained, and quick response to bug reports&lt;/li&gt;
+      &lt;li&gt;Extensions more variable&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Status
+    &lt;ul&gt;
+      &lt;li&gt;Other options: NLTK, Gensin, TextBlob, Pattern&lt;/li&gt;
+      &lt;li&gt;spaCy: usually close to the state of the art, especially for language models, flexible, extendable via spacy universe, fast (powered by cython)&lt;/li&gt;
+      &lt;li&gt;For special cases, probably use other models. E.g. RASA for contextual textbots&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;my-thoughts-1&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;I have not yet done any NLP, but when I do, I will be sure to look into spaCy after this talk!&lt;/p&gt;
+
+&lt;h2 id=&quot;1030-differential-privacy-naoise-holohan&quot;&gt;10:30 &lt;a href=&quot;https://ep2020.europython.eu/talks/6Js4E4r-diffprivlib-privacy-preserving-machine-learning-with-scikit-learn/&quot;&gt;Differential Privacy&lt;/a&gt;, Naoise Holohan&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-of-the-talk-2&quot;&gt;Notes of the talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-2&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h3 id=&quot;notes-of-the-talk-3&quot;&gt;Notes of the talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-3&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h3 id=&quot;notes-of-the-talk-4&quot;&gt;Notes of the talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-4&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h3 id=&quot;notes-of-the-talk-5&quot;&gt;Notes of the talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-5&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h3 id=&quot;notes-of-the-talk-6&quot;&gt;Notes of the talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-6&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h3 id=&quot;notes-of-the-talk-7&quot;&gt;Notes of the talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-7&quot;&gt;My thoughts&lt;/h3&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;

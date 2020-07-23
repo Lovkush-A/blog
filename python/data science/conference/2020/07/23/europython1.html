@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      5 min read
     
 </span></p>
 
@@ -137,6 +137,28 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#notes-of-the-talk">Notes of the talk</a></li>
 <li class="toc-entry toc-h3"><a href="#my-thoughts">My thoughts</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#1000-spacy-alexander-hendorf">10:00 Spacy, Alexander Hendorf</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#notes-of-the-talk-1">Notes of the talk</a></li>
+<li class="toc-entry toc-h3"><a href="#my-thoughts-1">My thoughts</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#1030-differential-privacy-naoise-holohan">10:30 Differential Privacy, Naoise Holohan</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#notes-of-the-talk-2">Notes of the talk</a></li>
+<li class="toc-entry toc-h3"><a href="#my-thoughts-2">My thoughts</a></li>
+<li class="toc-entry toc-h3"><a href="#notes-of-the-talk-3">Notes of the talk</a></li>
+<li class="toc-entry toc-h3"><a href="#my-thoughts-3">My thoughts</a></li>
+<li class="toc-entry toc-h3"><a href="#notes-of-the-talk-4">Notes of the talk</a></li>
+<li class="toc-entry toc-h3"><a href="#my-thoughts-4">My thoughts</a></li>
+<li class="toc-entry toc-h3"><a href="#notes-of-the-talk-5">Notes of the talk</a></li>
+<li class="toc-entry toc-h3"><a href="#my-thoughts-5">My thoughts</a></li>
+<li class="toc-entry toc-h3"><a href="#notes-of-the-talk-6">Notes of the talk</a></li>
+<li class="toc-entry toc-h3"><a href="#my-thoughts-6">My thoughts</a></li>
+<li class="toc-entry toc-h3"><a href="#notes-of-the-talk-7">Notes of the talk</a></li>
+<li class="toc-entry toc-h3"><a href="#my-thoughts-7">My thoughts</a></li>
 </ul>
 </li>
 </ul><h2 id="other-posts-in-series">
@@ -234,6 +256,141 @@ f   * Make images identifiable</li>
 <h3 id="my-thoughts">
 <a class="anchor" href="#my-thoughts" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
 <p>A lot of this went over my head. The main lesson I learnt is that I should expect things to be tricky when I eventually do start using Docker. I will refer back to this video when I do start using Docker.</p>
+
+<h2 id="1000-spacy-alexander-hendorf">
+<a class="anchor" href="#1000-spacy-alexander-hendorf" aria-hidden="true"><span class="octicon octicon-link"></span></a>10:00 <a href="https://ep2020.europython.eu/talks/7TXpVro-15-things-you-should-know-about-spacy/">Spacy</a>, Alexander Hendorf</h2>
+
+<h3 id="notes-of-the-talk-1">
+<a class="anchor" href="#notes-of-the-talk-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
+<ul>
+  <li>NLP: avalanche of unstructured data</li>
+  <li>Estimate 20:80 split between structured and unstructured ata</li>
+  <li>Examples of NLP: chatbots, translation, sentiment analysis, speech-to-texxt or vice versa, spelling/grammar, text completion (<a href="https://github.com/openai/gpt-3">GPT-3</a>! :D)</li>
+  <li>Example of Alexander’s work: certain group had large number of documents and search engine was not helping them. Used NLP to create clusters of documnets, create keywords, create summaries.</li>
+  <li>spaCy. Open source library for NLP, comes with pretrained language models, fast and efficient, designed for production usage, lots of out-of-the-box support.</li>
+  <li>Building blocks of spaCy
+    <ul>
+      <li>Tokenization</li>
+      <li>Part of speech tagging. E.g. which words are nouns or verbs, etc.</li>
+      <li>Lemmatization. cats-&gt;cat</li>
+      <li>Sentence boundary detection</li>
+      <li>Named Entity Recognition. (Apple -&gt; company). Depends on context!</li>
+      <li>Serialization. saving</li>
+      <li>Dependency parsing. How different tokens depend on each other</li>
+      <li>Entity linking</li>
+      <li>Training. Updating models</li>
+      <li>Text classification</li>
+      <li>Rule-based matching</li>
+    </ul>
+  </li>
+  <li>Built-in rules
+    <ul>
+      <li>Rules for specific languages, e.g., adding ‘s’ to end of noun makes it plural in English.</li>
+      <li>Usually does not cover many exceptions</li>
+      <li>Most languages won’t be supported. Most research done on English.</li>
+    </ul>
+  </li>
+  <li>Built-in models
+    <ul>
+      <li>Language models. E.g. word vectors</li>
+      <li>Can train your own models with nlp.update()</li>
+      <li>Need a lot of data to train these models. Few documents is not enough</li>
+    </ul>
+  </li>
+  <li>spaCy is pythonic
+    <ul>
+      <li>should understand objects, iterations, comprehensions, classes, methods</li>
+      <li>Might be overwhelming, but not as overwhelming as Pandas yet!</li>
+    </ul>
+  </li>
+  <li>Pipelines
+    <ul>
+      <li>Has nice image in slides</li>
+      <li>default pipline: tokenize, tag, parse, then your own stuff</li>
+    </ul>
+  </li>
+  <li>Visualisation
+    <ul>
+      <li>used to be separate package displacy</li>
+      <li>visualisation of sentence grammar/dependencies</li>
+      <li>visualise entities. e.g. given sentence, highlight grouping of nounes. e.g. is a word a person, or a date, or an animal, or…</li>
+    </ul>
+  </li>
+  <li>Serialization
+    <ul>
+      <li>uses pickle</li>
+    </ul>
+  </li>
+  <li>Danger zones
+    <ul>
+      <li>Privacy, bias, law, language is not fixed in stone</li>
+    </ul>
+  </li>
+  <li>Can’t do all languages</li>
+  <li>Extensions
+    <ul>
+      <li>spaCy universe</li>
+      <li>E.g. NeuralCoref.  Matching up ‘Angela Merkel’ and ‘chancellor’ recognised as same person.</li>
+    </ul>
+  </li>
+  <li>Bugs
+    <ul>
+      <li>spaCy will maintained, and quick response to bug reports</li>
+      <li>Extensions more variable</li>
+    </ul>
+  </li>
+  <li>Status
+    <ul>
+      <li>Other options: NLTK, Gensin, TextBlob, Pattern</li>
+      <li>spaCy: usually close to the state of the art, especially for language models, flexible, extendable via spacy universe, fast (powered by cython)</li>
+      <li>For special cases, probably use other models. E.g. RASA for contextual textbots</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="my-thoughts-1">
+<a class="anchor" href="#my-thoughts-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>I have not yet done any NLP, but when I do, I will be sure to look into spaCy after this talk!</p>
+
+<h2 id="1030-differential-privacy-naoise-holohan">
+<a class="anchor" href="#1030-differential-privacy-naoise-holohan" aria-hidden="true"><span class="octicon octicon-link"></span></a>10:30 <a href="https://ep2020.europython.eu/talks/6Js4E4r-diffprivlib-privacy-preserving-machine-learning-with-scikit-learn/">Differential Privacy</a>, Naoise Holohan</h2>
+
+<h3 id="notes-of-the-talk-2">
+<a class="anchor" href="#notes-of-the-talk-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
+
+<h3 id="my-thoughts-2">
+<a class="anchor" href="#my-thoughts-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+
+<h3 id="notes-of-the-talk-3">
+<a class="anchor" href="#notes-of-the-talk-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
+
+<h3 id="my-thoughts-3">
+<a class="anchor" href="#my-thoughts-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+
+<h3 id="notes-of-the-talk-4">
+<a class="anchor" href="#notes-of-the-talk-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
+
+<h3 id="my-thoughts-4">
+<a class="anchor" href="#my-thoughts-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+
+<h3 id="notes-of-the-talk-5">
+<a class="anchor" href="#notes-of-the-talk-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
+
+<h3 id="my-thoughts-5">
+<a class="anchor" href="#my-thoughts-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+
+<h3 id="notes-of-the-talk-6">
+<a class="anchor" href="#notes-of-the-talk-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
+
+<h3 id="my-thoughts-6">
+<a class="anchor" href="#my-thoughts-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+
+<h3 id="notes-of-the-talk-7">
+<a class="anchor" href="#notes-of-the-talk-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
+
+<h3 id="my-thoughts-7">
+<a class="anchor" href="#my-thoughts-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+
 
   </div><a class="u-url" href="/blog/python/data%20science/conference/2020/07/23/europython1.html" hidden></a>
 </article>
