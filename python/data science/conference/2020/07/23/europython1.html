@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      13 min read
     
 </span></p>
 
@@ -607,6 +607,45 @@ f   * Make images identifiable</li>
 
 <h3 id="notes-of-the-talk-7">
 <a class="anchor" href="#notes-of-the-talk-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
+<ul>
+  <li>Chief Scientist at Institue for Ethical AI. Director at Seldon.</li>
+  <li>Realtime ML in today’s talk, conceptual intro to stream processing, tradeoffs in different tools, example case</li>
+  <li>Real-time ML model for reddit comments. To help automate comment moderation.</li>
+  <li>ETL, Extract Transform Load framework for data transformation. Batch processing. Variations: ETL, ELT, EL, LT. Many specialised tools. Image of about 40 different packages that deal with this.
+    <ul>
+      <li>EL, Nifi and Flume</li>
+      <li>ETL, Oozie, Airflow</li>
+      <li>ELT, Elasticsearch, Data Warehouse</li>
+      <li>Jupyter notebook?</li>
+    </ul>
+  </li>
+  <li>Batch vs streaming
+    <ul>
+      <li>Data processed in batches. E.g. periodically</li>
+      <li>Stream processing. Process data as it comes in, each data entry at a time. Real time</li>
+      <li>In reality, have combination of the two. Rarely all or nothing.</li>
+    </ul>
+  </li>
+  <li>Stream concepts
+    <ul>
+      <li>Windows. Can have moving window or tumbling window</li>
+      <li>Checkpoints. Keep track of stream progress. Leads to other ideas, e.g. processing at most/at least once.</li>
+      <li>Water mark. Somehow allows you to deal with data that arrives later than is expected</li>
+    </ul>
+  </li>
+  <li>Some tools. Flink, Kafka, Spark, Faust, Apache Beam, Seldon</li>
+  <li>Traditional ML workflow. Train a model on cleaning training data. Obtain ‘persisted’ model. Then get unseen data, and use model to make predictions.
+    <ul>
+      <li>Reddit example: clean text, spaCy tokenizer, TFIDF vectoriser, logistic regression.</li>
+      <li>
+<code class="highlighter-rouge">You are a DUMMY!!!!</code> -&gt; <code class="highlighter-rouge">You are dummy</code> -&gt; <code class="highlighter-rouge">[PRON, IS, DUMB]</code> -&gt; <code class="highlighter-rouge">[0010, 1000, 1100]</code> -&gt; <code class="highlighter-rouge">1</code> (which equals moderated).</li>
+    </ul>
+  </li>
+  <li>Stream-based workflow.
+<img src="/blog/images/europython_2.png" alt="image">
+</li>
+  <li>Gives example code in video for each step in workflow.</li>
+</ul>
 
 <h3 id="my-thoughts-7">
 <a class="anchor" href="#my-thoughts-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>

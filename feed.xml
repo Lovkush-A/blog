@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T08:30:42-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T09:13:35-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn the talks.&lt;/p&gt;
@@ -387,6 +387,43 @@ f   * Make images identifiable&lt;/li&gt;
 &lt;h2 id=&quot;1445-parallel-stream-processing-at-massive-scale-alejandro-saucedo&quot;&gt;14:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/Ccb6D5Z-real-time-stream-processing-for-machine-learning-at-massive-scale/&quot;&gt;Parallel Stream Processing at Massive Scale&lt;/a&gt;, Alejandro Saucedo&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-of-the-talk-7&quot;&gt;Notes of the talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Chief Scientist at Institue for Ethical AI. Director at Seldon.&lt;/li&gt;
+  &lt;li&gt;Realtime ML in today’s talk, conceptual intro to stream processing, tradeoffs in different tools, example case&lt;/li&gt;
+  &lt;li&gt;Real-time ML model for reddit comments. To help automate comment moderation.&lt;/li&gt;
+  &lt;li&gt;ETL, Extract Transform Load framework for data transformation. Batch processing. Variations: ETL, ELT, EL, LT. Many specialised tools. Image of about 40 different packages that deal with this.
+    &lt;ul&gt;
+      &lt;li&gt;EL, Nifi and Flume&lt;/li&gt;
+      &lt;li&gt;ETL, Oozie, Airflow&lt;/li&gt;
+      &lt;li&gt;ELT, Elasticsearch, Data Warehouse&lt;/li&gt;
+      &lt;li&gt;Jupyter notebook?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Batch vs streaming
+    &lt;ul&gt;
+      &lt;li&gt;Data processed in batches. E.g. periodically&lt;/li&gt;
+      &lt;li&gt;Stream processing. Process data as it comes in, each data entry at a time. Real time&lt;/li&gt;
+      &lt;li&gt;In reality, have combination of the two. Rarely all or nothing.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Stream concepts
+    &lt;ul&gt;
+      &lt;li&gt;Windows. Can have moving window or tumbling window&lt;/li&gt;
+      &lt;li&gt;Checkpoints. Keep track of stream progress. Leads to other ideas, e.g. processing at most/at least once.&lt;/li&gt;
+      &lt;li&gt;Water mark. Somehow allows you to deal with data that arrives later than is expected&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Some tools. Flink, Kafka, Spark, Faust, Apache Beam, Seldon&lt;/li&gt;
+  &lt;li&gt;Traditional ML workflow. Train a model on cleaning training data. Obtain ‘persisted’ model. Then get unseen data, and use model to make predictions.
+    &lt;ul&gt;
+      &lt;li&gt;Reddit example: clean text, spaCy tokenizer, TFIDF vectoriser, logistic regression.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;You are a DUMMY!!!!&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;You are dummy&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;[PRON, IS, DUMB]&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;[0010, 1000, 1100]&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; (which equals moderated).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Stream-based workflow.
+&lt;img src=&quot;/blog/images/europython_2.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;Gives example code in video for each step in workflow.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-7&quot;&gt;My thoughts&lt;/h3&gt;
 
