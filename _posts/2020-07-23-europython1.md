@@ -319,18 +319,50 @@ Good to learn about this newer workflow and the tools available for stream proce
 ## 18:30, [A Brief History of Jupyter Notebooks](https://ep2020.europython.eu/talks/7UBMYed-a-brief-history-of-jupyter-notebooks/), William Horton 
 
 ### Notes of the talk
+* Tension between traditional python IDE and jupyter notebooks
+    * "I don't like notebooks" - Joel Grus
+    * First Notebook War, Martin Skarynski. Talk at PyData 2018
+* Instead of arguing, lets understand the history. Better understanding as as result
+    * No significant piece of software doesn't come out of nowhere
+* Long-term trends: scientific computing, literate programming, proprietary vs open source, python
+* Mathematica, 1988. By Stephen Wolfram. Theodore Gray created Notebook interface. Well received at the time.
+    * Had two parts to notebooks. Kernel and front-end. Notebooks are objects in themselves that could be manipulated by mathematica.
+* The Art of Computer Programming, by Knuth.
+    * Literate programming. Implemented 'WEB' system.
+    * TANGLE - generates compilable source code
+    * WEAVE - generate formatted documentation
+    * Used this idea to implement Tex!
+* Maple. In 1992, had 'worksheet' interface.
+* Maple, Mathematica.
+    * Mathematical entry vs programming style entry, enter vs shift+enter, etc.
+    * But both expensive and propritary
+* Open source. SciPy, IPython and Matplotlib
+* Big name: Fernando Perez. Created IPython in 2001 as grad student.
+* ...
 
 ### My thoughts 
-
+I stopped taking notes, because I do not think I will need to refer back to this. Time to just enjoy the talk!
 
 
 
 ## 19:00, [Quickly prototype translation from scratch and serve it in production](https://ep2020.europython.eu/talks/7W3cA68-train-serve-deploy-story-of-a-nlp-model-ft-pytorch-docker-uwsgi-and-nginx/), Shreya Khurana
 
 ### Notes of the talk
+* Background. Data Scientist at GoDaddy, deep learning NLP
+* Workflow in academia is different to business use. Deployment is whole extra part of the workflow.
+* Lots of new tools that you wouldn't be familiar with from just training models.
+* Example: seq2seq model i.e. translation. E.g. german sentence to english sentence.
+    * Small dataset from TedTalk transcripts.
+* Fairseq. Used for preprocessing, training, model serving. In some unknown language - shell script?
+* Flask. Tool to create API. Development server. Example code given in talk.
+* uwsgi. Helps make Flask app secure / ready for production. There is uwsgi.ini file to configure stuff.
+* nginx. (pronounced 'engine-x'). Idea of QPS - queries per second. Make sure all requests are appropriately routed to server. Unknown language for nginx.
+* supervisord. coordinates nginx and uwsgi.
+* Docker. The above system has many dependencies. Docker creates containers where you can isolate all the requirements and programs, which can loaded up and run remotely.
+* General good practice: check logs frequently, caching, unit tests. 
 
 ### My thoughts 
-
+A lot of useful information here. I will be returning to this when I have to put a model into production.
 
 
 ## 19:30, [Painless Machine Learning in Production](https://ep2020.europython.eu/talks/3iErRxw-painless-machine-learning-in-production/), Chase Stevens
