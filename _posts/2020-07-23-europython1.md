@@ -368,9 +368,29 @@ A lot of useful information here. I will be returning to this when I have to put
 ## 19:30, [Painless Machine Learning in Production](https://ep2020.europython.eu/talks/3iErRxw-painless-machine-learning-in-production/), Chase Stevens
 
 ### Notes of the talk
+* Background. Works for teikametrics
+* Focus on production, not on machine learning. Model building is relatively mature, but still need lots of work on improving production.
+* Goal of teikametrics - helps online e-commerce businesses.
+* Motivation: Ops is intrinsic to ML, 'MLOps' is unsustainable (where data scientists pass their models to software engineers). Conclusion: data scientists need to productionise their own models. But data scientists want to do data science. Hence, need tooling and services to make it easier as possible.
+* Looked for services to do full cycle (preprocess, train, evaluate, deploy, repeat), but couldn't find any. 
+* Interesting graph showing how AUC drops for models over time. Models need to be re-trained! Another example of how covid makes models from 2019 almost useless.
+* Different clients will have different markets which require different models. 
+* Previous two points show importance of having efficient workflow and cycle.
+* MLOps is unsustainbly
+    * Brief history of programming. Punch cards programmers separate from people who run programs, changes with terminal, late 90s, programmers separate from quality assurance and release team, rise of devops.
+    * MLOps is making similar mistakes of past. Lots of slow back and forth between data scientists and production team.
+* Modern experience at tiekametrics.
+    * Use cookiecutter on their sagemaker-framework. Asked a bunch of questions, which after answering, get repo made with good structure built in.
+    * Define preprocessing function (SQL, Pandas), define train and validation training sets and model, define model loading function.
+    * Various details skimmed over. E.g. need to update config file.
+    * Whole list of tasks that care standardised and made easy. See talk for list.
+* Their stack:
+![image]({{ site.baseurl }}/images/europython_3.png)
+* Various details given in talk
+* Big lesson. Do this! Big savings. Even little things: example of automating process of choosing which AWS instance to use.
 
 ### My thoughts 
-
+Another useful set of resources and examples I can use as a reference if/when I need to make production based decisions.
 
 
 
