@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T04:33:05-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T05:01:36-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn the talks.&lt;/p&gt;
@@ -182,8 +182,46 @@ f   * Make images identifiable&lt;/li&gt;
 &lt;h2 id=&quot;1030-differential-privacy-naoise-holohan&quot;&gt;10:30 &lt;a href=&quot;https://ep2020.europython.eu/talks/6Js4E4r-diffprivlib-privacy-preserving-machine-learning-with-scikit-learn/&quot;&gt;Differential Privacy&lt;/a&gt;, Naoise Holohan&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-of-the-talk-2&quot;&gt;Notes of the talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Many examples where ‘anonymised’ but actually could still identify individuals by matching data with other data publically available.
+    &lt;ul&gt;
+      &lt;li&gt;Netflix data. Matched with imdb databse&lt;/li&gt;
+      &lt;li&gt;AOL data. NYT managed to identify individual and make available their full search&lt;/li&gt;
+      &lt;li&gt;Limosine service. Person matched it with images of celebrities, and managed to find out about individuals use of taxis/limos&lt;/li&gt;
+      &lt;li&gt;Many other examples out there.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Differential privacy. Main idea: blur noise.&lt;/li&gt;
+  &lt;li&gt;Implemented in diffprivlib, for scikit learn.&lt;/li&gt;
+  &lt;li&gt;Modules
+    &lt;ul&gt;
+      &lt;li&gt;Mechanisms. Algorithms to add noise&lt;/li&gt;
+      &lt;li&gt;Models. Has scikit learn equivalents as its parent class&lt;/li&gt;
+      &lt;li&gt;Tools. Analogue for NumPy.&lt;/li&gt;
+      &lt;li&gt;Accountant. Track privacy budget. Help optimise balance between accuracy and privacy.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Examples
+    &lt;ul&gt;
+      &lt;li&gt;Gives warning for privacy leakage with certain bound is not specified. If bound is not specified, then original dataset is used to estimate the parameter!&lt;/li&gt;
+      &lt;li&gt;Pipelines. With and without privacy.
+        &lt;ul&gt;
+          &lt;li&gt;Without, got 80.3% accuracy&lt;/li&gt;
+          &lt;li&gt;With, got 80.7% accuracy! Adding noise can actually reduce over-fitting. !!&lt;/li&gt;
+          &lt;li&gt;Graph of epsilon vs accuracy. Low epsilon highly variable performance. Higher epsilon tends to 80% baseline&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Some exploratory data analysis&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-2&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;I have actually heard of differential privacy before, via &lt;a href=&quot;https://www.youtube.com/watch?v=bScJdHX0Hac&quot;&gt;this talk&lt;/a&gt; from &lt;a href=&quot;https://faculty.ai/&quot;&gt;FacultyAI&lt;/a&gt;. To anybody interested in this topic, I recommend watching the FacultyAI talk for more background on differential privacy itself.&lt;/p&gt;
+
+&lt;p&gt;Main lesson here is that if I want to analyse sensitive data, diffprivlib is a good open source option.&lt;/p&gt;
+
+&lt;p&gt;The big surprise factor was that the accuracy can sometimes be better after adding privacy! Adding noise can reduce over-fitting.&lt;/p&gt;
 
 &lt;h3 id=&quot;notes-of-the-talk-3&quot;&gt;Notes of the talk&lt;/h3&gt;
 

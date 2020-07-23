@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      5 min read
+      6 min read
     
 </span></p>
 
@@ -357,9 +357,47 @@ f   * Make images identifiable</li>
 
 <h3 id="notes-of-the-talk-2">
 <a class="anchor" href="#notes-of-the-talk-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
+<ul>
+  <li>Many examples where ‘anonymised’ but actually could still identify individuals by matching data with other data publically available.
+    <ul>
+      <li>Netflix data. Matched with imdb databse</li>
+      <li>AOL data. NYT managed to identify individual and make available their full search</li>
+      <li>Limosine service. Person matched it with images of celebrities, and managed to find out about individuals use of taxis/limos</li>
+      <li>Many other examples out there.</li>
+    </ul>
+  </li>
+  <li>Differential privacy. Main idea: blur noise.</li>
+  <li>Implemented in diffprivlib, for scikit learn.</li>
+  <li>Modules
+    <ul>
+      <li>Mechanisms. Algorithms to add noise</li>
+      <li>Models. Has scikit learn equivalents as its parent class</li>
+      <li>Tools. Analogue for NumPy.</li>
+      <li>Accountant. Track privacy budget. Help optimise balance between accuracy and privacy.</li>
+    </ul>
+  </li>
+  <li>Examples
+    <ul>
+      <li>Gives warning for privacy leakage with certain bound is not specified. If bound is not specified, then original dataset is used to estimate the parameter!</li>
+      <li>Pipelines. With and without privacy.
+        <ul>
+          <li>Without, got 80.3% accuracy</li>
+          <li>With, got 80.7% accuracy! Adding noise can actually reduce over-fitting. !!</li>
+          <li>Graph of epsilon vs accuracy. Low epsilon highly variable performance. Higher epsilon tends to 80% baseline</li>
+        </ul>
+      </li>
+      <li>Some exploratory data analysis</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="my-thoughts-2">
 <a class="anchor" href="#my-thoughts-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>I have actually heard of differential privacy before, via <a href="https://www.youtube.com/watch?v=bScJdHX0Hac">this talk</a> from <a href="https://faculty.ai/">FacultyAI</a>. To anybody interested in this topic, I recommend watching the FacultyAI talk for more background on differential privacy itself.</p>
+
+<p>Main lesson here is that if I want to analyse sensitive data, diffprivlib is a good open source option.</p>
+
+<p>The big surprise factor was that the accuracy can sometimes be better after adding privacy! Adding noise can reduce over-fitting.</p>
 
 <h3 id="notes-of-the-talk-3">
 <a class="anchor" href="#notes-of-the-talk-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
