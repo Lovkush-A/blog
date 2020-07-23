@@ -1,4 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T14:19:23-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T15:10:29-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn from the talks.&lt;/p&gt;
+
+&lt;h2 id=&quot;700-automating-machine-learning-workflow-with-dvc-hongjoo-lee&quot;&gt;7:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/CXG7TcM-automating-machine-learning-workflow-with-dvc/&quot;&gt;Automating machine learning workflow with DVC&lt;/a&gt;, Hongjoo Lee&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;730-tips-for-data-cleaning-hui-ziang-chua&quot;&gt;7:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/CivrR5y-top-15-python-tips-for-data-cleaning-understanding/&quot;&gt;Tips for Data Cleaning&lt;/a&gt;, Hui Ziang Chua&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk-1&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-1&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;900-neural-style-transfer-and-gans-anmol-krishan-sachdeva&quot;&gt;9:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/BSeL2FG-painting-with-gans-challenges-and-technicalities-of-neural-style-transfer/&quot;&gt;Neural Style Transfer and GANs&lt;/a&gt;, Anmol Krishan Sachdeva&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk-2&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-2&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1000-data-visualisation-landscape-bence-arato&quot;&gt;10:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/B5Vff6U-the-python-data-visualization-landscape-in-2020/&quot;&gt;Data Visualisation Landscape&lt;/a&gt;, Bence Arato&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk-3&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-3&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1030-binder-sarah-gibson&quot;&gt;10:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/BqQBN6J-sharing-reproducible-python-environments-with-binder/&quot;&gt;Binder&lt;/a&gt;, Sarah Gibson&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk-4&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-4&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1100-data-pipelines-with-python-robson-junior&quot;&gt;11:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/4bNvaVk-mastering-a-data-pipeline-with-python-6-years-of-learned-lessons-from-mistakes/&quot;&gt;Data pipelines with Python&lt;/a&gt;, Robson Junior&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk-5&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-5&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1215-probabilistic-forecasting-with-deepar-nicolas-kuhaupt&quot;&gt;12:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/ANSma2D-probabilistic-forecasting-with-deepar-and-aws-sagemaker/&quot;&gt;Probabilistic Forecasting with DeepAR&lt;/a&gt;, Nicolas Kuhaupt&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk-6&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-6&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1315-fast-and-scalable-ml-in-python-victoriya-fedotova-and-frank-schlimbach&quot;&gt;13:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/CR4ben4-the-painless-route-in-python-to-fast-and-scalable-machine-learning/&quot;&gt;Fast and Scalable ML in Python&lt;/a&gt;, Victoriya Fedotova and Frank Schlimbach&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk-7&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-7&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1415--small-big-data-in-pandas-dask-and-vaex-ian-ozsvald&quot;&gt;14:15 , &lt;a href=&quot;https://ep2020.europython.eu/talks/A7TniMV-making-pandas-fly/&quot;&gt;Small Big Data in Pandas, Dask and Vaex&lt;/a&gt;, Ian Ozsvald&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk-8&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-8&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1445-ipython-miki-tebeka&quot;&gt;14:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/5LGWwvT-ipython-the-productivity-booster/&quot;&gt;IPython&lt;/a&gt;, Miki Tebeka&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk-9&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-9&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1515-nlpeasy-philipp-thomann&quot;&gt;15:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/6x7ezDb-nlpeasy-a-workflow-to-analyse-enrich-and-explore-textual-data/&quot;&gt;NLPeasy&lt;/a&gt;, Philipp Thomann&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk-10&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-10&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1745-30-golden-rules-for-deep-learning-performance-siddha-ganju&quot;&gt;17:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/30-golden-rules-deep-learning-performance/&quot;&gt;30 Golden Rules for Deep Learning Performance&lt;/a&gt;, Siddha Ganju&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk-11&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-11&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1900-analytical-functions-in-sql-brendan-tierney&quot;&gt;19:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/AWFiM7F-sql-for-data-science-using-analytical-function/&quot;&gt;Analytical Functions in SQL&lt;/a&gt;, Brendan Tierney&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk-12&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-12&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1930-collaborative-data-pipelines-with-kedro-tam-sanh-nguyen-microsoft-strem&quot;&gt;19:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/45GhXwE-writing-and-scaling-collaborative-data-pipelines-with-kedro/&quot;&gt;Collaborative data pipelines with Kedro&lt;/a&gt;, Tam-Sanh Nguyen (microsoft strem)&lt;/h2&gt;
+
+&lt;h3 id=&quot;notes-from-talk-13&quot;&gt;Notes from talk&lt;/h3&gt;
+
+&lt;h3 id=&quot;my-thoughts-13&quot;&gt;My thoughts&lt;/h3&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Day 1</summary></entry><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/24/europython2.html&quot;&gt;EuroPython Conference 2020, Day 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn the talks.&lt;/p&gt;
@@ -530,7 +625,7 @@ f   * Make images identifiable&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-10&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Another useful set of resources and examples I can use as a reference if/when I need to make production based decisions.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;Another useful set of resources and examples I can use as a reference if/when I need to make production based decisions.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Day 2</summary></entry><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1419,154 +1514,4 @@ NaN     22090
 &lt;ul&gt;
   &lt;li&gt;Data is inherently noisy, and one should not treat data as objective truth. (Though, it is the closest we have got!)&lt;/li&gt;
   &lt;li&gt;A data scientist has significant power to adjust the story, by grouping and cleaning the data differently. It seems that good practice is to be open about how you processed the data and to check how different choices affect the final results.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series Stop and Search, Part III, Data Analysis Stop and Search, Part I, Data Collection</summary></entry><entry><title type="html">Do students do their homework last minute?</title><link href="https://lovkush-a.github.io/blog/r/data%20science/2020/06/16/homework.html" rel="alternate" type="text/html" title="Do students do their homework last minute?" /><published>2020-06-16T00:00:00-05:00</published><updated>2020-06-16T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/r/data%20science/2020/06/16/homework</id><content type="html" xml:base="https://lovkush-a.github.io/blog/r/data%20science/2020/06/16/homework.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;In the STEM Foundation Year at the University of Leicester, we used the e-assessement system Numbas. This system recorded enough information for me to be able to investigate when students did their homework.&lt;/p&gt;
-
-&lt;p&gt;To help understand the charts that will come below, it will help to know how the assessment was structured.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;There were two semesters.
-    &lt;ul&gt;
-      &lt;li&gt;In Semester 1, we taught Physics 1, Physics 2 and Maths 1.&lt;/li&gt;
-      &lt;li&gt;In Semester 2, we taught Physics 3, Physics 4 and Maths 2.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The physics modules were structured as follows:
-    &lt;ul&gt;
-      &lt;li&gt;Each module lasted half a semester.&lt;/li&gt;
-      &lt;li&gt;Each module had 4 weekly e-assessments, made available on Monday and had a deadline of 10am on the Monday after.&lt;/li&gt;
-      &lt;li&gt;Various other assessments whose details do not matter.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The maths modules were structured as follows:
-    &lt;ul&gt;
-      &lt;li&gt;Each module lasted a whole semester.&lt;/li&gt;
-      &lt;li&gt;Each module had 8 weekly e-assessments, made available each Monday.&lt;/li&gt;
-      &lt;li&gt;For Maths 1, there was a single deadline which was the weekend before exams.&lt;/li&gt;
-      &lt;li&gt;For Maths 2, there were weekly deadlines like in Physics.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;The reason for the inconsistent structure is because we were trying to find out what works.&lt;/p&gt;
-
-&lt;h2 id=&quot;collecting-and-cleaning-the-data&quot;&gt;Collecting and cleaning the data&lt;/h2&gt;
-&lt;p&gt;As mentioned above, we used the Numbas e-assessment system which recorded lots of data, including when students attempted their work.  A colleague was in charge of maintaining the system, so I asked them to extract the data for this little project. They did this using a SQL query, and passed the data to me as a csv file.&lt;/p&gt;
-
-&lt;p&gt;I then cleaned the data. This involved:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Removing entries that did not correspond to my students.&lt;/li&gt;
-  &lt;li&gt;Determining which assessment each entry corresponded to. This was trickier than expected, because the staff on our team used different naming conventions and because the system produced three different ids for each assessment.&lt;/li&gt;
-  &lt;li&gt;Deciding how to deal with fact that we allowed students to attempt the assessment multiple times. In the end, I decided to pick the first attempt out of all these; it had negligible impact on the final charts.&lt;/li&gt;
-  &lt;li&gt;Deciding how to deal with fact that a student could start an assessment on one day, but finish it later. I decided to pick the time a student first opened an assessment, which I called ‘Start Time’.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;On the technical side, I used R.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;I learnt some R by working through &lt;a href=&quot;https://r4ds.had.co.nz/&quot;&gt;R for Data Science&lt;/a&gt;, which is an excellent online book that I highly recommended.&lt;/li&gt;
-  &lt;li&gt;For this project, the key tools I used were &lt;a href=&quot;https://r4ds.had.co.nz/tibbles.html&quot;&gt;tibbles&lt;/a&gt;, &lt;a href=&quot;https://r4ds.had.co.nz/pipes.html&quot;&gt;piping&lt;/a&gt; and &lt;a href=&quot;https://ggplot2.tidyverse.org/&quot;&gt;ggplot2&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;The other noteworthy technical aspect of this project was getting the x-axis, representing time, to appear just as I wanted. I remember this took significant effort, banging my head over the table to understand POSIXct and POSIClt.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;the-charts&quot;&gt;The charts&lt;/h2&gt;
-&lt;p&gt;Below are the charts for the Physics modules. The x-axis shows the day a student opened an e-assessment and the y-axis shows the number of student who started on each day. The different colours correspond to the different assessments.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/homework1.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/blog/images/homework2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Physics 1, 2 and 4 all have the same patterns.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;A good chunk of students open the e-assessment before the weekend.&lt;/li&gt;
-  &lt;li&gt;The modal day to open the e-assessment is Sunday, the day before the deadline.&lt;/li&gt;
-  &lt;li&gt;Several students open the e-assessment on Monday (so after midnight on Sunday).&lt;/li&gt;
-  &lt;li&gt;The bars are shorter in the Physics 2 and Physics 4 charts because fewer students do those modules.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Physics 3 has a different pattern. The first assessment has the same shape as in the other three modules. The other three assessments are flat for a few weeks and then all bunch up in the week beginning Monday 11th Feb. The reason is that at the end of the first week of Physics 3, we extended the deadline for all the assessments to 10am on Monday 18th Feb. (We did this to account for unforeseen circumstances).&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-Below are a sample of charts showing the breakdown of timings during Sunday and Monday.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/homework3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I do not think there is anything particularly noteworthy in these charts. The main pattern is that most people who started the work on Sunday did so after 6pm. The thing which struck me was that for each assessment, there were several students who started the work between 3am and 9am.&lt;/p&gt;
-
-&lt;p&gt;As a result of this data, the director of the Foundation Year decided to change the deadlines from 10am on Monday to 10pm on Sunday.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-Below are the charts for the two maths modules.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/homework4.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Recall that in Maths 1, there was a single deadline for all the assessments, which was the weekend before exam week.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;In the first half of the semester, there is a decent chunk of students starting the e-assessments.&lt;/li&gt;
-  &lt;li&gt;In the second half, engagement drops significantly. My explanation for this is that the e-assessments for Physics 2 were considerably longer/harder than those of Physics 1, but there are likely various factors.&lt;/li&gt;
-  &lt;li&gt;A lot of work was done over the Christmas break. To my surprise, a few students left all the work to be done on the final weekend!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Recall that Maths 2 had weekly deadlines. Recall also that Maths 2 runs concurrently with Physics 3 and Physics 4.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;When we extended the deadline in Physics 3, we also had to do it for Maths 2.&lt;/li&gt;
-  &lt;li&gt;Like in Physics 4, the deadlines for second half of Maths 2 were weekly.&lt;/li&gt;
-  &lt;li&gt;Hence, the first half of Maths 2 resembles Physics 3, and the second half of Maths 2 resembles Physics 4.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;Many people who see this will say ‘This is obvious, what is the point?’.  There are two main points.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;First, it is good to have quantitative data. It provides clearer understanding and also allows us to measure changes from one year to the next.&lt;/li&gt;
-  &lt;li&gt;Second, the higher education industry puts too little weight on (appropriate) data and observations. Either a lecturer simply does not care about teaching (in which case they put no weight on anything) or a lecture does care but bases their decisions on an imagined conception of what students are.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;What conclusions did I draw from this?&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The pattern for weekly deadlines is consistent across the year: there is some activity throughout the week, with a clear peak the day before the deadline.
-    &lt;ul&gt;
-      &lt;li&gt;One consequence is that we cannot assume comfort with material taught on Monday during a session later in the week, e.g., on Thursday.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Students respond to incentives, just like the rest of us.
-    &lt;ul&gt;
-      &lt;li&gt;Our choices have a big impact on student habits.&lt;/li&gt;
-      &lt;li&gt;Noteworthy to point out that most students do know the deadlines! This means we are communicating our deadlines well.&lt;/li&gt;
-      &lt;li&gt;Thinking about incentives is important more generally. E.g. it explains the difference between attendance in lectures and attendance in assessed sessions.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;These findings are particularly important for ‘linear’ subjects, where knowledge/understanding of Week 1 material is required to learn Week 2 material.&lt;/li&gt;
-  &lt;li&gt;Shouldn’t judge students or label them as ‘bad students’.
-    &lt;ul&gt;
-      &lt;li&gt;Better to label the habit, not the individual.&lt;/li&gt;
-      &lt;li&gt;This is more to do with human nature, than students in particular.&lt;/li&gt;
-      &lt;li&gt;This is mostly about incentives. Designing a course well includes creating incentives which result in good learning behaviours. (Compare with the famous example of opting-in or opting-out of a country’s organ donation registry.)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;limitations-of-the-data&quot;&gt;Limitations of the data&lt;/h2&gt;
-&lt;p&gt;There are several sources of noise and error in this data. I will say ‘data is positively biased’ to mean that data shows students working earlier than they actually are, and ‘negatively biased’ to say that data shows students are working later than they actually are.&lt;/p&gt;
-
-&lt;p&gt;Sources of positive bias.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Looking at Start Time. Students may open the assessment during the week,
-but actually only finish it on the weekend.&lt;/li&gt;
-  &lt;li&gt;Students have multiple attempts on the coursework and I only looked at the start time of their earliest attempt.&lt;/li&gt;
-  &lt;li&gt;I excluded students who did not attempt the coursework or attempted it late.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Sources of negative bias.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;There was a ‘Practice Version’ of each e-assessment available. Students were encouraged to use these to practice before attempting the actual assessed version. Some students did this, but a brief look at the data shows that most people did not attempt these.&lt;/li&gt;
-  &lt;li&gt;Did not take into account mitigating circumstances, e.g. illness.&lt;/li&gt;
-  &lt;li&gt;Does not account for other forms of independent study. E.g. a student might review lectures/workshop questions before attempting the e-assessment.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Sources of unknown bias.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Most of our students have done A-Level Maths and/or Physics, so find the year easy. This probably means that students do not need to attempt coursework in a timely manner in order to keep up with the material.&lt;/li&gt;
-  &lt;li&gt;This data only relates to specific style of coursework. There is no data on semester long projects, essays, etc. My prediction is that similar patterns will emerge, but spread out according to the size of the task.&lt;/li&gt;
-  &lt;li&gt;Several students suspended or withdrew or were terminated during year. Their data will be included in early modules but not in later modules.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Introduction In the STEM Foundation Year at the University of Leicester, we used the e-assessement system Numbas. This system recorded enough information for me to be able to investigate when students did their homework.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series Stop and Search, Part III, Data Analysis Stop and Search, Part I, Data Collection</summary></entry></feed>
