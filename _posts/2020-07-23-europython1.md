@@ -221,6 +221,7 @@ Something for me to investigate. I have not needed to use this yet. Nice bonus -
 * This might be standard knowlege for people who already work in software engineering. But somebody with maths background, say, this kind of automation and workflow is not obvious.
 * This will make your life easier!
 * Has video showing example of making small change to chat bot, and how much is automated.
+* See examples on [github](https://gitlab.com/warias/pycon2020).
 
 ### My thoughts
 Probably too advanced for me at this stage. But, something I should be aware of when I work on bigger projects. 
@@ -230,11 +231,45 @@ Probably too advanced for me at this stage. But, something I should be aware of 
 ## 13:15, [Building models with no expertise with AutoML](https://ep2020.europython.eu/talks/C8WFfBR-building-smarter-solutions-with-no-expertise-in-machine-learning/), Laurent Picard
 
 ### Notes of the talk
+* Background, French, ebook pioneer, cofounder of bookeen
+* Their definition of ML: given data, extract data.
+* Correct definition: AI contains machine learning contains deep learning.
+* Graph showing increase of 'Brain Model' at Google. Number of directories using it. At 7000 around 2017.
+* AutoML - somewhere between ML APIs (developer skills) and ML (machine learning skills).
+* Ready-to-use models.
+* Vision API. Laurent in 90s tried to detect edges, and it was very hard.
+    * Label detection. What is in picture?
+    * Locate picture by matching with google's database
+    * Bounding boxes for objects in the picture, e.g. box for trousers, box for person
+    * Face detection. Emotion prediction.
+    * Text detection. Identify blocks of text. Works even if image is slanted.
+    * Hand-writing detection. Not as good as text detection (obviously), but still good.
+    * Web entity detection/image matching. Identify source of image, identify topic of image. E.g. picture of Tolkien identified as Tolkien and its source found.
+    * `from google.cloud import vision`
+* Video intelligence
+    * Apply image analysis to each frame
+    * from google.cloud import videointelligence
+    * codelabs.developers.google.com/codelabs/cloud-video-intelligence-python3
+* NLP
+    * Syntax analysis. Language detection, syntax analysis (dependency, grammar, etc.)
+    * Entity detection. Understands context. Given match, gives unique id and wikipedia link!
+    * Content classification.
+    * Sentiment analysis. E.g helps company judge how people are talking about their service or product.
+    * Tutorials available on codelabs
+    * Translation API.
+    * Speech-to-text API
+    * Speech timestamps. Given script and audio, attach
+    * Text-to-speech. WaveNet by DeepMind
+* Cloud AutomL
+    * You provide data. AutoML does training, deployment and serving
+    * Can create your own API for cloud model
+    * For offline, can get TF Lite model for mobile, TF model for browser, or container for anywhere.
+    * Example of identifying between different types of clouds. Upload around thousand images. Can specify computer hours and visualise results.    
 
 ### My thoughts
+Not sure what my takeaway message is here. Looks like a useful and easy to use set of tools. But not sure when I will use it.
 
-
-
+## 14:15, [Simulating hours of robots' work in minutes](Eran Friedman)
 
 ### Notes of the talk
 
@@ -242,7 +277,7 @@ Probably too advanced for me at this stage. But, something I should be aware of 
 
 
 
-
+## 14:45, [Parallel Stream Processing at Massive Scale](Alejandro Saucedo)
 
 ### Notes of the talk
 
@@ -250,5 +285,5 @@ Probably too advanced for me at this stage. But, something I should be aware of 
 
 
 
-
+## 15:15, 
 
