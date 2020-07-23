@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      8 min read
     
 </span></p>
 
@@ -139,7 +139,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#my-thoughts">My thoughts</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#1000-spacy-alexander-hendorf">10:00 Spacy, Alexander Hendorf</a>
+<li class="toc-entry toc-h2"><a href="#1000-spacy-alexander-hendorf">10:00 spaCy, Alexander Hendorf</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#notes-of-the-talk-1">Notes of the talk</a></li>
 <li class="toc-entry toc-h3"><a href="#my-thoughts-1">My thoughts</a></li>
@@ -270,7 +270,7 @@ f   * Make images identifiable</li>
 <p>A lot of this went over my head. The main lesson I learnt is that I should expect things to be tricky when I eventually do start using Docker. I will refer back to this video when I do start using Docker.</p>
 
 <h2 id="1000-spacy-alexander-hendorf">
-<a class="anchor" href="#1000-spacy-alexander-hendorf" aria-hidden="true"><span class="octicon octicon-link"></span></a>10:00 <a href="https://ep2020.europython.eu/talks/7TXpVro-15-things-you-should-know-about-spacy/">Spacy</a>, Alexander Hendorf</h2>
+<a class="anchor" href="#1000-spacy-alexander-hendorf" aria-hidden="true"><span class="octicon octicon-link"></span></a>10:00 <a href="https://ep2020.europython.eu/talks/7TXpVro-15-things-you-should-know-about-spacy/">spaCy</a>, Alexander Hendorf</h2>
 
 <h3 id="notes-of-the-talk-1">
 <a class="anchor" href="#notes-of-the-talk-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
@@ -416,9 +416,76 @@ f   * Make images identifiable</li>
 
 <h3 id="notes-of-the-talk-3">
 <a class="anchor" href="#notes-of-the-talk-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
+<ul>
+  <li>Background. Engineer at ST Engineering. Background in aerospace engineer and modelling. Contributor to pandas. Mentor at BigDataX.</li>
+  <li>Typical flow: extract raw data, process data, train model, evaluate and deploy model.</li>
+  <li>Bottlenecks in real world
+    <ul>
+      <li>Lack of data. Poor quality data</li>
+      <li>Data processing. 80/20 dilemma. More like 90/10!</li>
+    </ul>
+  </li>
+  <li>Data processing in python
+    <ul>
+      <li>For loops, <code class="highlighter-rouge">list = [], for i in range(100), list.append(i*i)</code>
+</li>
+      <li>This is slow!</li>
+      <li>Comprehensions. <code class="highlighter-rouge">list = [i*i for i in range(100)]</code>
+</li>
+      <li>Slightly better. No need to call append on each iteration</li>
+      <li>Pandas, optimised for in-memory analytics. But get performance issues when dealing with large datasets, e.g. 1&gt;GB. Particularly in 100GB plus range.</li>
+      <li>Why not just use spark? Overhead cost of communication. Need very big data for this to be worthwhile. What to do in ‘small big data’?</li>
+      <li>
+<em>Small Big Data Manifesto</em> by Itamar Turner-Trauring</li>
+    </ul>
+  </li>
+  <li>Parallel processing
+    <ul>
+      <li>Analogy: preparing toast.</li>
+      <li>Traditional breakfast in Singapore is tea, toast and egg</li>
+      <li>Sequential processing: one single-slice toaster</li>
+      <li>Parallel processing: four single-slice toaster. Each toaster is independent</li>
+    </ul>
+  </li>
+  <li>Synchronous vs asynchronous
+    <ul>
+      <li>Analogy: also want coffee. Assume it takes 5 mins for each coffee, 2 mins for single toaster.</li>
+      <li>Synchronous execution: first make coffee, and then make toast.</li>
+      <li>Asynchronous: make coffee and toast at the same time</li>
+    </ul>
+  </li>
+  <li>Practical considerations
+    <ul>
+      <li>Parellelism sounds great. Get mega time savings</li>
+      <li>Is code already optimised? Using loops instead of array operations</li>
+      <li>Problem architecture. If many tasks depends on previous tasks being completed, parallelism isn’t great. Data dependency vs task dependency.</li>
+      <li>Overhead costs. Limit to parallelisation. Amdahl’s.</li>
+      <li>Multi processing vs multi threading</li>
+    </ul>
+  </li>
+  <li>In python
+    <ul>
+      <li>concurrent.futures module</li>
+      <li>ProcessPoolExecutor vs ThreadPoolExecutor.</li>
+    </ul>
+  </li>
+  <li>Example
+    <ul>
+      <li>Obtaining data from API. JSON data. 20x speed up versus list comprehension.</li>
+      <li>Rescaling x-ray images. map gives 40 seconds. list comprehension 24 seconds. ProcessPoolExecutor about 7s with 8 cores.</li>
+    </ul>
+  </li>
+  <li>Takeaways
+    <ul>
+      <li>Not all processes should be parallelized. Amdahl’s law, system overhead, cost of re-writing code.</li>
+      <li>Don’t use for loops!</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="my-thoughts-3">
 <a class="anchor" href="#my-thoughts-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>Something for me to investigate. I have not needed to use this yet. Nice bonus - I learnt about Singaporean breakfasts!</p>
 
 <h2 id="1245-automate-nlp-model-deployment-william-arias">
 <a class="anchor" href="#1245-automate-nlp-model-deployment-william-arias" aria-hidden="true"><span class="octicon octicon-link"></span></a>12:45, <a href="https://ep2020.europython.eu/talks/5hXHveq-deploy-your-machine-learning-bots-like-a-boss-with-cicd/">Automate NLP model deployment</a>, William Arias</h2>

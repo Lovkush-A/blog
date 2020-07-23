@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T06:17:56-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T06:46:23-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn the talks.&lt;/p&gt;
@@ -87,7 +87,7 @@ f   * Make images identifiable&lt;/li&gt;
 &lt;h3 id=&quot;my-thoughts&quot;&gt;My thoughts&lt;/h3&gt;
 &lt;p&gt;A lot of this went over my head. The main lesson I learnt is that I should expect things to be tricky when I eventually do start using Docker. I will refer back to this video when I do start using Docker.&lt;/p&gt;
 
-&lt;h2 id=&quot;1000-spacy-alexander-hendorf&quot;&gt;10:00 &lt;a href=&quot;https://ep2020.europython.eu/talks/7TXpVro-15-things-you-should-know-about-spacy/&quot;&gt;Spacy&lt;/a&gt;, Alexander Hendorf&lt;/h2&gt;
+&lt;h2 id=&quot;1000-spacy-alexander-hendorf&quot;&gt;10:00 &lt;a href=&quot;https://ep2020.europython.eu/talks/7TXpVro-15-things-you-should-know-about-spacy/&quot;&gt;spaCy&lt;/a&gt;, Alexander Hendorf&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-of-the-talk-1&quot;&gt;Notes of the talk&lt;/h3&gt;
 &lt;ul&gt;
@@ -226,8 +226,72 @@ f   * Make images identifiable&lt;/li&gt;
 &lt;h2 id=&quot;1215-parallel-and-asynchronous-programming-in-ds-chin-hwee-ong&quot;&gt;12:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/8DboZjY-speed-up-your-data-processing/&quot;&gt;Parallel and Asynchronous Programming in DS&lt;/a&gt;, Chin Hwee Ong&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-of-the-talk-3&quot;&gt;Notes of the talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Background. Engineer at ST Engineering. Background in aerospace engineer and modelling. Contributor to pandas. Mentor at BigDataX.&lt;/li&gt;
+  &lt;li&gt;Typical flow: extract raw data, process data, train model, evaluate and deploy model.&lt;/li&gt;
+  &lt;li&gt;Bottlenecks in real world
+    &lt;ul&gt;
+      &lt;li&gt;Lack of data. Poor quality data&lt;/li&gt;
+      &lt;li&gt;Data processing. 80/20 dilemma. More like 90/10!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Data processing in python
+    &lt;ul&gt;
+      &lt;li&gt;For loops, &lt;code class=&quot;highlighter-rouge&quot;&gt;list = [], for i in range(100), list.append(i*i)&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;This is slow!&lt;/li&gt;
+      &lt;li&gt;Comprehensions. &lt;code class=&quot;highlighter-rouge&quot;&gt;list = [i*i for i in range(100)]&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Slightly better. No need to call append on each iteration&lt;/li&gt;
+      &lt;li&gt;Pandas, optimised for in-memory analytics. But get performance issues when dealing with large datasets, e.g. 1&amp;gt;GB. Particularly in 100GB plus range.&lt;/li&gt;
+      &lt;li&gt;Why not just use spark? Overhead cost of communication. Need very big data for this to be worthwhile. What to do in ‘small big data’?&lt;/li&gt;
+      &lt;li&gt;&lt;em&gt;Small Big Data Manifesto&lt;/em&gt; by Itamar Turner-Trauring&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Parallel processing
+    &lt;ul&gt;
+      &lt;li&gt;Analogy: preparing toast.&lt;/li&gt;
+      &lt;li&gt;Traditional breakfast in Singapore is tea, toast and egg&lt;/li&gt;
+      &lt;li&gt;Sequential processing: one single-slice toaster&lt;/li&gt;
+      &lt;li&gt;Parallel processing: four single-slice toaster. Each toaster is independent&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Synchronous vs asynchronous
+    &lt;ul&gt;
+      &lt;li&gt;Analogy: also want coffee. Assume it takes 5 mins for each coffee, 2 mins for single toaster.&lt;/li&gt;
+      &lt;li&gt;Synchronous execution: first make coffee, and then make toast.&lt;/li&gt;
+      &lt;li&gt;Asynchronous: make coffee and toast at the same time&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Practical considerations
+    &lt;ul&gt;
+      &lt;li&gt;Parellelism sounds great. Get mega time savings&lt;/li&gt;
+      &lt;li&gt;Is code already optimised? Using loops instead of array operations&lt;/li&gt;
+      &lt;li&gt;Problem architecture. If many tasks depends on previous tasks being completed, parallelism isn’t great. Data dependency vs task dependency.&lt;/li&gt;
+      &lt;li&gt;Overhead costs. Limit to parallelisation. Amdahl’s.&lt;/li&gt;
+      &lt;li&gt;Multi processing vs multi threading&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;In python
+    &lt;ul&gt;
+      &lt;li&gt;concurrent.futures module&lt;/li&gt;
+      &lt;li&gt;ProcessPoolExecutor vs ThreadPoolExecutor.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Example
+    &lt;ul&gt;
+      &lt;li&gt;Obtaining data from API. JSON data. 20x speed up versus list comprehension.&lt;/li&gt;
+      &lt;li&gt;Rescaling x-ray images. map gives 40 seconds. list comprehension 24 seconds. ProcessPoolExecutor about 7s with 8 cores.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Takeaways
+    &lt;ul&gt;
+      &lt;li&gt;Not all processes should be parallelized. Amdahl’s law, system overhead, cost of re-writing code.&lt;/li&gt;
+      &lt;li&gt;Don’t use for loops!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-3&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;Something for me to investigate. I have not needed to use this yet. Nice bonus - I learnt about Singaporean breakfasts!&lt;/p&gt;
 
 &lt;h2 id=&quot;1245-automate-nlp-model-deployment-william-arias&quot;&gt;12:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/5hXHveq-deploy-your-machine-learning-bots-like-a-boss-with-cicd/&quot;&gt;Automate NLP model deployment&lt;/a&gt;, William Arias&lt;/h2&gt;
 &lt;h3 id=&quot;notes-of-the-talk-4&quot;&gt;Notes of the talk&lt;/h3&gt;
