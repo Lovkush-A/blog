@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      2 min read
+      3 min read
     
 </span></p>
 
@@ -133,7 +133,12 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
 <li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
 <li class="toc-entry toc-h2"><a href="#0800-waking-up">08:00, Waking up</a></li>
-<li class="toc-entry toc-h2"><a href="#0900-docker-and-python-tania-allard">09:00, Docker and Python, Tania Allard</a></li>
+<li class="toc-entry toc-h2"><a href="#0900-docker-and-python-tania-allard">09:00, Docker and Python, Tania Allard</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#notes-of-the-talk">Notes of the talk</a></li>
+<li class="toc-entry toc-h3"><a href="#my-thoughts">My thoughts</a></li>
+</ul>
+</li>
 </ul><h2 id="other-posts-in-series">
 <a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
 
@@ -153,6 +158,9 @@ window.onload = wrap_img;
 
 <h2 id="0900-docker-and-python-tania-allard">
 <a class="anchor" href="#0900-docker-and-python-tania-allard" aria-hidden="true"><span class="octicon octicon-link"></span></a>09:00, <a href="https://ep2020.europython.eu/talks/4bVczWt-docker-and-python-making-them-play-nicely-and-securely-for-data-science-and-ml/">Docker and Python</a>, Tania Allard</h2>
+
+<h3 id="notes-of-the-talk">
+<a class="anchor" href="#notes-of-the-talk" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes of the talk</h3>
 <ul>
   <li>Why use Docker? Without Docker, hard to share your models because hard to make sure everyone is using the same modules/appropriate versions of packages.</li>
   <li>What is Docker? Helps you solve this issue with ‘containers’. Bundles together the application and all packages/requirements.</li>
@@ -205,8 +213,27 @@ window.onload = wrap_img;
 </li>
     </ul>
   </li>
+  <li>Re-run docker image regularly. One benefit is making sure you have latest security patches. Don’t do this manually, use GitHub Actions or Travis, for example.</li>
+  <li>Top top tips:
+    <ul>
+      <li>Rebuild images frequently. Get security updates.</li>
+      <li>Do not work as root/minimise privileges</li>
+      <li>Don’t use Alpine Linux. You are paying price for small size. Use buster, stretch, or Jupyter stack.</li>
+      <li>Be explicit about what packages you are require, version EVERYTHING.</li>
+      <li>Leverage build cache. Separate tasks, so you do not need to rebuild whole image for small change.</li>
+      <li>Use one dockerfile per project</li>
+      <li>Use multi-stage builds.
+f   * Make images identifiable</li>
+      <li>Use repo2docker</li>
+      <li>Automate. Do not build/push manually</li>
+      <li>Use a linter. E.g. VSCode has docker extension</li>
+    </ul>
+  </li>
 </ul>
 
+<h3 id="my-thoughts">
+<a class="anchor" href="#my-thoughts" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>A lot of this went over my head. The main lesson I learnt is that I should expect things to be tricky when I eventually do start using Docker. I will refer back to this video when I do start using Docker.</p>
 
   </div><a class="u-url" href="/blog/python/data%20science/conference/2020/07/23/europython1.html" hidden></a>
 </article>
