@@ -210,6 +210,16 @@ Something for me to investigate. I have not needed to use this yet. Nice bonus -
 
 ## 12:45, [Automate NLP model deployment](https://ep2020.europython.eu/talks/5hXHveq-deploy-your-machine-learning-bots-like-a-boss-with-cicd/), William Arias
 ### Notes of the talk
+* Background. Colombian, lives in Prague. Works at GitLab
+* Often, data scientists are a one-person band. Have to do learn many different tool.
+* Define a symphony. Produce flowchart of data workflow. Make explicit where different people can/should contribute to process.
+    * Favour for yourself
+    * Makes easier for everyone to understand process
+* Symphony components.
+![image]({{ site.baseurl }}/images/europython_arias1.png)
+
+
+
 
 ### My thoughts
 
