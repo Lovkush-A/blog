@@ -305,11 +305,14 @@ I do not anticipate needing to know about simulations any time soon, and I am fe
 * Traditional ML workflow. Train a model on cleaning training data. Obtain 'persisted' model. Then get unseen data, and use model to make predictions.
     * Reddit example: clean text, spaCy tokenizer, TFIDF vectoriser, logistic regression.
     * `You are a DUMMY!!!!` -> `You are dummy` -> `[PRON, IS, DUMB]` -> `[0010, 1000, 1100]` -> `1` (which equals moderated).
-* Stream-based workflow.
+* Stream-based workflow. Note that 'core' is part of Seldon.
 ![image]({{ site.baseurl }}/images/europython_2.png)
 * Gives example code in video for each step in workflow.
+* Seldon still developing service. Have open examples on github. They are open to feedback.
 
 ### My thoughts
+Good to learn about this newer workflow and the tools available for stream processing. Again, at this stage of my learning, I am unlikely to use the ideas directly any time soon, but it is good to have an awareness.
+
 
 
 
