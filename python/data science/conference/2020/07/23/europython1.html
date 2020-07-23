@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -164,7 +164,47 @@ window.onload = wrap_img;
     </ul>
   </li>
   <li>Describes differences to web apps</li>
-  <li>
+  <li>Building docker images. Tania had many struggles/frustrations to learn Docker.
+    <ul>
+      <li>Many bad examples online/in tutorials.</li>
+      <li>If building from scratch, use official Python images, and the slim versions.</li>
+      <li>If not building from scratch (highly recommended), use Jupyter Docker stacks.</li>
+    </ul>
+  </li>
+  <li>Best practices:
+    <ul>
+      <li>Be explicit about packages. Avoid ‘latest’ or ‘python 3’.</li>
+      <li>Add security context. LABEL securitytxt=’…’. E.g. snake.</li>
+      <li>Split complex run statements</li>
+      <li>Prefer Copy to Add</li>
+      <li>Leverage cache
+        <ul>
+          <li>Clean, e.g. conda clean</li>
+          <li>Only use necessary packages</li>
+          <li>Use Docker ignore (similar to .gitignore)</li>
+        </ul>
+      </li>
+      <li>Minimise privilege.
+        <ul>
+          <li>Run as non-root user. Dockers runs as root by default</li>
+          <li>Minimise capabilities user</li>
+        </ul>
+      </li>
+      <li>Avoid leak sensitive information
+        <ul>
+          <li>Information in middle ‘layers’ may appear hidden, but there are tools to find them.</li>
+          <li>Use multi-stage builds</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>This can be overwhelming, and that is normal. Try to automate and avoid re-inventing the wheel.
+    <ul>
+      <li>Use standard project template, e.g., cookie cutter data science.</li>
+      <li>Use tools like repo2docker. <code class="highlighter-rouge">conda instal jupyter repo2docker</code>, <code class="highlighter-rouge">jupyter-repo2docker "."</code>
+</li>
+    </ul>
+  </li>
 </ul>
 
 

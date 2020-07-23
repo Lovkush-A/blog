@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T03:20:04-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T03:37:00-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn the talks.&lt;/p&gt;
@@ -24,7 +24,46 @@
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;Describes differences to web apps&lt;/li&gt;
-  &lt;li&gt;&lt;/li&gt;
+  &lt;li&gt;Building docker images. Tania had many struggles/frustrations to learn Docker.
+    &lt;ul&gt;
+      &lt;li&gt;Many bad examples online/in tutorials.&lt;/li&gt;
+      &lt;li&gt;If building from scratch, use official Python images, and the slim versions.&lt;/li&gt;
+      &lt;li&gt;If not building from scratch (highly recommended), use Jupyter Docker stacks.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Best practices:
+    &lt;ul&gt;
+      &lt;li&gt;Be explicit about packages. Avoid ‘latest’ or ‘python 3’.&lt;/li&gt;
+      &lt;li&gt;Add security context. LABEL securitytxt=’…’. E.g. snake.&lt;/li&gt;
+      &lt;li&gt;Split complex run statements&lt;/li&gt;
+      &lt;li&gt;Prefer Copy to Add&lt;/li&gt;
+      &lt;li&gt;Leverage cache
+        &lt;ul&gt;
+          &lt;li&gt;Clean, e.g. conda clean&lt;/li&gt;
+          &lt;li&gt;Only use necessary packages&lt;/li&gt;
+          &lt;li&gt;Use Docker ignore (similar to .gitignore)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Minimise privilege.
+        &lt;ul&gt;
+          &lt;li&gt;Run as non-root user. Dockers runs as root by default&lt;/li&gt;
+          &lt;li&gt;Minimise capabilities user&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Avoid leak sensitive information
+        &lt;ul&gt;
+          &lt;li&gt;Information in middle ‘layers’ may appear hidden, but there are tools to find them.&lt;/li&gt;
+          &lt;li&gt;Use multi-stage builds&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;This can be overwhelming, and that is normal. Try to automate and avoid re-inventing the wheel.
+    &lt;ul&gt;
+      &lt;li&gt;Use standard project template, e.g., cookie cutter data science.&lt;/li&gt;
+      &lt;li&gt;Use tools like repo2docker. &lt;code class=&quot;highlighter-rouge&quot;&gt;conda instal jupyter repo2docker&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;jupyter-repo2docker &quot;.&quot;&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
