@@ -217,11 +217,13 @@ Something for me to investigate. I have not needed to use this yet. Nice bonus -
     * Makes easier for everyone to understand process
 * Symphony components.
 ![image]({{ site.baseurl }}/images/europython_arias1.png)
-
-
-
+* I found it hard to follow details here. I'd have to re-watch the video.
+* This might be standard knowlege for people who already work in software engineering. But somebody with maths background, say, this kind of automation and workflow is not obvious.
+* This will make your life easier!
+* Has video showing example of making small change to chat bot, and how much is automated.
 
 ### My thoughts
+Probably too advanced for me at this stage. But, something I should be aware of when I work on bigger projects. 
 
 
 
