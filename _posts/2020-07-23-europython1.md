@@ -133,11 +133,34 @@ I have not yet done any NLP, but when I do, I will be sure to look into spaCy af
 
 ## 10:30 [Differential Privacy](https://ep2020.europython.eu/talks/6Js4E4r-diffprivlib-privacy-preserving-machine-learning-with-scikit-learn/), Naoise Holohan
 
-
 ### Notes of the talk
+* Many examples where 'anonymised' but actually could still identify individuals by matching data with other data publically available.
+    * Netflix data. Matched with imdb databse
+    * AOL data. NYT managed to identify individual and make available their full search
+    * Limosine service. Person matched it with images of celebrities, and managed to find out about individuals use of taxis/limos
+    * Many other examples out there.
+
+* Differential privacy. Main idea: blur noise.
+* Implemented in diffprivlib, for scikit learn.
+* Modules
+    * Mechanisms. Algorithms to add noise
+    * Models. Has scikit learn equivalents as its parent class
+    * Tools. Analogue for NumPy.
+    * Accountant. Track privacy budget. Help optimise balance between accuracy and privacy.
+* Examples
+    * Gives warning for privacy leakage with certain bound is not specified. If bound is not specified, then original dataset is used to estimate the parameter!
+    * Pipelines. With and without privacy.
+        * Without, got 80.3% accuracy
+        * With, got 80.7% accuracy! Adding noise can actually reduce over-fitting. !!
+        * Graph of epsilon vs accuracy. Low epsilon highly variable performance. Higher epsilon tends to 80% baseline
+    * Some exploratory data analysis
 
 ### My thoughts
+I have actually heard of differential privacy before, via [this talk](https://www.youtube.com/watch?v=bScJdHX0Hac) from [FacultyAI](https://faculty.ai/). To anybody interested in this topic, I recommend watching the FacultyAI talk for more background on differential privacy itself.
 
+Main lesson here is that if I want to analyse sensitive data, diffprivlib is a good open source option.
+
+The big surprise factor was that the accuracy can sometimes be better after adding privacy! Adding noise can reduce over-fitting.
 
 
 
