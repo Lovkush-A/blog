@@ -24,6 +24,8 @@ But I managed! I then got onto the Discord server to get to the first keynote ta
 
 
 ## 09:00, [Docker and Python](https://ep2020.europython.eu/talks/4bVczWt-docker-and-python-making-them-play-nicely-and-securely-for-data-science-and-ml/), Tania Allard
+
+### Notes of the talk
 * Why use Docker? Without Docker, hard to share your models because hard to make sure everyone is using the same modules/appropriate versions of packages.
 * What is Docker? Helps you solve this issue with 'containers'. Bundles together the application and all packages/requirements.
 * Difference to virtual machines: Each application has its own container in Docker, which is small and efficient, whereas virutal machine is highly bloated as each applications is grouped with whole OS and unnecessary extra baggage.
@@ -53,6 +55,19 @@ But I managed! I then got onto the Discord server to get to the first keynote ta
 * This can be overwhelming, and that is normal. Try to automate and avoid re-inventing the wheel.
     * Use standard project template, e.g., cookie cutter data science.
     * Use tools like repo2docker. `conda instal jupyter repo2docker`, `jupyter-repo2docker "."`
+* Re-run docker image regularly. One benefit is making sure you have latest security patches. Don't do this manually, use GitHub Actions or Travis, for example.
+* Top top tips:
+    * Rebuild images frequently. Get security updates.
+    * Do not work as root/minimise privileges
+    * Don't use Alpine Linux. You are paying price for small size. Use buster, stretch, or Jupyter stack.
+    * Be explicit about what packages you are require, version EVERYTHING.
+    * Leverage build cache. Separate tasks, so you do not need to rebuild whole image for small change.
+    * Use one dockerfile per project
+    * Use multi-stage builds.
+f   * Make images identifiable
+    * Use repo2docker
+    * Automate. Do not build/push manually
+    * Use a linter. E.g. VSCode has docker extension
     
-    
- 
+### My thoughts
+A lot of this went over my head. The main lesson I learnt is that I should expect things to be tricky when I eventually do start using Docker. I will refer back to this video when I do start using Docker. 
