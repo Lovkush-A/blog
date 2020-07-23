@@ -267,9 +267,22 @@ Probably too advanced for me at this stage. But, something I should be aware of 
     * Example of identifying between different types of clouds. Upload around thousand images. Can specify computer hours and visualise results.    
 
 ### My thoughts
-Not sure what my takeaway message is here. Looks like a useful and easy to use set of tools. But not sure when I will use it.
+Not sure what my takeaway message is here. Looks like a useful and easy to use set of tools. But not sure when I will use it given that I am aiming to become a data scientist.
 
-## 14:15, [Simulating hours of robots' work in minutes](Eran Friedman)
+## 14:15, [Simulating hours of robots' work in minutes](https://ep2020.europython.eu/talks/9k2qHA7-boosting-simulation-performance-with-python/), Eran Friedman
+
+### Notes of the talk
+* Works at Fabric. Helps develop ground robot.
+* SimPy library. Discreate event simulation
+* Three objects: environment, ...
+* And I stopped taking notes.
+
+### My thoughts
+I do not anticipate needing to know about simulations any time soon, and I am feeling exhausted from first several hours of talks, so I decided to take a break. SimPy looks cool, but not for me.
+
+
+
+## 14:45, [Parallel Stream Processing at Massive Scale](https://ep2020.europython.eu/talks/Ccb6D5Z-real-time-stream-processing-for-machine-learning-at-massive-scale/), Alejandro Saucedo
 
 ### Notes of the talk
 
@@ -277,13 +290,9 @@ Not sure what my takeaway message is here. Looks like a useful and easy to use s
 
 
 
-## 14:45, [Parallel Stream Processing at Massive Scale](Alejandro Saucedo)
+## 15:15, [Analysing Solar Panels from Aerial Imagery](https://ep2020.europython.eu/talks/detecting-and-analyzing-solar-panels-switzerland-using-aerial-imagery/), Adrian Meyer
 
 ### Notes of the talk
 
-### My thoughts
-
-
-
-## 15:15, 
+### My thoughts 
 
