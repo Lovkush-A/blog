@@ -163,14 +163,7 @@ Main lesson here is that if I want to analyse sensitive data, diffprivlib is a g
 The big surprise factor was that the accuracy can sometimes be better after adding privacy! Adding noise can reduce over-fitting.
 
 
-
-
-### Notes of the talk
-
-### My thoughts
-
-
-
+## 12:15, [Parallel and Asynchronous Programming in DS](https://ep2020.europython.eu/talks/8DboZjY-speed-up-your-data-processing/), Chin Hwee Ong
 
 ### Notes of the talk
 
@@ -178,6 +171,14 @@ The big surprise factor was that the accuracy can sometimes be better after addi
 
 
 
+## 12:45, [Automate NLP model deployment](https://ep2020.europython.eu/talks/5hXHveq-deploy-your-machine-learning-bots-like-a-boss-with-cicd/), William Arias
+### Notes of the talk
+
+### My thoughts
+
+
+
+## 13:15, [Building models with no expertise with AutoML](https://ep2020.europython.eu/talks/C8WFfBR-building-smarter-solutions-with-no-expertise-in-machine-learning/), Laurent Picard
 
 ### Notes of the talk
 
