@@ -73,7 +73,7 @@ f   * Make images identifiable
 A lot of this went over my head. The main lesson I learnt is that I should expect things to be tricky when I eventually do start using Docker. I will refer back to this video when I do start using Docker.
 
 
-## 10:00 [Spacy](https://ep2020.europython.eu/talks/7TXpVro-15-things-you-should-know-about-spacy/), Alexander Hendorf
+## 10:00 [spaCy](https://ep2020.europython.eu/talks/7TXpVro-15-things-you-should-know-about-spacy/), Alexander Hendorf
 
 ### Notes of the talk
 * NLP: avalanche of unstructured data
@@ -166,9 +166,46 @@ The big surprise factor was that the accuracy can sometimes be better after addi
 ## 12:15, [Parallel and Asynchronous Programming in DS](https://ep2020.europython.eu/talks/8DboZjY-speed-up-your-data-processing/), Chin Hwee Ong
 
 ### Notes of the talk
+* Background. Engineer at ST Engineering. Background in aerospace engineer and modelling. Contributor to pandas. Mentor at BigDataX.
+* Typical flow: extract raw data, process data, train model, evaluate and deploy model.
+* Bottlenecks in real world
+    * Lack of data. Poor quality data
+    * Data processing. 80/20 dilemma. More like 90/10!
+* Data processing in python
+    * For loops, `list = [], for i in range(100), list.append(i*i)`
+    * This is slow!
+    * Comprehensions. `list = [i*i for i in range(100)]`
+    * Slightly better. No need to call append on each iteration
+    * Pandas, optimised for in-memory analytics. But get performance issues when dealing with large datasets, e.g. 1>GB. Particularly in 100GB plus range.
+    * Why not just use spark? Overhead cost of communication. Need very big data for this to be worthwhile. What to do in 'small big data'?
+    * *Small Big Data Manifesto* by Itamar Turner-Trauring
+* Parallel processing
+    * Analogy: preparing toast.
+    * Traditional breakfast in Singapore is tea, toast and egg
+    * Sequential processing: one single-slice toaster
+    * Parallel processing: four single-slice toaster. Each toaster is independent
+* Synchronous vs asynchronous
+    * Analogy: also want coffee. Assume it takes 5 mins for each coffee, 2 mins for single toaster.
+    * Synchronous execution: first make coffee, and then make toast.
+    * Asynchronous: make coffee and toast at the same time
+* Practical considerations
+    * Parellelism sounds great. Get mega time savings
+    * Is code already optimised? Using loops instead of array operations
+    * Problem architecture. If many tasks depends on previous tasks being completed, parallelism isn't great. Data dependency vs task dependency.
+    * Overhead costs. Limit to parallelisation. Amdahl's. 
+    * Multi processing vs multi threading
+* In python
+    * concurrent.futures module
+    * ProcessPoolExecutor vs ThreadPoolExecutor.
+* Example
+    * Obtaining data from API. JSON data. 20x speed up versus list comprehension.
+    * Rescaling x-ray images. map gives 40 seconds. list comprehension 24 seconds. ProcessPoolExecutor about 7s with 8 cores.
+* Takeaways
+    * Not all processes should be parallelized. Amdahl's law, system overhead, cost of re-writing code.
+    * Don't use for loops!
 
 ### My thoughts
-
+Something for me to investigate. I have not needed to use this yet. Nice bonus - I learnt about Singaporean breakfasts!
 
 
 ## 12:45, [Automate NLP model deployment](https://ep2020.europython.eu/talks/5hXHveq-deploy-your-machine-learning-bots-like-a-boss-with-cicd/), William Arias
