@@ -31,5 +31,28 @@ But I managed! I then got onto the Discord server to get to the first keynote ta
 * Common challanges in DS:
     * Complex setups/dependencies, reliance on data, highly iterative/fast workflow, docker can be hard to learn.
 * Describes differences to web apps
-* 
+* Building docker images. Tania had many struggles/frustrations to learn Docker.
+    * Many bad examples online/in tutorials.
+    * If building from scratch, use official Python images, and the slim versions.
+    * If not building from scratch (highly recommended), use Jupyter Docker stacks.
+* Best practices:
+    * Be explicit about packages. Avoid 'latest' or 'python 3'.
+    * Add security context. LABEL securitytxt='...'. E.g. snake.
+    * Split complex run statements
+    * Prefer Copy to Add
+    * Leverage cache
+        * Clean, e.g. conda clean
+        * Only use necessary packages
+        * Use Docker ignore (similar to .gitignore)
+    * Minimise privilege.
+        * Run as non-root user. Dockers runs as root by default
+        * Minimise capabilities user
+    * Avoid leak sensitive information
+        * Information in middle 'layers' may appear hidden, but there are tools to find them.
+        * Use multi-stage builds
+* This can be overwhelming, and that is normal. Try to automate and avoid re-inventing the wheel.
+    * Use standard project template, e.g., cookie cutter data science.
+    * Use tools like repo2docker. `conda instal jupyter repo2docker`, `jupyter-repo2docker "."`
+    
+    
  
