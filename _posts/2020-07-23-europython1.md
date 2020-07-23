@@ -316,9 +316,34 @@ Good to learn about this newer workflow and the tools available for stream proce
 
 
 
-## 15:15, [Analysing Solar Panels from Aerial Imagery](https://ep2020.europython.eu/talks/detecting-and-analyzing-solar-panels-switzerland-using-aerial-imagery/), Adrian Meyer
+## 18:30, [A Brief History of Jupyter Notebooks](https://ep2020.europython.eu/talks/7UBMYed-a-brief-history-of-jupyter-notebooks/), William Horton 
 
 ### Notes of the talk
 
 ### My thoughts 
+
+
+
+
+## 19:00, [Quickly prototype translation from scratch and serve it in production](https://ep2020.europython.eu/talks/7W3cA68-train-serve-deploy-story-of-a-nlp-model-ft-pytorch-docker-uwsgi-and-nginx/), Shreya Khurana
+
+### Notes of the talk
+
+### My thoughts 
+
+
+
+## 19:30, [Painless Machine Learning in Production](https://ep2020.europython.eu/talks/3iErRxw-painless-machine-learning-in-production/), Chase Stevens
+
+### Notes of the talk
+
+### My thoughts 
+
+
+
+
+
+
+
+
 
