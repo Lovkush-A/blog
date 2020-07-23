@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T05:01:36-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T06:17:56-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn the talks.&lt;/p&gt;
@@ -223,13 +223,18 @@ f   * Make images identifiable&lt;/li&gt;
 
 &lt;p&gt;The big surprise factor was that the accuracy can sometimes be better after adding privacy! Adding noise can reduce over-fitting.&lt;/p&gt;
 
+&lt;h2 id=&quot;1215-parallel-and-asynchronous-programming-in-ds-chin-hwee-ong&quot;&gt;12:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/8DboZjY-speed-up-your-data-processing/&quot;&gt;Parallel and Asynchronous Programming in DS&lt;/a&gt;, Chin Hwee Ong&lt;/h2&gt;
+
 &lt;h3 id=&quot;notes-of-the-talk-3&quot;&gt;Notes of the talk&lt;/h3&gt;
 
 &lt;h3 id=&quot;my-thoughts-3&quot;&gt;My thoughts&lt;/h3&gt;
 
+&lt;h2 id=&quot;1245-automate-nlp-model-deployment-william-arias&quot;&gt;12:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/5hXHveq-deploy-your-machine-learning-bots-like-a-boss-with-cicd/&quot;&gt;Automate NLP model deployment&lt;/a&gt;, William Arias&lt;/h2&gt;
 &lt;h3 id=&quot;notes-of-the-talk-4&quot;&gt;Notes of the talk&lt;/h3&gt;
 
 &lt;h3 id=&quot;my-thoughts-4&quot;&gt;My thoughts&lt;/h3&gt;
+
+&lt;h2 id=&quot;1315-building-models-with-no-expertise-with-automl-laurent-picard&quot;&gt;13:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/C8WFfBR-building-smarter-solutions-with-no-expertise-in-machine-learning/&quot;&gt;Building models with no expertise with AutoML&lt;/a&gt;, Laurent Picard&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-of-the-talk-5&quot;&gt;Notes of the talk&lt;/h3&gt;
 
