@@ -361,10 +361,23 @@ Excellent talk! Ian clearly knows his stuff. Lots of insights. These are things 
 ## 14:45, [IPython](https://ep2020.europython.eu/talks/5LGWwvT-ipython-the-productivity-booster/), Miki Tebeka
 
 ### Notes from talk
-
+* Programmer for 30 years.
+* Wrote book, Python Brain Teasers
+* Likes ipython. It is a REPL: Real, Eval, Prompt Loop
+* Magic commands, via `%`. E.g. `%pwd`
+* Can refer to outputs like variables. `logs_dir = Out[4]`
+* Command line. `!ls $logs_dir`
+* Auto-complete features
+* He uses Vim! Woo!
+* pprint for pretty printing.
+* `?` for help. `??` for source code
+* `%timeit function` to give time analysis
+* `%%timeit`` for multiline stuff
+* Can do sql stuff. have to install extension. see video for example.
+* `%cow IPython Rocks!` Produces ascii art of cow!
 
 ### My thoughts
-
+Always good to see a live demo to see exactly how somebody does things. I learnt some neat little features. Also, cool to see someone using Vim!
 
 
 ## 15:15, [NLPeasy](https://ep2020.europython.eu/talks/6x7ezDb-nlpeasy-a-workflow-to-analyse-enrich-and-explore-textual-data/), Philipp Thomann
