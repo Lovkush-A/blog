@@ -263,10 +263,26 @@ Unfortunately, I found the talk/speaker hard to follow. But I still got a list o
 ## 12:15, [Probabilistic Forecasting with DeepAR](https://ep2020.europython.eu/talks/ANSma2D-probabilistic-forecasting-with-deepar-and-aws-sagemaker/), Nicolas Kuhaupt
 
 ### Notes from talk
+* Freelance data scientist. German.
+* DeepAR published by Amazon Research
+* It is probabilistic, like ARIMA and regression models, but not like Plain LSTMs
+* Automatic Feature Engineering. Key point of neural networks! Like Plain LSTMs but unlike ARIMA and regression models.
+* One algorithm for multiple timeseries. Seems unlike other algorithms.  Like meta learning? Transfer learning??
+* Disadvantages: time and resource intensive to train, difficult to set hyperparameters (like most neural networks).
+* How it works: inputs time series x. At time t, outputs `z_t`, which are parameters for a probability distribution to predict. Then `z_t` *and* `x_t+1` are inputted into next stage. 
+* Example datasets. Sales at amazons - one time series for each product, sales of magazines in different stores, forecast loads of servers in datacenters, car traffic - each lane has its own time series, energy consumption in households - each household has its own time series.
+* Integrated into Sagemaker. 
+    * Provides notebook
+    * Lots of different tools for different stages of data science workflow. e.g. Ground Truth to use mechanical turk to build data sets. Studio is IDE. Autopilot for training models, Neo for deployment, etc.
+* boto3 - access services in aws. s3fs - file storage stuff. various other details in talk
+* data inform of json lines, (not pandas)
+    * start - start time, target - the time series, cat - some categories that timeseries belongs to, dynamic_feat - extra time series (of same length as target).  note that different json lines can have time series of different lengths
+* hyperparameters. standard stuff, with few extras for deepar.
+* code to set up model and train it
 
 
 ### My thoughts
-
+Looks like a powerful algorithm. Probabilistic algorithms are definitely the way to go - how else can you manage and predict risk?
 
 
 
