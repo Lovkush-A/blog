@@ -52,10 +52,34 @@ Looks simple enough! I could follow the talk. :D It is clear that finding a good
 ## 7:30, [Tips for Data Cleaning](https://ep2020.europython.eu/talks/CivrR5y-top-15-python-tips-for-data-cleaning-understanding/), Hui Ziang Chua
 
 ### Notes from talk
-
+* Background. Singaporean. Works at essence. Blog data double confirm.
+* Will try to give business centred context - very different from academic/research/learning contetx
+* Tasks
+    * Get column names
+    * Get size of dataset. Make sure all data has been loaded.
+    * Check datatypes. Sometimes goes wrong. Sign for data-cleaning.
+    * Get unique values. Some cases, need to combine different values into one. E.g. 'Male' and 'M'
+    * Get range of values
+    * Get count of values
+    * Rename column names. E.g. for merging
+    * Remove symbols in values. E.g. currency signs
+    * Convert strings to numeric or to dates
+    * Replace values with more sensible values. E.g. 'Male' vs 'M'
+    * Identify variables/columns similar or different across datasets
+    * Concatenate data. Data from different quarters added to single table.
+    * Deduplication. Remove duplicate data.
+    * Merge
+    * Recoding. Feature engineering
+    * Data profiling (optional)
+    * Input missing values (optional)
+* Common issues
+    * inconsistent naming of variables
+    * bad data formats
+    * invalid,missing values
+* Resources: tinyurl.com/y5b3y7to
 
 ### My thoughts
-
+It is useful to have a checklist of tasks one should do when they have to clean data. Interesting that they considered the input of missing values as a bonus task - the impression I got from the Kaggle tutorials is that one ought to do some imputation.
 
 ## 9:00, [Neural Style Transfer and GANs](https://ep2020.europython.eu/talks/BSeL2FG-painting-with-gans-challenges-and-technicalities-of-neural-style-transfer/), Anmol Krishan Sachdeva
 
