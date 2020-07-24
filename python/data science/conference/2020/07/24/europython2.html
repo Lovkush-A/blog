@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      20 min read
+      22 min read
     
 </span></p>
 
@@ -210,7 +210,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#my-thoughts-12">My thoughts</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#1930-collaborative-data-pipelines-with-kedro-tam-sanh-nguyen-microsoft-strem">19:30, Collaborative data pipelines with Kedro, Tam-Sanh Nguyen (microsoft strem)</a>
+<li class="toc-entry toc-h2"><a href="#1930-collaborative-data-pipelines-with-kedro-tam-sanh-nguyen">19:30, Collaborative data pipelines with Kedro, Tam-Sanh Nguyen</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#notes-from-talk-13">Notes from talk</a></li>
 <li class="toc-entry toc-h3"><a href="#my-thoughts-13">My thoughts</a></li>
@@ -943,18 +943,78 @@ window.onload = wrap_img;
 
 <h3 id="notes-from-talk-12">
 <a class="anchor" href="#notes-from-talk-12" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes from talk</h3>
+<ul>
+  <li>TALK CANCELLED</li>
+</ul>
 
 <h3 id="my-thoughts-12">
 <a class="anchor" href="#my-thoughts-12" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>Not applicable</p>
 
-<h2 id="1930-collaborative-data-pipelines-with-kedro-tam-sanh-nguyen-microsoft-strem">
-<a class="anchor" href="#1930-collaborative-data-pipelines-with-kedro-tam-sanh-nguyen-microsoft-strem" aria-hidden="true"><span class="octicon octicon-link"></span></a>19:30, <a href="https://ep2020.europython.eu/talks/45GhXwE-writing-and-scaling-collaborative-data-pipelines-with-kedro/">Collaborative data pipelines with Kedro</a>, Tam-Sanh Nguyen (microsoft strem)</h2>
+<h2 id="1930-collaborative-data-pipelines-with-kedro-tam-sanh-nguyen">
+<a class="anchor" href="#1930-collaborative-data-pipelines-with-kedro-tam-sanh-nguyen" aria-hidden="true"><span class="octicon octicon-link"></span></a>19:30, <a href="https://ep2020.europython.eu/talks/45GhXwE-writing-and-scaling-collaborative-data-pipelines-with-kedro/">Collaborative data pipelines with Kedro</a>, Tam-Sanh Nguyen</h2>
 
 <h3 id="notes-from-talk-13">
 <a class="anchor" href="#notes-from-talk-13" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes from talk</h3>
+<ul>
+  <li>Apparently 40% of Vietnamese have surname Nguyen.</li>
+  <li>Data engineering is relatively new discipline, so there aren’t established practices.</li>
+  <li>QuantumBlack addressed this issue with Kedro.</li>
+  <li>Pipelines.
+    <ul>
+      <li>Kedro viz used to visualise messy data pipeline.</li>
+      <li>But how does it get there?</li>
+      <li>Starts off simple. Iris data -&gt; cleaning function, cleaned data, analyze function, analyzed data.</li>
+      <li>But then splitting data to test/train, gets messy.</li>
+      <li>Then have multiple data sources, each which needs to be split, and then all jumbled up</li>
+      <li>Without any tools, hard to grow larger and more complex than this.</li>
+      <li>But Kedro can allow you to deal with more complex pipelines.</li>
+    </ul>
+  </li>
+  <li>One source of tension is difference between data engineer and data science
+    <ul>
+      <li>Data science usually have strong engineering skills. More data modelling skills</li>
+      <li>Data science has more research bent / experimental bent / want to be close to data and have many iterations</li>
+      <li>Data engineers more like engineers. Focus is on making things tidy, rather than experimentation.</li>
+    </ul>
+  </li>
+  <li>Two other challenges
+    <ul>
+      <li>Being ready for production quickly, for business use</li>
+      <li>Is it easy to pass the pipeline to future users - which may even be the future you!</li>
+    </ul>
+  </li>
+  <li>QuantumBlack startup from London, famous for doing work on F1. Got bought by McKinsey</li>
+  <li>
+    <p>Kedro made by QuantumBlack. Big focus on standardisation, and making it as easy as possible for long-term use.</p>
+  </li>
+  <li>How does Kedro work</li>
+  <li>Analogy - audio world has standardised:
+    <ul>
+      <li>Input and output tools. Microphones, speakers, etc.</li>
+      <li>Functional transformers. Filters, etc.</li>
+      <li>Redirecting components. Make it easy for output from one tool easy to input into others.</li>
+      <li>Standard organisational conventions. Mic, audio mixer, computer.</li>
+    </ul>
+  </li>
+  <li>Standard is to use jupyter notebook. Some conventions (e.g. inputs and outputs via <code class="highlighter-rouge">pd.read_csv</code> and <code class="highlighter-rouge">pd.to_csv</code>), but mostly hard to follow. E.g. many many parameters is hard-coded, e.g. names of files being saved, parameters throughout processing, etc.</li>
+  <li>Live example:
+    <ul>
+      <li>install kedro</li>
+      <li>kedro new. follow steps, e.g. naming things, etc.</li>
+      <li>created default template</li>
+      <li>kedro viz to visualise pipeline</li>
+    </ul>
+  </li>
+  <li>Run out of time, so rushes through lots of kedro features</li>
+  <li>Has YouTube series DataEngineerOne</li>
+</ul>
 
 <h3 id="my-thoughts-13">
 <a class="anchor" href="#my-thoughts-13" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<ul>
+  <li>Looks like an intuitive system. Looks simpler than other pipelines presented in the conference. But is it because it actually is simpler, or is it because I am just getting used to pipelines. (Before this conference, I hadn’t studied pipelines at all).</li>
+</ul>
 
 
   </div><a class="u-url" href="/blog/python/data%20science/conference/2020/07/24/europython2.html" hidden></a>
