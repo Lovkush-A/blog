@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T09:23:05-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T09:54:01-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
@@ -500,8 +500,38 @@
 &lt;h2 id=&quot;1515-nlpeasy-philipp-thomann&quot;&gt;15:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/6x7ezDb-nlpeasy-a-workflow-to-analyse-enrich-and-explore-textual-data/&quot;&gt;NLPeasy&lt;/a&gt;, Philipp Thomann&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-from-talk-10&quot;&gt;Notes from talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Co-creator of liquidSVM, Nabu, NLPeasy, PlotVR&lt;/li&gt;
+  &lt;li&gt;Works at D One. ML consultancy&lt;/li&gt;
+  &lt;li&gt;NLP. Big progress recently. Word2Vec, Deep learning and many good pre-trained models. Lots of data, many use cases&lt;/li&gt;
+  &lt;li&gt;Challenges for data scientists.
+    &lt;ul&gt;
+      &lt;li&gt;NLP is generally harder - high dimensions, specialised pre-processing required, nlp experts/researchers focus only on text but there is usually other data in business.&lt;/li&gt;
+      &lt;li&gt;Methods have repuation of being hard to use&lt;/li&gt;
+      &lt;li&gt;standard tools not good for text. e.g. seaborn, tableau&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;NLPeasy to the rescue!&lt;/li&gt;
+  &lt;li&gt;Pandas based pipeline, built in Regex based tagging, spaCy based NLP methods, Vader, scraping with beautiful soup, …&lt;/li&gt;
+  &lt;li&gt;ElasticSearch. ??&lt;/li&gt;
+  &lt;li&gt;See Github repo for code, ntoebook example, etc.&lt;/li&gt;
+  &lt;li&gt;Talk through example, of looking at abstracts from some conference.&lt;/li&gt;
+  &lt;li&gt;Live demo!
+    &lt;ul&gt;
+      &lt;li&gt;Scraping EP 2020 data.&lt;/li&gt;
+      &lt;li&gt;Doing NLPeasy stuff&lt;/li&gt;
+      &lt;li&gt;Go to Elastic dashboard&lt;/li&gt;
+      &lt;li&gt;Lots of things shown, possible. E.g. entity extraction, tSNE&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;REstaurant similarity using clustering algorithms. based only on reviews! can detect similarities&lt;/li&gt;
+  &lt;li&gt;Kibana (I think) can produce geoview / heatmap&lt;/li&gt;
+  &lt;li&gt;Can create networks using entity recognition&lt;/li&gt;
+  &lt;li&gt;Can try examples in different setups, e.g. Binder, or do it all yourself.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-10&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;Not much to say. Another tool that I now know about.&lt;/p&gt;
 
 &lt;h2 id=&quot;1745-30-golden-rules-for-deep-learning-performance-siddha-ganju&quot;&gt;17:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/30-golden-rules-deep-learning-performance/&quot;&gt;30 Golden Rules for Deep Learning Performance&lt;/a&gt;, Siddha Ganju&lt;/h2&gt;
 
