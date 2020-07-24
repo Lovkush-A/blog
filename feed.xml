@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T01:34:56-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T02:06:18-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
@@ -59,8 +59,42 @@
 &lt;h2 id=&quot;730-tips-for-data-cleaning-hui-ziang-chua&quot;&gt;7:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/CivrR5y-top-15-python-tips-for-data-cleaning-understanding/&quot;&gt;Tips for Data Cleaning&lt;/a&gt;, Hui Ziang Chua&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-from-talk-1&quot;&gt;Notes from talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Background. Singaporean. Works at essence. Blog data double confirm.&lt;/li&gt;
+  &lt;li&gt;Will try to give business centred context - very different from academic/research/learning contetx&lt;/li&gt;
+  &lt;li&gt;Tasks
+    &lt;ul&gt;
+      &lt;li&gt;Get column names&lt;/li&gt;
+      &lt;li&gt;Get size of dataset. Make sure all data has been loaded.&lt;/li&gt;
+      &lt;li&gt;Check datatypes. Sometimes goes wrong. Sign for data-cleaning.&lt;/li&gt;
+      &lt;li&gt;Get unique values. Some cases, need to combine different values into one. E.g. ‘Male’ and ‘M’&lt;/li&gt;
+      &lt;li&gt;Get range of values&lt;/li&gt;
+      &lt;li&gt;Get count of values&lt;/li&gt;
+      &lt;li&gt;Rename column names. E.g. for merging&lt;/li&gt;
+      &lt;li&gt;Remove symbols in values. E.g. currency signs&lt;/li&gt;
+      &lt;li&gt;Convert strings to numeric or to dates&lt;/li&gt;
+      &lt;li&gt;Replace values with more sensible values. E.g. ‘Male’ vs ‘M’&lt;/li&gt;
+      &lt;li&gt;Identify variables/columns similar or different across datasets&lt;/li&gt;
+      &lt;li&gt;Concatenate data. Data from different quarters added to single table.&lt;/li&gt;
+      &lt;li&gt;Deduplication. Remove duplicate data.&lt;/li&gt;
+      &lt;li&gt;Merge&lt;/li&gt;
+      &lt;li&gt;Recoding. Feature engineering&lt;/li&gt;
+      &lt;li&gt;Data profiling (optional)&lt;/li&gt;
+      &lt;li&gt;Input missing values (optional)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Common issues
+    &lt;ul&gt;
+      &lt;li&gt;inconsistent naming of variables&lt;/li&gt;
+      &lt;li&gt;bad data formats&lt;/li&gt;
+      &lt;li&gt;invalid,missing values&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Resources: tinyurl.com/y5b3y7to&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-1&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;It is useful to have a checklist of tasks one should do when they have to clean data. Interesting that they considered the input of missing values as a bonus task - the impression I got from the Kaggle tutorials is that one ought to do some imputation.&lt;/p&gt;
 
 &lt;h2 id=&quot;900-neural-style-transfer-and-gans-anmol-krishan-sachdeva&quot;&gt;9:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/BSeL2FG-painting-with-gans-challenges-and-technicalities-of-neural-style-transfer/&quot;&gt;Neural Style Transfer and GANs&lt;/a&gt;, Anmol Krishan Sachdeva&lt;/h2&gt;
 
