@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      8 min read
+      9 min read
     
 </span></p>
 
@@ -498,9 +498,59 @@ window.onload = wrap_img;
 
 <h3 id="notes-from-talk-4">
 <a class="anchor" href="#notes-from-talk-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes from talk</h3>
+<ul>
+  <li>Table of levels of reproducibility</li>
+  <li>Same or different data or analysis.
+    <ul>
+      <li>Rep = same, same</li>
+      <li>Replicable = different data</li>
+      <li>Robust = different analysis</li>
+      <li>Generalisable = diff, diff.</li>
+      <li>Repeatable is subset of reproducible. Literally same programs running same data and analysis to get same result.</li>
+      <li>Reproducible means getting same result using same data and method - but maybe implemented in different language or program or …</li>
+    </ul>
+  </li>
+  <li>CI/CD = continous integration / development</li>
+  <li>Two big tools needed for repeatable research: dockers and version control. But requires learning. Not for everyone.</li>
+  <li>Shows example from ligo about gravitational waves.</li>
+  <li>Steps
+    <ul>
+      <li>Use jupyter notebook</li>
+      <li>Upload on public repositiy, e.g. GitHub.</li>
+      <li>Describe software needed to run notebook. Binder automatically identifies common configuration files</li>
+      <li>Done!</li>
+    </ul>
+  </li>
+  <li>Brief history of Binder. Now 140,000 sessions per week!</li>
+  <li>Binder is open source, can adapt to your own needs. E.g. share only with specific people in your institution.</li>
+  <li>Technologies
+    <ul>
+      <li>Github, clone reposity</li>
+      <li>repo2docker. Build docker image based on standard configuration files. Don’t need docker file!</li>
+      <li>Docker. Execute docker image</li>
+      <li>Jupyter Hub. Allocate resources, make image accessible at url</li>
+      <li>Binder, redirect user to the url</li>
+    </ul>
+  </li>
+  <li>Scaling up
+    <ul>
+      <li>Created federation</li>
+      <li>Highly stable. Uses different kubernetes implementations</li>
+    </ul>
+  </li>
+  <li>User surveys
+    <ul>
+      <li>Around 80% of respondants would recommend service</li>
+      <li>Most common use case is teaching related. Examples, workings, uni teaching, demos, etc.</li>
+      <li>Biggest complaint: needs to be faster to load</li>
+      <li>Hard to speed up. But fully explained on jupyter hub blog. Why it is slow but also tips to speed things up.</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="my-thoughts-4">
 <a class="anchor" href="#my-thoughts-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>I had already heard of Binder - because I am friends with the spaker Sarah Gibson! However, the talk was still good, and I learnt more than I already knew. In particular, I liked the classification of different levels of reproducibility.</p>
 
 <h2 id="1100-data-pipelines-with-python-robson-junior">
 <a class="anchor" href="#1100-data-pipelines-with-python-robson-junior" aria-hidden="true"><span class="octicon octicon-link"></span></a>11:00, <a href="https://ep2020.europython.eu/talks/4bNvaVk-mastering-a-data-pipeline-with-python-6-years-of-learned-lessons-from-mistakes/">Data pipelines with Python</a>, Robson Junior</h2>

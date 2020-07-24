@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T04:34:18-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T05:04:53-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
@@ -261,8 +261,58 @@
 &lt;h2 id=&quot;1030-binder-sarah-gibson&quot;&gt;10:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/BqQBN6J-sharing-reproducible-python-environments-with-binder/&quot;&gt;Binder&lt;/a&gt;, Sarah Gibson&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-from-talk-4&quot;&gt;Notes from talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Table of levels of reproducibility&lt;/li&gt;
+  &lt;li&gt;Same or different data or analysis.
+    &lt;ul&gt;
+      &lt;li&gt;Rep = same, same&lt;/li&gt;
+      &lt;li&gt;Replicable = different data&lt;/li&gt;
+      &lt;li&gt;Robust = different analysis&lt;/li&gt;
+      &lt;li&gt;Generalisable = diff, diff.&lt;/li&gt;
+      &lt;li&gt;Repeatable is subset of reproducible. Literally same programs running same data and analysis to get same result.&lt;/li&gt;
+      &lt;li&gt;Reproducible means getting same result using same data and method - but maybe implemented in different language or program or …&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;CI/CD = continous integration / development&lt;/li&gt;
+  &lt;li&gt;Two big tools needed for repeatable research: dockers and version control. But requires learning. Not for everyone.&lt;/li&gt;
+  &lt;li&gt;Shows example from ligo about gravitational waves.&lt;/li&gt;
+  &lt;li&gt;Steps
+    &lt;ul&gt;
+      &lt;li&gt;Use jupyter notebook&lt;/li&gt;
+      &lt;li&gt;Upload on public repositiy, e.g. GitHub.&lt;/li&gt;
+      &lt;li&gt;Describe software needed to run notebook. Binder automatically identifies common configuration files&lt;/li&gt;
+      &lt;li&gt;Done!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Brief history of Binder. Now 140,000 sessions per week!&lt;/li&gt;
+  &lt;li&gt;Binder is open source, can adapt to your own needs. E.g. share only with specific people in your institution.&lt;/li&gt;
+  &lt;li&gt;Technologies
+    &lt;ul&gt;
+      &lt;li&gt;Github, clone reposity&lt;/li&gt;
+      &lt;li&gt;repo2docker. Build docker image based on standard configuration files. Don’t need docker file!&lt;/li&gt;
+      &lt;li&gt;Docker. Execute docker image&lt;/li&gt;
+      &lt;li&gt;Jupyter Hub. Allocate resources, make image accessible at url&lt;/li&gt;
+      &lt;li&gt;Binder, redirect user to the url&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Scaling up
+    &lt;ul&gt;
+      &lt;li&gt;Created federation&lt;/li&gt;
+      &lt;li&gt;Highly stable. Uses different kubernetes implementations&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;User surveys
+    &lt;ul&gt;
+      &lt;li&gt;Around 80% of respondants would recommend service&lt;/li&gt;
+      &lt;li&gt;Most common use case is teaching related. Examples, workings, uni teaching, demos, etc.&lt;/li&gt;
+      &lt;li&gt;Biggest complaint: needs to be faster to load&lt;/li&gt;
+      &lt;li&gt;Hard to speed up. But fully explained on jupyter hub blog. Why it is slow but also tips to speed things up.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-4&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;I had already heard of Binder - because I am friends with the spaker Sarah Gibson! However, the talk was still good, and I learnt more than I already knew. In particular, I liked the classification of different levels of reproducibility.&lt;/p&gt;
 
 &lt;h2 id=&quot;1100-data-pipelines-with-python-robson-junior&quot;&gt;11:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/4bNvaVk-mastering-a-data-pipeline-with-python-6-years-of-learned-lessons-from-mistakes/&quot;&gt;Data pipelines with Python&lt;/a&gt;, Robson Junior&lt;/h2&gt;
 
