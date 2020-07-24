@@ -409,12 +409,89 @@ Always good to see a live demo to see exactly how somebody does things. I learnt
 Not much to say. Another tool that I now know about.
 
 
-## 17:45, [30 Golden Rules for Deep Learning Performance](https://ep2020.europython.eu/talks/30-golden-rules-deep-learning-performance/), Siddha Ganju
+## 17:45, [30 Golden Rules for Deep Learning Performance](https://ep2020.europython.eu/talks/30-golden-rules-deep-learning-performance/), Siddha Ganju @SiddhaGanju
 
 ### Notes from talk
+* Forbes 30 under 30!
+* Recommended [book](www.PracticalDeepLearning.ai)
+* 95% of all AI Training is Transfer Learning
+    * Playing melodica much easier if you already know how to play the piano
+    * In Neural Network, earlier layers contains generic knowledge, and later layers contain task specific knowledge - at least in CNNs
+    * So remove last 'classifier layers', and classify on new task, keeping first layers as is.
+    * See github PracticalDL for examples and runnable scripts* Optimising hardware use.
+    * In standard process, CPU and GPU switch between being idle or active.
+    * Use a profiler. E.g. TensorFlow Profiler + TensorBoard
+    * Example code shown to use profiler.
+    * Simpler: nvidia-smi.
+* We have thing we want to optimise and metric. So how can we optimise. Here comes the 30 rules.
+
+* DATA PROCESSING
+* Use TFRecords
+    * Anti-pattern: thousands of tiny files/gigantic file.
+    * Better to have handful for large files.
+    * Sweet spot: 100MB TFRecord files
+* Reduce size of input data
+    * Bad: read image, rezie, train. Then iterate
+    * Good: read all images, resizes, save as TFRecord. Then read and train - iterating as appropriate.
+* Use TensorFlow Datasets
+    * `import tensorflow_datasets as tfds`
+    * If you have new datasets, publish your data on TensorFlow datasets, so people can build on your research.
+* Use tf.data pipeline
+    * Example code given
+* Prefetch data
+    * Somehow breaks circular dependency, where CPU has to wait for GPU and vice versa. 
+    * Does asynchronous stuff
+    * Code given in talk
+* Parallelize CPU processing.
+    * same as number of cpu cores
+* Paralleize input and output. interleaving.
+* Non-deterministic ordering. If randomising, forget ordering.
+    * Somehow, not reading files 'in order' avoids potential bottlenecks.
+* Cache data
+    * Avoid repeated reading from disk after first epoch
+    * Avoid repeatedly resizing
+* Turn on experimental optimisations
+* Autotune parameter values. code given in talk. Seems to refer to hardware based parameters
+* Slide showing it all combined.
+
+* DATA AUGMENTATION
+* Use GPU for augmentation, with tf.image
+    * Still work in progress. Limited functionality. Only rotate by 90 degrees as of now.
+* Use GPU with NVIDIA DALI
+
+* TRAINING
+* Use automatic mixed precision.
+    * Using 8-bit or 16-bit encodings rather than 32 or 64-bit.
+    * Caveat - fp.16 can cause drop in accuracy, and even loss of convergence. E.g. if gradient is tiny, fp.16 will treat it as zero.
+    * auto mixed precision somehow deals with this issue
+* Use larger batch size.
+    * Larger batch size leads to smaller time per epoch (but less steps per epoch too, no?)
+    * Larger batch size leads to greater GPU utilization
+* Use batch szies that are multiples of eight. Big jump in performance from 4095 to 4096!
+    * Video describes other restrictions/options
+* Finding optimal learning rate
+    * Use keras_lr_finder
+    * 'point of greatest decrease in loss' corresponds to best learning rate, somehow. Leslie N Smith paper
+* Use tf.function
+    * `@tf.function`.
+* Overtrain, then generalise. STart from from dataset and increase.
+* Install optimised stack
+* Optimise number of parallel threads
+* Use better hardware.
+* Distribute training. MirroredStrat vs Multiworker...
+* Look at industiral benchmarks.   
+
+* INFERENCE
+    * Use an efficient model. Fewer weights.
+    * Quantize. 16 to 8bit.
+    * Prune model, remove weights close to zero
+    * Used fused operations
+    * Enable GPU persistence
 
 
 ### My thoughts
+Very handy list of tips and tricks. Sevreal of them go beyond my understanding, but does not mean I can not benefit from using them!
+
 
 ## 19:00, [Analytical Functions in SQL](https://ep2020.europython.eu/talks/AWFiM7F-sql-for-data-science-using-analytical-function/), Brendan Tierney
 
