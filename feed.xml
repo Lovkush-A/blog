@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T05:59:11-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T06:51:57-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
@@ -359,8 +359,33 @@
 &lt;h2 id=&quot;1215-probabilistic-forecasting-with-deepar-nicolas-kuhaupt&quot;&gt;12:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/ANSma2D-probabilistic-forecasting-with-deepar-and-aws-sagemaker/&quot;&gt;Probabilistic Forecasting with DeepAR&lt;/a&gt;, Nicolas Kuhaupt&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-from-talk-6&quot;&gt;Notes from talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Freelance data scientist. German.&lt;/li&gt;
+  &lt;li&gt;DeepAR published by Amazon Research&lt;/li&gt;
+  &lt;li&gt;It is probabilistic, like ARIMA and regression models, but not like Plain LSTMs&lt;/li&gt;
+  &lt;li&gt;Automatic Feature Engineering. Key point of neural networks! Like Plain LSTMs but unlike ARIMA and regression models.&lt;/li&gt;
+  &lt;li&gt;One algorithm for multiple timeseries. Seems unlike other algorithms.  Like meta learning? Transfer learning??&lt;/li&gt;
+  &lt;li&gt;Disadvantages: time and resource intensive to train, difficult to set hyperparameters (like most neural networks).&lt;/li&gt;
+  &lt;li&gt;How it works: inputs time series x. At time t, outputs &lt;code class=&quot;highlighter-rouge&quot;&gt;z_t&lt;/code&gt;, which are parameters for a probability distribution to predict. Then &lt;code class=&quot;highlighter-rouge&quot;&gt;z_t&lt;/code&gt; &lt;em&gt;and&lt;/em&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;x_t+1&lt;/code&gt; are inputted into next stage.&lt;/li&gt;
+  &lt;li&gt;Example datasets. Sales at amazons - one time series for each product, sales of magazines in different stores, forecast loads of servers in datacenters, car traffic - each lane has its own time series, energy consumption in households - each household has its own time series.&lt;/li&gt;
+  &lt;li&gt;Integrated into Sagemaker.
+    &lt;ul&gt;
+      &lt;li&gt;Provides notebook&lt;/li&gt;
+      &lt;li&gt;Lots of different tools for different stages of data science workflow. e.g. Ground Truth to use mechanical turk to build data sets. Studio is IDE. Autopilot for training models, Neo for deployment, etc.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;boto3 - access services in aws. s3fs - file storage stuff. various other details in talk&lt;/li&gt;
+  &lt;li&gt;data inform of json lines, (not pandas)
+    &lt;ul&gt;
+      &lt;li&gt;start - start time, target - the time series, cat - some categories that timeseries belongs to, dynamic_feat - extra time series (of same length as target).  note that different json lines can have time series of different lengths&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;hyperparameters. standard stuff, with few extras for deepar.&lt;/li&gt;
+  &lt;li&gt;code to set up model and train it&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-6&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;Looks like a powerful algorithm. Probabilistic algorithms are definitely the way to go - how else can you manage and predict risk?&lt;/p&gt;
 
 &lt;h2 id=&quot;1315-fast-and-scalable-ml-in-python-victoriya-fedotova-and-frank-schlimbach&quot;&gt;13:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/CR4ben4-the-painless-route-in-python-to-fast-and-scalable-machine-learning/&quot;&gt;Fast and Scalable ML in Python&lt;/a&gt;, Victoriya Fedotova and Frank Schlimbach&lt;/h2&gt;
 

@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      11 min read
+      12 min read
     
 </span></p>
 
@@ -602,9 +602,34 @@ window.onload = wrap_img;
 
 <h3 id="notes-from-talk-6">
 <a class="anchor" href="#notes-from-talk-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes from talk</h3>
+<ul>
+  <li>Freelance data scientist. German.</li>
+  <li>DeepAR published by Amazon Research</li>
+  <li>It is probabilistic, like ARIMA and regression models, but not like Plain LSTMs</li>
+  <li>Automatic Feature Engineering. Key point of neural networks! Like Plain LSTMs but unlike ARIMA and regression models.</li>
+  <li>One algorithm for multiple timeseries. Seems unlike other algorithms.  Like meta learning? Transfer learning??</li>
+  <li>Disadvantages: time and resource intensive to train, difficult to set hyperparameters (like most neural networks).</li>
+  <li>How it works: inputs time series x. At time t, outputs <code class="highlighter-rouge">z_t</code>, which are parameters for a probability distribution to predict. Then <code class="highlighter-rouge">z_t</code> <em>and</em> <code class="highlighter-rouge">x_t+1</code> are inputted into next stage.</li>
+  <li>Example datasets. Sales at amazons - one time series for each product, sales of magazines in different stores, forecast loads of servers in datacenters, car traffic - each lane has its own time series, energy consumption in households - each household has its own time series.</li>
+  <li>Integrated into Sagemaker.
+    <ul>
+      <li>Provides notebook</li>
+      <li>Lots of different tools for different stages of data science workflow. e.g. Ground Truth to use mechanical turk to build data sets. Studio is IDE. Autopilot for training models, Neo for deployment, etc.</li>
+    </ul>
+  </li>
+  <li>boto3 - access services in aws. s3fs - file storage stuff. various other details in talk</li>
+  <li>data inform of json lines, (not pandas)
+    <ul>
+      <li>start - start time, target - the time series, cat - some categories that timeseries belongs to, dynamic_feat - extra time series (of same length as target).  note that different json lines can have time series of different lengths</li>
+    </ul>
+  </li>
+  <li>hyperparameters. standard stuff, with few extras for deepar.</li>
+  <li>code to set up model and train it</li>
+</ul>
 
 <h3 id="my-thoughts-6">
 <a class="anchor" href="#my-thoughts-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>Looks like a powerful algorithm. Probabilistic algorithms are definitely the way to go - how else can you manage and predict risk?</p>
 
 <h2 id="1315-fast-and-scalable-ml-in-python-victoriya-fedotova-and-frank-schlimbach">
 <a class="anchor" href="#1315-fast-and-scalable-ml-in-python-victoriya-fedotova-and-frank-schlimbach" aria-hidden="true"><span class="octicon octicon-link"></span></a>13:15, <a href="https://ep2020.europython.eu/talks/CR4ben4-the-painless-route-in-python-to-fast-and-scalable-machine-learning/">Fast and Scalable ML in Python</a>, Victoriya Fedotova and Frank Schlimbach</h2>
