@@ -142,10 +142,48 @@ Excellent talk! I had seen some of the neural style transfer images before, and 
 ## 10:00, [Data Visualisation Landscape](https://ep2020.europython.eu/talks/B5Vff6U-the-python-data-visualization-landscape-in-2020/), Bence Arato 
 
 ### Notes from talk
+* There are lots of libraries out there.
+* Imperative vs declarative. Imperative: specify how something should be done. Declarative: specify what should be done.
+* Matplotlib. Biggest example. Has gallery + code examples
+    * Background in MATLAB
+    * Challenge: imperative
+* Seaborn. Aim to provide higher level package on top of matplotlib. Good defaults for charts that look good.
+    * Example scatterplot much easier in seaborn than in matplotlib
+* plotnine. Aim to higher-level. Based on ggplot2 in R.
+    * Syntax is basically same as ggplot syntax! 
+    * `aes`, `geom_point` etc.
+* bokeh. 2nd most widely known tool.
+    * Big thing is interactivity, like sliders, checkboxes, etc.
+    * Example scatterplot. Quite long and low-level
+    * Based on web/javascript background
+* HoloViews
+    * Higher level language for bokeh, matplotlib, plotly
+    * Just have to change one line code to switch between bokeh or matplotlib output
+    * Scatterplot example. Short code.
+* hvPlot. built on top of holoviews
+* pandas bokeh. add plot_bokeh() method in pandas.
+* Chartify. From spotify. Built on top of bokeh. 
+* Plotly.
+    * Might be only one to do 3d charts well
+    * Low level charts
+* Plotly express
+    * Higher level version of plotly.
+* Vega, vega-lite
+    * Visualisation 'grammar'. 
+    * JSON based way of describing charts
+* Altair
+    * High level version of vega
+* Dashboards.
+    * Plotly Dash
+    * Panel. Anaconda related. Built on top of four big charting libaries above
+    * Voila. Looks cool - can visualise ML things. Need to check out!
+    * Streamlit. Datascience specific tools. Example of GAN Image generator with sliders. Change slider will re-run model and create new image.
+* PyViz. Thorough list of all visualisation libraries.
+* Python Data Visualisation, at AnacondaCON 2020
 
 
 ### My thoughts
-
+Excellent talk. Well structured, good examples, good summary of key things I should know about.
 
 
 
