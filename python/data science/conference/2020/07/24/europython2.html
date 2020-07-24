@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      17 min read
+      20 min read
     
 </span></p>
 
@@ -198,7 +198,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#my-thoughts-10">My thoughts</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#1745-30-golden-rules-for-deep-learning-performance-siddha-ganju">17:45, 30 Golden Rules for Deep Learning Performance, Siddha Ganju</a>
+<li class="toc-entry toc-h2"><a href="#1745-30-golden-rules-for-deep-learning-performance-siddha-ganju-siddhaganju">17:45, 30 Golden Rules for Deep Learning Performance, Siddha Ganju @SiddhaGanju</a>
 <ul>
 <li class="toc-entry toc-h3"><a href="#notes-from-talk-11">Notes from talk</a></li>
 <li class="toc-entry toc-h3"><a href="#my-thoughts-11">My thoughts</a></li>
@@ -797,14 +797,146 @@ window.onload = wrap_img;
 <a class="anchor" href="#my-thoughts-10" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
 <p>Not much to say. Another tool that I now know about.</p>
 
-<h2 id="1745-30-golden-rules-for-deep-learning-performance-siddha-ganju">
-<a class="anchor" href="#1745-30-golden-rules-for-deep-learning-performance-siddha-ganju" aria-hidden="true"><span class="octicon octicon-link"></span></a>17:45, <a href="https://ep2020.europython.eu/talks/30-golden-rules-deep-learning-performance/">30 Golden Rules for Deep Learning Performance</a>, Siddha Ganju</h2>
+<h2 id="1745-30-golden-rules-for-deep-learning-performance-siddha-ganju-siddhaganju">
+<a class="anchor" href="#1745-30-golden-rules-for-deep-learning-performance-siddha-ganju-siddhaganju" aria-hidden="true"><span class="octicon octicon-link"></span></a>17:45, <a href="https://ep2020.europython.eu/talks/30-golden-rules-deep-learning-performance/">30 Golden Rules for Deep Learning Performance</a>, Siddha Ganju @SiddhaGanju</h2>
 
 <h3 id="notes-from-talk-11">
 <a class="anchor" href="#notes-from-talk-11" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes from talk</h3>
+<ul>
+  <li>Forbes 30 under 30!</li>
+  <li>Recommended <a href="www.PracticalDeepLearning.ai">book</a>
+</li>
+  <li>95% of all AI Training is Transfer Learning
+    <ul>
+      <li>Playing melodica much easier if you already know how to play the piano</li>
+      <li>In Neural Network, earlier layers contains generic knowledge, and later layers contain task specific knowledge - at least in CNNs</li>
+      <li>So remove last ‘classifier layers’, and classify on new task, keeping first layers as is.</li>
+      <li>See github PracticalDL for examples and runnable scripts* Optimising hardware use.</li>
+      <li>In standard process, CPU and GPU switch between being idle or active.</li>
+      <li>Use a profiler. E.g. TensorFlow Profiler + TensorBoard</li>
+      <li>Example code shown to use profiler.</li>
+      <li>Simpler: nvidia-smi.</li>
+    </ul>
+  </li>
+  <li>
+    <p>We have thing we want to optimise and metric. So how can we optimise. Here comes the 30 rules.</p>
+  </li>
+  <li>DATA PROCESSING</li>
+  <li>Use TFRecords
+    <ul>
+      <li>Anti-pattern: thousands of tiny files/gigantic file.</li>
+      <li>Better to have handful for large files.</li>
+      <li>Sweet spot: 100MB TFRecord files</li>
+    </ul>
+  </li>
+  <li>Reduce size of input data
+    <ul>
+      <li>Bad: read image, rezie, train. Then iterate</li>
+      <li>Good: read all images, resizes, save as TFRecord. Then read and train - iterating as appropriate.</li>
+    </ul>
+  </li>
+  <li>Use TensorFlow Datasets
+    <ul>
+      <li><code class="highlighter-rouge">import tensorflow_datasets as tfds</code></li>
+      <li>If you have new datasets, publish your data on TensorFlow datasets, so people can build on your research.</li>
+    </ul>
+  </li>
+  <li>Use tf.data pipeline
+    <ul>
+      <li>Example code given</li>
+    </ul>
+  </li>
+  <li>Prefetch data
+    <ul>
+      <li>Somehow breaks circular dependency, where CPU has to wait for GPU and vice versa.</li>
+      <li>Does asynchronous stuff</li>
+      <li>Code given in talk</li>
+    </ul>
+  </li>
+  <li>Parallelize CPU processing.
+    <ul>
+      <li>same as number of cpu cores</li>
+    </ul>
+  </li>
+  <li>Paralleize input and output. interleaving.</li>
+  <li>Non-deterministic ordering. If randomising, forget ordering.
+    <ul>
+      <li>Somehow, not reading files ‘in order’ avoids potential bottlenecks.</li>
+    </ul>
+  </li>
+  <li>Cache data
+    <ul>
+      <li>Avoid repeated reading from disk after first epoch</li>
+      <li>Avoid repeatedly resizing</li>
+    </ul>
+  </li>
+  <li>Turn on experimental optimisations</li>
+  <li>Autotune parameter values. code given in talk. Seems to refer to hardware based parameters</li>
+  <li>
+    <p>Slide showing it all combined.</p>
+  </li>
+  <li>DATA AUGMENTATION</li>
+  <li>Use GPU for augmentation, with tf.image
+    <ul>
+      <li>Still work in progress. Limited functionality. Only rotate by 90 degrees as of now.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Use GPU with NVIDIA DALI</p>
+  </li>
+  <li>TRAINING</li>
+  <li>Use automatic mixed precision.
+    <ul>
+      <li>Using 8-bit or 16-bit encodings rather than 32 or 64-bit.</li>
+      <li>Caveat - fp.16 can cause drop in accuracy, and even loss of convergence. E.g. if gradient is tiny, fp.16 will treat it as zero.</li>
+      <li>auto mixed precision somehow deals with this issue</li>
+    </ul>
+  </li>
+  <li>Use larger batch size.
+    <ul>
+      <li>Larger batch size leads to smaller time per epoch (but less steps per epoch too, no?)</li>
+      <li>Larger batch size leads to greater GPU utilization</li>
+    </ul>
+  </li>
+  <li>Use batch szies that are multiples of eight. Big jump in performance from 4095 to 4096!
+    <ul>
+      <li>Video describes other restrictions/options</li>
+    </ul>
+  </li>
+  <li>Finding optimal learning rate
+    <ul>
+      <li>Use keras_lr_finder</li>
+      <li>‘point of greatest decrease in loss’ corresponds to best learning rate, somehow. Leslie N Smith paper</li>
+    </ul>
+  </li>
+  <li>Use tf.function
+    <ul>
+      <li>
+<code class="highlighter-rouge">@tf.function</code>.</li>
+    </ul>
+  </li>
+  <li>Overtrain, then generalise. STart from from dataset and increase.</li>
+  <li>Install optimised stack</li>
+  <li>Optimise number of parallel threads</li>
+  <li>Use better hardware.</li>
+  <li>Distribute training. MirroredStrat vs Multiworker…</li>
+  <li>
+    <p>Look at industiral benchmarks.</p>
+  </li>
+  <li>INFERENCE
+    <ul>
+      <li>Use an efficient model. Fewer weights.</li>
+      <li>Quantize. 16 to 8bit.</li>
+      <li>Prune model, remove weights close to zero</li>
+      <li>Used fused operations</li>
+      <li>Enable GPU persistence</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="my-thoughts-11">
 <a class="anchor" href="#my-thoughts-11" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>Very handy list of tips and tricks. Sevreal of them go beyond my understanding, but does not mean I can not benefit from using them!</p>
 
 <h2 id="1900-analytical-functions-in-sql-brendan-tierney">
 <a class="anchor" href="#1900-analytical-functions-in-sql-brendan-tierney" aria-hidden="true"><span class="octicon octicon-link"></span></a>19:00, <a href="https://ep2020.europython.eu/talks/AWFiM7F-sql-for-data-science-using-analytical-function/">Analytical Functions in SQL</a>, Brendan Tierney</h2>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T09:54:01-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T12:41:20-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
@@ -533,11 +533,141 @@
 &lt;h3 id=&quot;my-thoughts-10&quot;&gt;My thoughts&lt;/h3&gt;
 &lt;p&gt;Not much to say. Another tool that I now know about.&lt;/p&gt;
 
-&lt;h2 id=&quot;1745-30-golden-rules-for-deep-learning-performance-siddha-ganju&quot;&gt;17:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/30-golden-rules-deep-learning-performance/&quot;&gt;30 Golden Rules for Deep Learning Performance&lt;/a&gt;, Siddha Ganju&lt;/h2&gt;
+&lt;h2 id=&quot;1745-30-golden-rules-for-deep-learning-performance-siddha-ganju-siddhaganju&quot;&gt;17:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/30-golden-rules-deep-learning-performance/&quot;&gt;30 Golden Rules for Deep Learning Performance&lt;/a&gt;, Siddha Ganju @SiddhaGanju&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-from-talk-11&quot;&gt;Notes from talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Forbes 30 under 30!&lt;/li&gt;
+  &lt;li&gt;Recommended &lt;a href=&quot;www.PracticalDeepLearning.ai&quot;&gt;book&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;95% of all AI Training is Transfer Learning
+    &lt;ul&gt;
+      &lt;li&gt;Playing melodica much easier if you already know how to play the piano&lt;/li&gt;
+      &lt;li&gt;In Neural Network, earlier layers contains generic knowledge, and later layers contain task specific knowledge - at least in CNNs&lt;/li&gt;
+      &lt;li&gt;So remove last ‘classifier layers’, and classify on new task, keeping first layers as is.&lt;/li&gt;
+      &lt;li&gt;See github PracticalDL for examples and runnable scripts* Optimising hardware use.&lt;/li&gt;
+      &lt;li&gt;In standard process, CPU and GPU switch between being idle or active.&lt;/li&gt;
+      &lt;li&gt;Use a profiler. E.g. TensorFlow Profiler + TensorBoard&lt;/li&gt;
+      &lt;li&gt;Example code shown to use profiler.&lt;/li&gt;
+      &lt;li&gt;Simpler: nvidia-smi.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;We have thing we want to optimise and metric. So how can we optimise. Here comes the 30 rules.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;DATA PROCESSING&lt;/li&gt;
+  &lt;li&gt;Use TFRecords
+    &lt;ul&gt;
+      &lt;li&gt;Anti-pattern: thousands of tiny files/gigantic file.&lt;/li&gt;
+      &lt;li&gt;Better to have handful for large files.&lt;/li&gt;
+      &lt;li&gt;Sweet spot: 100MB TFRecord files&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Reduce size of input data
+    &lt;ul&gt;
+      &lt;li&gt;Bad: read image, rezie, train. Then iterate&lt;/li&gt;
+      &lt;li&gt;Good: read all images, resizes, save as TFRecord. Then read and train - iterating as appropriate.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Use TensorFlow Datasets
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;import tensorflow_datasets as tfds&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;If you have new datasets, publish your data on TensorFlow datasets, so people can build on your research.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Use tf.data pipeline
+    &lt;ul&gt;
+      &lt;li&gt;Example code given&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Prefetch data
+    &lt;ul&gt;
+      &lt;li&gt;Somehow breaks circular dependency, where CPU has to wait for GPU and vice versa.&lt;/li&gt;
+      &lt;li&gt;Does asynchronous stuff&lt;/li&gt;
+      &lt;li&gt;Code given in talk&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Parallelize CPU processing.
+    &lt;ul&gt;
+      &lt;li&gt;same as number of cpu cores&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Paralleize input and output. interleaving.&lt;/li&gt;
+  &lt;li&gt;Non-deterministic ordering. If randomising, forget ordering.
+    &lt;ul&gt;
+      &lt;li&gt;Somehow, not reading files ‘in order’ avoids potential bottlenecks.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Cache data
+    &lt;ul&gt;
+      &lt;li&gt;Avoid repeated reading from disk after first epoch&lt;/li&gt;
+      &lt;li&gt;Avoid repeatedly resizing&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Turn on experimental optimisations&lt;/li&gt;
+  &lt;li&gt;Autotune parameter values. code given in talk. Seems to refer to hardware based parameters&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Slide showing it all combined.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;DATA AUGMENTATION&lt;/li&gt;
+  &lt;li&gt;Use GPU for augmentation, with tf.image
+    &lt;ul&gt;
+      &lt;li&gt;Still work in progress. Limited functionality. Only rotate by 90 degrees as of now.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Use GPU with NVIDIA DALI&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;TRAINING&lt;/li&gt;
+  &lt;li&gt;Use automatic mixed precision.
+    &lt;ul&gt;
+      &lt;li&gt;Using 8-bit or 16-bit encodings rather than 32 or 64-bit.&lt;/li&gt;
+      &lt;li&gt;Caveat - fp.16 can cause drop in accuracy, and even loss of convergence. E.g. if gradient is tiny, fp.16 will treat it as zero.&lt;/li&gt;
+      &lt;li&gt;auto mixed precision somehow deals with this issue&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Use larger batch size.
+    &lt;ul&gt;
+      &lt;li&gt;Larger batch size leads to smaller time per epoch (but less steps per epoch too, no?)&lt;/li&gt;
+      &lt;li&gt;Larger batch size leads to greater GPU utilization&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Use batch szies that are multiples of eight. Big jump in performance from 4095 to 4096!
+    &lt;ul&gt;
+      &lt;li&gt;Video describes other restrictions/options&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Finding optimal learning rate
+    &lt;ul&gt;
+      &lt;li&gt;Use keras_lr_finder&lt;/li&gt;
+      &lt;li&gt;‘point of greatest decrease in loss’ corresponds to best learning rate, somehow. Leslie N Smith paper&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Use tf.function
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@tf.function&lt;/code&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Overtrain, then generalise. STart from from dataset and increase.&lt;/li&gt;
+  &lt;li&gt;Install optimised stack&lt;/li&gt;
+  &lt;li&gt;Optimise number of parallel threads&lt;/li&gt;
+  &lt;li&gt;Use better hardware.&lt;/li&gt;
+  &lt;li&gt;Distribute training. MirroredStrat vs Multiworker…&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Look at industiral benchmarks.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;INFERENCE
+    &lt;ul&gt;
+      &lt;li&gt;Use an efficient model. Fewer weights.&lt;/li&gt;
+      &lt;li&gt;Quantize. 16 to 8bit.&lt;/li&gt;
+      &lt;li&gt;Prune model, remove weights close to zero&lt;/li&gt;
+      &lt;li&gt;Used fused operations&lt;/li&gt;
+      &lt;li&gt;Enable GPU persistence&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-11&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;Very handy list of tips and tricks. Sevreal of them go beyond my understanding, but does not mean I can not benefit from using them!&lt;/p&gt;
 
 &lt;h2 id=&quot;1900-analytical-functions-in-sql-brendan-tierney&quot;&gt;19:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/AWFiM7F-sql-for-data-science-using-analytical-function/&quot;&gt;Analytical Functions in SQL&lt;/a&gt;, Brendan Tierney&lt;/h2&gt;
 
