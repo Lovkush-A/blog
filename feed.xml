@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T03:53:20-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T04:34:18-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
@@ -184,8 +184,79 @@
 &lt;h2 id=&quot;1000-data-visualisation-landscape-bence-arato&quot;&gt;10:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/B5Vff6U-the-python-data-visualization-landscape-in-2020/&quot;&gt;Data Visualisation Landscape&lt;/a&gt;, Bence Arato&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-from-talk-3&quot;&gt;Notes from talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;There are lots of libraries out there.&lt;/li&gt;
+  &lt;li&gt;Imperative vs declarative. Imperative: specify how something should be done. Declarative: specify what should be done.&lt;/li&gt;
+  &lt;li&gt;Matplotlib. Biggest example. Has gallery + code examples
+    &lt;ul&gt;
+      &lt;li&gt;Background in MATLAB&lt;/li&gt;
+      &lt;li&gt;Challenge: imperative&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Seaborn. Aim to provide higher level package on top of matplotlib. Good defaults for charts that look good.
+    &lt;ul&gt;
+      &lt;li&gt;Example scatterplot much easier in seaborn than in matplotlib&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;plotnine. Aim to higher-level. Based on ggplot2 in R.
+    &lt;ul&gt;
+      &lt;li&gt;Syntax is basically same as ggplot syntax!&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;aes&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;geom_point&lt;/code&gt; etc.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;bokeh. 2nd most widely known tool.
+    &lt;ul&gt;
+      &lt;li&gt;Big thing is interactivity, like sliders, checkboxes, etc.&lt;/li&gt;
+      &lt;li&gt;Example scatterplot. Quite long and low-level&lt;/li&gt;
+      &lt;li&gt;Based on web/javascript background&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;HoloViews
+    &lt;ul&gt;
+      &lt;li&gt;Higher level language for bokeh, matplotlib, plotly&lt;/li&gt;
+      &lt;li&gt;Just have to change one line code to switch between bokeh or matplotlib output&lt;/li&gt;
+      &lt;li&gt;Scatterplot example. Short code.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;hvPlot. built on top of holoviews&lt;/li&gt;
+  &lt;li&gt;pandas bokeh. add plot_bokeh() method in pandas.&lt;/li&gt;
+  &lt;li&gt;Chartify. From spotify. Built on top of bokeh.&lt;/li&gt;
+  &lt;li&gt;Plotly.
+    &lt;ul&gt;
+      &lt;li&gt;Might be only one to do 3d charts well&lt;/li&gt;
+      &lt;li&gt;Low level charts&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Plotly express
+    &lt;ul&gt;
+      &lt;li&gt;Higher level version of plotly.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Vega, vega-lite
+    &lt;ul&gt;
+      &lt;li&gt;Visualisation ‘grammar’.&lt;/li&gt;
+      &lt;li&gt;JSON based way of describing charts&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Altair
+    &lt;ul&gt;
+      &lt;li&gt;High level version of vega&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Dashboards.
+    &lt;ul&gt;
+      &lt;li&gt;Plotly Dash&lt;/li&gt;
+      &lt;li&gt;Panel. Anaconda related. Built on top of four big charting libaries above&lt;/li&gt;
+      &lt;li&gt;Voila. Looks cool - can visualise ML things. Need to check out!&lt;/li&gt;
+      &lt;li&gt;Streamlit. Datascience specific tools. Example of GAN Image generator with sliders. Change slider will re-run model and create new image.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;PyViz. Thorough list of all visualisation libraries.&lt;/li&gt;
+  &lt;li&gt;Python Data Visualisation, at AnacondaCON 2020&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-3&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;Excellent talk. Well structured, good examples, good summary of key things I should know about.&lt;/p&gt;
 
 &lt;h2 id=&quot;1030-binder-sarah-gibson&quot;&gt;10:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/BqQBN6J-sharing-reproducible-python-environments-with-binder/&quot;&gt;Binder&lt;/a&gt;, Sarah Gibson&lt;/h2&gt;
 

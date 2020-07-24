@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      8 min read
     
 </span></p>
 
@@ -417,9 +417,81 @@ window.onload = wrap_img;
 
 <h3 id="notes-from-talk-3">
 <a class="anchor" href="#notes-from-talk-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes from talk</h3>
+<ul>
+  <li>There are lots of libraries out there.</li>
+  <li>Imperative vs declarative. Imperative: specify how something should be done. Declarative: specify what should be done.</li>
+  <li>Matplotlib. Biggest example. Has gallery + code examples
+    <ul>
+      <li>Background in MATLAB</li>
+      <li>Challenge: imperative</li>
+    </ul>
+  </li>
+  <li>Seaborn. Aim to provide higher level package on top of matplotlib. Good defaults for charts that look good.
+    <ul>
+      <li>Example scatterplot much easier in seaborn than in matplotlib</li>
+    </ul>
+  </li>
+  <li>plotnine. Aim to higher-level. Based on ggplot2 in R.
+    <ul>
+      <li>Syntax is basically same as ggplot syntax!</li>
+      <li>
+<code class="highlighter-rouge">aes</code>, <code class="highlighter-rouge">geom_point</code> etc.</li>
+    </ul>
+  </li>
+  <li>bokeh. 2nd most widely known tool.
+    <ul>
+      <li>Big thing is interactivity, like sliders, checkboxes, etc.</li>
+      <li>Example scatterplot. Quite long and low-level</li>
+      <li>Based on web/javascript background</li>
+    </ul>
+  </li>
+  <li>HoloViews
+    <ul>
+      <li>Higher level language for bokeh, matplotlib, plotly</li>
+      <li>Just have to change one line code to switch between bokeh or matplotlib output</li>
+      <li>Scatterplot example. Short code.</li>
+    </ul>
+  </li>
+  <li>hvPlot. built on top of holoviews</li>
+  <li>pandas bokeh. add plot_bokeh() method in pandas.</li>
+  <li>Chartify. From spotify. Built on top of bokeh.</li>
+  <li>Plotly.
+    <ul>
+      <li>Might be only one to do 3d charts well</li>
+      <li>Low level charts</li>
+    </ul>
+  </li>
+  <li>Plotly express
+    <ul>
+      <li>Higher level version of plotly.</li>
+    </ul>
+  </li>
+  <li>Vega, vega-lite
+    <ul>
+      <li>Visualisation ‘grammar’.</li>
+      <li>JSON based way of describing charts</li>
+    </ul>
+  </li>
+  <li>Altair
+    <ul>
+      <li>High level version of vega</li>
+    </ul>
+  </li>
+  <li>Dashboards.
+    <ul>
+      <li>Plotly Dash</li>
+      <li>Panel. Anaconda related. Built on top of four big charting libaries above</li>
+      <li>Voila. Looks cool - can visualise ML things. Need to check out!</li>
+      <li>Streamlit. Datascience specific tools. Example of GAN Image generator with sliders. Change slider will re-run model and create new image.</li>
+    </ul>
+  </li>
+  <li>PyViz. Thorough list of all visualisation libraries.</li>
+  <li>Python Data Visualisation, at AnacondaCON 2020</li>
+</ul>
 
 <h3 id="my-thoughts-3">
 <a class="anchor" href="#my-thoughts-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>Excellent talk. Well structured, good examples, good summary of key things I should know about.</p>
 
 <h2 id="1030-binder-sarah-gibson">
 <a class="anchor" href="#1030-binder-sarah-gibson" aria-hidden="true"><span class="octicon octicon-link"></span></a>10:30, <a href="https://ep2020.europython.eu/talks/BqQBN6J-sharing-reproducible-python-environments-with-binder/">Binder</a>, Sarah Gibson</h2>
