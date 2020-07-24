@@ -289,10 +289,25 @@ Looks like a powerful algorithm. Probabilistic algorithms are definitely the way
 ## 13:15, [Fast and Scalable ML in Python](https://ep2020.europython.eu/talks/CR4ben4-the-painless-route-in-python-to-fast-and-scalable-machine-learning/), Victoriya Fedotova and Frank Schlimbach
 
 ### Notes from talk
+* Python is useful but slow. So often companies hire engineers to translate python to faster languages like C++.
+* Intel made a python distribution. No code changes required. * Just-in-time computation. JIT gives big speed boost.
+* ML workflow: input and preprocessing via pandas, spark, SDC. model creation and prediction: scikit learn, spark, dl frameworks, daal4py.
+* In this talk, talk about SDC, sckit learn, daal4py
+* Intel Daal. Data analytics acceleration library. Linear Algebra already sped up (e.g. with MKL from intel), but this new library helps in situations whcih do not use linear algebra - e.g. tree based algorithms.
+* Talk gives details on how to install packages and use it.
+* Many algorithms have equivalent output to scikit learn algorithms. But not all - e.g. randomforest does not have 100% same output.
+* Example of k-means in scikit-learn versus daal4py. Similar structure. Slightly different syntax. e.g. `n_clusters` versus `nClusters`.
+* Scalable dataframe compiler SDC. a just in time compiler. Extension of Numba - made by anaconda.
+* Easy to use. Just add decorator `@numba.jit` to function that you want to be compiled.
+* Explanation of compiler pipeline.
+* Talks through basic example of reading file, storing in frame, calculating mean, ordering a column. E.g. reading of file is parallelised, whereas pandas just reads data in single line.
+* SDC requires code to be statically compilable - i.e. type stable. Examples where this wouldn't work.
+* Charts showing speed-ups of different operations, as you increase the number of threads. Some operations get good speeds up, and some get mega speeds ups. Most was `apply(lambda x:x)` with 400x speed up. Something to do with lambda function being compiled too, not just apply function.
+
 
 
 ### My thoughts
-
+Looks easy to use and can give big speed boosts. Is there a catch?
 
 
 ## 14:15 , [Small Big Data in Pandas, Dask and Vaex](https://ep2020.europython.eu/talks/A7TniMV-making-pandas-fly/), Ian Ozsvald
