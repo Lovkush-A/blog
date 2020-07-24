@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T08:50:32-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T09:23:05-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
@@ -477,8 +477,25 @@
 &lt;h2 id=&quot;1445-ipython-miki-tebeka&quot;&gt;14:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/5LGWwvT-ipython-the-productivity-booster/&quot;&gt;IPython&lt;/a&gt;, Miki Tebeka&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-from-talk-9&quot;&gt;Notes from talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Programmer for 30 years.&lt;/li&gt;
+  &lt;li&gt;Wrote book, Python Brain Teasers&lt;/li&gt;
+  &lt;li&gt;Likes ipython. It is a REPL: Real, Eval, Prompt Loop&lt;/li&gt;
+  &lt;li&gt;Magic commands, via &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt;. E.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;%pwd&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Can refer to outputs like variables. &lt;code class=&quot;highlighter-rouge&quot;&gt;logs_dir = Out[4]&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Command line. &lt;code class=&quot;highlighter-rouge&quot;&gt;!ls $logs_dir&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Auto-complete features&lt;/li&gt;
+  &lt;li&gt;He uses Vim! Woo!&lt;/li&gt;
+  &lt;li&gt;pprint for pretty printing.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt; for help. &lt;code class=&quot;highlighter-rouge&quot;&gt;??&lt;/code&gt; for source code&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%timeit function&lt;/code&gt; to give time analysis&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%%timeit&lt;/code&gt;` for multiline stuff&lt;/li&gt;
+  &lt;li&gt;Can do sql stuff. have to install extension. see video for example.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%cow IPython Rocks!&lt;/code&gt; Produces ascii art of cow!&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-9&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;Always good to see a live demo to see exactly how somebody does things. I learnt some neat little features. Also, cool to see someone using Vim!&lt;/p&gt;
 
 &lt;h2 id=&quot;1515-nlpeasy-philipp-thomann&quot;&gt;15:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/6x7ezDb-nlpeasy-a-workflow-to-analyse-enrich-and-explore-textual-data/&quot;&gt;NLPeasy&lt;/a&gt;, Philipp Thomann&lt;/h2&gt;
 
