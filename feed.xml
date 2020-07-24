@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T05:04:53-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T05:59:11-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
@@ -317,8 +317,44 @@
 &lt;h2 id=&quot;1100-data-pipelines-with-python-robson-junior&quot;&gt;11:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/4bNvaVk-mastering-a-data-pipeline-with-python-6-years-of-learned-lessons-from-mistakes/&quot;&gt;Data pipelines with Python&lt;/a&gt;, Robson Junior&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-from-talk-5&quot;&gt;Notes from talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Agenda: Not about code. Anatomy of data product, different architectures, qualities of data pipelines, how python matters.&lt;/li&gt;
+  &lt;li&gt;Anatomy of data product.
+    &lt;ul&gt;
+      &lt;li&gt;Ingress. Logs, databases, etc. Volume and variety are important.&lt;/li&gt;
+      &lt;li&gt;Processes. Processing both input and output data.  Veracity and velocity are important here. E.g bank processing payment may have to run fraud detection - has to be very quick!&lt;/li&gt;
+      &lt;li&gt;Egress. Apis or databases. Veracity is important.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Lambda and Kappa Architeture
+    &lt;ul&gt;
+      &lt;li&gt;Above anatomy of data product is same as computer program: input is files and memory, processes in ram, output to screen.&lt;/li&gt;
+      &lt;li&gt;Lambda. Input data. Processing split into two layers. Speed layer for stream data, real time view. Batch layer, all data, batch views, usually processed periodically. Then output via query. See talk for diagram. Some pros and cons given in talk&lt;/li&gt;
+      &lt;li&gt;Kappa. Only have a speed layer - no batch layer. Pros and cons given in talk.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Qualities of a pipeline
+    &lt;ul&gt;
+      &lt;li&gt;Should be secure. Who has access to which data levels, use common format for data storage, be conscious of who has access to which parts of data and why.&lt;/li&gt;
+      &lt;li&gt;Should be automated. Use good tools. Versioning, ci/cd, code review.&lt;/li&gt;
+      &lt;li&gt;Monitoring. ??&lt;/li&gt;
+      &lt;li&gt;Testable and tracable. Test all parts of the pipeline. Try to containerise tools.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Python tools
+    &lt;ul&gt;
+      &lt;li&gt;ELT. Apache Spark, dash, luigi, mrjob, ray&lt;/li&gt;
+      &lt;li&gt;Streaming. faust based on Kafka streams, streamparse via Apache Storm&lt;/li&gt;
+      &lt;li&gt;Analysis. Pandas, Blaze, Open Mining, Orange, Optimus&lt;/li&gt;
+      &lt;li&gt;Mangaement and scheduling. Apache Airflow. Programmatically create workflow&lt;/li&gt;
+      &lt;li&gt;Testing. pytest, mimesis (create fake data), fake2db, spark-test-base&lt;/li&gt;
+      &lt;li&gt;Validation. Cerberus, schema, voluptuous&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-5&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;Unfortunately, I found the talk/speaker hard to follow. But I still got a list of tools that I can use as a reference.&lt;/p&gt;
 
 &lt;h2 id=&quot;1215-probabilistic-forecasting-with-deepar-nicolas-kuhaupt&quot;&gt;12:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/ANSma2D-probabilistic-forecasting-with-deepar-and-aws-sagemaker/&quot;&gt;Probabilistic Forecasting with DeepAR&lt;/a&gt;, Nicolas Kuhaupt&lt;/h2&gt;
 

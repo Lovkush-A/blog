@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      9 min read
+      11 min read
     
 </span></p>
 
@@ -557,9 +557,45 @@ window.onload = wrap_img;
 
 <h3 id="notes-from-talk-5">
 <a class="anchor" href="#notes-from-talk-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes from talk</h3>
+<ul>
+  <li>Agenda: Not about code. Anatomy of data product, different architectures, qualities of data pipelines, how python matters.</li>
+  <li>Anatomy of data product.
+    <ul>
+      <li>Ingress. Logs, databases, etc. Volume and variety are important.</li>
+      <li>Processes. Processing both input and output data.  Veracity and velocity are important here. E.g bank processing payment may have to run fraud detection - has to be very quick!</li>
+      <li>Egress. Apis or databases. Veracity is important.</li>
+    </ul>
+  </li>
+  <li>Lambda and Kappa Architeture
+    <ul>
+      <li>Above anatomy of data product is same as computer program: input is files and memory, processes in ram, output to screen.</li>
+      <li>Lambda. Input data. Processing split into two layers. Speed layer for stream data, real time view. Batch layer, all data, batch views, usually processed periodically. Then output via query. See talk for diagram. Some pros and cons given in talk</li>
+      <li>Kappa. Only have a speed layer - no batch layer. Pros and cons given in talk.</li>
+    </ul>
+  </li>
+  <li>Qualities of a pipeline
+    <ul>
+      <li>Should be secure. Who has access to which data levels, use common format for data storage, be conscious of who has access to which parts of data and why.</li>
+      <li>Should be automated. Use good tools. Versioning, ci/cd, code review.</li>
+      <li>Monitoring. ??</li>
+      <li>Testable and tracable. Test all parts of the pipeline. Try to containerise tools.</li>
+    </ul>
+  </li>
+  <li>Python tools
+    <ul>
+      <li>ELT. Apache Spark, dash, luigi, mrjob, ray</li>
+      <li>Streaming. faust based on Kafka streams, streamparse via Apache Storm</li>
+      <li>Analysis. Pandas, Blaze, Open Mining, Orange, Optimus</li>
+      <li>Mangaement and scheduling. Apache Airflow. Programmatically create workflow</li>
+      <li>Testing. pytest, mimesis (create fake data), fake2db, spark-test-base</li>
+      <li>Validation. Cerberus, schema, voluptuous</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="my-thoughts-5">
 <a class="anchor" href="#my-thoughts-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>Unfortunately, I found the talk/speaker hard to follow. But I still got a list of tools that I can use as a reference.</p>
 
 <h2 id="1215-probabilistic-forecasting-with-deepar-nicolas-kuhaupt">
 <a class="anchor" href="#1215-probabilistic-forecasting-with-deepar-nicolas-kuhaupt" aria-hidden="true"><span class="octicon octicon-link"></span></a>12:15, <a href="https://ep2020.europython.eu/talks/ANSma2D-probabilistic-forecasting-with-deepar-and-aws-sagemaker/">Probabilistic Forecasting with DeepAR</a>, Nicolas Kuhaupt</h2>
