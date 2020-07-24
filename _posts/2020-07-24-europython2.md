@@ -496,19 +496,55 @@ Very handy list of tips and tricks. Sevreal of them go beyond my understanding, 
 ## 19:00, [Analytical Functions in SQL](https://ep2020.europython.eu/talks/AWFiM7F-sql-for-data-science-using-analytical-function/), Brendan Tierney
 
 ### Notes from talk
-
+* TALK CANCELLED
 
 ### My thoughts
+Not applicable
 
 
-
-## 19:30, [Collaborative data pipelines with Kedro](https://ep2020.europython.eu/talks/45GhXwE-writing-and-scaling-collaborative-data-pipelines-with-kedro/), Tam-Sanh Nguyen (microsoft strem)
+## 19:30, [Collaborative data pipelines with Kedro](https://ep2020.europython.eu/talks/45GhXwE-writing-and-scaling-collaborative-data-pipelines-with-kedro/), Tam-Sanh Nguyen
 
 ### Notes from talk
+* Apparently 40% of Vietnamese have surname Nguyen.
+* Data engineering is relatively new discipline, so there aren't established practices.
+* QuantumBlack addressed this issue with Kedro.
+* Pipelines.
+    * Kedro viz used to visualise messy data pipeline.
+    * But how does it get there?
+    * Starts off simple. Iris data -> cleaning function, cleaned data, analyze function, analyzed data.
+    * But then splitting data to test/train, gets messy.
+    * Then have multiple data sources, each which needs to be split, and then all jumbled up
+    * Without any tools, hard to grow larger and more complex than this. 
+    * But Kedro can allow you to deal with more complex pipelines.
+* One source of tension is difference between data engineer and data science
+    * Data science usually have strong engineering skills. More data modelling skills
+    * Data science has more research bent / experimental bent / want to be close to data and have many iterations
+    * Data engineers more like engineers. Focus is on making things tidy, rather than experimentation.
+* Two other challenges
+    * Being ready for production quickly, for business use
+    * Is it easy to pass the pipeline to future users - which may even be the future you!
+* QuantumBlack startup from London, famous for doing work on F1. Got bought by McKinsey
+* Kedro made by QuantumBlack. Big focus on standardisation, and making it as easy as possible for long-term use.
+
+* How does Kedro work
+* Analogy - audio world has standardised:
+    * Input and output tools. Microphones, speakers, etc.
+    * Functional transformers. Filters, etc.
+    * Redirecting components. Make it easy for output from one tool easy to input into others.
+    * Standard organisational conventions. Mic, audio mixer, computer.
+* Standard is to use jupyter notebook. Some conventions (e.g. inputs and outputs via `pd.read_csv` and `pd.to_csv`), but mostly hard to follow. E.g. many many parameters is hard-coded, e.g. names of files being saved, parameters throughout processing, etc.
+* Live example:
+    * install kedro
+    * kedro new. follow steps, e.g. naming things, etc.
+    * created default template
+    * kedro viz to visualise pipeline
+
+* Run out of time, so rushes through lots of kedro features
+* Has YouTube series DataEngineerOne
 
 
 ### My thoughts
-
+* Looks like an intuitive system. Looks simpler than other pipelines presented in the conference. But is it because it actually is simpler, or is it because I am just getting used to pipelines. (Before this conference, I hadn't studied pipelines at all).
 
 
 
