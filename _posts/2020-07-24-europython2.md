@@ -232,10 +232,31 @@ I had already heard of Binder - because I am friends with the spaker Sarah Gibso
 ## 11:00, [Data pipelines with Python](https://ep2020.europython.eu/talks/4bNvaVk-mastering-a-data-pipeline-with-python-6-years-of-learned-lessons-from-mistakes/), Robson Junior
 
 ### Notes from talk
-
+* Agenda: Not about code. Anatomy of data product, different architectures, qualities of data pipelines, how python matters.
+* Anatomy of data product.
+    * Ingress. Logs, databases, etc. Volume and variety are important.
+    * Processes. Processing both input and output data.  Veracity and velocity are important here. E.g bank processing payment may have to run fraud detection - has to be very quick! 
+    * Egress. Apis or databases. Veracity is important.
+* Lambda and Kappa Architeture
+    * Above anatomy of data product is same as computer program: input is files and memory, processes in ram, output to screen.
+    * Lambda. Input data. Processing split into two layers. Speed layer for stream data, real time view. Batch layer, all data, batch views, usually processed periodically. Then output via query. See talk for diagram. Some pros and cons given in talk
+    * Kappa. Only have a speed layer - no batch layer. Pros and cons given in talk.
+* Qualities of a pipeline
+    * Should be secure. Who has access to which data levels, use common format for data storage, be conscious of who has access to which parts of data and why.
+    * Should be automated. Use good tools. Versioning, ci/cd, code review.
+    * Monitoring. ??
+    * Testable and tracable. Test all parts of the pipeline. Try to containerise tools.
+* Python tools
+    * ELT. Apache Spark, dash, luigi, mrjob, ray
+    * Streaming. faust based on Kafka streams, streamparse via Apache Storm
+    * Analysis. Pandas, Blaze, Open Mining, Orange, Optimus
+    * Mangaement and scheduling. Apache Airflow. Programmatically create workflow
+    * Testing. pytest, mimesis (create fake data), fake2db, spark-test-base
+    * Validation. Cerberus, schema, voluptuous
+     
 
 ### My thoughts
-
+Unfortunately, I found the talk/speaker hard to follow. But I still got a list of tools that I can use as a reference.
 
 
 
