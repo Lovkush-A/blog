@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T06:51:57-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T08:04:23-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
@@ -390,8 +390,25 @@
 &lt;h2 id=&quot;1315-fast-and-scalable-ml-in-python-victoriya-fedotova-and-frank-schlimbach&quot;&gt;13:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/CR4ben4-the-painless-route-in-python-to-fast-and-scalable-machine-learning/&quot;&gt;Fast and Scalable ML in Python&lt;/a&gt;, Victoriya Fedotova and Frank Schlimbach&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-from-talk-7&quot;&gt;Notes from talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Python is useful but slow. So often companies hire engineers to translate python to faster languages like C++.&lt;/li&gt;
+  &lt;li&gt;Intel made a python distribution. No code changes required. * Just-in-time computation. JIT gives big speed boost.&lt;/li&gt;
+  &lt;li&gt;ML workflow: input and preprocessing via pandas, spark, SDC. model creation and prediction: scikit learn, spark, dl frameworks, daal4py.&lt;/li&gt;
+  &lt;li&gt;In this talk, talk about SDC, sckit learn, daal4py&lt;/li&gt;
+  &lt;li&gt;Intel Daal. Data analytics acceleration library. Linear Algebra already sped up (e.g. with MKL from intel), but this new library helps in situations whcih do not use linear algebra - e.g. tree based algorithms.&lt;/li&gt;
+  &lt;li&gt;Talk gives details on how to install packages and use it.&lt;/li&gt;
+  &lt;li&gt;Many algorithms have equivalent output to scikit learn algorithms. But not all - e.g. randomforest does not have 100% same output.&lt;/li&gt;
+  &lt;li&gt;Example of k-means in scikit-learn versus daal4py. Similar structure. Slightly different syntax. e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;n_clusters&lt;/code&gt; versus &lt;code class=&quot;highlighter-rouge&quot;&gt;nClusters&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Scalable dataframe compiler SDC. a just in time compiler. Extension of Numba - made by anaconda.&lt;/li&gt;
+  &lt;li&gt;Easy to use. Just add decorator &lt;code class=&quot;highlighter-rouge&quot;&gt;@numba.jit&lt;/code&gt; to function that you want to be compiled.&lt;/li&gt;
+  &lt;li&gt;Explanation of compiler pipeline.&lt;/li&gt;
+  &lt;li&gt;Talks through basic example of reading file, storing in frame, calculating mean, ordering a column. E.g. reading of file is parallelised, whereas pandas just reads data in single line.&lt;/li&gt;
+  &lt;li&gt;SDC requires code to be statically compilable - i.e. type stable. Examples where this wouldn’t work.&lt;/li&gt;
+  &lt;li&gt;Charts showing speed-ups of different operations, as you increase the number of threads. Some operations get good speeds up, and some get mega speeds ups. Most was &lt;code class=&quot;highlighter-rouge&quot;&gt;apply(lambda x:x)&lt;/code&gt; with 400x speed up. Something to do with lambda function being compiled too, not just apply function.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-7&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;Looks easy to use and can give big speed boosts. Is there a catch?&lt;/p&gt;
 
 &lt;h2 id=&quot;1415--small-big-data-in-pandas-dask-and-vaex-ian-ozsvald&quot;&gt;14:15 , &lt;a href=&quot;https://ep2020.europython.eu/talks/A7TniMV-making-pandas-fly/&quot;&gt;Small Big Data in Pandas, Dask and Vaex&lt;/a&gt;, Ian Ozsvald&lt;/h2&gt;
 

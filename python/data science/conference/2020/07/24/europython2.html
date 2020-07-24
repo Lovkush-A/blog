@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      12 min read
+      14 min read
     
 </span></p>
 
@@ -636,9 +636,26 @@ window.onload = wrap_img;
 
 <h3 id="notes-from-talk-7">
 <a class="anchor" href="#notes-from-talk-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes from talk</h3>
+<ul>
+  <li>Python is useful but slow. So often companies hire engineers to translate python to faster languages like C++.</li>
+  <li>Intel made a python distribution. No code changes required. * Just-in-time computation. JIT gives big speed boost.</li>
+  <li>ML workflow: input and preprocessing via pandas, spark, SDC. model creation and prediction: scikit learn, spark, dl frameworks, daal4py.</li>
+  <li>In this talk, talk about SDC, sckit learn, daal4py</li>
+  <li>Intel Daal. Data analytics acceleration library. Linear Algebra already sped up (e.g. with MKL from intel), but this new library helps in situations whcih do not use linear algebra - e.g. tree based algorithms.</li>
+  <li>Talk gives details on how to install packages and use it.</li>
+  <li>Many algorithms have equivalent output to scikit learn algorithms. But not all - e.g. randomforest does not have 100% same output.</li>
+  <li>Example of k-means in scikit-learn versus daal4py. Similar structure. Slightly different syntax. e.g. <code class="highlighter-rouge">n_clusters</code> versus <code class="highlighter-rouge">nClusters</code>.</li>
+  <li>Scalable dataframe compiler SDC. a just in time compiler. Extension of Numba - made by anaconda.</li>
+  <li>Easy to use. Just add decorator <code class="highlighter-rouge">@numba.jit</code> to function that you want to be compiled.</li>
+  <li>Explanation of compiler pipeline.</li>
+  <li>Talks through basic example of reading file, storing in frame, calculating mean, ordering a column. E.g. reading of file is parallelised, whereas pandas just reads data in single line.</li>
+  <li>SDC requires code to be statically compilable - i.e. type stable. Examples where this wouldn’t work.</li>
+  <li>Charts showing speed-ups of different operations, as you increase the number of threads. Some operations get good speeds up, and some get mega speeds ups. Most was <code class="highlighter-rouge">apply(lambda x:x)</code> with 400x speed up. Something to do with lambda function being compiled too, not just apply function.</li>
+</ul>
 
 <h3 id="my-thoughts-7">
 <a class="anchor" href="#my-thoughts-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>Looks easy to use and can give big speed boosts. Is there a catch?</p>
 
 <h2 id="1415--small-big-data-in-pandas-dask-and-vaex-ian-ozsvald">
 <a class="anchor" href="#1415--small-big-data-in-pandas-dask-and-vaex-ian-ozsvald" aria-hidden="true"><span class="octicon octicon-link"></span></a>14:15 , <a href="https://ep2020.europython.eu/talks/A7TniMV-making-pandas-fly/">Small Big Data in Pandas, Dask and Vaex</a>, Ian Ozsvald</h2>
