@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-23T15:10:29-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T01:34:56-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
@@ -10,8 +10,51 @@
 &lt;h2 id=&quot;700-automating-machine-learning-workflow-with-dvc-hongjoo-lee&quot;&gt;7:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/CXG7TcM-automating-machine-learning-workflow-with-dvc/&quot;&gt;Automating machine learning workflow with DVC&lt;/a&gt;, Hongjoo Lee&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-from-talk&quot;&gt;Notes from talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Works for SK hynix, a memory chip maker in South Korea.&lt;/li&gt;
+  &lt;li&gt;Waterfall vs agile production. Waterfall = design, then build, then release, then done. Agile, more iterative approach.&lt;/li&gt;
+  &lt;li&gt;Software dev/dev ops: code git, build sbt maven, test jUnit, release Jenkins, deploy Docker aws, operate Kubernetes, monitor ELK stack&lt;/li&gt;
+  &lt;li&gt;ML dev lifecycle: get data, preprocess, build model, optimise model, deployment.
+    &lt;ul&gt;
+      &lt;li&gt;Often getting data requires domain expertise&lt;/li&gt;
+      &lt;li&gt;Often software engineers are needed for deployment&lt;/li&gt;
+      &lt;li&gt;Still improvement and modification needed for ML dev workflow. In early stages.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Data versioning.
+    &lt;ul&gt;
+      &lt;li&gt;Can be terrible, with names like &lt;code class=&quot;highlighter-rouge&quot;&gt;raw_data&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;cleaned_data&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;cleaned_data_final&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;Need to have system where any change in data will trigger pipeline&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;ML is metric driven. Software engineering is feature driven.
+    &lt;ul&gt;
+      &lt;li&gt;ML Models version should be tracked.&lt;/li&gt;
+      &lt;li&gt;Metrics should be versioned/tracked&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;DVC helps. Some laternatives: git-LFS, MLflow, Apache Airflow
+    &lt;ul&gt;
+      &lt;li&gt;Easy to use&lt;/li&gt;
+      &lt;li&gt;Language independent&lt;/li&gt;
+      &lt;li&gt;Useful for individuals and for large teams&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Example code: &lt;a href=&quot;https://github.com/midnightradio/handson-dvc&quot;&gt;on github&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Hongjoo works through a cats vs dogs example in talk
+    &lt;ul&gt;
+      &lt;li&gt;Download template directory&lt;/li&gt;
+      &lt;li&gt;Use git to keep track of changes&lt;/li&gt;
+      &lt;li&gt;Use dvc command-line commands to define each of the steps in ml pipeline&lt;/li&gt;
+      &lt;li&gt;dvc dag command - shows ascii diagram of pipeline&lt;/li&gt;
+      &lt;li&gt;dvc repro - checks if there are changes, and if so, re-runs pipeline. E.g. change model by adding a layer, then dvc repro does everything. you have to manually to git commit command and naming of versions&lt;/li&gt;
+      &lt;li&gt;dvc metric show. shows metrics of all versions done.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;Looks simple enough! I could follow the talk. :D It is clear that finding a good ML workflow is a big theme. At the end of the conference, I will have to go through these notes and collate the various tools and workflows people use, so I have a reference for when I need to use it.&lt;/p&gt;
 
 &lt;h2 id=&quot;730-tips-for-data-cleaning-hui-ziang-chua&quot;&gt;7:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/CivrR5y-top-15-python-tips-for-data-cleaning-understanding/&quot;&gt;Tips for Data Cleaning&lt;/a&gt;, Hui Ziang Chua&lt;/h2&gt;
 

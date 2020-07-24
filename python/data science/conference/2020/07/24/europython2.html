@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -232,9 +232,53 @@ window.onload = wrap_img;
 
 <h3 id="notes-from-talk">
 <a class="anchor" href="#notes-from-talk" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes from talk</h3>
+<ul>
+  <li>Works for SK hynix, a memory chip maker in South Korea.</li>
+  <li>Waterfall vs agile production. Waterfall = design, then build, then release, then done. Agile, more iterative approach.</li>
+  <li>Software dev/dev ops: code git, build sbt maven, test jUnit, release Jenkins, deploy Docker aws, operate Kubernetes, monitor ELK stack</li>
+  <li>ML dev lifecycle: get data, preprocess, build model, optimise model, deployment.
+    <ul>
+      <li>Often getting data requires domain expertise</li>
+      <li>Often software engineers are needed for deployment</li>
+      <li>Still improvement and modification needed for ML dev workflow. In early stages.</li>
+    </ul>
+  </li>
+  <li>Data versioning.
+    <ul>
+      <li>Can be terrible, with names like <code class="highlighter-rouge">raw_data</code>, <code class="highlighter-rouge">cleaned_data</code>, <code class="highlighter-rouge">cleaned_data_final</code>.</li>
+      <li>Need to have system where any change in data will trigger pipeline</li>
+    </ul>
+  </li>
+  <li>ML is metric driven. Software engineering is feature driven.
+    <ul>
+      <li>ML Models version should be tracked.</li>
+      <li>Metrics should be versioned/tracked</li>
+    </ul>
+  </li>
+  <li>DVC helps. Some laternatives: git-LFS, MLflow, Apache Airflow
+    <ul>
+      <li>Easy to use</li>
+      <li>Language independent</li>
+      <li>Useful for individuals and for large teams</li>
+    </ul>
+  </li>
+  <li>Example code: <a href="https://github.com/midnightradio/handson-dvc">on github</a>
+</li>
+  <li>Hongjoo works through a cats vs dogs example in talk
+    <ul>
+      <li>Download template directory</li>
+      <li>Use git to keep track of changes</li>
+      <li>Use dvc command-line commands to define each of the steps in ml pipeline</li>
+      <li>dvc dag command - shows ascii diagram of pipeline</li>
+      <li>dvc repro - checks if there are changes, and if so, re-runs pipeline. E.g. change model by adding a layer, then dvc repro does everything. you have to manually to git commit command and naming of versions</li>
+      <li>dvc metric show. shows metrics of all versions done.</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="my-thoughts">
 <a class="anchor" href="#my-thoughts" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>Looks simple enough! I could follow the talk. :D It is clear that finding a good ML workflow is a big theme. At the end of the conference, I will have to go through these notes and collate the various tools and workflows people use, so I have a reference for when I need to use it.</p>
 
 <h2 id="730-tips-for-data-cleaning-hui-ziang-chua">
 <a class="anchor" href="#730-tips-for-data-cleaning-hui-ziang-chua" aria-hidden="true"><span class="octicon octicon-link"></span></a>7:30, <a href="https://ep2020.europython.eu/talks/CivrR5y-top-15-python-tips-for-data-cleaning-understanding/">Tips for Data Cleaning</a>, Hui Ziang Chua</h2>
