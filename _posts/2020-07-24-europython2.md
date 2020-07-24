@@ -313,9 +313,50 @@ Looks easy to use and can give big speed boosts. Is there a catch?
 ## 14:15 , [Small Big Data in Pandas, Dask and Vaex](https://ep2020.europython.eu/talks/A7TniMV-making-pandas-fly/), Ian Ozsvald
 
 ### Notes from talk
+* Discuss how to speed things up in pandas. Why when there are tools out there? Ought to increase our knowledge and push our speed in current tools.
+* Example of company registration data in uk
+* Ram considerations
+    * Strings are slow. Takes up lots of ram.
+    * In example of company category taking up 300MB. Convert to category type and it takes 4.5 MB. Numeric code stored instead of strings.
+    * Get speed up on value_counts. 0.485s vs 0.028s. 
+    * Example of settign this column to index and then creating mask based on index. 281ms vs 569 microseconds.
+    * Try using category for low cardinality data.
 
+* float64 is default and expansive.
+    * Example of age of company, up to 190 years.
+    * Use float32 or float16 instead. 
+    * Less RAM. Small time saving. (float16 might actually be slower!)
+    * Might have loss in precision in data. Depends on data and usage
+* Has a tool `dtype_diet` to automate process of optimising dataframe.
+    * Produces table showing how different things can improve RAM usage. 
+* Saving RAM is good. Can process more data. Speeds things up.
+* Dropping to NumPy. 
+    * `df.sum()` versus `df.values.sum()`.
+    * In example, 19.1ms to 2ms.
+    * Somethings to watch out for, e.g. NaN. 
+    * James Powell produced diagram showing all files and functions called when doing sum in pandas versus in numpy. (Doing this using `ser.sum()`).
+
+* Is pandas just super slow.
+    * Can get big boost just by using bottleneck. see code in example.
+    * just instal bottleneck, numexpr
+    * Investigate dtype_diet
+    * ipython_memory_usage
+
+* Pure python is slow
+    * Use numba, njit wrapper. See Intel talk above for newer extensions to numba.
+    * Parallelise with Dask. Overhead may overwhelm benefit. USe profiling and timing tools to check.
+
+* Big time savings come from our own habits
+    * Reduce mistakes. Try nullable Int64, boolean
+    * Write tests, unit and end-to-end
+    * Lots of other examples from blog
+
+* Vaex and Modin. Two other tools.
+ 
 
 ### My thoughts
+Excellent talk! Ian clearly knows his stuff. Lots of insights. These are things I should start to implement to get some easy time savings.
+
 
 ## 14:45, [IPython](https://ep2020.europython.eu/talks/5LGWwvT-ipython-the-productivity-booster/), Miki Tebeka
 
