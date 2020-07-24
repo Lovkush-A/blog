@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      14 min read
+      16 min read
     
 </span></p>
 
@@ -662,9 +662,68 @@ window.onload = wrap_img;
 
 <h3 id="notes-from-talk-8">
 <a class="anchor" href="#notes-from-talk-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes from talk</h3>
+<ul>
+  <li>Discuss how to speed things up in pandas. Why when there are tools out there? Ought to increase our knowledge and push our speed in current tools.</li>
+  <li>Example of company registration data in uk</li>
+  <li>Ram considerations
+    <ul>
+      <li>Strings are slow. Takes up lots of ram.</li>
+      <li>In example of company category taking up 300MB. Convert to category type and it takes 4.5 MB. Numeric code stored instead of strings.</li>
+      <li>Get speed up on value_counts. 0.485s vs 0.028s.</li>
+      <li>Example of settign this column to index and then creating mask based on index. 281ms vs 569 microseconds.</li>
+      <li>Try using category for low cardinality data.</li>
+    </ul>
+  </li>
+  <li>float64 is default and expansive.
+    <ul>
+      <li>Example of age of company, up to 190 years.</li>
+      <li>Use float32 or float16 instead.</li>
+      <li>Less RAM. Small time saving. (float16 might actually be slower!)</li>
+      <li>Might have loss in precision in data. Depends on data and usage</li>
+    </ul>
+  </li>
+  <li>Has a tool <code class="highlighter-rouge">dtype_diet</code> to automate process of optimising dataframe.
+    <ul>
+      <li>Produces table showing how different things can improve RAM usage.</li>
+    </ul>
+  </li>
+  <li>Saving RAM is good. Can process more data. Speeds things up.</li>
+  <li>Dropping to NumPy.
+    <ul>
+      <li>
+<code class="highlighter-rouge">df.sum()</code> versus <code class="highlighter-rouge">df.values.sum()</code>.</li>
+      <li>In example, 19.1ms to 2ms.</li>
+      <li>Somethings to watch out for, e.g. NaN.</li>
+      <li>James Powell produced diagram showing all files and functions called when doing sum in pandas versus in numpy. (Doing this using <code class="highlighter-rouge">ser.sum()</code>).</li>
+    </ul>
+  </li>
+  <li>Is pandas just super slow.
+    <ul>
+      <li>Can get big boost just by using bottleneck. see code in example.</li>
+      <li>just instal bottleneck, numexpr</li>
+      <li>Investigate dtype_diet</li>
+      <li>ipython_memory_usage</li>
+    </ul>
+  </li>
+  <li>Pure python is slow
+    <ul>
+      <li>Use numba, njit wrapper. See Intel talk above for newer extensions to numba.</li>
+      <li>Parallelise with Dask. Overhead may overwhelm benefit. USe profiling and timing tools to check.</li>
+    </ul>
+  </li>
+  <li>Big time savings come from our own habits
+    <ul>
+      <li>Reduce mistakes. Try nullable Int64, boolean</li>
+      <li>Write tests, unit and end-to-end</li>
+      <li>Lots of other examples from blog</li>
+    </ul>
+  </li>
+  <li>Vaex and Modin. Two other tools.</li>
+</ul>
 
 <h3 id="my-thoughts-8">
 <a class="anchor" href="#my-thoughts-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>Excellent talk! Ian clearly knows his stuff. Lots of insights. These are things I should start to implement to get some easy time savings.</p>
 
 <h2 id="1445-ipython-miki-tebeka">
 <a class="anchor" href="#1445-ipython-miki-tebeka" aria-hidden="true"><span class="octicon octicon-link"></span></a>14:45, <a href="https://ep2020.europython.eu/talks/5LGWwvT-ipython-the-productivity-booster/">IPython</a>, Miki Tebeka</h2>

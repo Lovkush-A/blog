@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T08:04:23-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T08:50:32-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
@@ -413,8 +413,66 @@
 &lt;h2 id=&quot;1415--small-big-data-in-pandas-dask-and-vaex-ian-ozsvald&quot;&gt;14:15 , &lt;a href=&quot;https://ep2020.europython.eu/talks/A7TniMV-making-pandas-fly/&quot;&gt;Small Big Data in Pandas, Dask and Vaex&lt;/a&gt;, Ian Ozsvald&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-from-talk-8&quot;&gt;Notes from talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Discuss how to speed things up in pandas. Why when there are tools out there? Ought to increase our knowledge and push our speed in current tools.&lt;/li&gt;
+  &lt;li&gt;Example of company registration data in uk&lt;/li&gt;
+  &lt;li&gt;Ram considerations
+    &lt;ul&gt;
+      &lt;li&gt;Strings are slow. Takes up lots of ram.&lt;/li&gt;
+      &lt;li&gt;In example of company category taking up 300MB. Convert to category type and it takes 4.5 MB. Numeric code stored instead of strings.&lt;/li&gt;
+      &lt;li&gt;Get speed up on value_counts. 0.485s vs 0.028s.&lt;/li&gt;
+      &lt;li&gt;Example of settign this column to index and then creating mask based on index. 281ms vs 569 microseconds.&lt;/li&gt;
+      &lt;li&gt;Try using category for low cardinality data.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;float64 is default and expansive.
+    &lt;ul&gt;
+      &lt;li&gt;Example of age of company, up to 190 years.&lt;/li&gt;
+      &lt;li&gt;Use float32 or float16 instead.&lt;/li&gt;
+      &lt;li&gt;Less RAM. Small time saving. (float16 might actually be slower!)&lt;/li&gt;
+      &lt;li&gt;Might have loss in precision in data. Depends on data and usage&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Has a tool &lt;code class=&quot;highlighter-rouge&quot;&gt;dtype_diet&lt;/code&gt; to automate process of optimising dataframe.
+    &lt;ul&gt;
+      &lt;li&gt;Produces table showing how different things can improve RAM usage.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Saving RAM is good. Can process more data. Speeds things up.&lt;/li&gt;
+  &lt;li&gt;Dropping to NumPy.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;df.sum()&lt;/code&gt; versus &lt;code class=&quot;highlighter-rouge&quot;&gt;df.values.sum()&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;In example, 19.1ms to 2ms.&lt;/li&gt;
+      &lt;li&gt;Somethings to watch out for, e.g. NaN.&lt;/li&gt;
+      &lt;li&gt;James Powell produced diagram showing all files and functions called when doing sum in pandas versus in numpy. (Doing this using &lt;code class=&quot;highlighter-rouge&quot;&gt;ser.sum()&lt;/code&gt;).&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Is pandas just super slow.
+    &lt;ul&gt;
+      &lt;li&gt;Can get big boost just by using bottleneck. see code in example.&lt;/li&gt;
+      &lt;li&gt;just instal bottleneck, numexpr&lt;/li&gt;
+      &lt;li&gt;Investigate dtype_diet&lt;/li&gt;
+      &lt;li&gt;ipython_memory_usage&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pure python is slow
+    &lt;ul&gt;
+      &lt;li&gt;Use numba, njit wrapper. See Intel talk above for newer extensions to numba.&lt;/li&gt;
+      &lt;li&gt;Parallelise with Dask. Overhead may overwhelm benefit. USe profiling and timing tools to check.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Big time savings come from our own habits
+    &lt;ul&gt;
+      &lt;li&gt;Reduce mistakes. Try nullable Int64, boolean&lt;/li&gt;
+      &lt;li&gt;Write tests, unit and end-to-end&lt;/li&gt;
+      &lt;li&gt;Lots of other examples from blog&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Vaex and Modin. Two other tools.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-8&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;Excellent talk! Ian clearly knows his stuff. Lots of insights. These are things I should start to implement to get some easy time savings.&lt;/p&gt;
 
 &lt;h2 id=&quot;1445-ipython-miki-tebeka&quot;&gt;14:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/5LGWwvT-ipython-the-productivity-booster/&quot;&gt;IPython&lt;/a&gt;, Miki Tebeka&lt;/h2&gt;
 
