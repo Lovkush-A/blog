@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      3 min read
+      6 min read
     
 </span></p>
 
@@ -295,7 +295,7 @@ window.onload = wrap_img;
       <li>Check datatypes. Sometimes goes wrong. Sign for data-cleaning.</li>
       <li>Get unique values. Some cases, need to combine different values into one. E.g. ‘Male’ and ‘M’</li>
       <li>Get range of values</li>
-      <li>Get count of values</li>
+      <li>Get count of values. Group-by various columns as appropriate.</li>
       <li>Rename column names. E.g. for merging</li>
       <li>Remove symbols in values. E.g. currency signs</li>
       <li>Convert strings to numeric or to dates</li>
@@ -328,9 +328,89 @@ window.onload = wrap_img;
 
 <h3 id="notes-from-talk-2">
 <a class="anchor" href="#notes-from-talk-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Notes from talk</h3>
+<ul>
+  <li>Recap of GANs
+    <ul>
+      <li>Discriminative model. Supervised classification model. Fed in data.</li>
+      <li>Generative model. Mostly unsupervised. Generates new data by underlying underlying data distribution. Generates near-real looking data. (Conditional generators have some element of supervised learning included). Learning of distribution called implicit density estimation.</li>
+      <li>In end, have GAN which takes random input and creates an output that has similar distribution it was trained on.</li>
+      <li>Training. Dicriminator gets true entry x and fake input from generator network x*. Generator tries to classify. Compute error and backpropogate. Generator then trained. Similar.</li>
+    </ul>
+  </li>
+  <li>Book: <a href="https://www.manning.com/books/gans-in-action#toc">GANs in Action by Langr and Bok</a>
+</li>
+  <li>GANs have been successful in creating near-real images.</li>
+  <li>Style Transfer: Content image + style image gives new image with content from first in style of second image.</li>
+  <li>Aim of Style Transfer Networks
+    <ul>
+      <li>Not to learn underlying distrbution.</li>
+      <li>Somehow learn style from style image and embed it into content cimage</li>
+      <li>Interpolation is bad</li>
+      <li>Used in gaming industry, mobile applications, fashion/design</li>
+    </ul>
+  </li>
+  <li>Popular networks: Pix2Pix, CycleGAN, Neural Style Transfer</li>
+  <li>Neural Style Transfer.
+    <ul>
+      <li>No training set! Just take as input the two images.</li>
+      <li>Example from Neural Algorithm of Artistic Style. Photo turned into painting of certain artist</li>
+      <li>Content loss - measure of content between new image and content image</li>
+      <li>Style loss - measure of style between new image and style image.</li>
+      <li>total variation loss. Check for blurriness, distortions, pixelations</li>
+      <li>How is learning done? No trianing set, no back prop?</li>
+    </ul>
+  </li>
+  <li>Shows example notebook, using TensorFlow and Keras. Imports pre-trained model.</li>
+  <li>Content loss.
+    <ul>
+      <li>Pixel by pixel comparison not done.</li>
+      <li>Compare higher level features, obtained from pre-trained model. E.g. VGG19 is 19 layered CNN, which classifies images into 1000 categories. Trained on million images.</li>
+      <li>VGG architecture. See <a href="https://www.amazon.co.uk/Generative-Deep-Learning-Teaching-Machines/dp/1492041947">Generative Deep Learning by David Foster</a>.</li>
+      <li>Keras repo. Neural style transfer.</li>
+      <li>Take 3rd layer of block 5 from VGG19 model as measure of higher level features.</li>
+      <li>Content loss = mean squared error between this vector encoding of high level features from VGG19 for content image and generated image.</li>
+    </ul>
+  </li>
+  <li>Style loss
+    <ul>
+      <li>Take dot product of ‘flattened feature maps’</li>
+      <li>Lower level layers represent style.</li>
+      <li>GRAM matrix. Dot product of ‘flattened features’ of image with itself.</li>
+      <li>Didn’t understand this.</li>
+      <li>Loss = MSE (gram matrix(style image), gram matrix(generated image))</li>
+      <li>Then take weighted sum over different sets of layers</li>
+      <li>Shows example code.</li>
+      <li><code class="highlighter-rouge">features = K.batch_flatten(K.permute...)</code></li>
+      <li>Take first layer in each block</li>
+    </ul>
+  </li>
+  <li>Total variation loss
+    <ul>
+      <li>sum of squared difference between image and image shifted on pixel down, and of shifted one pixel right</li>
+    </ul>
+  </li>
+  <li>Training
+    <ul>
+      <li>Add up all the loss</li>
+      <li>Use L-BFGS optimisation. Essentially just gradient descent on individual pixel values.</li>
+      <li>Example code shown in talk.</li>
+    </ul>
+  </li>
+  <li>Pix2Pix
+    <ul>
+      <li>Various cool things you can do. E.g. aerial image to a map. Sketch to full image.</li>
+    </ul>
+  </li>
+  <li>CycleGAN
+    <ul>
+      <li>E.g. convert image of apples to oranges. Or horses to zebras!</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="my-thoughts-2">
 <a class="anchor" href="#my-thoughts-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>My thoughts</h3>
+<p>Excellent talk! I had seen some of the neural style transfer images before, and now I have some understanding of how they are created!</p>
 
 <h2 id="1000-data-visualisation-landscape-bence-arato">
 <a class="anchor" href="#1000-data-visualisation-landscape-bence-arato" aria-hidden="true"><span class="octicon octicon-link"></span></a>10:00, <a href="https://ep2020.europython.eu/talks/B5Vff6U-the-python-data-visualization-landscape-in-2020/">Data Visualisation Landscape</a>, Bence Arato</h2>

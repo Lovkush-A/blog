@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T02:06:18-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-24T03:53:20-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
@@ -69,7 +69,7 @@
       &lt;li&gt;Check datatypes. Sometimes goes wrong. Sign for data-cleaning.&lt;/li&gt;
       &lt;li&gt;Get unique values. Some cases, need to combine different values into one. E.g. ‘Male’ and ‘M’&lt;/li&gt;
       &lt;li&gt;Get range of values&lt;/li&gt;
-      &lt;li&gt;Get count of values&lt;/li&gt;
+      &lt;li&gt;Get count of values. Group-by various columns as appropriate.&lt;/li&gt;
       &lt;li&gt;Rename column names. E.g. for merging&lt;/li&gt;
       &lt;li&gt;Remove symbols in values. E.g. currency signs&lt;/li&gt;
       &lt;li&gt;Convert strings to numeric or to dates&lt;/li&gt;
@@ -99,8 +99,87 @@
 &lt;h2 id=&quot;900-neural-style-transfer-and-gans-anmol-krishan-sachdeva&quot;&gt;9:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/BSeL2FG-painting-with-gans-challenges-and-technicalities-of-neural-style-transfer/&quot;&gt;Neural Style Transfer and GANs&lt;/a&gt;, Anmol Krishan Sachdeva&lt;/h2&gt;
 
 &lt;h3 id=&quot;notes-from-talk-2&quot;&gt;Notes from talk&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Recap of GANs
+    &lt;ul&gt;
+      &lt;li&gt;Discriminative model. Supervised classification model. Fed in data.&lt;/li&gt;
+      &lt;li&gt;Generative model. Mostly unsupervised. Generates new data by underlying underlying data distribution. Generates near-real looking data. (Conditional generators have some element of supervised learning included). Learning of distribution called implicit density estimation.&lt;/li&gt;
+      &lt;li&gt;In end, have GAN which takes random input and creates an output that has similar distribution it was trained on.&lt;/li&gt;
+      &lt;li&gt;Training. Dicriminator gets true entry x and fake input from generator network x*. Generator tries to classify. Compute error and backpropogate. Generator then trained. Similar.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Book: &lt;a href=&quot;https://www.manning.com/books/gans-in-action#toc&quot;&gt;GANs in Action by Langr and Bok&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;GANs have been successful in creating near-real images.&lt;/li&gt;
+  &lt;li&gt;Style Transfer: Content image + style image gives new image with content from first in style of second image.&lt;/li&gt;
+  &lt;li&gt;Aim of Style Transfer Networks
+    &lt;ul&gt;
+      &lt;li&gt;Not to learn underlying distrbution.&lt;/li&gt;
+      &lt;li&gt;Somehow learn style from style image and embed it into content cimage&lt;/li&gt;
+      &lt;li&gt;Interpolation is bad&lt;/li&gt;
+      &lt;li&gt;Used in gaming industry, mobile applications, fashion/design&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Popular networks: Pix2Pix, CycleGAN, Neural Style Transfer&lt;/li&gt;
+  &lt;li&gt;Neural Style Transfer.
+    &lt;ul&gt;
+      &lt;li&gt;No training set! Just take as input the two images.&lt;/li&gt;
+      &lt;li&gt;Example from Neural Algorithm of Artistic Style. Photo turned into painting of certain artist&lt;/li&gt;
+      &lt;li&gt;Content loss - measure of content between new image and content image&lt;/li&gt;
+      &lt;li&gt;Style loss - measure of style between new image and style image.&lt;/li&gt;
+      &lt;li&gt;total variation loss. Check for blurriness, distortions, pixelations&lt;/li&gt;
+      &lt;li&gt;How is learning done? No trianing set, no back prop?&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Shows example notebook, using TensorFlow and Keras. Imports pre-trained model.&lt;/li&gt;
+  &lt;li&gt;Content loss.
+    &lt;ul&gt;
+      &lt;li&gt;Pixel by pixel comparison not done.&lt;/li&gt;
+      &lt;li&gt;Compare higher level features, obtained from pre-trained model. E.g. VGG19 is 19 layered CNN, which classifies images into 1000 categories. Trained on million images.&lt;/li&gt;
+      &lt;li&gt;VGG architecture. See &lt;a href=&quot;https://www.amazon.co.uk/Generative-Deep-Learning-Teaching-Machines/dp/1492041947&quot;&gt;Generative Deep Learning by David Foster&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;Keras repo. Neural style transfer.&lt;/li&gt;
+      &lt;li&gt;Take 3rd layer of block 5 from VGG19 model as measure of higher level features.&lt;/li&gt;
+      &lt;li&gt;Content loss = mean squared error between this vector encoding of high level features from VGG19 for content image and generated image.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Style loss
+    &lt;ul&gt;
+      &lt;li&gt;Take dot product of ‘flattened feature maps’&lt;/li&gt;
+      &lt;li&gt;Lower level layers represent style.&lt;/li&gt;
+      &lt;li&gt;GRAM matrix. Dot product of ‘flattened features’ of image with itself.&lt;/li&gt;
+      &lt;li&gt;Didn’t understand this.&lt;/li&gt;
+      &lt;li&gt;Loss = MSE (gram matrix(style image), gram matrix(generated image))&lt;/li&gt;
+      &lt;li&gt;Then take weighted sum over different sets of layers&lt;/li&gt;
+      &lt;li&gt;Shows example code.&lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;features = K.batch_flatten(K.permute...)&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Take first layer in each block&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Total variation loss
+    &lt;ul&gt;
+      &lt;li&gt;sum of squared difference between image and image shifted on pixel down, and of shifted one pixel right&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Training
+    &lt;ul&gt;
+      &lt;li&gt;Add up all the loss&lt;/li&gt;
+      &lt;li&gt;Use L-BFGS optimisation. Essentially just gradient descent on individual pixel values.&lt;/li&gt;
+      &lt;li&gt;Example code shown in talk.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pix2Pix
+    &lt;ul&gt;
+      &lt;li&gt;Various cool things you can do. E.g. aerial image to a map. Sketch to full image.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;CycleGAN
+    &lt;ul&gt;
+      &lt;li&gt;E.g. convert image of apples to oranges. Or horses to zebras!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-2&quot;&gt;My thoughts&lt;/h3&gt;
+&lt;p&gt;Excellent talk! I had seen some of the neural style transfer images before, and now I have some understanding of how they are created!&lt;/p&gt;
 
 &lt;h2 id=&quot;1000-data-visualisation-landscape-bence-arato&quot;&gt;10:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/B5Vff6U-the-python-data-visualization-landscape-in-2020/&quot;&gt;Data Visualisation Landscape&lt;/a&gt;, Bence Arato&lt;/h2&gt;
 
