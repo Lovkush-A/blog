@@ -409,7 +409,7 @@ Always good to see a live demo to see exactly how somebody does things. I learnt
 Not much to say. Another tool that I now know about.
 
 
-## 17:45, [30 Golden Rules for Deep Learning Performance](https://ep2020.europython.eu/talks/30-golden-rules-deep-learning-performance/), Siddha Ganju @SiddhaGanju
+## 17:45, [30 Golden Rules for Deep Learning Performance](https://ep2020.europython.eu/talks/30-golden-rules-deep-learning-performance/), Siddha Ganju
 
 ### Notes from talk
 * Forbes 30 under 30!
