@@ -190,10 +190,42 @@ Excellent talk. Well structured, good examples, good summary of key things I sho
 ## 10:30, [Binder](https://ep2020.europython.eu/talks/BqQBN6J-sharing-reproducible-python-environments-with-binder/), Sarah Gibson
 
 ### Notes from talk
+* Table of levels of reproducibility
+* Same or different data or analysis. 
+    * Rep = same, same
+    * Replicable = different data
+    * Robust = different analysis
+    * Generalisable = diff, diff.
+    * Repeatable is subset of reproducible. Literally same programs running same data and analysis to get same result. 
+    * Reproducible means getting same result using same data and method - but maybe implemented in different language or program or ...
+* CI/CD = continous integration / development
+* Two big tools needed for repeatable research: dockers and version control. But requires learning. Not for everyone.
+* Shows example from ligo about gravitational waves.
+* Steps
+    * Use jupyter notebook
+    * Upload on public repositiy, e.g. GitHub.
+    * Describe software needed to run notebook. Binder automatically identifies common configuration files
+    * Done!
+* Brief history of Binder. Now 140,000 sessions per week!
+* Binder is open source, can adapt to your own needs. E.g. share only with specific people in your institution.
+* Technologies
+    * Github, clone reposity
+    * repo2docker. Build docker image based on standard configuration files. Don't need docker file!
+    * Docker. Execute docker image
+    * Jupyter Hub. Allocate resources, make image accessible at url
+    * Binder, redirect user to the url
+* Scaling up
+    * Created federation
+    * Highly stable. Uses different kubernetes implementations
+* User surveys
+    * Around 80% of respondants would recommend service
+    * Most common use case is teaching related. Examples, workings, uni teaching, demos, etc.
+    * Biggest complaint: needs to be faster to load
+    * Hard to speed up. But fully explained on jupyter hub blog. Why it is slow but also tips to speed things up.
 
 
 ### My thoughts
-
+I had already heard of Binder - because I am friends with the spaker Sarah Gibson! However, the talk was still good, and I learnt more than I already knew. In particular, I liked the classification of different levels of reproducibility.
 
 
 
