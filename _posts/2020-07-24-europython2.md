@@ -383,10 +383,30 @@ Always good to see a live demo to see exactly how somebody does things. I learnt
 ## 15:15, [NLPeasy](https://ep2020.europython.eu/talks/6x7ezDb-nlpeasy-a-workflow-to-analyse-enrich-and-explore-textual-data/), Philipp Thomann
 
 ### Notes from talk
-
+* Co-creator of liquidSVM, Nabu, NLPeasy, PlotVR
+* Works at D One. ML consultancy
+* NLP. Big progress recently. Word2Vec, Deep learning and many good pre-trained models. Lots of data, many use cases
+* Challenges for data scientists.
+    * NLP is generally harder - high dimensions, specialised pre-processing required, nlp experts/researchers focus only on text but there is usually other data in business. 
+    * Methods have repuation of being hard to use
+    * standard tools not good for text. e.g. seaborn, tableau
+* NLPeasy to the rescue!
+* Pandas based pipeline, built in Regex based tagging, spaCy based NLP methods, Vader, scraping with beautiful soup, ...
+* ElasticSearch. ??
+* See Github repo for code, ntoebook example, etc.
+* Talk through example, of looking at abstracts from some conference. 
+* Live demo!
+    * Scraping EP 2020 data.
+    * Doing NLPeasy stuff
+    * Go to Elastic dashboard
+    * Lots of things shown, possible. E.g. entity extraction, tSNE
+* REstaurant similarity using clustering algorithms. based only on reviews! can detect similarities
+* Kibana (I think) can produce geoview / heatmap
+* Can create networks using entity recognition
+* Can try examples in different setups, e.g. Binder, or do it all yourself.
 
 ### My thoughts
-
+Not much to say. Another tool that I now know about.
 
 
 ## 17:45, [30 Golden Rules for Deep Learning Performance](https://ep2020.europython.eu/talks/30-golden-rules-deep-learning-performance/), Siddha Ganju
