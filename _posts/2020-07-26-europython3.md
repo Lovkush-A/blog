@@ -16,100 +16,6 @@ title: EuroPython Conference 2020, Summary
 I attended the online conference [EuroPython 2020](https://ep2020.europython.eu/) and recorded notes while watching the talks. Today, I reviewed the notes with the aim of consolidating the main lessons, grouping together similar talks, and recording key lessons.
 
 
-## Tips and tricks
-### Docker, Tania Allard.
-* Expect things to be tricky and frustrating. There are many bad tutorials online
-* Do not re-invent the wheel: use cookie-cutter, repo2docker
-* Many other useful tips in the talk
-
-### Data Cleaning, Hui Zhang Chua
-* Hui provided a checklist of tasks you should do when cleaning data.
-* Refer to the notes from the talk for the list
-
-
-
-
-## Recommended packages / tools
-### spaCy, Alexander Hendorf
-* Open source library for NLP
-* Has many state-of-the-art algorithms built-in
-* Highly recommended by the speaker
-
-### diffprivlib, Naoise Holohan
-* Open source library for differential privacy
-* (For background theory on differential privacy, I recommended [this talk](https://www.youtube.com/watch?v=bScJdHX0Hac) from [FacultyAI](https://faculty.ai/).)
-* If you want to work with sensitive data, this is a good open source library to consider
-
-### Google's ML APIs and AutoML, Laurent Picard
-* Google has a lot of ML tools available
-* Looks nicely packaged and looks very user-friendly.
-* Is there even any point in me learning data science?!
-
-### SimPy, Eran Friedman
-* SimPy can be used to do discrete event simulation
-* E.g. for robotics training
-
-### Data Visualisation Landscape, Bence Arato
-![image]({{ site.baseurl }}/images/europython_4.png)
-
-### Binder, Sarah Gibson
-* For repeatable research (and for teaching/workshops), use Binder
-* Just have to give Binder link to your GitHub repo which contains a jupyter notebook and a standard requirements configuration file, and then Binder will create link.
-* You give link to somebody, they go to it, and they can run the jupyter notebook from their browser. Super easy
-* Binder is open source, so can be configured for your own needs. E.g. can make it so only certain individuals can access the link (or something like that).
-* Talk contained details of how Binder works, and the tools and infrastructure they use
-
-### IPython, Miki Tebeka
-* Did live example of using IPython to do some initial experimentation of data and pre-processing style stuff
-* Magic commands with `%`, comand line with `!`, `pprint` for pretty printing, `?` for help, `??` for source code, `%timeit` for time analysis, can do sql with extension, `%cow` for ascii art. 
-* See talk for more examples not listed here
-
-### Analytical Functions in SQL, Brendan Tierney
-* Talk was cancelled, but their slides are available
-* Looks like SQL can do a lot more than what most of us know
-* Something worth researching
-
-
-## Tricks and tools for efficiency/speed gains
-Several talks were about this, so I thought it was worth grouping them together
-
-### concurrent.futures, Chin Hwee Ong
-* Built in package in Python for parallel / asynchronous computing
-* For big data, can use tools like Spark.
-* For small big data, overhead cost is too large
-* Using concurrent.futures module can speed things up
-
-### daal4py and SDC by Intel, Fedotova and Schlimbach
-* These are open source tools that can drastically speed things up.
-* daal4py gives optimised versions of scikitlearn functions. But still in production. Some functions do not give identical output to their scikitlearn counterparts.
-* SDC. A just-in-time compiler. Extension of Numba.
-    * Easy to use; just add decorate `@numba.jit`
-    * Only works for statically compilable code
-    * Examples of speed ups provided in the talk
-
-### Tips and tricks for efficiency gains in Pandas, Ian Ozsvald
-* RAM considerations.
-    * Use category instead of strings, for low cardinality data
-    * Use float32 or float16 instead of float64
-    * Has tool `dtype_diet` to automate optimisation of a dataframe
-* Dropping to NumPy
-    * E.g. `df.sum()` versus `df.values.sum()`
-* Some tools
-    * bottleneck. See talk for example
-    * dtype_diet
-    * ipython_memory_usage
-    * numba, njit wrapper.
-    * Parallelise with Dask. Use profiling to check if benefit outweighs overhead
-    * Vaex and modin. 
-* Our own habits
-    * Write tests!
-* Lots of other examples in their blog and book
-
-
-### 30 Rules for Deep Learning Performance, Siddha Ganju
-* 30 tips and tricks for deep learning in TensforFlow
-* No point repeating them all here. See notes from talk, or watch talk (or buy their book Practical Deep Learning)
-
 
 ## Workflows
 This seems to be a big theme, and sounds like the next big challenge for the data scientist profession.
@@ -179,7 +85,104 @@ This seems to be a big theme, and sounds like the next big challenge for the dat
 * See examples on GitHub or Tam-Sanh's YouTube series DataEngineerOne
 
 
+
+
+## Recommended packages / tools
+### spaCy, Alexander Hendorf
+* Open source library for NLP
+* Has many state-of-the-art algorithms built-in
+* Highly recommended by the speaker
+
+### diffprivlib, Naoise Holohan
+* Open source library for differential privacy
+* (For background theory on differential privacy, I recommended [this talk](https://www.youtube.com/watch?v=bScJdHX0Hac) from [FacultyAI](https://faculty.ai/).)
+* If you want to work with sensitive data, this is a good open source library to consider
+
+### Google's ML APIs and AutoML, Laurent Picard
+* Google has a lot of ML tools available
+* Looks nicely packaged and looks very user-friendly.
+* Is there even any point in me learning data science?!
+
+### SimPy, Eran Friedman
+* SimPy can be used to do discrete event simulation
+* E.g. for robotics training
+
+### Data Visualisation Landscape, Bence Arato
+![image]({{ site.baseurl }}/images/europython_4.png)
+
+### Binder, Sarah Gibson
+* For repeatable research (and for teaching/workshops), use Binder
+* Just have to give Binder link to your GitHub repo which contains a jupyter notebook and a standard requirements configuration file, and then Binder will create link.
+* You give link to somebody, they go to it, and they can run the jupyter notebook from their browser. Super easy
+* Binder is open source, so can be configured for your own needs. E.g. can make it so only certain individuals can access the link (or something like that).
+* Talk contained details of how Binder works, and the tools and infrastructure they use
+
+### IPython, Miki Tebeka
+* Did live example of using IPython to do some initial experimentation of data and pre-processing style stuff
+* Magic commands with `%`, comand line with `!`, `pprint` for pretty printing, `?` for help, `??` for source code, `%timeit` for time analysis, can do sql with extension, `%cow` for ascii art. 
+* See talk for more examples not listed here
+
+### Analytical Functions in SQL, Brendan Tierney
+* Talk was cancelled, but their slides are available
+* Looks like SQL can do a lot more than what most of us know
+* Something worth researching
+
+
+
+
+## Tricks and tools for efficiency/speed gains
+Several talks were about this, so I thought it was worth grouping them together
+
+### concurrent.futures, Chin Hwee Ong
+* Built in package in Python for parallel / asynchronous computing
+* For big data, can use tools like Spark.
+* For small big data, overhead cost is too large
+* Using concurrent.futures module can speed things up
+
+### daal4py and SDC by Intel, Fedotova and Schlimbach
+* These are open source tools that can drastically speed things up.
+* daal4py gives optimised versions of scikitlearn functions. But still in production. Some functions do not give identical output to their scikitlearn counterparts.
+* SDC. A just-in-time compiler. Extension of Numba.
+    * Easy to use; just add decorate `@numba.jit`
+    * Only works for statically compilable code
+    * Examples of speed ups provided in the talk
+
+### Tips and tricks for efficiency gains in Pandas, Ian Ozsvald
+* RAM considerations.
+    * Use category instead of strings, for low cardinality data
+    * Use float32 or float16 instead of float64
+    * Has tool `dtype_diet` to automate optimisation of a dataframe
+* Dropping to NumPy
+    * E.g. `df.sum()` versus `df.values.sum()`
+* Some tools
+    * bottleneck. See talk for example
+    * dtype_diet
+    * ipython_memory_usage
+    * numba, njit wrapper.
+    * Parallelise with Dask. Use profiling to check if benefit outweighs overhead
+    * Vaex and modin. 
+* Our own habits
+    * Write tests!
+* Lots of other examples in their blog and book
+
+
+### 30 Rules for Deep Learning Performance, Siddha Ganju
+* 30 tips and tricks for deep learning in TensforFlow
+* No point repeating them all here. See notes from talk, or watch talk (or buy their book Practical Deep Learning)
+
+
+
+
 ## Miscellaneous
+### Tips for Docker, Tania Allard.
+* Expect things to be tricky and frustrating. There are many bad tutorials online
+* Do not re-invent the wheel: use cookie-cutter, repo2docker
+* Many other useful tips in the talk
+
+### Data Cleaningi Checklist, Hui Zhang Chua
+* Hui provided a checklist of tasks you should do when cleaning data.
+* Refer to the notes from the talk for the list
+
 ### History of Jupyter Notebooks, William Horton
 * Does what it says on the tin. I stopped taking notes because I do not anticipate learning the history. Watch the talk if you want to know more.
 
