@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>EuroPython Conference 2020, Summary | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="EuroPython Conference 2020, Summary" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I tidy up the notes created in the previous two entries of the series, to make it more coherent and to highlight key ideas and lessons." />
+<meta property="og:description" content="I tidy up the notes created in the previous two entries of the series, to make it more coherent and to highlight key ideas and lessons." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-26T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"I tidy up the notes created in the previous two entries of the series, to make it more coherent and to highlight key ideas and lessons.","@type":"BlogPosting","headline":"EuroPython Conference 2020, Summary","dateModified":"2020-07-26T00:00:00-05:00","datePublished":"2020-07-26T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>EuroPython Conference 2020, Summary | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="EuroPython Conference 2020, Summary" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I tidy up the notes created in the previous two entries of the series, to make it more coherent and to highlight key ideas and lessons." />
+<meta property="og:description" content="I tidy up the notes created in the previous two entries of the series, to make it more coherent and to highlight key ideas and lessons." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-26T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"I tidy up the notes created in the previous two entries of the series, to make it more coherent and to highlight key ideas and lessons.","@type":"BlogPosting","headline":"EuroPython Conference 2020, Summary","dateModified":"2020-07-26T00:00:00-05:00","datePublished":"2020-07-26T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">EuroPython Conference 2020, Summary</h1><p class="page-description">I tidy up the notes created in the previous two entries of the series, to make it more coherent and to highlight key ideas and lessons.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-07-26T00:00:00-05:00" itemprop="datePublished">
+        Jul 26, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#conference">conference</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#tips-and-tricks">Tips and tricks</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#docker-tania-allard">Docker, Tania Allard.</a></li>
+<li class="toc-entry toc-h3"><a href="#data-cleaning-hui-zhang-chua">Data Cleaning, Hui Zhang Chua</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#recommended-packages--tools">Recommended packages / tools</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#spacy-alexander-hendorf">spaCy, Alexander Hendorf</a></li>
+<li class="toc-entry toc-h3"><a href="#diffprivlib-naoise-holohan">diffprivlib, Naoise Holohan</a></li>
+<li class="toc-entry toc-h3"><a href="#googles-ml-apis-and-automl-laurent-picard">Google’s ML APIs and AutoML, Laurent Picard</a></li>
+<li class="toc-entry toc-h3"><a href="#simpy-eran-friedman">SimPy, Eran Friedman</a></li>
+<li class="toc-entry toc-h3"><a href="#data-visualisation-landscape-bence-arato">Data Visualisation Landscape, Bence Arato</a></li>
+<li class="toc-entry toc-h3"><a href="#binder-sarah-gibson">Binder, Sarah Gibson</a></li>
+<li class="toc-entry toc-h3"><a href="#ipython-miki-tebeka">IPython, Miki Tebeka</a></li>
+<li class="toc-entry toc-h3"><a href="#analytical-functions-in-sql-brendan-tierney">Analytical Functions in SQL, Brendan Tierney</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#tricks-and-tools-for-efficiencyspeed-gains">Tricks and tools for efficiency/speed gains</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#concurrentfutures-chin-hwee-ong">concurrent.futures, Chin Hwee Ong</a></li>
+<li class="toc-entry toc-h3"><a href="#daal4py-and-sdc-by-intel-fedotova-and-schlimbach">daal4py and SDC by Intel, Fedotova and Schlimbach</a></li>
+<li class="toc-entry toc-h3"><a href="#tips-and-tricks-for-efficiency-gains-in-pandas-ian-ozsvald">Tips and tricks for efficiency gains in Pandas, Ian Ozsvald</a></li>
+<li class="toc-entry toc-h3"><a href="#30-rules-for-deep-learning-performance-siddha-ganju">30 Rules for Deep Learning Performance, Siddha Ganju</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#workflows">Workflows</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#gitlab-tools-william-arias">GitLab Tools, William Arias</a></li>
+<li class="toc-entry toc-h3"><a href="#parallel-stream-processing-alejandro-saucedo">Parallel stream processing, Alejandro Saucedo</a></li>
+<li class="toc-entry toc-h3"><a href="#example-workflow-for-translation-shreya-khurana">Example workflow for Translation, Shreya Khurana</a></li>
+<li class="toc-entry toc-h3"><a href="#example-from-teikametrics-chase-stevens">Example from teikametrics, Chase Stevens</a></li>
+<li class="toc-entry toc-h3"><a href="#dvc-hongjoo-lee">DVC, Hongjoo Lee</a></li>
+<li class="toc-entry toc-h3"><a href="#data-pipelines-robson-junior">Data pipelines, Robson Junior</a></li>
+<li class="toc-entry toc-h3"><a href="#example-from-deepar-talk-nicola-kuhaupt">Example from DeepAR talk, Nicola Kuhaupt</a></li>
+<li class="toc-entry toc-h3"><a href="#nlpeasy-philipp-thomann">NLPeasy, Philipp Thomann</a></li>
+<li class="toc-entry toc-h3"><a href="#kedro-tam-sanh-nguyen">Kedro, Tam-Sanh Nguyen</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#miscellaneous">Miscellaneous</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#history-of-jupyter-notebooks-william-horton">History of Jupyter Notebooks, William Horton</a></li>
+<li class="toc-entry toc-h3"><a href="#neural-style-transfer-and-gans-anmol-krishan-sachdeva">Neural Style Transfer and GANs, Anmol Krishan Sachdeva</a></li>
+<li class="toc-entry toc-h3"><a href="#probabilistic-forecasting-with-deepar-nicolas-kuhaupt">Probabilistic forecasting with DeepAR, Nicolas Kuhaupt</a></li>
+</ul>
+</li>
+</ul><h2 id="other-posts-in-series">
+<a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
+
+<ul>
+  <li>
+    <p><a href="/blog/python/data%20science/conference/2020/07/24/europython2.html">EuroPython Conference 2020, Day 2</a></p>
+  </li>
+  <li>
+    <p><a href="/blog/python/data%20science/conference/2020/07/23/europython1.html">EuroPython Conference 2020, Day 1</a></p>
+  </li>
+</ul>
+
+<h2 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<p>I attended the online conference <a href="https://ep2020.europython.eu/">EuroPython 2020</a> and recorded notes while watching the talks. Today, I reviewed the notes with the aim of consolidating the main lessons, grouping together similar talks, and recording key lessons.</p>
+
+<h2 id="tips-and-tricks">
+<a class="anchor" href="#tips-and-tricks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tips and tricks</h2>
+<h3 id="docker-tania-allard">
+<a class="anchor" href="#docker-tania-allard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker, Tania Allard.</h3>
+<ul>
+  <li>Expect things to be tricky and frustrating. There are many bad tutorials online</li>
+  <li>Do not re-invent the wheel: use cookie-cutter, repo2docker</li>
+  <li>Many other useful tips in the talk</li>
+</ul>
+
+<h3 id="data-cleaning-hui-zhang-chua">
+<a class="anchor" href="#data-cleaning-hui-zhang-chua" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Cleaning, Hui Zhang Chua</h3>
+<ul>
+  <li>Hui provided a checklist of tasks you should do when cleaning data.</li>
+  <li>Refer to the notes from the talk for the list</li>
+</ul>
+
+<h2 id="recommended-packages--tools">
+<a class="anchor" href="#recommended-packages--tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recommended packages / tools</h2>
+<h3 id="spacy-alexander-hendorf">
+<a class="anchor" href="#spacy-alexander-hendorf" aria-hidden="true"><span class="octicon octicon-link"></span></a>spaCy, Alexander Hendorf</h3>
+<ul>
+  <li>Open source library for NLP</li>
+  <li>Has many state-of-the-art algorithms built-in</li>
+  <li>Highly recommended by the speaker</li>
+</ul>
+
+<h3 id="diffprivlib-naoise-holohan">
+<a class="anchor" href="#diffprivlib-naoise-holohan" aria-hidden="true"><span class="octicon octicon-link"></span></a>diffprivlib, Naoise Holohan</h3>
+<ul>
+  <li>Open source library for differential privacy</li>
+  <li>(For background theory on differential privacy, I recommended <a href="https://www.youtube.com/watch?v=bScJdHX0Hac">this talk</a> from <a href="https://faculty.ai/">FacultyAI</a>.)</li>
+  <li>If you want to work with sensitive data, this is a good open source library to consider</li>
+</ul>
+
+<h3 id="googles-ml-apis-and-automl-laurent-picard">
+<a class="anchor" href="#googles-ml-apis-and-automl-laurent-picard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Google’s ML APIs and AutoML, Laurent Picard</h3>
+<ul>
+  <li>Google has a lot of ML tools available</li>
+  <li>Looks nicely packaged and looks very user-friendly.</li>
+  <li>Is there even any point in me learning data science?!</li>
+</ul>
+
+<h3 id="simpy-eran-friedman">
+<a class="anchor" href="#simpy-eran-friedman" aria-hidden="true"><span class="octicon octicon-link"></span></a>SimPy, Eran Friedman</h3>
+<ul>
+  <li>SimPy can be used to do discrete event simulation</li>
+  <li>E.g. for robotics training</li>
+</ul>
+
+<h3 id="data-visualisation-landscape-bence-arato">
+<a class="anchor" href="#data-visualisation-landscape-bence-arato" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Visualisation Landscape, Bence Arato</h3>
+<p><img src="/blog/images/europython_4.png" alt="image"></p>
+
+<h3 id="binder-sarah-gibson">
+<a class="anchor" href="#binder-sarah-gibson" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binder, Sarah Gibson</h3>
+<ul>
+  <li>For repeatable research (and for teaching/workshops), use Binder</li>
+  <li>Just have to give Binder link to your GitHub repo which contains a jupyter notebook and a standard requirements configuration file, and then Binder will create link.</li>
+  <li>You give link to somebody, they go to it, and they can run the jupyter notebook from their browser. Super easy</li>
+  <li>Binder is open source, so can be configured for your own needs. E.g. can make it so only certain individuals can access the link (or something like that).</li>
+  <li>Talk contained details of how Binder works, and the tools and infrastructure they use</li>
+</ul>
+
+<h3 id="ipython-miki-tebeka">
+<a class="anchor" href="#ipython-miki-tebeka" aria-hidden="true"><span class="octicon octicon-link"></span></a>IPython, Miki Tebeka</h3>
+<ul>
+  <li>Did live example of using IPython to do some initial experimentation of data and pre-processing style stuff</li>
+  <li>Magic commands with <code class="highlighter-rouge">%</code>, comand line with <code class="highlighter-rouge">!</code>, <code class="highlighter-rouge">pprint</code> for pretty printing, <code class="highlighter-rouge">?</code> for help, <code class="highlighter-rouge">??</code> for source code, <code class="highlighter-rouge">%timeit</code> for time analysis, can do sql with extension, <code class="highlighter-rouge">%cow</code> for ascii art.</li>
+  <li>See talk for more examples not listed here</li>
+</ul>
+
+<h3 id="analytical-functions-in-sql-brendan-tierney">
+<a class="anchor" href="#analytical-functions-in-sql-brendan-tierney" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analytical Functions in SQL, Brendan Tierney</h3>
+<ul>
+  <li>Talk was cancelled, but their slides are available</li>
+  <li>Looks like SQL can do a lot more than what most of us know</li>
+  <li>Something worth researching</li>
+</ul>
+
+<h2 id="tricks-and-tools-for-efficiencyspeed-gains">
+<a class="anchor" href="#tricks-and-tools-for-efficiencyspeed-gains" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tricks and tools for efficiency/speed gains</h2>
+<p>Several talks were about this, so I thought it was worth grouping them together</p>
+
+<h3 id="concurrentfutures-chin-hwee-ong">
+<a class="anchor" href="#concurrentfutures-chin-hwee-ong" aria-hidden="true"><span class="octicon octicon-link"></span></a>concurrent.futures, Chin Hwee Ong</h3>
+<ul>
+  <li>Built in package in Python for parallel / asynchronous computing</li>
+  <li>For big data, can use tools like Spark.</li>
+  <li>For small big data, overhead cost is too large</li>
+  <li>Using concurrent.futures module can speed things up</li>
+</ul>
+
+<h3 id="daal4py-and-sdc-by-intel-fedotova-and-schlimbach">
+<a class="anchor" href="#daal4py-and-sdc-by-intel-fedotova-and-schlimbach" aria-hidden="true"><span class="octicon octicon-link"></span></a>daal4py and SDC by Intel, Fedotova and Schlimbach</h3>
+<ul>
+  <li>These are open source tools that can drastically speed things up.</li>
+  <li>daal4py gives optimised versions of scikitlearn functions. But still in production. Some functions do not give identical output to their scikitlearn counterparts.</li>
+  <li>SDC. A just-in-time compiler. Extension of Numba.
+    <ul>
+      <li>Easy to use; just add decorate <code class="highlighter-rouge">@numba.jit</code>
+</li>
+      <li>Only works for statically compilable code</li>
+      <li>Examples of speed ups provided in the talk</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="tips-and-tricks-for-efficiency-gains-in-pandas-ian-ozsvald">
+<a class="anchor" href="#tips-and-tricks-for-efficiency-gains-in-pandas-ian-ozsvald" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tips and tricks for efficiency gains in Pandas, Ian Ozsvald</h3>
+<ul>
+  <li>RAM considerations.
+    <ul>
+      <li>Use category instead of strings, for low cardinality data</li>
+      <li>Use float32 or float16 instead of float64</li>
+      <li>Has tool <code class="highlighter-rouge">dtype_diet</code> to automate optimisation of a dataframe</li>
+    </ul>
+  </li>
+  <li>Dropping to NumPy
+    <ul>
+      <li>E.g. <code class="highlighter-rouge">df.sum()</code> versus <code class="highlighter-rouge">df.values.sum()</code>
+</li>
+    </ul>
+  </li>
+  <li>Some tools
+    <ul>
+      <li>bottleneck. See talk for example</li>
+      <li>dtype_diet</li>
+      <li>ipython_memory_usage</li>
+      <li>numba, njit wrapper.</li>
+      <li>Parallelise with Dask. Use profiling to check if benefit outweighs overhead</li>
+      <li>Vaex and modin.</li>
+    </ul>
+  </li>
+  <li>Our own habits
+    <ul>
+      <li>Write tests!</li>
+    </ul>
+  </li>
+  <li>Lots of other examples in their blog and book</li>
+</ul>
+
+<h3 id="30-rules-for-deep-learning-performance-siddha-ganju">
+<a class="anchor" href="#30-rules-for-deep-learning-performance-siddha-ganju" aria-hidden="true"><span class="octicon octicon-link"></span></a>30 Rules for Deep Learning Performance, Siddha Ganju</h3>
+<ul>
+  <li>30 tips and tricks for deep learning in TensforFlow</li>
+  <li>No point repeating them all here. See notes from talk, or watch talk (or buy their book Practical Deep Learning)</li>
+</ul>
+
+<h2 id="workflows">
+<a class="anchor" href="#workflows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Workflows</h2>
+<p>This seems to be a big theme, and sounds like the next big challenge for the data scientist profession.</p>
+
+<h3 id="gitlab-tools-william-arias">
+<a class="anchor" href="#gitlab-tools-william-arias" aria-hidden="true"><span class="octicon octicon-link"></span></a>GitLab Tools, William Arias</h3>
+<ul>
+  <li>I found this talk hard to follow, so my notes are not great.</li>
+</ul>
+
+<h3 id="parallel-stream-processing-alejandro-saucedo">
+<a class="anchor" href="#parallel-stream-processing-alejandro-saucedo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parallel stream processing, Alejandro Saucedo</h3>
+<ul>
+  <li>I found this talk hard to follow, but notes are bit better than the example above</li>
+  <li>Faust - stream processor</li>
+  <li>Kafka - ?</li>
+  <li>Seldon - deployment</li>
+  <li>Example of developing workflow to use ML to help moderate reddit comments.</li>
+</ul>
+
+<h3 id="example-workflow-for-translation-shreya-khurana">
+<a class="anchor" href="#example-workflow-for-translation-shreya-khurana" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example workflow for Translation, Shreya Khurana</h3>
+<ul>
+  <li>I found this talk hard to follow, but still managed to take some notes.</li>
+  <li>Tools used include: seq2seq, Fairseq, Flask, uwsgi, nginx, supervisord, Docker</li>
+</ul>
+
+<h3 id="example-from-teikametrics-chase-stevens">
+<a class="anchor" href="#example-from-teikametrics-chase-stevens" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example from teikametrics, Chase Stevens</h3>
+<ul>
+  <li>Significant time spent emphasising need for good systems and workflows. Make the effort to automate!</li>
+  <li>My notes are not great when it comes to actually describing the tools or workflow they used. Watch the video to find out.</li>
+  <li>Interesting example at end: they automated task of choosing which AWS instance to use.</li>
+</ul>
+
+<h3 id="dvc-hongjoo-lee">
+<a class="anchor" href="#dvc-hongjoo-lee" aria-hidden="true"><span class="octicon octicon-link"></span></a>DVC, Hongjoo Lee</h3>
+<ul>
+  <li>Software development has following standard workflow and tools (I don’t know what most of these things mean…):
+    <ul>
+      <li>Coding management: git</li>
+      <li>Build: sbt maven</li>
+      <li>Test: jUnit</li>
+      <li>Release: Jenkins</li>
+      <li>Deploy: Docker, AWS</li>
+      <li>Operate: Kubernetes</li>
+      <li>Monitor: ELK stack</li>
+    </ul>
+  </li>
+  <li>Hongjoo goes through live example of using DVC on simple model</li>
+  <li>Some alternatives to DVC: git-LFS, MLflow, Apache Airflow</li>
+</ul>
+
+<h3 id="data-pipelines-robson-junior">
+<a class="anchor" href="#data-pipelines-robson-junior" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data pipelines, Robson Junior</h3>
+<ul>
+  <li>I found the speaker particularly hard to follow. Despite this, it looks like I got some decent notes.</li>
+  <li>List of tools for different tasks</li>
+  <li>ELT: Apache Spark, dash, luigi, mrjob, ray</li>
+  <li>Streaming: faust and kafka, streamparse and Apache Storm</li>
+  <li>Analysis: Pandas, Blaze, Open Mining, Orange, Optimus</li>
+  <li>Management and scheduling: Apache Airflow</li>
+  <li>Testing: pytest, mimesis (to create fake data), fake2db, spark-test-base</li>
+  <li>Validation: Cerberus, schema, voluptuous</li>
+</ul>
+
+<h3 id="example-from-deepar-talk-nicola-kuhaupt">
+<a class="anchor" href="#example-from-deepar-talk-nicola-kuhaupt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example from DeepAR talk, Nicola Kuhaupt</h3>
+<ul>
+  <li>Workflow was not focus of talk, but looks talk contained information on workflows anyway</li>
+  <li>Integrated into Sagemaker, which has many in built tools
+    <ul>
+      <li>Ground Truth. Use mechanical turk to build data sets</li>
+      <li>Studio. An IDA</li>
+      <li>Autopilot. For training models</li>
+      <li>Neo. For deployment</li>
+    </ul>
+  </li>
+  <li>boto3, to access aws</li>
+  <li>s3fs, file storage</li>
+  <li>Others were also mentioned. Re-watch talk to find them.</li>
+</ul>
+
+<h3 id="nlpeasy-philipp-thomann">
+<a class="anchor" href="#nlpeasy-philipp-thomann" aria-hidden="true"><span class="octicon octicon-link"></span></a>NLPeasy, Philipp Thomann</h3>
+<ul>
+  <li>NLPeasy is intended to make NLP easy</li>
+  <li>Bas lots of built in tools, e.g. spaCy, Vader, BeautifulSoup,</li>
+  <li>The talk presented example of analysing EuroPython abtracts</li>
+  <li>Had nice dashboard to visualise lots of outputs of models</li>
+  <li>See talk for details</li>
+</ul>
+
+<h3 id="kedro-tam-sanh-nguyen">
+<a class="anchor" href="#kedro-tam-sanh-nguyen" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kedro, Tam-Sanh Nguyen</h3>
+<ul>
+  <li>Open source complete workflow package by QuantumBlack</li>
+  <li>Talk rushed through features of Kedro, but from the brief glimpse, it looks easy to use and has a nice UI.</li>
+  <li>See examples on GitHub or Tam-Sanh’s YouTube series DataEngineerOne</li>
+</ul>
+
+<h2 id="miscellaneous">
+<a class="anchor" href="#miscellaneous" aria-hidden="true"><span class="octicon octicon-link"></span></a>Miscellaneous</h2>
+<h3 id="history-of-jupyter-notebooks-william-horton">
+<a class="anchor" href="#history-of-jupyter-notebooks-william-horton" aria-hidden="true"><span class="octicon octicon-link"></span></a>History of Jupyter Notebooks, William Horton</h3>
+<ul>
+  <li>Does what it says on the tin. I stopped taking notes because I do not anticipate learning the history. Watch the talk if you want to know more.</li>
+</ul>
+
+<h3 id="neural-style-transfer-and-gans-anmol-krishan-sachdeva">
+<a class="anchor" href="#neural-style-transfer-and-gans-anmol-krishan-sachdeva" aria-hidden="true"><span class="octicon octicon-link"></span></a>Neural Style Transfer and GANs, Anmol Krishan Sachdeva</h3>
+<ul>
+  <li>Anmol described the algorithm for GANs and for neural style transfer</li>
+  <li>Showed example code in the talk</li>
+  <li>See notes for the details. It’s pretty clever stuff!</li>
+</ul>
+
+<h3 id="probabilistic-forecasting-with-deepar-nicolas-kuhaupt">
+<a class="anchor" href="#probabilistic-forecasting-with-deepar-nicolas-kuhaupt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Probabilistic forecasting with DeepAR, Nicolas Kuhaupt</h3>
+<ul>
+  <li>DeepAR is an algorithm to produce probabilistic time series predictions, by Amazon</li>
+  <li>One interesting feature is it deals with multiple time series simultaneously</li>
+  <li>I did not understand details. Would have to read paper to understand</li>
+  <li>Example uses cases
+    <ul>
+      <li>Sales at amazon. Each product has its own time series</li>
+      <li>Sales of magazines in different stores. Each store has its own time series.</li>
+      <li>Loads on servers in data centers</li>
+      <li>Car traffic. Separate time series for each lane</li>
+      <li>Energy consumption by household.</li>
+    </ul>
+  </li>
+  <li>Goes through an example in the talk</li>
+</ul>
+
+  </div><a class="u-url" href="/blog/python/data%20science/conference/2020/07/26/europython3.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,7 +1,275 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-26T05:33:14-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-26T05:43:44-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Summary</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Summary" /><published>2020-07-26T00:00:00-05:00</published><updated>2020-07-26T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/24/europython2.html&quot;&gt;EuroPython Conference 2020, Day 2&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I attended the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt; and recorded notes while watching the talks. Today, I reviewed the notes with the aim of consolidating the main lessons, grouping together similar talks, and recording key lessons.&lt;/p&gt;
+
+&lt;h2 id=&quot;tips-and-tricks&quot;&gt;Tips and tricks&lt;/h2&gt;
+&lt;h3 id=&quot;docker-tania-allard&quot;&gt;Docker, Tania Allard.&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Expect things to be tricky and frustrating. There are many bad tutorials online&lt;/li&gt;
+  &lt;li&gt;Do not re-invent the wheel: use cookie-cutter, repo2docker&lt;/li&gt;
+  &lt;li&gt;Many other useful tips in the talk&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;data-cleaning-hui-zhang-chua&quot;&gt;Data Cleaning, Hui Zhang Chua&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Hui provided a checklist of tasks you should do when cleaning data.&lt;/li&gt;
+  &lt;li&gt;Refer to the notes from the talk for the list&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;recommended-packages--tools&quot;&gt;Recommended packages / tools&lt;/h2&gt;
+&lt;h3 id=&quot;spacy-alexander-hendorf&quot;&gt;spaCy, Alexander Hendorf&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Open source library for NLP&lt;/li&gt;
+  &lt;li&gt;Has many state-of-the-art algorithms built-in&lt;/li&gt;
+  &lt;li&gt;Highly recommended by the speaker&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;diffprivlib-naoise-holohan&quot;&gt;diffprivlib, Naoise Holohan&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Open source library for differential privacy&lt;/li&gt;
+  &lt;li&gt;(For background theory on differential privacy, I recommended &lt;a href=&quot;https://www.youtube.com/watch?v=bScJdHX0Hac&quot;&gt;this talk&lt;/a&gt; from &lt;a href=&quot;https://faculty.ai/&quot;&gt;FacultyAI&lt;/a&gt;.)&lt;/li&gt;
+  &lt;li&gt;If you want to work with sensitive data, this is a good open source library to consider&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;googles-ml-apis-and-automl-laurent-picard&quot;&gt;Google’s ML APIs and AutoML, Laurent Picard&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Google has a lot of ML tools available&lt;/li&gt;
+  &lt;li&gt;Looks nicely packaged and looks very user-friendly.&lt;/li&gt;
+  &lt;li&gt;Is there even any point in me learning data science?!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;simpy-eran-friedman&quot;&gt;SimPy, Eran Friedman&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;SimPy can be used to do discrete event simulation&lt;/li&gt;
+  &lt;li&gt;E.g. for robotics training&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;data-visualisation-landscape-bence-arato&quot;&gt;Data Visualisation Landscape, Bence Arato&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/europython_4.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;binder-sarah-gibson&quot;&gt;Binder, Sarah Gibson&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;For repeatable research (and for teaching/workshops), use Binder&lt;/li&gt;
+  &lt;li&gt;Just have to give Binder link to your GitHub repo which contains a jupyter notebook and a standard requirements configuration file, and then Binder will create link.&lt;/li&gt;
+  &lt;li&gt;You give link to somebody, they go to it, and they can run the jupyter notebook from their browser. Super easy&lt;/li&gt;
+  &lt;li&gt;Binder is open source, so can be configured for your own needs. E.g. can make it so only certain individuals can access the link (or something like that).&lt;/li&gt;
+  &lt;li&gt;Talk contained details of how Binder works, and the tools and infrastructure they use&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;ipython-miki-tebeka&quot;&gt;IPython, Miki Tebeka&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Did live example of using IPython to do some initial experimentation of data and pre-processing style stuff&lt;/li&gt;
+  &lt;li&gt;Magic commands with &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt;, comand line with &lt;code class=&quot;highlighter-rouge&quot;&gt;!&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;pprint&lt;/code&gt; for pretty printing, &lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt; for help, &lt;code class=&quot;highlighter-rouge&quot;&gt;??&lt;/code&gt; for source code, &lt;code class=&quot;highlighter-rouge&quot;&gt;%timeit&lt;/code&gt; for time analysis, can do sql with extension, &lt;code class=&quot;highlighter-rouge&quot;&gt;%cow&lt;/code&gt; for ascii art.&lt;/li&gt;
+  &lt;li&gt;See talk for more examples not listed here&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;analytical-functions-in-sql-brendan-tierney&quot;&gt;Analytical Functions in SQL, Brendan Tierney&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Talk was cancelled, but their slides are available&lt;/li&gt;
+  &lt;li&gt;Looks like SQL can do a lot more than what most of us know&lt;/li&gt;
+  &lt;li&gt;Something worth researching&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;tricks-and-tools-for-efficiencyspeed-gains&quot;&gt;Tricks and tools for efficiency/speed gains&lt;/h2&gt;
+&lt;p&gt;Several talks were about this, so I thought it was worth grouping them together&lt;/p&gt;
+
+&lt;h3 id=&quot;concurrentfutures-chin-hwee-ong&quot;&gt;concurrent.futures, Chin Hwee Ong&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Built in package in Python for parallel / asynchronous computing&lt;/li&gt;
+  &lt;li&gt;For big data, can use tools like Spark.&lt;/li&gt;
+  &lt;li&gt;For small big data, overhead cost is too large&lt;/li&gt;
+  &lt;li&gt;Using concurrent.futures module can speed things up&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;daal4py-and-sdc-by-intel-fedotova-and-schlimbach&quot;&gt;daal4py and SDC by Intel, Fedotova and Schlimbach&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;These are open source tools that can drastically speed things up.&lt;/li&gt;
+  &lt;li&gt;daal4py gives optimised versions of scikitlearn functions. But still in production. Some functions do not give identical output to their scikitlearn counterparts.&lt;/li&gt;
+  &lt;li&gt;SDC. A just-in-time compiler. Extension of Numba.
+    &lt;ul&gt;
+      &lt;li&gt;Easy to use; just add decorate &lt;code class=&quot;highlighter-rouge&quot;&gt;@numba.jit&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Only works for statically compilable code&lt;/li&gt;
+      &lt;li&gt;Examples of speed ups provided in the talk&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tips-and-tricks-for-efficiency-gains-in-pandas-ian-ozsvald&quot;&gt;Tips and tricks for efficiency gains in Pandas, Ian Ozsvald&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;RAM considerations.
+    &lt;ul&gt;
+      &lt;li&gt;Use category instead of strings, for low cardinality data&lt;/li&gt;
+      &lt;li&gt;Use float32 or float16 instead of float64&lt;/li&gt;
+      &lt;li&gt;Has tool &lt;code class=&quot;highlighter-rouge&quot;&gt;dtype_diet&lt;/code&gt; to automate optimisation of a dataframe&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Dropping to NumPy
+    &lt;ul&gt;
+      &lt;li&gt;E.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;df.sum()&lt;/code&gt; versus &lt;code class=&quot;highlighter-rouge&quot;&gt;df.values.sum()&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Some tools
+    &lt;ul&gt;
+      &lt;li&gt;bottleneck. See talk for example&lt;/li&gt;
+      &lt;li&gt;dtype_diet&lt;/li&gt;
+      &lt;li&gt;ipython_memory_usage&lt;/li&gt;
+      &lt;li&gt;numba, njit wrapper.&lt;/li&gt;
+      &lt;li&gt;Parallelise with Dask. Use profiling to check if benefit outweighs overhead&lt;/li&gt;
+      &lt;li&gt;Vaex and modin.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Our own habits
+    &lt;ul&gt;
+      &lt;li&gt;Write tests!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Lots of other examples in their blog and book&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;30-rules-for-deep-learning-performance-siddha-ganju&quot;&gt;30 Rules for Deep Learning Performance, Siddha Ganju&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;30 tips and tricks for deep learning in TensforFlow&lt;/li&gt;
+  &lt;li&gt;No point repeating them all here. See notes from talk, or watch talk (or buy their book Practical Deep Learning)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;workflows&quot;&gt;Workflows&lt;/h2&gt;
+&lt;p&gt;This seems to be a big theme, and sounds like the next big challenge for the data scientist profession.&lt;/p&gt;
+
+&lt;h3 id=&quot;gitlab-tools-william-arias&quot;&gt;GitLab Tools, William Arias&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;I found this talk hard to follow, so my notes are not great.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;parallel-stream-processing-alejandro-saucedo&quot;&gt;Parallel stream processing, Alejandro Saucedo&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;I found this talk hard to follow, but notes are bit better than the example above&lt;/li&gt;
+  &lt;li&gt;Faust - stream processor&lt;/li&gt;
+  &lt;li&gt;Kafka - ?&lt;/li&gt;
+  &lt;li&gt;Seldon - deployment&lt;/li&gt;
+  &lt;li&gt;Example of developing workflow to use ML to help moderate reddit comments.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;example-workflow-for-translation-shreya-khurana&quot;&gt;Example workflow for Translation, Shreya Khurana&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;I found this talk hard to follow, but still managed to take some notes.&lt;/li&gt;
+  &lt;li&gt;Tools used include: seq2seq, Fairseq, Flask, uwsgi, nginx, supervisord, Docker&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;example-from-teikametrics-chase-stevens&quot;&gt;Example from teikametrics, Chase Stevens&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Significant time spent emphasising need for good systems and workflows. Make the effort to automate!&lt;/li&gt;
+  &lt;li&gt;My notes are not great when it comes to actually describing the tools or workflow they used. Watch the video to find out.&lt;/li&gt;
+  &lt;li&gt;Interesting example at end: they automated task of choosing which AWS instance to use.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;dvc-hongjoo-lee&quot;&gt;DVC, Hongjoo Lee&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Software development has following standard workflow and tools (I don’t know what most of these things mean…):
+    &lt;ul&gt;
+      &lt;li&gt;Coding management: git&lt;/li&gt;
+      &lt;li&gt;Build: sbt maven&lt;/li&gt;
+      &lt;li&gt;Test: jUnit&lt;/li&gt;
+      &lt;li&gt;Release: Jenkins&lt;/li&gt;
+      &lt;li&gt;Deploy: Docker, AWS&lt;/li&gt;
+      &lt;li&gt;Operate: Kubernetes&lt;/li&gt;
+      &lt;li&gt;Monitor: ELK stack&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Hongjoo goes through live example of using DVC on simple model&lt;/li&gt;
+  &lt;li&gt;Some alternatives to DVC: git-LFS, MLflow, Apache Airflow&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;data-pipelines-robson-junior&quot;&gt;Data pipelines, Robson Junior&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;I found the speaker particularly hard to follow. Despite this, it looks like I got some decent notes.&lt;/li&gt;
+  &lt;li&gt;List of tools for different tasks&lt;/li&gt;
+  &lt;li&gt;ELT: Apache Spark, dash, luigi, mrjob, ray&lt;/li&gt;
+  &lt;li&gt;Streaming: faust and kafka, streamparse and Apache Storm&lt;/li&gt;
+  &lt;li&gt;Analysis: Pandas, Blaze, Open Mining, Orange, Optimus&lt;/li&gt;
+  &lt;li&gt;Management and scheduling: Apache Airflow&lt;/li&gt;
+  &lt;li&gt;Testing: pytest, mimesis (to create fake data), fake2db, spark-test-base&lt;/li&gt;
+  &lt;li&gt;Validation: Cerberus, schema, voluptuous&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;example-from-deepar-talk-nicola-kuhaupt&quot;&gt;Example from DeepAR talk, Nicola Kuhaupt&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Workflow was not focus of talk, but looks talk contained information on workflows anyway&lt;/li&gt;
+  &lt;li&gt;Integrated into Sagemaker, which has many in built tools
+    &lt;ul&gt;
+      &lt;li&gt;Ground Truth. Use mechanical turk to build data sets&lt;/li&gt;
+      &lt;li&gt;Studio. An IDA&lt;/li&gt;
+      &lt;li&gt;Autopilot. For training models&lt;/li&gt;
+      &lt;li&gt;Neo. For deployment&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;boto3, to access aws&lt;/li&gt;
+  &lt;li&gt;s3fs, file storage&lt;/li&gt;
+  &lt;li&gt;Others were also mentioned. Re-watch talk to find them.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;nlpeasy-philipp-thomann&quot;&gt;NLPeasy, Philipp Thomann&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;NLPeasy is intended to make NLP easy&lt;/li&gt;
+  &lt;li&gt;Bas lots of built in tools, e.g. spaCy, Vader, BeautifulSoup,&lt;/li&gt;
+  &lt;li&gt;The talk presented example of analysing EuroPython abtracts&lt;/li&gt;
+  &lt;li&gt;Had nice dashboard to visualise lots of outputs of models&lt;/li&gt;
+  &lt;li&gt;See talk for details&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;kedro-tam-sanh-nguyen&quot;&gt;Kedro, Tam-Sanh Nguyen&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Open source complete workflow package by QuantumBlack&lt;/li&gt;
+  &lt;li&gt;Talk rushed through features of Kedro, but from the brief glimpse, it looks easy to use and has a nice UI.&lt;/li&gt;
+  &lt;li&gt;See examples on GitHub or Tam-Sanh’s YouTube series DataEngineerOne&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;miscellaneous&quot;&gt;Miscellaneous&lt;/h2&gt;
+&lt;h3 id=&quot;history-of-jupyter-notebooks-william-horton&quot;&gt;History of Jupyter Notebooks, William Horton&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Does what it says on the tin. I stopped taking notes because I do not anticipate learning the history. Watch the talk if you want to know more.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;neural-style-transfer-and-gans-anmol-krishan-sachdeva&quot;&gt;Neural Style Transfer and GANs, Anmol Krishan Sachdeva&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Anmol described the algorithm for GANs and for neural style transfer&lt;/li&gt;
+  &lt;li&gt;Showed example code in the talk&lt;/li&gt;
+  &lt;li&gt;See notes for the details. It’s pretty clever stuff!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;probabilistic-forecasting-with-deepar-nicolas-kuhaupt&quot;&gt;Probabilistic forecasting with DeepAR, Nicolas Kuhaupt&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;DeepAR is an algorithm to produce probabilistic time series predictions, by Amazon&lt;/li&gt;
+  &lt;li&gt;One interesting feature is it deals with multiple time series simultaneously&lt;/li&gt;
+  &lt;li&gt;I did not understand details. Would have to read paper to understand&lt;/li&gt;
+  &lt;li&gt;Example uses cases
+    &lt;ul&gt;
+      &lt;li&gt;Sales at amazon. Each product has its own time series&lt;/li&gt;
+      &lt;li&gt;Sales of magazines in different stores. Each store has its own time series.&lt;/li&gt;
+      &lt;li&gt;Loads on servers in data centers&lt;/li&gt;
+      &lt;li&gt;Car traffic. Separate time series for each lane&lt;/li&gt;
+      &lt;li&gt;Energy consumption by household.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Goes through an example in the talk&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Day 2 EuroPython Conference 2020, Day 1</summary></entry><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/26/europython3.html&quot;&gt;EuroPython Conference 2020, Summary&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -739,10 +1007,15 @@
 &lt;h3 id=&quot;my-thoughts-13&quot;&gt;My thoughts&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Looks like an intuitive system. Looks simpler than other pipelines presented in the conference. But is it because it actually is simpler, or is it because I am just getting used to pipelines. (Before this conference, I hadn’t studied pipelines at all).&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Day 1</summary></entry><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Summary EuroPython Conference 2020, Day 1</summary></entry><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/24/europython2.html&quot;&gt;EuroPython Conference 2020, Day 2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/26/europython3.html&quot;&gt;EuroPython Conference 2020, Summary&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/24/europython2.html&quot;&gt;EuroPython Conference 2020, Day 2&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -1275,7 +1548,7 @@ f   * Make images identifiable&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;my-thoughts-10&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Another useful set of resources and examples I can use as a reference if/when I need to make production based decisions.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Day 2</summary></entry><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;Another useful set of resources and examples I can use as a reference if/when I need to make production based decisions.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Summary EuroPython Conference 2020, Day 2</summary></entry><entry><title type="html">Santander Dataset, Part III, Learning from others</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html" rel="alternate" type="text/html" title="Santander Dataset, Part III, Learning from others" /><published>2020-07-18T00:00:00-05:00</published><updated>2020-07-18T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/18/santander3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1910,258 +2183,4 @@ Based on all these graphs above, it was clear I had misunderstood something basi
            &lt;span class=&quot;n&quot;&gt;bbox_to_anchor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tight_layout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;plt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'sas3_outcome.png'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Total number of stops and searches</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://lovkush-a.github.io/blog/images/sas3_outcome.png" /><media:content medium="image" url="https://lovkush-a.github.io/blog/images/sas3_outcome.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Stop and Search, Part II, Data Cleaning</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/06/17/sas2.html" rel="alternate" type="text/html" title="Stop and Search, Part II, Data Cleaning" /><published>2020-06-17T00:00:00-05:00</published><updated>2020-06-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/06/17/sas2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/06/17/sas2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/06/22/sas3.html&quot;&gt;Stop and Search, Part III, Data Analysis&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/06/15/sas1.html&quot;&gt;Stop and Search, Part I, Data Collection&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;the-cleaning&quot;&gt;The cleaning&lt;/h2&gt;
-&lt;p&gt;I cleaned each column, one by one. Note I call the original frame &lt;code class=&quot;highlighter-rouge&quot;&gt;sas&lt;/code&gt; and created a copy &lt;code class=&quot;highlighter-rouge&quot;&gt;sas_clean&lt;/code&gt; in which I would do the cleaning.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;To see a list of all the columns, I ran the code &lt;code class=&quot;highlighter-rouge&quot;&gt;sas.columns&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;To investigate the distribution of values in a column (before and after cleaning), I would use the code &lt;code class=&quot;highlighter-rouge&quot;&gt;sas_clean.column.value_counts(dropna = False)&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Some columns required no cleaning:
-    &lt;ul&gt;
-      &lt;li&gt;age_range&lt;/li&gt;
-      &lt;li&gt;gender&lt;/li&gt;
-      &lt;li&gt;location.latitude and location.longitude (except I renamed thse columns)&lt;/li&gt;
-      &lt;li&gt;force&lt;/li&gt;
-      &lt;li&gt;month&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The other columns did require some cleaning:
-    &lt;ul&gt;
-      &lt;li&gt;self_defined_ethnicity and officer_defined_ethnicity&lt;/li&gt;
-      &lt;li&gt;type&lt;/li&gt;
-      &lt;li&gt;outcome&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;ethnicity&quot;&gt;Ethnicity&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;officer_defined_ethnicity&lt;/code&gt; was mostly clean. The distribution of values were:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;White    608092
-Black    259504
-Asian    139531
-NaN       91601
-Other     31845
-Mixed      2563
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The only change I made was to combine mixed with other.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;self_defined_ethnicity&lt;/code&gt; was less clean, and the distribution of values were:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;White - English/Welsh/Scottish/Northern Irish/British                                   475167
-Other ethnic group - Not stated                                                         154802
-White - Any other White background                                                       85322
-Black/African/Caribbean/Black British - Any other Black/African/Caribbean background     78340
-Black/African/Caribbean/Black British - African                                          66072
-Black/African/Caribbean/Black British - Caribbean                                        49736
-Asian/Asian British - Any other Asian background                                         44517
-NaN                                                                                      41149
-Asian/Asian British - Pakistani                                                          33907
-Asian/Asian British - Bangladeshi                                                        24128
-Other ethnic group - Any other ethnic group                                              16449
-Mixed/Multiple ethnic groups - Any other Mixed/Multiple ethnic background                15560
-Asian/Asian British - Indian                                                             14929
-Mixed/Multiple ethnic groups - White and Black Caribbean                                 14063
-White - Irish                                                                             7843
-Mixed/Multiple ethnic groups - White and Black African                                    4246
-Mixed/Multiple ethnic groups - White and Asian                                            3598
-White - Gypsy or Irish Traveller                                                          1689
-Asian/Asian British - Chinese                                                             1476
-Other ethnic group - Arab                                                                  143
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;I decided to group these up according to the same categories used in &lt;code class=&quot;highlighter-rouge&quot;&gt;officer_defined_ethnicity&lt;/code&gt;. This was done using &lt;code class=&quot;highlighter-rouge&quot;&gt;.replace&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;simplify_eth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ethnicity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;isinstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ethnicity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Not stated'&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ethnicity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nan&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Other'&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ethnicity&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Mixed'&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ethnicity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Other'&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Asian'&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ethnicity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Asian'&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Black'&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ethnicity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'Black'&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'White'&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ethnicity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'White'&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;ethnicities&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;eth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;simplify_eth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;eth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eth&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;self_defined_ethnicity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_replace&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ethnicities&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-Finally, I wanted to create a column &lt;code class=&quot;highlighter-rouge&quot;&gt;ethnicity&lt;/code&gt; that combines these two columns. I started by renaming the other two columns, creating the new column, and filling it in with values where there is no disagreement between the officer defined and self defined ethnicity.&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;columns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'self_defined_ethnicity'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'self'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                            &lt;span class=&quot;s&quot;&gt;'officer_defined_ethnicity'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'officer'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inplace&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'ethnicity'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nan&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# if officer and self agree, set ethnicity to either.
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indices&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;officer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'ethnicity'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;officer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# if officer is null, set ethnicity to self, and vice versa
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indices&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;officer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isnull&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'ethnicity'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;indices&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isnull&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'ethnicity'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;officer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-I created a column &lt;code class=&quot;highlighter-rouge&quot;&gt;conflicted&lt;/code&gt; to list all the cases where the stated ethnicity differs:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sas_clean['conflicted'] = np.nan
-indices = (sas_clean.officer != sas_clean.self) &amp;amp; (sas_clean.officer.notna()) &amp;amp; (sas_clean.self.notna())
-sas_clean.loc[indices, 'conflicted'] = sas_clean.officer[indices] + '_' + sas_clean.self[indices]
-sas_clean.conflicted.value_counts()
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The output was:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Black_Other      18774
-White_Other      12423
-Asian_Other       6240
-Other_Asian       5319
-Other_White       4243
-Black_White       2924
-Asian_White       2394
-White_Asian       2027
-Black_Asian       1990
-White_Black       1935
-Other_Black       1764
-Asian_Black       1577
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;
-To decide how to deal with this, I went back into the original &lt;code class=&quot;highlighter-rouge&quot;&gt;self_defined_ethnicity&lt;/code&gt; to determine what the appropriate label ought to be.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conflicted&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unique&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;indices&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conflicted&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;indices&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'self_defined_ethnicity'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value_counts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;A sample of the output is:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Black_Other
-Mixed/Multiple ethnic groups - White and Black Caribbean                     9158
-Mixed/Multiple ethnic groups - Any other Mixed/Multiple ethnic background    4891
-Mixed/Multiple ethnic groups - White and Black African                       2689
-Other ethnic group - Any other ethnic group                                  1835
-Mixed/Multiple ethnic groups - White and Asian                                194
-
-White_Black
-Black/African/Caribbean/Black British - Any other Black/African/Caribbean background    815
-Black/African/Caribbean/Black British - African                                         633
-Black/African/Caribbean/Black British - Caribbean                                       487
-
-Other_Black
-Black/African/Caribbean/Black British - African                                         819
-Black/African/Caribbean/Black British - Any other Black/African/Caribbean background    750
-Black/African/Caribbean/Black British - Caribbean                                       195
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Deciding how to deal with these cases was the trickiest part of the cleaning. First, this is a sensitive issue and it feels wrong for me to decide how people should be labelled. Second, there is clearly no ‘right’ answer here, and I have to use my judgement.  In the end, for most cases, I chose the self_defined_ethnicity.  However, the two big exceptions were when the officer identified the person as Black or White but the person identified themselves as mixed. There were 30000 such cases. If I added them to the ‘Other’ category, this would grossly skew the numbers and misrepresent the situation, so I decided to assign these Black and White (respectively).  Different people will make different judgements on this, and I suppose this is one way our own biases can creep into the data analysis.&lt;/p&gt;
-
-&lt;p&gt;In the end, the distribution of ethnicities in this new column is:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;White    645261
-Black    269286
-Asian    143468
-NaN       40383
-Other     34738
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;type&quot;&gt;Type&lt;/h2&gt;
-&lt;p&gt;There are 3 types of stop-and-search:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Person search                861870
-Person and Vehicle search    246976
-Vehicle search                24290
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Theoretically, a vehicle search does not involve any people, and thus should not have any ethnicity attached to it. However, a quick query shows this is not the case:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sas_clean.loc[(sas_clean.type == 'Vehicle search'), 'ethnicity'].value_counts(dropna = False)
-
-NaN      20762
-White     1796
-Black      843
-Asian      619
-Other      270
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This gives some indication of how much inherent noise there is in the data.  Given the numbers are relatively small, I did not worry about ignoring these entries and so just removed all Vehicle search entries.&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sas_clean = sas_clean[sas_clean.type != 'Vehicle search']
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;outcome&quot;&gt;Outcome&lt;/h2&gt;
-&lt;p&gt;Last, I cleaned the outcome column. The distribution of values were:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;A no further action disposal                                    675585
-Arrest                                                          126538
-False                                                           115566
-Community resolution                                             50906
-Suspect arrested                                                 30616
-Khat or Cannabis warning                                         26428
-NaN                                                              22090
-Summons / charged by post                                        16366
-Penalty Notice for Disorder                                      13617
-Offender given drugs possession warning                          12717
-Local resolution                                                  4709
-Caution (simple or conditional)                                   4520
-Suspect summonsed to court                                        2941
-Offender given penalty notice                                     2802
-Article found - Detailed outcome unavailable                      2651
-Offender cautioned                                                 778
-Suspected psychoactive substances seized - No further action        16
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;I decided to replace these with a numerical value, where 0 represents that the stop-and-search discovered nothing inappropriate, 1 represents a minor infringement with minimal action and 2 represents a major infringement with significant action.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;replacements&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'A no further action disposal'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;s&quot;&gt;'Arrest'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;s&quot;&gt;'False'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;s&quot;&gt;'Community resolution'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;s&quot;&gt;'Suspect arrested'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;s&quot;&gt;'Khat or Cannabis warning'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;s&quot;&gt;'Summons / charged by post'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;s&quot;&gt;'Penalty Notice for Disorder'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;s&quot;&gt;'Offender given drugs possession warning'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;s&quot;&gt;'Local resolution'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               &lt;span class=&quot;s&quot;&gt;'Caution (simple or conditional)'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;s&quot;&gt;'Suspect summonsed to court'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;s&quot;&gt;'Offender given penalty notice'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;s&quot;&gt;'Article found - Detailed outcome unavailable'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;s&quot;&gt;'Offender cautioned'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                &lt;span class=&quot;s&quot;&gt;'Suspected psychoactive substances seized - No further action'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-               &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'outcome'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outcome&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;replace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_replace&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;replacements&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;sas_clean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;outcome&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value_counts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dropna&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The final distribution of values for outcomes is as follows:&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0.0    791151
-2.0    192880
-1.0    102725
-NaN     22090
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;It is surprising the the majority of stop-and-searches amount to nothing. It makes me wonder what the reasons for this are, and if there is a more efficient means of detecting the actual crimes with fewer false positives.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion-and-thoughts&quot;&gt;Conclusion and thoughts&lt;/h2&gt;
-&lt;p&gt;That is end of the cleaning and tomorrow I will try to illustrate the patterns in the data with appropriate charts.&lt;/p&gt;
-
-&lt;p&gt;The two main lessons:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Data is inherently noisy, and one should not treat data as objective truth. (Though, it is the closest we have got!)&lt;/li&gt;
-  &lt;li&gt;A data scientist has significant power to adjust the story, by grouping and cleaning the data differently. It seems that good practice is to be open about how you processed the data and to check how different choices affect the final results.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series Stop and Search, Part III, Data Analysis Stop and Search, Part I, Data Collection</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Total number of stops and searches</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://lovkush-a.github.io/blog/images/sas3_outcome.png" /><media:content medium="image" url="https://lovkush-a.github.io/blog/images/sas3_outcome.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
