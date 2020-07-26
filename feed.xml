@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-26T05:50:24-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Summary</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Summary" /><published>2020-07-26T00:00:00-05:00</published><updated>2020-07-26T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-26T05:59:15-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Summary</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Summary" /><published>2020-07-26T00:00:00-05:00</published><updated>2020-07-26T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -73,7 +73,7 @@
 
 &lt;h3 id=&quot;example-from-deepar-talk-nicola-kuhaupt&quot;&gt;Example from DeepAR talk, Nicola Kuhaupt&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;Workflow was not focus of talk, but looks talk contained information on workflows anyway&lt;/li&gt;
+  &lt;li&gt;Workflow was not focus of talk, but talk contained information on workflows anyway&lt;/li&gt;
   &lt;li&gt;Integrated into Sagemaker, which has many in built tools
     &lt;ul&gt;
       &lt;li&gt;Ground Truth. Use mechanical turk to build data sets&lt;/li&gt;
@@ -132,7 +132,11 @@
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;data-visualisation-landscape-bence-arato&quot;&gt;Data Visualisation Landscape, Bence Arato&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/europython_4.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;See notes or the talk for brief descriptions of the different tools.&lt;/li&gt;
+  &lt;li&gt;Tools discussed are in image from this slide:
+&lt;img src=&quot;/blog/images/europython_4.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h3 id=&quot;binder-sarah-gibson&quot;&gt;Binder, Sarah Gibson&lt;/h3&gt;
 &lt;ul&gt;
@@ -176,9 +180,9 @@
     &lt;ul&gt;
       &lt;li&gt;Easy to use; just add decorate &lt;code class=&quot;highlighter-rouge&quot;&gt;@numba.jit&lt;/code&gt;&lt;/li&gt;
       &lt;li&gt;Only works for statically compilable code&lt;/li&gt;
-      &lt;li&gt;Examples of speed ups provided in the talk&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
+  &lt;li&gt;Examples of speed ups provided in the talk&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;tips-and-tricks-for-efficiency-gains-in-pandas-ian-ozsvald&quot;&gt;Tips and tricks for efficiency gains in Pandas, Ian Ozsvald&lt;/h3&gt;
