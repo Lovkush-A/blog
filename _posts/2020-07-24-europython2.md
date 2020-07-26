@@ -413,7 +413,7 @@ Not much to say. Another tool that I now know about.
 
 ### Notes from talk
 * Forbes 30 under 30!
-* Recommended [book](www.PracticalDeepLearning.ai)
+* Recommended [book](https://www.PracticalDeepLearning.ai)
 * 95% of all AI Training is Transfer Learning
     * Playing melodica much easier if you already know how to play the piano
     * In Neural Network, earlier layers contains generic knowledge, and later layers contain task specific knowledge - at least in CNNs
