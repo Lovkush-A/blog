@@ -62,7 +62,7 @@ This seems to be a big theme, and sounds like the next big challenge for the dat
 * Validation: Cerberus, schema, voluptuous
 
 ### Example from DeepAR talk, Nicola Kuhaupt
-* Workflow was not focus of talk, but looks talk contained information on workflows anyway
+* Workflow was not focus of talk, but talk contained information on workflows anyway
 * Integrated into Sagemaker, which has many in built tools
     * Ground Truth. Use mechanical turk to build data sets
     * Studio. An IDA
@@ -108,6 +108,8 @@ This seems to be a big theme, and sounds like the next big challenge for the dat
 * E.g. for robotics training
 
 ### Data Visualisation Landscape, Bence Arato
+* See notes or the talk for brief descriptions of the different tools.
+* Tools discussed are in image from this slide:
 ![image]({{ site.baseurl }}/images/europython_4.png)
 
 ### Binder, Sarah Gibson
@@ -145,7 +147,7 @@ Several talks were about this, so I thought it was worth grouping them together
 * SDC. A just-in-time compiler. Extension of Numba.
     * Easy to use; just add decorate `@numba.jit`
     * Only works for statically compilable code
-    * Examples of speed ups provided in the talk
+* Examples of speed ups provided in the talk
 
 ### Tips and tricks for efficiency gains in Pandas, Ian Ozsvald
 * RAM considerations.
