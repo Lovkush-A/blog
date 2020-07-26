@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-26T05:43:44-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Summary</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Summary" /><published>2020-07-26T00:00:00-05:00</published><updated>2020-07-26T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-26T05:50:24-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Summary</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Summary" /><published>2020-07-26T00:00:00-05:00</published><updated>2020-07-26T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -12,18 +12,95 @@
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I attended the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt; and recorded notes while watching the talks. Today, I reviewed the notes with the aim of consolidating the main lessons, grouping together similar talks, and recording key lessons.&lt;/p&gt;
 
-&lt;h2 id=&quot;tips-and-tricks&quot;&gt;Tips and tricks&lt;/h2&gt;
-&lt;h3 id=&quot;docker-tania-allard&quot;&gt;Docker, Tania Allard.&lt;/h3&gt;
+&lt;h2 id=&quot;workflows&quot;&gt;Workflows&lt;/h2&gt;
+&lt;p&gt;This seems to be a big theme, and sounds like the next big challenge for the data scientist profession.&lt;/p&gt;
+
+&lt;h3 id=&quot;gitlab-tools-william-arias&quot;&gt;GitLab Tools, William Arias&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;Expect things to be tricky and frustrating. There are many bad tutorials online&lt;/li&gt;
-  &lt;li&gt;Do not re-invent the wheel: use cookie-cutter, repo2docker&lt;/li&gt;
-  &lt;li&gt;Many other useful tips in the talk&lt;/li&gt;
+  &lt;li&gt;I found this talk hard to follow, so my notes are not great.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;data-cleaning-hui-zhang-chua&quot;&gt;Data Cleaning, Hui Zhang Chua&lt;/h3&gt;
+&lt;h3 id=&quot;parallel-stream-processing-alejandro-saucedo&quot;&gt;Parallel stream processing, Alejandro Saucedo&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;Hui provided a checklist of tasks you should do when cleaning data.&lt;/li&gt;
-  &lt;li&gt;Refer to the notes from the talk for the list&lt;/li&gt;
+  &lt;li&gt;I found this talk hard to follow, but notes are bit better than the example above&lt;/li&gt;
+  &lt;li&gt;Faust - stream processor&lt;/li&gt;
+  &lt;li&gt;Kafka - ?&lt;/li&gt;
+  &lt;li&gt;Seldon - deployment&lt;/li&gt;
+  &lt;li&gt;Example of developing workflow to use ML to help moderate reddit comments.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;example-workflow-for-translation-shreya-khurana&quot;&gt;Example workflow for Translation, Shreya Khurana&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;I found this talk hard to follow, but still managed to take some notes.&lt;/li&gt;
+  &lt;li&gt;Tools used include: seq2seq, Fairseq, Flask, uwsgi, nginx, supervisord, Docker&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;example-from-teikametrics-chase-stevens&quot;&gt;Example from teikametrics, Chase Stevens&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Significant time spent emphasising need for good systems and workflows. Make the effort to automate!&lt;/li&gt;
+  &lt;li&gt;My notes are not great when it comes to actually describing the tools or workflow they used. Watch the video to find out.&lt;/li&gt;
+  &lt;li&gt;Interesting example at end: they automated task of choosing which AWS instance to use.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;dvc-hongjoo-lee&quot;&gt;DVC, Hongjoo Lee&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Software development has following standard workflow and tools (I don’t know what most of these things mean…):
+    &lt;ul&gt;
+      &lt;li&gt;Coding management: git&lt;/li&gt;
+      &lt;li&gt;Build: sbt maven&lt;/li&gt;
+      &lt;li&gt;Test: jUnit&lt;/li&gt;
+      &lt;li&gt;Release: Jenkins&lt;/li&gt;
+      &lt;li&gt;Deploy: Docker, AWS&lt;/li&gt;
+      &lt;li&gt;Operate: Kubernetes&lt;/li&gt;
+      &lt;li&gt;Monitor: ELK stack&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Hongjoo goes through live example of using DVC on simple model&lt;/li&gt;
+  &lt;li&gt;Some alternatives to DVC: git-LFS, MLflow, Apache Airflow&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;data-pipelines-robson-junior&quot;&gt;Data pipelines, Robson Junior&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;I found the speaker particularly hard to follow. Despite this, it looks like I got some decent notes.&lt;/li&gt;
+  &lt;li&gt;List of tools for different tasks&lt;/li&gt;
+  &lt;li&gt;ELT: Apache Spark, dash, luigi, mrjob, ray&lt;/li&gt;
+  &lt;li&gt;Streaming: faust and kafka, streamparse and Apache Storm&lt;/li&gt;
+  &lt;li&gt;Analysis: Pandas, Blaze, Open Mining, Orange, Optimus&lt;/li&gt;
+  &lt;li&gt;Management and scheduling: Apache Airflow&lt;/li&gt;
+  &lt;li&gt;Testing: pytest, mimesis (to create fake data), fake2db, spark-test-base&lt;/li&gt;
+  &lt;li&gt;Validation: Cerberus, schema, voluptuous&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;example-from-deepar-talk-nicola-kuhaupt&quot;&gt;Example from DeepAR talk, Nicola Kuhaupt&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Workflow was not focus of talk, but looks talk contained information on workflows anyway&lt;/li&gt;
+  &lt;li&gt;Integrated into Sagemaker, which has many in built tools
+    &lt;ul&gt;
+      &lt;li&gt;Ground Truth. Use mechanical turk to build data sets&lt;/li&gt;
+      &lt;li&gt;Studio. An IDA&lt;/li&gt;
+      &lt;li&gt;Autopilot. For training models&lt;/li&gt;
+      &lt;li&gt;Neo. For deployment&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;boto3, to access aws&lt;/li&gt;
+  &lt;li&gt;s3fs, file storage&lt;/li&gt;
+  &lt;li&gt;Others were also mentioned. Re-watch talk to find them.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;nlpeasy-philipp-thomann&quot;&gt;NLPeasy, Philipp Thomann&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;NLPeasy is intended to make NLP easy&lt;/li&gt;
+  &lt;li&gt;Bas lots of built in tools, e.g. spaCy, Vader, BeautifulSoup,&lt;/li&gt;
+  &lt;li&gt;The talk presented example of analysing EuroPython abtracts&lt;/li&gt;
+  &lt;li&gt;Had nice dashboard to visualise lots of outputs of models&lt;/li&gt;
+  &lt;li&gt;See talk for details&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;kedro-tam-sanh-nguyen&quot;&gt;Kedro, Tam-Sanh Nguyen&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Open source complete workflow package by QuantumBlack&lt;/li&gt;
+  &lt;li&gt;Talk rushed through features of Kedro, but from the brief glimpse, it looks easy to use and has a nice UI.&lt;/li&gt;
+  &lt;li&gt;See examples on GitHub or Tam-Sanh’s YouTube series DataEngineerOne&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;recommended-packages--tools&quot;&gt;Recommended packages / tools&lt;/h2&gt;
@@ -142,98 +219,20 @@
   &lt;li&gt;No point repeating them all here. See notes from talk, or watch talk (or buy their book Practical Deep Learning)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;workflows&quot;&gt;Workflows&lt;/h2&gt;
-&lt;p&gt;This seems to be a big theme, and sounds like the next big challenge for the data scientist profession.&lt;/p&gt;
-
-&lt;h3 id=&quot;gitlab-tools-william-arias&quot;&gt;GitLab Tools, William Arias&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;I found this talk hard to follow, so my notes are not great.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;parallel-stream-processing-alejandro-saucedo&quot;&gt;Parallel stream processing, Alejandro Saucedo&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;I found this talk hard to follow, but notes are bit better than the example above&lt;/li&gt;
-  &lt;li&gt;Faust - stream processor&lt;/li&gt;
-  &lt;li&gt;Kafka - ?&lt;/li&gt;
-  &lt;li&gt;Seldon - deployment&lt;/li&gt;
-  &lt;li&gt;Example of developing workflow to use ML to help moderate reddit comments.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;example-workflow-for-translation-shreya-khurana&quot;&gt;Example workflow for Translation, Shreya Khurana&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;I found this talk hard to follow, but still managed to take some notes.&lt;/li&gt;
-  &lt;li&gt;Tools used include: seq2seq, Fairseq, Flask, uwsgi, nginx, supervisord, Docker&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;example-from-teikametrics-chase-stevens&quot;&gt;Example from teikametrics, Chase Stevens&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Significant time spent emphasising need for good systems and workflows. Make the effort to automate!&lt;/li&gt;
-  &lt;li&gt;My notes are not great when it comes to actually describing the tools or workflow they used. Watch the video to find out.&lt;/li&gt;
-  &lt;li&gt;Interesting example at end: they automated task of choosing which AWS instance to use.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;dvc-hongjoo-lee&quot;&gt;DVC, Hongjoo Lee&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Software development has following standard workflow and tools (I don’t know what most of these things mean…):
-    &lt;ul&gt;
-      &lt;li&gt;Coding management: git&lt;/li&gt;
-      &lt;li&gt;Build: sbt maven&lt;/li&gt;
-      &lt;li&gt;Test: jUnit&lt;/li&gt;
-      &lt;li&gt;Release: Jenkins&lt;/li&gt;
-      &lt;li&gt;Deploy: Docker, AWS&lt;/li&gt;
-      &lt;li&gt;Operate: Kubernetes&lt;/li&gt;
-      &lt;li&gt;Monitor: ELK stack&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Hongjoo goes through live example of using DVC on simple model&lt;/li&gt;
-  &lt;li&gt;Some alternatives to DVC: git-LFS, MLflow, Apache Airflow&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;data-pipelines-robson-junior&quot;&gt;Data pipelines, Robson Junior&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;I found the speaker particularly hard to follow. Despite this, it looks like I got some decent notes.&lt;/li&gt;
-  &lt;li&gt;List of tools for different tasks&lt;/li&gt;
-  &lt;li&gt;ELT: Apache Spark, dash, luigi, mrjob, ray&lt;/li&gt;
-  &lt;li&gt;Streaming: faust and kafka, streamparse and Apache Storm&lt;/li&gt;
-  &lt;li&gt;Analysis: Pandas, Blaze, Open Mining, Orange, Optimus&lt;/li&gt;
-  &lt;li&gt;Management and scheduling: Apache Airflow&lt;/li&gt;
-  &lt;li&gt;Testing: pytest, mimesis (to create fake data), fake2db, spark-test-base&lt;/li&gt;
-  &lt;li&gt;Validation: Cerberus, schema, voluptuous&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;example-from-deepar-talk-nicola-kuhaupt&quot;&gt;Example from DeepAR talk, Nicola Kuhaupt&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Workflow was not focus of talk, but looks talk contained information on workflows anyway&lt;/li&gt;
-  &lt;li&gt;Integrated into Sagemaker, which has many in built tools
-    &lt;ul&gt;
-      &lt;li&gt;Ground Truth. Use mechanical turk to build data sets&lt;/li&gt;
-      &lt;li&gt;Studio. An IDA&lt;/li&gt;
-      &lt;li&gt;Autopilot. For training models&lt;/li&gt;
-      &lt;li&gt;Neo. For deployment&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;boto3, to access aws&lt;/li&gt;
-  &lt;li&gt;s3fs, file storage&lt;/li&gt;
-  &lt;li&gt;Others were also mentioned. Re-watch talk to find them.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;nlpeasy-philipp-thomann&quot;&gt;NLPeasy, Philipp Thomann&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;NLPeasy is intended to make NLP easy&lt;/li&gt;
-  &lt;li&gt;Bas lots of built in tools, e.g. spaCy, Vader, BeautifulSoup,&lt;/li&gt;
-  &lt;li&gt;The talk presented example of analysing EuroPython abtracts&lt;/li&gt;
-  &lt;li&gt;Had nice dashboard to visualise lots of outputs of models&lt;/li&gt;
-  &lt;li&gt;See talk for details&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;kedro-tam-sanh-nguyen&quot;&gt;Kedro, Tam-Sanh Nguyen&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Open source complete workflow package by QuantumBlack&lt;/li&gt;
-  &lt;li&gt;Talk rushed through features of Kedro, but from the brief glimpse, it looks easy to use and has a nice UI.&lt;/li&gt;
-  &lt;li&gt;See examples on GitHub or Tam-Sanh’s YouTube series DataEngineerOne&lt;/li&gt;
-&lt;/ul&gt;
-
 &lt;h2 id=&quot;miscellaneous&quot;&gt;Miscellaneous&lt;/h2&gt;
+&lt;h3 id=&quot;tips-for-docker-tania-allard&quot;&gt;Tips for Docker, Tania Allard.&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Expect things to be tricky and frustrating. There are many bad tutorials online&lt;/li&gt;
+  &lt;li&gt;Do not re-invent the wheel: use cookie-cutter, repo2docker&lt;/li&gt;
+  &lt;li&gt;Many other useful tips in the talk&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;data-cleaningi-checklist-hui-zhang-chua&quot;&gt;Data Cleaningi Checklist, Hui Zhang Chua&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Hui provided a checklist of tasks you should do when cleaning data.&lt;/li&gt;
+  &lt;li&gt;Refer to the notes from the talk for the list&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h3 id=&quot;history-of-jupyter-notebooks-william-horton&quot;&gt;History of Jupyter Notebooks, William Horton&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Does what it says on the tin. I stopped taking notes because I do not anticipate learning the history. Watch the talk if you want to know more.&lt;/li&gt;

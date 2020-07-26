@@ -132,10 +132,17 @@ window.onload = wrap_img;
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
 <li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
-<li class="toc-entry toc-h2"><a href="#tips-and-tricks">Tips and tricks</a>
+<li class="toc-entry toc-h2"><a href="#workflows">Workflows</a>
 <ul>
-<li class="toc-entry toc-h3"><a href="#docker-tania-allard">Docker, Tania Allard.</a></li>
-<li class="toc-entry toc-h3"><a href="#data-cleaning-hui-zhang-chua">Data Cleaning, Hui Zhang Chua</a></li>
+<li class="toc-entry toc-h3"><a href="#gitlab-tools-william-arias">GitLab Tools, William Arias</a></li>
+<li class="toc-entry toc-h3"><a href="#parallel-stream-processing-alejandro-saucedo">Parallel stream processing, Alejandro Saucedo</a></li>
+<li class="toc-entry toc-h3"><a href="#example-workflow-for-translation-shreya-khurana">Example workflow for Translation, Shreya Khurana</a></li>
+<li class="toc-entry toc-h3"><a href="#example-from-teikametrics-chase-stevens">Example from teikametrics, Chase Stevens</a></li>
+<li class="toc-entry toc-h3"><a href="#dvc-hongjoo-lee">DVC, Hongjoo Lee</a></li>
+<li class="toc-entry toc-h3"><a href="#data-pipelines-robson-junior">Data pipelines, Robson Junior</a></li>
+<li class="toc-entry toc-h3"><a href="#example-from-deepar-talk-nicola-kuhaupt">Example from DeepAR talk, Nicola Kuhaupt</a></li>
+<li class="toc-entry toc-h3"><a href="#nlpeasy-philipp-thomann">NLPeasy, Philipp Thomann</a></li>
+<li class="toc-entry toc-h3"><a href="#kedro-tam-sanh-nguyen">Kedro, Tam-Sanh Nguyen</a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h2"><a href="#recommended-packages--tools">Recommended packages / tools</a>
@@ -158,21 +165,10 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#30-rules-for-deep-learning-performance-siddha-ganju">30 Rules for Deep Learning Performance, Siddha Ganju</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#workflows">Workflows</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#gitlab-tools-william-arias">GitLab Tools, William Arias</a></li>
-<li class="toc-entry toc-h3"><a href="#parallel-stream-processing-alejandro-saucedo">Parallel stream processing, Alejandro Saucedo</a></li>
-<li class="toc-entry toc-h3"><a href="#example-workflow-for-translation-shreya-khurana">Example workflow for Translation, Shreya Khurana</a></li>
-<li class="toc-entry toc-h3"><a href="#example-from-teikametrics-chase-stevens">Example from teikametrics, Chase Stevens</a></li>
-<li class="toc-entry toc-h3"><a href="#dvc-hongjoo-lee">DVC, Hongjoo Lee</a></li>
-<li class="toc-entry toc-h3"><a href="#data-pipelines-robson-junior">Data pipelines, Robson Junior</a></li>
-<li class="toc-entry toc-h3"><a href="#example-from-deepar-talk-nicola-kuhaupt">Example from DeepAR talk, Nicola Kuhaupt</a></li>
-<li class="toc-entry toc-h3"><a href="#nlpeasy-philipp-thomann">NLPeasy, Philipp Thomann</a></li>
-<li class="toc-entry toc-h3"><a href="#kedro-tam-sanh-nguyen">Kedro, Tam-Sanh Nguyen</a></li>
-</ul>
-</li>
 <li class="toc-entry toc-h2"><a href="#miscellaneous">Miscellaneous</a>
 <ul>
+<li class="toc-entry toc-h3"><a href="#tips-for-docker-tania-allard">Tips for Docker, Tania Allard.</a></li>
+<li class="toc-entry toc-h3"><a href="#data-cleaningi-checklist-hui-zhang-chua">Data Cleaningi Checklist, Hui Zhang Chua</a></li>
 <li class="toc-entry toc-h3"><a href="#history-of-jupyter-notebooks-william-horton">History of Jupyter Notebooks, William Horton</a></li>
 <li class="toc-entry toc-h3"><a href="#neural-style-transfer-and-gans-anmol-krishan-sachdeva">Neural Style Transfer and GANs, Anmol Krishan Sachdeva</a></li>
 <li class="toc-entry toc-h3"><a href="#probabilistic-forecasting-with-deepar-nicolas-kuhaupt">Probabilistic forecasting with DeepAR, Nicolas Kuhaupt</a></li>
@@ -194,21 +190,105 @@ window.onload = wrap_img;
 <a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
 <p>I attended the online conference <a href="https://ep2020.europython.eu/">EuroPython 2020</a> and recorded notes while watching the talks. Today, I reviewed the notes with the aim of consolidating the main lessons, grouping together similar talks, and recording key lessons.</p>
 
-<h2 id="tips-and-tricks">
-<a class="anchor" href="#tips-and-tricks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tips and tricks</h2>
-<h3 id="docker-tania-allard">
-<a class="anchor" href="#docker-tania-allard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker, Tania Allard.</h3>
+<h2 id="workflows">
+<a class="anchor" href="#workflows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Workflows</h2>
+<p>This seems to be a big theme, and sounds like the next big challenge for the data scientist profession.</p>
+
+<h3 id="gitlab-tools-william-arias">
+<a class="anchor" href="#gitlab-tools-william-arias" aria-hidden="true"><span class="octicon octicon-link"></span></a>GitLab Tools, William Arias</h3>
 <ul>
-  <li>Expect things to be tricky and frustrating. There are many bad tutorials online</li>
-  <li>Do not re-invent the wheel: use cookie-cutter, repo2docker</li>
-  <li>Many other useful tips in the talk</li>
+  <li>I found this talk hard to follow, so my notes are not great.</li>
 </ul>
 
-<h3 id="data-cleaning-hui-zhang-chua">
-<a class="anchor" href="#data-cleaning-hui-zhang-chua" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Cleaning, Hui Zhang Chua</h3>
+<h3 id="parallel-stream-processing-alejandro-saucedo">
+<a class="anchor" href="#parallel-stream-processing-alejandro-saucedo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parallel stream processing, Alejandro Saucedo</h3>
 <ul>
-  <li>Hui provided a checklist of tasks you should do when cleaning data.</li>
-  <li>Refer to the notes from the talk for the list</li>
+  <li>I found this talk hard to follow, but notes are bit better than the example above</li>
+  <li>Faust - stream processor</li>
+  <li>Kafka - ?</li>
+  <li>Seldon - deployment</li>
+  <li>Example of developing workflow to use ML to help moderate reddit comments.</li>
+</ul>
+
+<h3 id="example-workflow-for-translation-shreya-khurana">
+<a class="anchor" href="#example-workflow-for-translation-shreya-khurana" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example workflow for Translation, Shreya Khurana</h3>
+<ul>
+  <li>I found this talk hard to follow, but still managed to take some notes.</li>
+  <li>Tools used include: seq2seq, Fairseq, Flask, uwsgi, nginx, supervisord, Docker</li>
+</ul>
+
+<h3 id="example-from-teikametrics-chase-stevens">
+<a class="anchor" href="#example-from-teikametrics-chase-stevens" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example from teikametrics, Chase Stevens</h3>
+<ul>
+  <li>Significant time spent emphasising need for good systems and workflows. Make the effort to automate!</li>
+  <li>My notes are not great when it comes to actually describing the tools or workflow they used. Watch the video to find out.</li>
+  <li>Interesting example at end: they automated task of choosing which AWS instance to use.</li>
+</ul>
+
+<h3 id="dvc-hongjoo-lee">
+<a class="anchor" href="#dvc-hongjoo-lee" aria-hidden="true"><span class="octicon octicon-link"></span></a>DVC, Hongjoo Lee</h3>
+<ul>
+  <li>Software development has following standard workflow and tools (I don’t know what most of these things mean…):
+    <ul>
+      <li>Coding management: git</li>
+      <li>Build: sbt maven</li>
+      <li>Test: jUnit</li>
+      <li>Release: Jenkins</li>
+      <li>Deploy: Docker, AWS</li>
+      <li>Operate: Kubernetes</li>
+      <li>Monitor: ELK stack</li>
+    </ul>
+  </li>
+  <li>Hongjoo goes through live example of using DVC on simple model</li>
+  <li>Some alternatives to DVC: git-LFS, MLflow, Apache Airflow</li>
+</ul>
+
+<h3 id="data-pipelines-robson-junior">
+<a class="anchor" href="#data-pipelines-robson-junior" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data pipelines, Robson Junior</h3>
+<ul>
+  <li>I found the speaker particularly hard to follow. Despite this, it looks like I got some decent notes.</li>
+  <li>List of tools for different tasks</li>
+  <li>ELT: Apache Spark, dash, luigi, mrjob, ray</li>
+  <li>Streaming: faust and kafka, streamparse and Apache Storm</li>
+  <li>Analysis: Pandas, Blaze, Open Mining, Orange, Optimus</li>
+  <li>Management and scheduling: Apache Airflow</li>
+  <li>Testing: pytest, mimesis (to create fake data), fake2db, spark-test-base</li>
+  <li>Validation: Cerberus, schema, voluptuous</li>
+</ul>
+
+<h3 id="example-from-deepar-talk-nicola-kuhaupt">
+<a class="anchor" href="#example-from-deepar-talk-nicola-kuhaupt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example from DeepAR talk, Nicola Kuhaupt</h3>
+<ul>
+  <li>Workflow was not focus of talk, but looks talk contained information on workflows anyway</li>
+  <li>Integrated into Sagemaker, which has many in built tools
+    <ul>
+      <li>Ground Truth. Use mechanical turk to build data sets</li>
+      <li>Studio. An IDA</li>
+      <li>Autopilot. For training models</li>
+      <li>Neo. For deployment</li>
+    </ul>
+  </li>
+  <li>boto3, to access aws</li>
+  <li>s3fs, file storage</li>
+  <li>Others were also mentioned. Re-watch talk to find them.</li>
+</ul>
+
+<h3 id="nlpeasy-philipp-thomann">
+<a class="anchor" href="#nlpeasy-philipp-thomann" aria-hidden="true"><span class="octicon octicon-link"></span></a>NLPeasy, Philipp Thomann</h3>
+<ul>
+  <li>NLPeasy is intended to make NLP easy</li>
+  <li>Bas lots of built in tools, e.g. spaCy, Vader, BeautifulSoup,</li>
+  <li>The talk presented example of analysing EuroPython abtracts</li>
+  <li>Had nice dashboard to visualise lots of outputs of models</li>
+  <li>See talk for details</li>
+</ul>
+
+<h3 id="kedro-tam-sanh-nguyen">
+<a class="anchor" href="#kedro-tam-sanh-nguyen" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kedro, Tam-Sanh Nguyen</h3>
+<ul>
+  <li>Open source complete workflow package by QuantumBlack</li>
+  <li>Talk rushed through features of Kedro, but from the brief glimpse, it looks easy to use and has a nice UI.</li>
+  <li>See examples on GitHub or Tam-Sanh’s YouTube series DataEngineerOne</li>
 </ul>
 
 <h2 id="recommended-packages--tools">
@@ -343,109 +423,23 @@ window.onload = wrap_img;
   <li>No point repeating them all here. See notes from talk, or watch talk (or buy their book Practical Deep Learning)</li>
 </ul>
 
-<h2 id="workflows">
-<a class="anchor" href="#workflows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Workflows</h2>
-<p>This seems to be a big theme, and sounds like the next big challenge for the data scientist profession.</p>
-
-<h3 id="gitlab-tools-william-arias">
-<a class="anchor" href="#gitlab-tools-william-arias" aria-hidden="true"><span class="octicon octicon-link"></span></a>GitLab Tools, William Arias</h3>
-<ul>
-  <li>I found this talk hard to follow, so my notes are not great.</li>
-</ul>
-
-<h3 id="parallel-stream-processing-alejandro-saucedo">
-<a class="anchor" href="#parallel-stream-processing-alejandro-saucedo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parallel stream processing, Alejandro Saucedo</h3>
-<ul>
-  <li>I found this talk hard to follow, but notes are bit better than the example above</li>
-  <li>Faust - stream processor</li>
-  <li>Kafka - ?</li>
-  <li>Seldon - deployment</li>
-  <li>Example of developing workflow to use ML to help moderate reddit comments.</li>
-</ul>
-
-<h3 id="example-workflow-for-translation-shreya-khurana">
-<a class="anchor" href="#example-workflow-for-translation-shreya-khurana" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example workflow for Translation, Shreya Khurana</h3>
-<ul>
-  <li>I found this talk hard to follow, but still managed to take some notes.</li>
-  <li>Tools used include: seq2seq, Fairseq, Flask, uwsgi, nginx, supervisord, Docker</li>
-</ul>
-
-<h3 id="example-from-teikametrics-chase-stevens">
-<a class="anchor" href="#example-from-teikametrics-chase-stevens" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example from teikametrics, Chase Stevens</h3>
-<ul>
-  <li>Significant time spent emphasising need for good systems and workflows. Make the effort to automate!</li>
-  <li>My notes are not great when it comes to actually describing the tools or workflow they used. Watch the video to find out.</li>
-  <li>Interesting example at end: they automated task of choosing which AWS instance to use.</li>
-</ul>
-
-<h3 id="dvc-hongjoo-lee">
-<a class="anchor" href="#dvc-hongjoo-lee" aria-hidden="true"><span class="octicon octicon-link"></span></a>DVC, Hongjoo Lee</h3>
-<ul>
-  <li>Software development has following standard workflow and tools (I don’t know what most of these things mean…):
-    <ul>
-      <li>Coding management: git</li>
-      <li>Build: sbt maven</li>
-      <li>Test: jUnit</li>
-      <li>Release: Jenkins</li>
-      <li>Deploy: Docker, AWS</li>
-      <li>Operate: Kubernetes</li>
-      <li>Monitor: ELK stack</li>
-    </ul>
-  </li>
-  <li>Hongjoo goes through live example of using DVC on simple model</li>
-  <li>Some alternatives to DVC: git-LFS, MLflow, Apache Airflow</li>
-</ul>
-
-<h3 id="data-pipelines-robson-junior">
-<a class="anchor" href="#data-pipelines-robson-junior" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data pipelines, Robson Junior</h3>
-<ul>
-  <li>I found the speaker particularly hard to follow. Despite this, it looks like I got some decent notes.</li>
-  <li>List of tools for different tasks</li>
-  <li>ELT: Apache Spark, dash, luigi, mrjob, ray</li>
-  <li>Streaming: faust and kafka, streamparse and Apache Storm</li>
-  <li>Analysis: Pandas, Blaze, Open Mining, Orange, Optimus</li>
-  <li>Management and scheduling: Apache Airflow</li>
-  <li>Testing: pytest, mimesis (to create fake data), fake2db, spark-test-base</li>
-  <li>Validation: Cerberus, schema, voluptuous</li>
-</ul>
-
-<h3 id="example-from-deepar-talk-nicola-kuhaupt">
-<a class="anchor" href="#example-from-deepar-talk-nicola-kuhaupt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example from DeepAR talk, Nicola Kuhaupt</h3>
-<ul>
-  <li>Workflow was not focus of talk, but looks talk contained information on workflows anyway</li>
-  <li>Integrated into Sagemaker, which has many in built tools
-    <ul>
-      <li>Ground Truth. Use mechanical turk to build data sets</li>
-      <li>Studio. An IDA</li>
-      <li>Autopilot. For training models</li>
-      <li>Neo. For deployment</li>
-    </ul>
-  </li>
-  <li>boto3, to access aws</li>
-  <li>s3fs, file storage</li>
-  <li>Others were also mentioned. Re-watch talk to find them.</li>
-</ul>
-
-<h3 id="nlpeasy-philipp-thomann">
-<a class="anchor" href="#nlpeasy-philipp-thomann" aria-hidden="true"><span class="octicon octicon-link"></span></a>NLPeasy, Philipp Thomann</h3>
-<ul>
-  <li>NLPeasy is intended to make NLP easy</li>
-  <li>Bas lots of built in tools, e.g. spaCy, Vader, BeautifulSoup,</li>
-  <li>The talk presented example of analysing EuroPython abtracts</li>
-  <li>Had nice dashboard to visualise lots of outputs of models</li>
-  <li>See talk for details</li>
-</ul>
-
-<h3 id="kedro-tam-sanh-nguyen">
-<a class="anchor" href="#kedro-tam-sanh-nguyen" aria-hidden="true"><span class="octicon octicon-link"></span></a>Kedro, Tam-Sanh Nguyen</h3>
-<ul>
-  <li>Open source complete workflow package by QuantumBlack</li>
-  <li>Talk rushed through features of Kedro, but from the brief glimpse, it looks easy to use and has a nice UI.</li>
-  <li>See examples on GitHub or Tam-Sanh’s YouTube series DataEngineerOne</li>
-</ul>
-
 <h2 id="miscellaneous">
 <a class="anchor" href="#miscellaneous" aria-hidden="true"><span class="octicon octicon-link"></span></a>Miscellaneous</h2>
+<h3 id="tips-for-docker-tania-allard">
+<a class="anchor" href="#tips-for-docker-tania-allard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tips for Docker, Tania Allard.</h3>
+<ul>
+  <li>Expect things to be tricky and frustrating. There are many bad tutorials online</li>
+  <li>Do not re-invent the wheel: use cookie-cutter, repo2docker</li>
+  <li>Many other useful tips in the talk</li>
+</ul>
+
+<h3 id="data-cleaningi-checklist-hui-zhang-chua">
+<a class="anchor" href="#data-cleaningi-checklist-hui-zhang-chua" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Cleaningi Checklist, Hui Zhang Chua</h3>
+<ul>
+  <li>Hui provided a checklist of tasks you should do when cleaning data.</li>
+  <li>Refer to the notes from the talk for the list</li>
+</ul>
+
 <h3 id="history-of-jupyter-notebooks-william-horton">
 <a class="anchor" href="#history-of-jupyter-notebooks-william-horton" aria-hidden="true"><span class="octicon octicon-link"></span></a>History of Jupyter Notebooks, William Horton</h3>
 <ul>
