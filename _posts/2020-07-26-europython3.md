@@ -74,10 +74,9 @@ This seems to be a big theme, and sounds like the next big challenge for the dat
 
 ### NLPeasy, Philipp Thomann
 * NLPeasy is intended to make NLP easy
-* Bas lots of built in tools, e.g. spaCy, Vader, BeautifulSoup, 
+* Has lots of built in tools, e.g. spaCy, Vader, BeautifulSoup
 * The talk presented example of analysing EuroPython abtracts
 * Had nice dashboard to visualise lots of outputs of models
-* See talk for details
 
 ### Kedro, Tam-Sanh Nguyen
 * Open source complete workflow package by QuantumBlack
@@ -181,7 +180,7 @@ Several talks were about this, so I thought it was worth grouping them together
 * Do not re-invent the wheel: use cookie-cutter, repo2docker
 * Many other useful tips in the talk
 
-### Data Cleaningi Checklist, Hui Zhang Chua
+### Data Cleaning Checklist, Hui Zhang Chua
 * Hui provided a checklist of tasks you should do when cleaning data.
 * Refer to the notes from the talk for the list
 
