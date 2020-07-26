@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-26T05:59:15-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Summary</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Summary" /><published>2020-07-26T00:00:00-05:00</published><updated>2020-07-26T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-07-26T07:29:43-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">EuroPython Conference 2020, Summary</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Summary" /><published>2020-07-26T00:00:00-05:00</published><updated>2020-07-26T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -90,10 +90,9 @@
 &lt;h3 id=&quot;nlpeasy-philipp-thomann&quot;&gt;NLPeasy, Philipp Thomann&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;NLPeasy is intended to make NLP easy&lt;/li&gt;
-  &lt;li&gt;Bas lots of built in tools, e.g. spaCy, Vader, BeautifulSoup,&lt;/li&gt;
+  &lt;li&gt;Has lots of built in tools, e.g. spaCy, Vader, BeautifulSoup&lt;/li&gt;
   &lt;li&gt;The talk presented example of analysing EuroPython abtracts&lt;/li&gt;
   &lt;li&gt;Had nice dashboard to visualise lots of outputs of models&lt;/li&gt;
-  &lt;li&gt;See talk for details&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;kedro-tam-sanh-nguyen&quot;&gt;Kedro, Tam-Sanh Nguyen&lt;/h3&gt;
@@ -231,7 +230,7 @@
   &lt;li&gt;Many other useful tips in the talk&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;data-cleaningi-checklist-hui-zhang-chua&quot;&gt;Data Cleaningi Checklist, Hui Zhang Chua&lt;/h3&gt;
+&lt;h3 id=&quot;data-cleaning-checklist-hui-zhang-chua&quot;&gt;Data Cleaning Checklist, Hui Zhang Chua&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Hui provided a checklist of tasks you should do when cleaning data.&lt;/li&gt;
   &lt;li&gt;Refer to the notes from the talk for the list&lt;/li&gt;
