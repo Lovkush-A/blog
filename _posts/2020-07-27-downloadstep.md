@@ -13,16 +13,16 @@ Though I am transitioning from teaching to data science, I still continue to tea
 This was straightforward. The website [stepdatabase.com](https://stepdatabase.maths.org) has past papers on them, and the urls and naming system they use is systematic and 100% consistent. I was able to download the papers using a simple loop with a `wget` command.  See the code below.
 
 ## Downloading the answers
-This was less straightforward. [This website](https://mei.org.uk/step-aea-solutions) provides answers to the STEP papers but the urls did not have a consistent format, so I could not just wget again. Therefore, I used some web-scraping tools to help me. 
+This was less straightforward. [This website](https://mei.org.uk/step-aea-solutions) provides answers to the STEP papers but the urls did not have a consistent format, so I could not just use wget again. Therefore, I used some web-scraping tools to help me. 
 
-There was a considerable learning curve, and there were actually a couple of moments where I was going to give up. However, I persisted in the knowledge that if I want to be successful in a tech role, I will encounter such difficulties, and the only way to improve is to perservere.
+There was a considerable learning curve, as I had not done any web scraping before. There were actually a couple of moments where I was going to give up. However, I persisted in the knowledge that if I want to be successful in a tech role, I will encounter such difficulties, and the only way to improve is to perservere.
 
 In the end, I succeeded and the final code is given below. I will not go through the full process of trying things out, failing, tweaking, de-bugging, etc., but I will provide some of the key learning points for me.
 
 * BeautifulSoup is only suitable for statically generated pages. For dynamic ones, you can use Selenium.
-* The `dir` function in python is extremely handy. I have to thank this [Kaggle tutorial](https://www.kaggle.com/colinmorris/working-with-external-libraries) for introducing me to this function. One two or three occasions, I wanted to do something, and by looking at the list of methods, I was able to find one which worked. The example I remember is `find_elements_by_partial_link_text`.
+* The `dir` function in python is extremely handy. I have to thank this [Kaggle tutorial](https://www.kaggle.com/colinmorris/working-with-external-libraries) for introducing me to this function. On two or three occasions, I wanted to do something, and by looking at the list of methods, I was able to find one which worked. The example I remember is `find_elements_by_partial_link_text`.
 * StackOverFlow is extremely handy. I am not sure what I would have done without it.
-* Don't make assumptions. I assumed that the files to be downloaded would have a consistent naming convention (because the first batch of papers I saw had sensible naming convention), but it turned out this was false. Fortunately, the was apparent in the first few minutes of running the program, so I could stop the program, and quickly modify it to add my own naming convention.
+* Don't make assumptions. I assumed that the answers would all have different file names, but that was not always the case. This meant that previously downloaded were sometimes over-written by later answers. Fortunately, the was apparent in the first few minutes of running the program, so I could stop the program, and quickly modify it to add my own naming convention.
 
 
 ## Code
