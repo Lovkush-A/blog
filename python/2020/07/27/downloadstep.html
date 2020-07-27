@@ -138,17 +138,17 @@ window.onload = wrap_img;
 
 <h2 id="downloading-the-answers">
 <a class="anchor" href="#downloading-the-answers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Downloading the answers</h2>
-<p>This was less straightforward. <a href="https://mei.org.uk/step-aea-solutions">This website</a> provides answers to the STEP papers but the urls did not have a consistent format, so I could not just wget again. Therefore, I used some web-scraping tools to help me.</p>
+<p>This was less straightforward. <a href="https://mei.org.uk/step-aea-solutions">This website</a> provides answers to the STEP papers but the urls did not have a consistent format, so I could not just use wget again. Therefore, I used some web-scraping tools to help me.</p>
 
-<p>There was a considerable learning curve, and there were actually a couple of moments where I was going to give up. However, I persisted in the knowledge that if I want to be successful in a tech role, I will encounter such difficulties, and the only way to improve is to perservere.</p>
+<p>There was a considerable learning curve, as I had not done any web scraping before. There were actually a couple of moments where I was going to give up. However, I persisted in the knowledge that if I want to be successful in a tech role, I will encounter such difficulties, and the only way to improve is to perservere.</p>
 
 <p>In the end, I succeeded and the final code is given below. I will not go through the full process of trying things out, failing, tweaking, de-bugging, etc., but I will provide some of the key learning points for me.</p>
 
 <ul>
   <li>BeautifulSoup is only suitable for statically generated pages. For dynamic ones, you can use Selenium.</li>
-  <li>The <code class="highlighter-rouge">dir</code> function in python is extremely handy. I have to thank this <a href="https://www.kaggle.com/colinmorris/working-with-external-libraries">Kaggle tutorial</a> for introducing me to this function. One two or three occasions, I wanted to do something, and by looking at the list of methods, I was able to find one which worked. The example I remember is <code class="highlighter-rouge">find_elements_by_partial_link_text</code>.</li>
+  <li>The <code class="highlighter-rouge">dir</code> function in python is extremely handy. I have to thank this <a href="https://www.kaggle.com/colinmorris/working-with-external-libraries">Kaggle tutorial</a> for introducing me to this function. On two or three occasions, I wanted to do something, and by looking at the list of methods, I was able to find one which worked. The example I remember is <code class="highlighter-rouge">find_elements_by_partial_link_text</code>.</li>
   <li>StackOverFlow is extremely handy. I am not sure what I would have done without it.</li>
-  <li>Don’t make assumptions. I assumed that the files to be downloaded would have a consistent naming convention (because the first batch of papers I saw had sensible naming convention), but it turned out this was false. Fortunately, the was apparent in the first few minutes of running the program, so I could stop the program, and quickly modify it to add my own naming convention.</li>
+  <li>Don’t make assumptions. I assumed that the answers would all have different file names, but that was not always the case. This meant that previously downloaded were sometimes over-written by later answers. Fortunately, the was apparent in the first few minutes of running the program, so I could stop the program, and quickly modify it to add my own naming convention.</li>
 </ul>
 
 <h2 id="code">
