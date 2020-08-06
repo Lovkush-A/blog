@@ -137,7 +137,7 @@ window.onload = wrap_img;
 
 <h2 id="introduction">
 <a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
-<p>Since 2008, I have been maintaining a record of all the movies I have watched. It started because I borrowed a CD stack (see <a href="https://www.stockfreeimages.com/2328098/Stack-of-blank-CD-DVDs.html">here</a>if you are too young to not know what a CD stack is) of movies from a friend, and the only way of keeping track of which movies I had watched or not from the stack was to create a list of those I had watched.  Once I finished the movies on the CD stack, I figured I may as well continue adding to the list, and it has been going ever since.  And now I figure it might be a fun project to analyse this list of movies I’ve watched, using my skills.</p>
+<p>Since 2008, I have been maintaining a record of all the movies I have watched. It started because I borrowed a CD stack (see <a href="https://www.stockfreeimages.com/2328098/Stack-of-blank-CD-DVDs.html">here</a> if you are too young to not know what a CD stack is) of movies from a friend, and the easiest way of keeping track of which movies I had watched was to create a list.  Once I finished the movies on the CD stack, I thought I may as well continue adding to the list, and it has been going ever since.  Now I figured this could be a fun data set to analyse.</p>
 
 <h2 id="the-dataset">
 <a class="anchor" href="#the-dataset" aria-hidden="true"><span class="octicon octicon-link"></span></a>The dataset</h2>
@@ -195,7 +195,7 @@ The format of the entries in the list has changed over time.</p>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">movies</span><span class="p">)):</span>
     <span class="k">if</span> <span class="s">'---'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">movies</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
         <span class="n">movies</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">year</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="s">'---'</span> <span class="ow">in</span> <span class="n">movies</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">year</span> <span class="o">&gt;</span> <span class="mi">2009</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="s">'---'</span> <span class="ow">in</span> <span class="n">movies</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
         <span class="n">year</span> <span class="o">-=</span> <span class="mi">1</span>
 
 <span class="c1"># delete year separator entries, those with ---
