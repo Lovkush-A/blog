@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Analysing the movies I’ve watched, Part I, Data collection | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Analysing the movies I’ve watched, Part I, Data collection" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I start a new project, analysing my hand-made movie watching records since 2008." />
+<meta property="og:description" content="I start a new project, analysing my hand-made movie watching records since 2008." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-02T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"I start a new project, analysing my hand-made movie watching records since 2008.","@type":"BlogPosting","headline":"Analysing the movies I’ve watched, Part I, Data collection","dateModified":"2020-08-02T00:00:00-05:00","datePublished":"2020-08-02T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Analysing the movies I’ve watched, Part I, Data collection | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Analysing the movies I’ve watched, Part I, Data collection" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I start a new project, analysing my hand-made movie watching records since 2008." />
+<meta property="og:description" content="I start a new project, analysing my hand-made movie watching records since 2008." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-02T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"I start a new project, analysing my hand-made movie watching records since 2008.","@type":"BlogPosting","headline":"Analysing the movies I’ve watched, Part I, Data collection","dateModified":"2020-08-02T00:00:00-05:00","datePublished":"2020-08-02T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Analysing the movies I&#39;ve watched, Part I, Data collection</h1><p class="page-description">I start a new project, analysing my hand-made movie watching records since 2008.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-08-02T00:00:00-05:00" itemprop="datePublished">
+        Aug 2, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#the-dataset">The dataset</a></li>
+<li class="toc-entry toc-h2"><a href="#collecting-the-data">Collecting the data</a></li>
+<li class="toc-entry toc-h2"><a href="#the-code">The code</a></li>
+</ul><h2 id="other-posts-in-series">
+<a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
+
+<h2 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<p>Since 2008, I have been maintaining a record of all the movies I have watched. It started because I borrowed a CD stack (see <a href="https://www.stockfreeimages.com/2328098/Stack-of-blank-CD-DVDs.html">here</a>if you are too young to not know what a CD stack is) of movies from a friend, and the only way of keeping track of which movies I had watched or not from the stack was to create a list of those I had watched.  Once I finished the movies on the CD stack, I figured I may as well continue adding to the list, and it has been going ever since.  And now I figure it might be a fun project to analyse this list of movies I’ve watched, using my skills.</p>
+
+<h2 id="the-dataset">
+<a class="anchor" href="#the-dataset" aria-hidden="true"><span class="octicon octicon-link"></span></a>The dataset</h2>
+<p>The list started out as a notepad <code class="highlighter-rouge">.txt</code> file, then I moved it into a Google spreadsheet, and it now resides in <a href="www.dynalist.com">Dynalist</a>.
+The format of the entries in the list has changed over time.</p>
+<ul>
+  <li>The earliest entries in the list have the format <code class="highlighter-rouge">movie_title, i</code>, where <code class="highlighter-rouge">i</code> is an index to keep track of how many films are in the list.</li>
+  <li>In Easter 2009, I started including the date, so the standard format is <code class="highlighter-rouge">movie_title, date, i</code>. The date is the day of the month and the month.</li>
+  <li>In September 2009, I started including the source / location of the movie, e.g. a cinema, or a DVD, or a friend, etc. The standard format is <code class="highlighter-rouge">movie_title, date, source, i</code>. This has been the format ever since.</li>
+  <li>I keep track of movies I would recommend. This is recorded by including <code class="highlighter-rouge">#recc</code> between <code class="highlighter-rouge">movie_title</code> and whatever the second item of the entry is.</li>
+  <li>I keep track of year by having an entry like this: <code class="highlighter-rouge">---2020 above, 2019 below---</code>
+</li>
+</ul>
+
+<p>The first task was to get this dataset into a pandas dataframe. It should not be too difficult - I have a few formats that can be easily identified, and I can create a new row as appropriate.</p>
+
+<h2 id="collecting-the-data">
+<a class="anchor" href="#collecting-the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Collecting the data</h2>
+<p>What I was not conscious of was how many entries did not fit into the formats described above, roughly 150 or so. To my frustration, there is no simple pattern to them either so I had to manually sort these out. To illustrate, here are just a small sample of the exceptions:</p>
+<ul>
+  <li>Having <code class="highlighter-rouge">??</code> for the date, or just leaving out the date altogether</li>
+  <li>Including extra details, e.g. whether I had watched the whole movie or not, or a description of the movie to help me remember what the movie is, or, inclusion of which city I was in. These extra details were not in consistent locations within the entry.</li>
+  <li>Sometimes the movie title contained a comma in them, which messed things up because I was using splitting each entry by a comma.</li>
+</ul>
+
+<p>The result is that the process took much longer than I anticipated. I can better understand now how data processing can be the biggest part of a data scientist’s role! One thing I am curious about is whether there are better alternatives to doing manual work. If there were millions of entries, what could I do?</p>
+
+<h2 id="the-code">
+<a class="anchor" href="#the-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>The code</h2>
+<p>Here is the code. Many details will not make sense without knowing exactly how the data is stored in dynalist. Hopefully the flow of the process is clear.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># read text file from dynalist
+with open("Regular.txt", 'r') as f:
+    lines = f.readlines()
+
+
+# extract relevant rows from lines, by finding the start and end indices
+# store relevant rows into variables movies, then separate by commas with spaces on either side
+i = 0
+while '\tmovies' not in lines[i]:
+    i += 1
+i += 2 
+while '\t\t\t' in lines[i]:
+    i += 1
+start = i
+while '\t\t' in lines[i]:
+    i += 1
+end = i
+
+movies = lines[start:end]
+for i,line in enumerate(movies):
+    movies[i] = re.split('\s*,\s*',line[2:-1])
+
+
+# add the year to end of each entry in movies
+year = 2020
+for i in range(len(movies)):
+    if '---' not in movies[i][0]:
+        movies[i].append(year)
+    elif '---' in movies[i][0] and year &gt; 2009:
+        year -= 1
+
+# delete year separator entries, those with ---
+for i in range(len(movies)-1,-1,-1):
+    if '---' in movies[i][0]:
+        del(movies[i])
+
+
+# define date regex pattern
+date_pattern = r"\d{1,2} \w+"
+
+
+# define function to determine the format of the row
+def check_format(row):
+    dates = [ True if re.match(date_pattern, item) else False for item in row[:-1]]
+    recc = [item == '#recc' for item in row]
+    digits = [item.isdigit() for item in row[:-1]]
+    length = len(row)
+     
+    # first format is movie_title, date, source, my_index, year
+    if length == 5:
+        if all([dates[1], digits[3]]):
+            return 1
+ 
+    # second format is movie_title, date, my_index, year
+    if length == 4:
+        if all([dates[1], digits[2]]):
+            return 2
+        
+    # third format is movie_title, recc, date, source, my_index, year
+    if length == 6:
+        if all([recc[1], dates[2], digits[4]]):
+            return 3
+        
+    # fourth format is movie_title, my_index, year
+    if length == 3:
+        if digits[1]:
+            return 4
+    
+    # fifth format is movie_title, source, my_index, year
+    if length == 4:
+        if digits[2]:
+            return 5
+    
+    # sixth format is movie_title, recc, source, my_index, year
+    if length == 5:
+        if all([recc[1], digits[3]]):
+            return 6
+    
+    return None
+
+
+# define function to obtain manual inputs from me, for those entries that do not match
+# the standard format
+def get_input(col, row):
+    raw = input(col+": ")
+    if raw == "":
+        return ""
+    elif raw.isdigit():
+        return row[int(raw)]
+    else:
+        return raw
+
+
+# create list of column names, and variable df_rows that will contain data that will be turned into frame
+columns = ['my_index','movie_title','year','date','source','recommended','other']
+df_rows = []
+
+# loop through entries in movies, and create appropriate row data
+for i, row in enumerate(movies):
+    df_row = {col: np.nan for col in columns }
+    df_row.update(year = row[-1])
+    
+    row_format = check_format(row)
+    
+    # first format is movie_title, date, source, my_index, year
+    if row_format == 1:
+        df_row.update(movie_title = row[0])
+        df_row.update(date = row[1])
+        df_row.update(source = row[2].lower())
+        df_row.update(my_index = int(row[3]))
+        df_row.update(recommended = False) 
+        
+    # second format is movie_title, date, my_index, year
+    elif row_format == 2:
+        df_row.update(movie_title = row[0])
+        df_row.update(date = row[1])
+        df_row.update(my_index = int(row[2]))
+        df_row.update(recommended = False) 
+    
+    # third format is movie_title, recc, date, source, my_index, year
+    elif row_format == 3:        
+        df_row.update(movie_title = row[0])
+        df_row.update(recommended = True)
+        df_row.update(date = row[2])
+        df_row.update(source = row[3].lower())
+        df_row.update(my_index = int(row[4]))
+        
+    # fourth format is movie_title, my_index, year
+    elif row_format == 4:
+        df_row.update(movie_title = row[0])
+        df_row.update(my_index = int(row[1]))
+        df_row.update(recommended = False) 
+    
+    # fifth format is movie_title, source, my_index, year
+    elif row_format == 5:
+        df_row.update(movie_title = row[0])
+        df_row.update(source = row[1].lower())
+        df_row.update(my_index = int(row[2]))
+        df_row.update(recommended = False) 
+    
+    # sixth format is movie_title, recc, source, my_index, year
+    elif row_format == 6:
+        df_row.update(movie_title = row[0])
+        df_row.update(recommended = True)        
+        df_row.update(source = row[2].lower())
+        df_row.update(my_index = int(row[3]))
+        
+    elif (row_format is None):
+        for i,item in enumerate(row[:-1]):
+            print(f'{i}: {item}')
+        print("")
+        df_row.update(movie_title = get_input('movie_title', row))
+        df_row.update(date = get_input('date', row))
+        df_row.update(source = get_input('source', row).lower())
+        df_row.update(my_index = int(get_input('my_index', row)))
+        df_row.update(recommended = bool(get_input('recommended', row)))
+        df_row.update(other = get_input('other', row))
+        print("")
+    
+    df_rows.append(df_row)
+
+
+# create dataframe from data, and save as csv file
+df = pd.DataFrame(df_rows)
+df.to_csv('mymovies1.csv')
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/blog/python/data%20science/2020/08/02/mymovies1.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
