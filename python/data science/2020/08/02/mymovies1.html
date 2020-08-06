@@ -169,171 +169,170 @@ The format of the entries in the list has changed over time.</p>
 <a class="anchor" href="#the-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>The code</h2>
 <p>Here is the code. Many details will not make sense without knowing exactly how the data is stored in dynalist. Hopefully the flow of the process is clear.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># read text file from dynalist
-with open("Regular.txt", 'r') as f:
-    lines = f.readlines()
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># read text file from dynalist
+</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"Regular.txt"</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 
 
-# extract relevant rows from lines, by finding the start and end indices
-# store relevant rows into variables movies, then separate by commas with spaces on either side
-i = 0
-while '\tmovies' not in lines[i]:
-    i += 1
-i += 2 
-while '\t\t\t' in lines[i]:
-    i += 1
-start = i
-while '\t\t' in lines[i]:
-    i += 1
-end = i
+<span class="c1"># extract relevant rows from lines, by finding the start and end indices
+# store these rows into variable movies, separated by commas
+</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="s">'</span><span class="se">\t</span><span class="s">movies'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">i</span> <span class="o">+=</span> <span class="mi">2</span> 
+<span class="k">while</span> <span class="s">'</span><span class="se">\t\t\t</span><span class="s">'</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">i</span>
+<span class="k">while</span> <span class="s">'</span><span class="se">\t\t</span><span class="s">'</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">i</span>
 
-movies = lines[start:end]
-for i,line in enumerate(movies):
-    movies[i] = re.split('\s*,\s*',line[2:-1])
+<span class="n">movies</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">'</span><span class="err">\</span><span class="s">s*,</span><span class="err">\</span><span class="s">s*'</span><span class="p">,</span><span class="n">line</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]]</span>
 
 
-# add the year to end of each entry in movies
-year = 2020
-for i in range(len(movies)):
-    if '---' not in movies[i][0]:
-        movies[i].append(year)
-    elif '---' in movies[i][0] and year &gt; 2009:
-        year -= 1
+<span class="c1"># add the year to end of each entry in movies
+</span><span class="n">year</span> <span class="o">=</span> <span class="mi">2020</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">movies</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="s">'---'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">movies</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="n">movies</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">year</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s">'---'</span> <span class="ow">in</span> <span class="n">movies</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span> <span class="n">year</span> <span class="o">&gt;</span> <span class="mi">2009</span><span class="p">:</span>
+        <span class="n">year</span> <span class="o">-=</span> <span class="mi">1</span>
 
-# delete year separator entries, those with ---
-for i in range(len(movies)-1,-1,-1):
-    if '---' in movies[i][0]:
-        del(movies[i])
-
-
-# define date regex pattern
-date_pattern = r"\d{1,2} \w+"
+<span class="c1"># delete year separator entries, those with ---
+</span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">movies</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s">'---'</span> <span class="ow">in</span> <span class="n">movies</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">del</span><span class="p">(</span><span class="n">movies</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
 
-# define function to determine the format of the row
-def check_format(row):
-    dates = [ True if re.match(date_pattern, item) else False for item in row[:-1]]
-    recc = [item == '#recc' for item in row]
-    digits = [item.isdigit() for item in row[:-1]]
-    length = len(row)
+<span class="c1"># define date regex pattern
+</span><span class="n">date_pattern</span> <span class="o">=</span> <span class="s">r"\d{1,2} \w+"</span>
+
+
+<span class="c1"># define function to determine the format of the row
+</span><span class="k">def</span> <span class="nf">check_format</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="n">dates</span> <span class="o">=</span> <span class="p">[</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">date_pattern</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span> <span class="k">else</span> <span class="bp">False</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">recc</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span> <span class="o">==</span> <span class="s">'#recc'</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
+    <span class="n">digits</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">row</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
      
-    # first format is movie_title, date, source, my_index, year
-    if length == 5:
-        if all([dates[1], digits[3]]):
-            return 1
+    <span class="c1"># first format is movie_title, date, source, my_index, year
+</span>    <span class="k">if</span> <span class="n">length</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">dates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">digits</span><span class="p">[</span><span class="mi">3</span><span class="p">]]):</span>
+            <span class="k">return</span> <span class="mi">1</span>
  
-    # second format is movie_title, date, my_index, year
-    if length == 4:
-        if all([dates[1], digits[2]]):
-            return 2
+    <span class="c1"># second format is movie_title, date, my_index, year
+</span>    <span class="k">if</span> <span class="n">length</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">dates</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">digits</span><span class="p">[</span><span class="mi">2</span><span class="p">]]):</span>
+            <span class="k">return</span> <span class="mi">2</span>
         
-    # third format is movie_title, recc, date, source, my_index, year
-    if length == 6:
-        if all([recc[1], dates[2], digits[4]]):
-            return 3
+    <span class="c1"># third format is movie_title, recc, date, source, my_index, year
+</span>    <span class="k">if</span> <span class="n">length</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">recc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">dates</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">digits</span><span class="p">[</span><span class="mi">4</span><span class="p">]]):</span>
+            <span class="k">return</span> <span class="mi">3</span>
         
-    # fourth format is movie_title, my_index, year
-    if length == 3:
-        if digits[1]:
-            return 4
+    <span class="c1"># fourth format is movie_title, my_index, year
+</span>    <span class="k">if</span> <span class="n">length</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">digits</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mi">4</span>
     
-    # fifth format is movie_title, source, my_index, year
-    if length == 4:
-        if digits[2]:
-            return 5
+    <span class="c1"># fifth format is movie_title, source, my_index, year
+</span>    <span class="k">if</span> <span class="n">length</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">digits</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="mi">5</span>
     
-    # sixth format is movie_title, recc, source, my_index, year
-    if length == 5:
-        if all([recc[1], digits[3]]):
-            return 6
+    <span class="c1"># sixth format is movie_title, recc, source, my_index, year
+</span>    <span class="k">if</span> <span class="n">length</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">all</span><span class="p">([</span><span class="n">recc</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">digits</span><span class="p">[</span><span class="mi">3</span><span class="p">]]):</span>
+            <span class="k">return</span> <span class="mi">6</span>
     
-    return None
+    <span class="k">return</span> <span class="bp">None</span>
 
 
-# define function to obtain manual inputs from me, for those entries that do not match
+<span class="c1"># define function to obtain manual inputs from me, for those entries that do not match
 # the standard format
-def get_input(col, row):
-    raw = input(col+": ")
-    if raw == "":
-        return ""
-    elif raw.isdigit():
-        return row[int(raw)]
-    else:
-        return raw
+</span><span class="k">def</span> <span class="nf">get_input</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
+    <span class="n">raw</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="n">col</span><span class="o">+</span><span class="s">": "</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">raw</span> <span class="o">==</span> <span class="s">""</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s">""</span>
+    <span class="k">elif</span> <span class="n">raw</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">raw</span><span class="p">)]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">raw</span>
 
 
-# create list of column names, and variable df_rows that will contain data that will be turned into frame
-columns = ['my_index','movie_title','year','date','source','recommended','other']
-df_rows = []
+<span class="c1"># create list of column names
+# create variable df_rows that will contain data that will be turned into frame
+</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">'my_index'</span><span class="p">,</span><span class="s">'movie_title'</span><span class="p">,</span><span class="s">'year'</span><span class="p">,</span><span class="s">'date'</span><span class="p">,</span><span class="s">'source'</span><span class="p">,</span><span class="s">'recommended'</span><span class="p">,</span><span class="s">'other'</span><span class="p">]</span>
+<span class="n">df_rows</span> <span class="o">=</span> <span class="p">[]</span>
 
-# loop through entries in movies, and create appropriate row data
-for i, row in enumerate(movies):
-    df_row = {col: np.nan for col in columns }
-    df_row.update(year = row[-1])
+<span class="c1"># loop through entries in movies, and create appropriate row data
+</span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">movies</span><span class="p">):</span>
+    <span class="n">df_row</span> <span class="o">=</span> <span class="p">{</span><span class="n">col</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns</span> <span class="p">}</span>
+    <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">year</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
     
-    row_format = check_format(row)
+    <span class="n">row_format</span> <span class="o">=</span> <span class="n">check_format</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
     
-    # first format is movie_title, date, source, my_index, year
-    if row_format == 1:
-        df_row.update(movie_title = row[0])
-        df_row.update(date = row[1])
-        df_row.update(source = row[2].lower())
-        df_row.update(my_index = int(row[3]))
-        df_row.update(recommended = False) 
+    <span class="c1"># first format is movie_title, date, source, my_index, year
+</span>    <span class="k">if</span> <span class="n">row_format</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">movie_title</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">source</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">my_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">recommended</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> 
         
-    # second format is movie_title, date, my_index, year
-    elif row_format == 2:
-        df_row.update(movie_title = row[0])
-        df_row.update(date = row[1])
-        df_row.update(my_index = int(row[2]))
-        df_row.update(recommended = False) 
+    <span class="c1"># second format is movie_title, date, my_index, year
+</span>    <span class="k">elif</span> <span class="n">row_format</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">movie_title</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">my_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">recommended</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> 
     
-    # third format is movie_title, recc, date, source, my_index, year
-    elif row_format == 3:        
-        df_row.update(movie_title = row[0])
-        df_row.update(recommended = True)
-        df_row.update(date = row[2])
-        df_row.update(source = row[3].lower())
-        df_row.update(my_index = int(row[4]))
+    <span class="c1"># third format is movie_title, recc, date, source, my_index, year
+</span>    <span class="k">elif</span> <span class="n">row_format</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>        
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">movie_title</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">recommended</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">source</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">my_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">4</span><span class="p">]))</span>
         
-    # fourth format is movie_title, my_index, year
-    elif row_format == 4:
-        df_row.update(movie_title = row[0])
-        df_row.update(my_index = int(row[1]))
-        df_row.update(recommended = False) 
+    <span class="c1"># fourth format is movie_title, my_index, year
+</span>    <span class="k">elif</span> <span class="n">row_format</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">movie_title</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">my_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">recommended</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> 
     
-    # fifth format is movie_title, source, my_index, year
-    elif row_format == 5:
-        df_row.update(movie_title = row[0])
-        df_row.update(source = row[1].lower())
-        df_row.update(my_index = int(row[2]))
-        df_row.update(recommended = False) 
+    <span class="c1"># fifth format is movie_title, source, my_index, year
+</span>    <span class="k">elif</span> <span class="n">row_format</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">movie_title</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">source</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">my_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">recommended</span> <span class="o">=</span> <span class="bp">False</span><span class="p">)</span> 
     
-    # sixth format is movie_title, recc, source, my_index, year
-    elif row_format == 6:
-        df_row.update(movie_title = row[0])
-        df_row.update(recommended = True)        
-        df_row.update(source = row[2].lower())
-        df_row.update(my_index = int(row[3]))
+    <span class="c1"># sixth format is movie_title, recc, source, my_index, year
+</span>    <span class="k">elif</span> <span class="n">row_format</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">movie_title</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">recommended</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>        
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">source</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">my_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">3</span><span class="p">]))</span>
         
-    elif (row_format is None):
-        for i,item in enumerate(row[:-1]):
-            print(f'{i}: {item}')
-        print("")
-        df_row.update(movie_title = get_input('movie_title', row))
-        df_row.update(date = get_input('date', row))
-        df_row.update(source = get_input('source', row).lower())
-        df_row.update(my_index = int(get_input('my_index', row)))
-        df_row.update(recommended = bool(get_input('recommended', row)))
-        df_row.update(other = get_input('other', row))
-        print("")
+    <span class="k">elif</span> <span class="p">(</span><span class="n">row_format</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">item</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">row</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s">'{i}: {item}'</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">movie_title</span> <span class="o">=</span> <span class="n">get_input</span><span class="p">(</span><span class="s">'movie_title'</span><span class="p">,</span> <span class="n">row</span><span class="p">))</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">date</span> <span class="o">=</span> <span class="n">get_input</span><span class="p">(</span><span class="s">'date'</span><span class="p">,</span> <span class="n">row</span><span class="p">))</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">source</span> <span class="o">=</span> <span class="n">get_input</span><span class="p">(</span><span class="s">'source'</span><span class="p">,</span> <span class="n">row</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">my_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">get_input</span><span class="p">(</span><span class="s">'my_index'</span><span class="p">,</span> <span class="n">row</span><span class="p">)))</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">recommended</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">get_input</span><span class="p">(</span><span class="s">'recommended'</span><span class="p">,</span> <span class="n">row</span><span class="p">)))</span>
+        <span class="n">df_row</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">other</span> <span class="o">=</span> <span class="n">get_input</span><span class="p">(</span><span class="s">'other'</span><span class="p">,</span> <span class="n">row</span><span class="p">))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">""</span><span class="p">)</span>
     
-    df_rows.append(df_row)
+    <span class="n">df_rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_row</span><span class="p">)</span>
 
 
-# create dataframe from data, and save as csv file
-df = pd.DataFrame(df_rows)
-df.to_csv('mymovies1.csv')
+<span class="c1"># create dataframe from data, and save as csv file
+</span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_rows</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'mymovies1.csv'</span><span class="p">)</span>
 </code></pre></div></div>
 
   </div><a class="u-url" href="/blog/python/data%20science/2020/08/02/mymovies1.html" hidden></a>
