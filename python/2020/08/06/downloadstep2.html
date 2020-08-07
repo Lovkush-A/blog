@@ -137,30 +137,28 @@ window.onload = wrap_img;
 
 <h2 id="a-bug">
 <a class="anchor" href="#a-bug" aria-hidden="true"><span class="octicon octicon-link"></span></a>A bug</h2>
-<p>Earlier this week, I tried to open one of the files containing a solution to a past STEP paper. To my surprise, it did not open. I tried several other files, and none of them opened.</p>
+<p>Earlier this week, I tried to open one of the files containing a solution to a past STEP paper. To my surprise, it did not open. I tried several other files, and none of them opened. A big lesson here is to actually check the files have properly downloaded! I just assumed that the files successfully downloaded because I saw the correct filenames appear in the directory. (This is somewhat ironic because one of my takeaways at the end of the previous post was to not make assumptions…)</p>
 
-<p>The big lesson here is to make sure I try to open a file, instead of just assuming that the image was successfully downloaded. I just assumed that because files with the correct names appeared in the directory, it was all fine. (This is somewhat ironic, because one of my takeaways at the end of the previous post was to not making assumptions…)</p>
+<p>So I had to go back to my previous attempt and try to work out what went wrong. I compared my code to various other examples online, and I could not see the error. I then tried several other variations that I found while searching, and none of them worked.</p>
 
-<p>So I had to go back to my previous attempt and try to work out what went wrong. I compared my code to various other examples online, and I could not see the error. I then tried several other variations, that I found while searching, for downloading images and none of them worked.</p>
-
-<p>Next I tried to look at the object obtained after running <code class="highlighter-rouge">r = requests.get(url)</code>. I first ran <code class="highlighter-rouge">print(r.content)</code> to actually see what I was writing to the files. The output was html for a webpage - that made no sense, since the url directly goes to a jpg file. I was feeling a bit clueless here. I used <code class="highlighter-rouge">dir(r)</code> to see if there were any functions that might help me, but none stood out. One of the methods was <code class="highlighter-rouge">url</code> and in desperation I decided to do run <code class="highlighter-rouge">print(r.url)</code>, expecting just to the url it had inputted. However, the output was:</p>
+<p>Next I tried to look at the object obtained after running <code class="highlighter-rouge">r = requests.get(url)</code>. I first ran <code class="highlighter-rouge">print(r.content)</code> to actually see what I was writing to the files. The output was html for a webpage - that made no sense, since the url directly goes to a jpg file. I was feeling a bit clueless here. I used <code class="highlighter-rouge">dir(r)</code> to see if there were any functions that might help me, but none stood out. One of the methods was <code class="highlighter-rouge">url</code> and in desperation I decided to do run <code class="highlighter-rouge">print(r.url)</code>, expecting just to the url that was inputted into the <code class="highlighter-rouge">.get</code> method. However, the output was:</p>
 
 <p><code class="highlighter-rouge">https://2017.integralmaths.org/login/index.php</code></p>
 
-<p>Bingo! The problem became clear to me. The <code class="highlighter-rouge">requests</code> function is distinct from the selenium functions I was using, so has not actually logged into the website. After some Googling, I found out how you can enter log-in credentials using requests, and it worked! What a relief. The new bits of code are given at the end.</p>
+<p>Bingo! The problem was now clear. The <code class="highlighter-rouge">requests</code> function is distinct from the selenium objects, so you have to separately log-in to the website for <code class="highlighter-rouge">requests</code>. After some Googling, I found out how you can enter log-in credentials using requests, and it worked! What a relief. The new bits of code are given at the end.</p>
 
 <h2 id="lessons-learnt">
 <a class="anchor" href="#lessons-learnt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lessons learnt</h2>
 <ul>
   <li>As mentioned above, I really need to absorb the lesson that one should not make assumptions.</li>
   <li>If you’re completely stuck, it might be worthwhile to go through all the methods of the object, to see what can be uncovered.</li>
-  <li>There is a limit to my understanding of the code and the modules. Stitching together code from random blogs and stackoverflow works, but I have no deep understanding. I did try looking at the documentation for some of the modules I was using, but they are incomprehensibly dense. I am not sure what best practice is here.</li>
+  <li>There is a limit to my understanding of the code and the modules. Stitching together code from random blogs and stackoverflow works, but I have no real understanding. I did try looking at the documentation for some of the modules I was using, but they are incomprehensibly dense. I am not sure what best practice is here.</li>
   <li>Try to have as much of your work saved, so if there is a bug, you do not need to repeat everything. In this case, I should have saved a list of the urls during my first attempt, so that for any potential future attempts, all I would have to do is loop through these urls and download the images, rather than having to navigate via a browser to find all the urls again.</li>
 </ul>
 
 <h2 id="code">
 <a class="anchor" href="#code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code</h2>
-<p>Below is the new bits of code I had to add into the original code. It may be incomprehensible out of context, but I think it should be clear what is going on.</p>
+<p>Below is the new bits of code I had to add into the original code. It may be incomprehensible without the context, but I think the syntax is mostly self-explanatory.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">login_url</span> <span class="o">=</span> <span class="s">"https://2017.integralmaths.org/login/index.php"</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
