@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-14T06:41:22-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">DynamoDB Part I, the CAP Theorem’s never ending rabbit hole</title><link href="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html" rel="alternate" type="text/html" title="DynamoDB Part I, the CAP Theorem's never ending rabbit hole" /><published>2020-08-14T00:00:00-05:00</published><updated>2020-08-14T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-17T13:16:08-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">DynamoDB Part I, the CAP Theorem’s never ending rabbit hole</title><link href="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html" rel="alternate" type="text/html" title="DynamoDB Part I, the CAP Theorem's never ending rabbit hole" /><published>2020-08-14T00:00:00-05:00</published><updated>2020-08-14T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I recently started this &lt;a href=&quot;https://courses.edx.org/courses/course-v1:AWS+OTP-AWS-D6+2T2019/course/&quot;&gt;EdEx course&lt;/a&gt; on Amazon’s DynamoDB service. Within one of the first few videos, the CAP Theorem was
@@ -260,7 +260,52 @@ The format of the entries in the list has changed over time.&lt;/p&gt;
 &lt;span class=&quot;c1&quot;&gt;# create dataframe from data, and save as csv file
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataFrame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mymovies1.csv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Web Scraping for STEP past papers and solutions</title><link href="https://lovkush-a.github.io/blog/python/2020/07/27/downloadstep.html" rel="alternate" type="text/html" title="Web Scraping for STEP past papers and solutions" /><published>2020-07-27T00:00:00-05:00</published><updated>2020-07-27T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/2020/07/27/downloadstep</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/2020/07/27/downloadstep.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">First ever open source contribution</title><link href="https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen.html" rel="alternate" type="text/html" title="First ever open source contribution" /><published>2020-07-30T00:00:00-05:00</published><updated>2020-07-30T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen</id><content type="html" xml:base="https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;A few days ago, I successfully completed my first ever open source contribution. :) In this article, I will briefly describe the experience, and some little things I learnt.&lt;/p&gt;
+
+&lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
+&lt;p&gt;I contributed to the relatively new package &lt;a href=&quot;https://github.com/unit8co/darts&quot;&gt;darts&lt;/a&gt; by &lt;a href=&quot;https://unit8.co/&quot;&gt;Unit8&lt;/a&gt;. It is a package that makes TimeSeries analysis easy. It does not create any new models, but just creates a TimeSeries class which uses the &lt;code class=&quot;highlighter-rouge&quot;&gt;fit&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;predict&lt;/code&gt; syntax from &lt;code class=&quot;highlighter-rouge&quot;&gt;scikitlearn&lt;/code&gt; to carry out analyses imported from other packages.&lt;/p&gt;
+
+&lt;p&gt;I went to the issues tab and saw an issue that seemed accessible - implementing a &lt;code class=&quot;highlighter-rouge&quot;&gt;map&lt;/code&gt; method for the Time Series object. Next I read the contribution guidelines, to make sure I follow the right steps and conventions. Next I forked the repository and then pulled it to my local machine.  After this, I spent some time getting familiar with the package, and working out how the TimeSeries class works. Next I wrote the code for the map function. I would refer to other bits of the code to make sure I was using consistent conventions and wording (e.g. wording for the doc text). Then I tested the code by creating a Jupyter Notebook, and seeing that the function does what was intended. Once it all looked fine, I then pushed the changes to my forked copy of the repository, and then made a pull request.&lt;/p&gt;
+
+&lt;p&gt;It was a bit nerve-racking, because there are so many little things to get correct to successfully contribute to a project. Shortly after, I got some feedback, and fortunately it was positive! Phew. They liked how the function was implemented, but had various minor comments. I made the changes, pushed them to my forked copy and was about to make another pull request. But then I noticed that the original pull request automatically absorbs any new commits - that is a neat feature!&lt;/p&gt;
+
+&lt;p&gt;After a couple of other minor comments and changes, the owners of the project were happy and merged the changes into the main code. Woohoo! My first ever contribution is done.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
+&lt;p&gt;In case you care, here is the code I wrote for the map function:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Callable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Optional&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Union&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'TimeSeries'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+    Applies the function `fn` elementwise to all values in this TimeSeries, or, to only those
+    values in the columns specified by the optional argument `cols`. Returns a new
+    TimeSeries instance.
+        
+    Parameters
+    ----------
+    fn
+        A numerical function
+    cols
+        Optionally, an integer or list of integers specifying the column(s) onto which fn should be applied
+    Returns
+    -------
+    TimeSeries
+        A new TimeSeries instance
+    &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_df&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applymap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;isinstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;raise_if_not&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]),&lt;/span&gt;
+                 &lt;span class=&quot;s&quot;&gt;'The indices in `cols` must be between 0 and the number of components of the current '&lt;/span&gt;
+                 &lt;span class=&quot;s&quot;&gt;'TimeSeries instance - 1, {}'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pd_dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
+        &lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applymap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TimeSeries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq_str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Introduction A few days ago, I successfully completed my first ever open source contribution. :) In this article, I will briefly describe the experience, and some little things I learnt.</summary></entry><entry><title type="html">Web Scraping for STEP past papers and solutions</title><link href="https://lovkush-a.github.io/blog/python/2020/07/27/downloadstep.html" rel="alternate" type="text/html" title="Web Scraping for STEP past papers and solutions" /><published>2020-07-27T00:00:00-05:00</published><updated>2020-07-27T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/2020/07/27/downloadstep</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/2020/07/27/downloadstep.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Though I am transitioning from teaching to data science, I still continue to teach via private tuition. I am currently helping somebody prepare for the &lt;a href=&quot;https://www.admissionstesting.org/for-test-takers/step/about-step/&quot;&gt;STEP&lt;/a&gt;, so I wanted to obtain as many past papers and solutions as I could. To do this manually would have required hours of clicking on links and ‘Saving as…’, so I decided to automate it with python.&lt;/p&gt;
 
 &lt;h2 id=&quot;downloading-the-step-papers&quot;&gt;Downloading the step papers&lt;/h2&gt;
@@ -1992,63 +2037,4 @@ Accuracy on testing data: 0.9496333333333333
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
-&lt;p&gt;I will continue to work through &lt;a href=&quot;http://neuralnetworksanddeeplearning.com/chap1.html&quot;&gt;Nielsen’s online book&lt;/a&gt;, learning more about neural networks.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Neural Networks, Part I, Basic network from scratch</summary></entry><entry><title type="html">Santander Dataset, Part II, Feature Selection</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2.html" rel="alternate" type="text/html" title="Santander Dataset, Part II, Feature Selection" /><published>2020-07-13T00:00:00-05:00</published><updated>2020-07-13T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/07/13/santander2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/18/santander3.html&quot;&gt;Santander Dataset, Part III, Learning from others&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/07/01/santander1.html&quot;&gt;Santander Dataset, Part I&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;After some Googling and reading of various blog posts and articles, I decide to carry out a few different feature selection techniques, record them all in a pandas frame, and pick out the important features as appropriate. The feature selection techniques I use are:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Calculate ANOVA F-value between each feature and prediction target&lt;/li&gt;
-  &lt;li&gt;Obtain feature importances from XGBoost model&lt;/li&gt;
-  &lt;li&gt;Calculate correlations between each feature and prediction target&lt;/li&gt;
-  &lt;li&gt;Obtain coefficients from logistic regression with L1-regularisation&lt;/li&gt;
-  &lt;li&gt;Obtain coefficients from logistic regression with L2-regularisation&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;visualising-the-feature-scores&quot;&gt;Visualising the feature scores&lt;/h2&gt;
-&lt;p&gt;Below are plots showing how the different methods of measuring feature importance compare with one another.
-&lt;img src=&quot;/blog/images/santander2_features.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The main takeaways for me are:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;The different measures are all strong correlated with one another. This is a good thing of course, because it means there really is a consistent notion of feature importance.&lt;/li&gt;
-  &lt;li&gt;The ANOVA F-values and correlations seem to provide exactly the same information. This is presumably not a coincidence, and there will probably be simple mathematical relationship between correlation and the F-values.&lt;/li&gt;
-  &lt;li&gt;The L1- and L2-regularisations have a perfect correlation. Visually scanning the coefficients also showed they were almost exactly the same. This makes me suspicious and wonder if I did something wrong. As far as I could tell I did not. This is something for me to investigate in future, because I was expecting L1 and L2 regularisations to produce some noticable difference.&lt;/li&gt;
-  &lt;li&gt;The logistic regressions and correlations have a very strong correlation. From my understanding this is not a coincidence - I believe there is a direct relationship between the coefficients and correlations (at least when there is only one feature variable).&lt;/li&gt;
-  &lt;li&gt;The XGBoost feature importances are least correlated with the others. I suppose this makes, because I think the other four quantities have direct mathematical relationships between them, whereas tree-models are qualitatively different.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;To remove the non-linearity in some of the charts above, I decided to also plot feature &lt;em&gt;ranks&lt;/em&gt; that these different measures produce. 
-&lt;img src=&quot;/blog/images/santander2_ranks.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;There is nothing new shown in these graphs - it just makes the patterns listed above a bit clearer.&lt;/p&gt;
-
-&lt;h2 id=&quot;models-with-only-the-most-important-features&quot;&gt;Models with only the most important features&lt;/h2&gt;
-&lt;p&gt;Next I produced several logistic models keeping differing amounts of features removed. I used logistic models because they were the quickest to create.
-&lt;img src=&quot;/blog/images/santander2_feat5.png&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;/blog/images/santander2_feat10.png&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;/blog/images/santander2_feat50.png&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;/blog/images/santander2_feat100.png&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;/blog/images/santander2_feat150.png&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;/blog/images/santander2_feat200.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The patterns here are clear. My takeaways are:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;As you increase the number of features kept, the model improves.&lt;/li&gt;
-  &lt;li&gt;The 100 least important features provide very little information to the models.&lt;/li&gt;
-  &lt;li&gt;However, the 100 least important features do provide &lt;em&gt;some&lt;/em&gt; information. The models did not improve by removing them.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;It looks like removing the least important features has not improved our models. The one thing it did improve was the time taken to create the models. Also, in a real-life situation (where we knew what the variables corresponded to), we would have gained insight into which variables are important, which presumably would help in decision-making.&lt;/p&gt;
-
-&lt;h2 id=&quot;next-steps&quot;&gt;Next steps&lt;/h2&gt;
-&lt;p&gt;The next thing I will do is some hyper-parameter optimisations. After that, I will have used up all the tricks I have available, and then look at other people’s models and see what I can learn.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Santander Dataset, Part III, Learning from others Santander Dataset, Part I</summary></entry></feed>
+&lt;p&gt;I will continue to work through &lt;a href=&quot;http://neuralnetworksanddeeplearning.com/chap1.html&quot;&gt;Nielsen’s online book&lt;/a&gt;, learning more about neural networks.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Neural Networks, Part I, Basic network from scratch</summary></entry></feed>
