@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Analysing the movies I’ve watched, Part III, Joining the tables | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Analysing the movies I’ve watched, Part III, Joining the tables" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I try to join the tables, but things are not so smooth." />
+<meta property="og:description" content="I try to join the tables, but things are not so smooth." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-19T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Analysing the movies I’ve watched, Part III, Joining the tables","description":"I try to join the tables, but things are not so smooth.","datePublished":"2020-08-19T00:00:00-05:00","dateModified":"2020-08-19T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html"},"url":"https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Analysing the movies I’ve watched, Part III, Joining the tables | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Analysing the movies I’ve watched, Part III, Joining the tables" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I try to join the tables, but things are not so smooth." />
+<meta property="og:description" content="I try to join the tables, but things are not so smooth." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-08-19T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Analysing the movies I’ve watched, Part III, Joining the tables","description":"I try to join the tables, but things are not so smooth.","datePublished":"2020-08-19T00:00:00-05:00","dateModified":"2020-08-19T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html"},"url":"https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Analysing the movies I&#39;ve watched, Part III, Joining the tables</h1><p class="page-description">I try to join the tables, but things are not so smooth.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-08-19T00:00:00-05:00" itemprop="datePublished">
+        Aug 19, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#the-main-problem">The main problem</a></li>
+<li class="toc-entry toc-h2"><a href="#conclusion">Conclusion</a></li>
+</ul><h2 id="other-posts-in-series">
+<a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
+
+<ul>
+  <li>
+    <p><a href="/blog/python/data%20science/2020/08/03/mymovies2.html">Analysing the movies I’ve watched, Part I, Data cleaning</a></p>
+  </li>
+  <li>
+    <p><a href="/blog/python/data%20science/2020/08/02/mymovies1.html">Analysing the movies I’ve watched, Part I, Data collection</a></p>
+  </li>
+</ul>
+
+<h2 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<p>In the last post, I described the cleaning that I did, In particular, I had to manually correct over 140 titles in my data that did not occur in the imdb dataset. So I should be ready to join, right? No, of course not, why would things be so simple.</p>
+
+<h2 id="the-main-problem">
+<a class="anchor" href="#the-main-problem" aria-hidden="true"><span class="octicon octicon-link"></span></a>The main problem</h2>
+<p>Many movie titles occur multiple times in the imdb database, and as far as I know, there is not an automated way to deal with this. To measure the extend of the problem, I added a column to count how many matches there are in the imdb database:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">num_rows_in_imdb</span><span class="p">(</span><span class="n">movie_title</span><span class="p">,</span> <span class="n">print_rows</span> <span class="o">=</span> <span class="bp">False</span><span class="p">):</span>
+    <span class="s">"""
+    returns the number of rows in the imdb dataset that have primaryTitle equal to movie_title.
+    if print_rows is True, then also print the rows
+    """</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">imdb</span><span class="p">[</span><span class="n">imdb</span><span class="o">.</span><span class="n">primaryTitle</span> <span class="o">==</span> <span class="n">movie_title</span><span class="p">]</span>
+    <span class="n">num_rows</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">print_rows</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">num_rows</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s">"rows_in_imdb"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">df</span><span class="p">[</span><span class="s">'rows_in_imdb'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">movie_title</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">num_rows_in_imdb</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Doing this revealed that most of the entries had multiple occuences in the imdb database! This was not good. I looked into a couple of examples by searching on the imdb website. It looked like many of the repetitions were from matches with TV episodes.  So I repeated the above process but with only the movies from the imdb dataset:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">imdb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'title.basics.tsv'</span><span class="p">,</span>
+                   <span class="n">sep</span><span class="o">=</span><span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">,</span>
+                   <span class="n">na_values</span> <span class="o">=</span> <span class="s">'</span><span class="se">\\</span><span class="s">N'</span><span class="p">,</span>
+                   <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="s">'tconst'</span><span class="p">,</span> <span class="s">'primaryTitle'</span><span class="p">,</span> <span class="s">'startYear'</span><span class="p">,</span> <span class="s">'titleType'</span><span class="p">])</span>
+
+<span class="n">imdb</span> <span class="o">=</span> <span class="n">imdb</span><span class="p">[</span><span class="n">imdb</span><span class="o">.</span><span class="n">titleType</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s">'short'</span><span class="p">,</span> <span class="s">'movie'</span><span class="p">,</span> <span class="s">'tvMovie'</span><span class="p">])]</span>
+</code></pre></div></div>
+
+<p>By removing all the TV episodes, the number of matches decreased, but we still have a large problem. Only 351 of my entries have precisely one match. That is a low number indeed.</p>
+
+<h2 id="conclusion">
+<a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h2>
+<p>I have decided to leave the dataset in the mess that it is and move onto the analysis stage. I will look for patterns within my dataframe first, and then look at those 351 entries which should be able to join with the imdb dataset for any patterns there.</p>
+
+  </div><a class="u-url" href="/blog/python/data%20science/2020/08/19/mymovies3.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

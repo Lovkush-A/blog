@@ -1,4 +1,49 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-21T12:47:25-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">DynamoDB Part I, the CAP Theorem’s never ending rabbit hole</title><link href="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html" rel="alternate" type="text/html" title="DynamoDB Part I, the CAP Theorem's never ending rabbit hole" /><published>2020-08-14T00:00:00-05:00</published><updated>2020-08-14T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-21T13:06:22-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Analysing the movies I’ve watched, Part III, Joining the tables</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part III, Joining the tables" /><published>2020-08-19T00:00:00-05:00</published><updated>2020-08-19T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/03/mymovies2.html&quot;&gt;Analysing the movies I’ve watched, Part I, Data cleaning&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/02/mymovies1.html&quot;&gt;Analysing the movies I’ve watched, Part I, Data collection&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In the last post, I described the cleaning that I did, In particular, I had to manually correct over 140 titles in my data that did not occur in the imdb dataset. So I should be ready to join, right? No, of course not, why would things be so simple.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-main-problem&quot;&gt;The main problem&lt;/h2&gt;
+&lt;p&gt;Many movie titles occur multiple times in the imdb database, and as far as I know, there is not an automated way to deal with this. To measure the extend of the problem, I added a column to count how many matches there are in the imdb database:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;num_rows_in_imdb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movie_title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;print_rows&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+    returns the number of rows in the imdb dataset that have primaryTitle equal to movie_title.
+    if print_rows is True, then also print the rows
+    &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imdb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imdb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;primaryTitle&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;movie_title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;num_rows&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;shape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;print_rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num_rows&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;rows_in_imdb&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nan&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'rows_in_imdb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movie_title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num_rows_in_imdb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Doing this revealed that most of the entries had multiple occuences in the imdb database! This was not good. I looked into a couple of examples by searching on the imdb website. It looked like many of the repetitions were from matches with TV episodes.  So I repeated the above process but with only the movies from the imdb dataset:&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;imdb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'title.basics.tsv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                   &lt;span class=&quot;n&quot;&gt;sep&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                   &lt;span class=&quot;n&quot;&gt;na_values&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\\&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;N'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                   &lt;span class=&quot;n&quot;&gt;usecols&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'tconst'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'primaryTitle'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'startYear'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'titleType'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;imdb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imdb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imdb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;titleType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'short'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'movie'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'tvMovie'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;By removing all the TV episodes, the number of matches decreased, but we still have a large problem. Only 351 of my entries have precisely one match. That is a low number indeed.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I have decided to leave the dataset in the mess that it is and move onto the analysis stage. I will look for patterns within my dataframe first, and then look at those 351 entries which should be able to join with the imdb dataset for any patterns there.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part I, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">DynamoDB Part I, the CAP Theorem’s never ending rabbit hole</title><link href="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html" rel="alternate" type="text/html" title="DynamoDB Part I, the CAP Theorem's never ending rabbit hole" /><published>2020-08-14T00:00:00-05:00</published><updated>2020-08-14T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I recently started this &lt;a href=&quot;https://courses.edx.org/courses/course-v1:AWS+OTP-AWS-D6+2T2019/course/&quot;&gt;EdEx course&lt;/a&gt; on Amazon’s DynamoDB service. Within one of the first few videos, the CAP Theorem was
@@ -79,7 +124,12 @@ discussed. As someone with a pure maths background, theorems are irresistable ba
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Web Scraping for STEP past papers and solutions</summary></entry><entry><title type="html">Analysing the movies I’ve watched, Part I, Data cleaning</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/03/mymovies2.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part I, Data cleaning" /><published>2020-08-03T00:00:00-05:00</published><updated>2020-08-03T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/03/mymovies2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/03/mymovies2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/02/mymovies1.html&quot;&gt;Analysing the movies I’ve watched, Part I, Data collection&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/19/mymovies3.html&quot;&gt;Analysing the movies I’ve watched, Part III, Joining the tables&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/02/mymovies1.html&quot;&gt;Analysing the movies I’ve watched, Part I, Data collection&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;fixing-bad-indexing&quot;&gt;Fixing bad indexing&lt;/h2&gt;
@@ -130,10 +180,15 @@ discussed. As someone with a pure maths background, theorems are irresistable ba
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;This was a considerable effort, with a lot of manual grinding. I am curious to know what would happen in a commerical context with millions of entries, with a similar hodge-podge of bad data. I presume there must be more efficient ways of tidying, but maybe you really do just have to get your hands dirty if the data is messy enough.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">Analysing the movies I’ve watched, Part I, Data collection</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part I, Data collection" /><published>2020-08-02T00:00:00-05:00</published><updated>2020-08-02T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;This was a considerable effort, with a lot of manual grinding. I am curious to know what would happen in a commerical context with millions of entries, with a similar hodge-podge of bad data. I presume there must be more efficient ways of tidying, but maybe you really do just have to get your hands dirty if the data is messy enough.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">Analysing the movies I’ve watched, Part I, Data collection</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part I, Data collection" /><published>2020-08-02T00:00:00-05:00</published><updated>2020-08-02T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/03/mymovies2.html&quot;&gt;Analysing the movies I’ve watched, Part I, Data cleaning&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/19/mymovies3.html&quot;&gt;Analysing the movies I’ve watched, Part III, Joining the tables&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/03/mymovies2.html&quot;&gt;Analysing the movies I’ve watched, Part I, Data cleaning&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -329,7 +384,7 @@ The format of the entries in the list has changed over time.&lt;/p&gt;
 &lt;span class=&quot;c1&quot;&gt;# create dataframe from data, and save as csv file
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataFrame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mymovies1.csv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part I, Data cleaning</summary></entry><entry><title type="html">First ever open source contribution</title><link href="https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen.html" rel="alternate" type="text/html" title="First ever open source contribution" /><published>2020-07-30T00:00:00-05:00</published><updated>2020-07-30T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen</id><content type="html" xml:base="https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part I, Data cleaning</summary></entry><entry><title type="html">First ever open source contribution</title><link href="https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen.html" rel="alternate" type="text/html" title="First ever open source contribution" /><published>2020-07-30T00:00:00-05:00</published><updated>2020-07-30T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen</id><content type="html" xml:base="https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;A few days ago, I successfully completed my first ever open source contribution. :) In this article, I will briefly describe the experience, and some little things I learnt.&lt;/p&gt;
 
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
@@ -1489,545 +1544,4 @@ The format of the entries in the list has changed over time.&lt;/p&gt;
 &lt;h3 id=&quot;my-thoughts-13&quot;&gt;My thoughts&lt;/h3&gt;
 &lt;ul&gt;
   &lt;li&gt;Looks like an intuitive system. Looks simpler than other pipelines presented in the conference. But is it because it actually is simpler, or is it because I am just getting used to pipelines. (Before this conference, I hadn’t studied pipelines at all).&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Summary EuroPython Conference 2020, Day 1</summary></entry><entry><title type="html">EuroPython Conference 2020, Day 1</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 1" /><published>2020-07-23T00:00:00-05:00</published><updated>2020-07-23T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/23/europython1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/26/europython3.html&quot;&gt;EuroPython Conference 2020, Summary&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/24/europython2.html&quot;&gt;EuroPython Conference 2020, Day 2&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn the talks.&lt;/p&gt;
-
-&lt;h2 id=&quot;0800-waking-up&quot;&gt;08:00, Waking up&lt;/h2&gt;
-&lt;p&gt;I struggled to wake up in time, for two main reasons:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;For the past several months, I have had no need to wake up early, and so my standard wake up time has been 9am.&lt;/li&gt;
-  &lt;li&gt;I stayed up until 2am watching Round 2 of the &lt;a href=&quot;https://www.youtube.com/watch?v=CDZJynwAIV4&quot;&gt;Legends of Chess&lt;/a&gt; tournament…&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;But I managed! I then got onto the Discord server to get to the first keynote talk, &lt;a href=&quot;https://ep2020.europython.eu/talks/30-golden-rules-deep-learning-performance/&quot;&gt;30 Golden Rules of Deep Learning Performance&lt;/a&gt;, which sounds like it would be particularly insightful. But, unfortunately, the speaker could not give the talk so it was cancelled. At least it gives me time to get &lt;a href=&quot;www.huel.com&quot;&gt;breakfast&lt;/a&gt;!&lt;/p&gt;
-
-&lt;h2 id=&quot;0900-docker-and-python-tania-allard&quot;&gt;09:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/4bVczWt-docker-and-python-making-them-play-nicely-and-securely-for-data-science-and-ml/&quot;&gt;Docker and Python&lt;/a&gt;, Tania Allard&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-of-the-talk&quot;&gt;Notes of the talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Why use Docker? Without Docker, hard to share your models because hard to make sure everyone is using the same modules/appropriate versions of packages.&lt;/li&gt;
-  &lt;li&gt;What is Docker? Helps you solve this issue with ‘containers’. Bundles together the application and all packages/requirements.&lt;/li&gt;
-  &lt;li&gt;Difference to virtual machines: Each application has its own container in Docker, which is small and efficient, whereas virutal machine is highly bloated as each applications is grouped with whole OS and unnecessary extra baggage.&lt;/li&gt;
-  &lt;li&gt;Image - an archive with all the data need to run the app. Running an image creates a container.&lt;/li&gt;
-  &lt;li&gt;Common challanges in DS:
-    &lt;ul&gt;
-      &lt;li&gt;Complex setups/dependencies, reliance on data, highly iterative/fast workflow, docker can be hard to learn.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Describes differences to web apps&lt;/li&gt;
-  &lt;li&gt;Building docker images. Tania had many struggles/frustrations to learn Docker.
-    &lt;ul&gt;
-      &lt;li&gt;Many bad examples online/in tutorials.&lt;/li&gt;
-      &lt;li&gt;If building from scratch, use official Python images, and the slim versions.&lt;/li&gt;
-      &lt;li&gt;If not building from scratch (highly recommended), use Jupyter Docker stacks.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Best practices:
-    &lt;ul&gt;
-      &lt;li&gt;Be explicit about packages. Avoid ‘latest’ or ‘python 3’.&lt;/li&gt;
-      &lt;li&gt;Add security context. LABEL securitytxt=’…’. E.g. snake.&lt;/li&gt;
-      &lt;li&gt;Split complex run statements&lt;/li&gt;
-      &lt;li&gt;Prefer Copy to Add&lt;/li&gt;
-      &lt;li&gt;Leverage cache
-        &lt;ul&gt;
-          &lt;li&gt;Clean, e.g. conda clean&lt;/li&gt;
-          &lt;li&gt;Only use necessary packages&lt;/li&gt;
-          &lt;li&gt;Use Docker ignore (similar to .gitignore)&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Minimise privilege.
-        &lt;ul&gt;
-          &lt;li&gt;Run as non-root user. Dockers runs as root by default&lt;/li&gt;
-          &lt;li&gt;Minimise capabilities user&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Avoid leak sensitive information
-        &lt;ul&gt;
-          &lt;li&gt;Information in middle ‘layers’ may appear hidden, but there are tools to find them.&lt;/li&gt;
-          &lt;li&gt;Use multi-stage builds&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;This can be overwhelming, and that is normal. Try to automate and avoid re-inventing the wheel.
-    &lt;ul&gt;
-      &lt;li&gt;Use standard project template, e.g., cookie cutter data science.&lt;/li&gt;
-      &lt;li&gt;Use tools like repo2docker. &lt;code class=&quot;highlighter-rouge&quot;&gt;conda instal jupyter repo2docker&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;jupyter-repo2docker &quot;.&quot;&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Re-run docker image regularly. One benefit is making sure you have latest security patches. Don’t do this manually, use GitHub Actions or Travis, for example.&lt;/li&gt;
-  &lt;li&gt;Top top tips:
-    &lt;ul&gt;
-      &lt;li&gt;Rebuild images frequently. Get security updates.&lt;/li&gt;
-      &lt;li&gt;Do not work as root/minimise privileges&lt;/li&gt;
-      &lt;li&gt;Don’t use Alpine Linux. You are paying price for small size. Use buster, stretch, or Jupyter stack.&lt;/li&gt;
-      &lt;li&gt;Be explicit about what packages you are require, version EVERYTHING.&lt;/li&gt;
-      &lt;li&gt;Leverage build cache. Separate tasks, so you do not need to rebuild whole image for small change.&lt;/li&gt;
-      &lt;li&gt;Use one dockerfile per project&lt;/li&gt;
-      &lt;li&gt;Use multi-stage builds.
-f   * Make images identifiable&lt;/li&gt;
-      &lt;li&gt;Use repo2docker&lt;/li&gt;
-      &lt;li&gt;Automate. Do not build/push manually&lt;/li&gt;
-      &lt;li&gt;Use a linter. E.g. VSCode has docker extension&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;A lot of this went over my head. The main lesson I learnt is that I should expect things to be tricky when I eventually do start using Docker. I will refer back to this video when I do start using Docker.&lt;/p&gt;
-
-&lt;h2 id=&quot;1000-spacy-alexander-hendorf&quot;&gt;10:00 &lt;a href=&quot;https://ep2020.europython.eu/talks/7TXpVro-15-things-you-should-know-about-spacy/&quot;&gt;spaCy&lt;/a&gt;, Alexander Hendorf&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-of-the-talk-1&quot;&gt;Notes of the talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;NLP: avalanche of unstructured data&lt;/li&gt;
-  &lt;li&gt;Estimate 20:80 split between structured and unstructured ata&lt;/li&gt;
-  &lt;li&gt;Examples of NLP: chatbots, translation, sentiment analysis, speech-to-texxt or vice versa, spelling/grammar, text completion (&lt;a href=&quot;https://github.com/openai/gpt-3&quot;&gt;GPT-3&lt;/a&gt;! :D)&lt;/li&gt;
-  &lt;li&gt;Example of Alexander’s work: certain group had large number of documents and search engine was not helping them. Used NLP to create clusters of documnets, create keywords, create summaries.&lt;/li&gt;
-  &lt;li&gt;spaCy. Open source library for NLP, comes with pretrained language models, fast and efficient, designed for production usage, lots of out-of-the-box support.&lt;/li&gt;
-  &lt;li&gt;Building blocks of spaCy
-    &lt;ul&gt;
-      &lt;li&gt;Tokenization&lt;/li&gt;
-      &lt;li&gt;Part of speech tagging. E.g. which words are nouns or verbs, etc.&lt;/li&gt;
-      &lt;li&gt;Lemmatization. cats-&amp;gt;cat&lt;/li&gt;
-      &lt;li&gt;Sentence boundary detection&lt;/li&gt;
-      &lt;li&gt;Named Entity Recognition. (Apple -&amp;gt; company). Depends on context!&lt;/li&gt;
-      &lt;li&gt;Serialization. saving&lt;/li&gt;
-      &lt;li&gt;Dependency parsing. How different tokens depend on each other&lt;/li&gt;
-      &lt;li&gt;Entity linking&lt;/li&gt;
-      &lt;li&gt;Training. Updating models&lt;/li&gt;
-      &lt;li&gt;Text classification&lt;/li&gt;
-      &lt;li&gt;Rule-based matching&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Built-in rules
-    &lt;ul&gt;
-      &lt;li&gt;Rules for specific languages, e.g., adding ‘s’ to end of noun makes it plural in English.&lt;/li&gt;
-      &lt;li&gt;Usually does not cover many exceptions&lt;/li&gt;
-      &lt;li&gt;Most languages won’t be supported. Most research done on English.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Built-in models
-    &lt;ul&gt;
-      &lt;li&gt;Language models. E.g. word vectors&lt;/li&gt;
-      &lt;li&gt;Can train your own models with nlp.update()&lt;/li&gt;
-      &lt;li&gt;Need a lot of data to train these models. Few documents is not enough&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;spaCy is pythonic
-    &lt;ul&gt;
-      &lt;li&gt;should understand objects, iterations, comprehensions, classes, methods&lt;/li&gt;
-      &lt;li&gt;Might be overwhelming, but not as overwhelming as Pandas yet!&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Pipelines
-    &lt;ul&gt;
-      &lt;li&gt;Has nice image in slides&lt;/li&gt;
-      &lt;li&gt;default pipline: tokenize, tag, parse, then your own stuff&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Visualisation
-    &lt;ul&gt;
-      &lt;li&gt;used to be separate package displacy&lt;/li&gt;
-      &lt;li&gt;visualisation of sentence grammar/dependencies&lt;/li&gt;
-      &lt;li&gt;visualise entities. e.g. given sentence, highlight grouping of nounes. e.g. is a word a person, or a date, or an animal, or…&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Serialization
-    &lt;ul&gt;
-      &lt;li&gt;uses pickle&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Danger zones
-    &lt;ul&gt;
-      &lt;li&gt;Privacy, bias, law, language is not fixed in stone&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Can’t do all languages&lt;/li&gt;
-  &lt;li&gt;Extensions
-    &lt;ul&gt;
-      &lt;li&gt;spaCy universe&lt;/li&gt;
-      &lt;li&gt;E.g. NeuralCoref.  Matching up ‘Angela Merkel’ and ‘chancellor’ recognised as same person.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Bugs
-    &lt;ul&gt;
-      &lt;li&gt;spaCy will maintained, and quick response to bug reports&lt;/li&gt;
-      &lt;li&gt;Extensions more variable&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Status
-    &lt;ul&gt;
-      &lt;li&gt;Other options: NLTK, Gensin, TextBlob, Pattern&lt;/li&gt;
-      &lt;li&gt;spaCy: usually close to the state of the art, especially for language models, flexible, extendable via spacy universe, fast (powered by cython)&lt;/li&gt;
-      &lt;li&gt;For special cases, probably use other models. E.g. RASA for contextual textbots&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-1&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;I have not yet done any NLP, but when I do, I will be sure to look into spaCy after this talk!&lt;/p&gt;
-
-&lt;h2 id=&quot;1030-differential-privacy-naoise-holohan&quot;&gt;10:30 &lt;a href=&quot;https://ep2020.europython.eu/talks/6Js4E4r-diffprivlib-privacy-preserving-machine-learning-with-scikit-learn/&quot;&gt;Differential Privacy&lt;/a&gt;, Naoise Holohan&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-of-the-talk-2&quot;&gt;Notes of the talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Many examples where ‘anonymised’ but actually could still identify individuals by matching data with other data publically available.
-    &lt;ul&gt;
-      &lt;li&gt;Netflix data. Matched with imdb databse&lt;/li&gt;
-      &lt;li&gt;AOL data. NYT managed to identify individual and make available their full search&lt;/li&gt;
-      &lt;li&gt;Limosine service. Person matched it with images of celebrities, and managed to find out about individuals use of taxis/limos&lt;/li&gt;
-      &lt;li&gt;Many other examples out there.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Differential privacy. Main idea: blur noise.&lt;/li&gt;
-  &lt;li&gt;Implemented in diffprivlib, for scikit learn.&lt;/li&gt;
-  &lt;li&gt;Modules
-    &lt;ul&gt;
-      &lt;li&gt;Mechanisms. Algorithms to add noise&lt;/li&gt;
-      &lt;li&gt;Models. Has scikit learn equivalents as its parent class&lt;/li&gt;
-      &lt;li&gt;Tools. Analogue for NumPy.&lt;/li&gt;
-      &lt;li&gt;Accountant. Track privacy budget. Help optimise balance between accuracy and privacy.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Examples
-    &lt;ul&gt;
-      &lt;li&gt;Gives warning for privacy leakage with certain bound is not specified. If bound is not specified, then original dataset is used to estimate the parameter!&lt;/li&gt;
-      &lt;li&gt;Pipelines. With and without privacy.
-        &lt;ul&gt;
-          &lt;li&gt;Without, got 80.3% accuracy&lt;/li&gt;
-          &lt;li&gt;With, got 80.7% accuracy! Adding noise can actually reduce over-fitting. !!&lt;/li&gt;
-          &lt;li&gt;Graph of epsilon vs accuracy. Low epsilon highly variable performance. Higher epsilon tends to 80% baseline&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Some exploratory data analysis&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-2&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;I have actually heard of differential privacy before, via &lt;a href=&quot;https://www.youtube.com/watch?v=bScJdHX0Hac&quot;&gt;this talk&lt;/a&gt; from &lt;a href=&quot;https://faculty.ai/&quot;&gt;FacultyAI&lt;/a&gt;. To anybody interested in this topic, I recommend watching the FacultyAI talk for more background on differential privacy itself.&lt;/p&gt;
-
-&lt;p&gt;Main lesson here is that if I want to analyse sensitive data, diffprivlib is a good open source option.&lt;/p&gt;
-
-&lt;p&gt;The big surprise factor was that the accuracy can sometimes be better after adding privacy! Adding noise can reduce over-fitting.&lt;/p&gt;
-
-&lt;h2 id=&quot;1215-parallel-and-asynchronous-programming-in-ds-chin-hwee-ong&quot;&gt;12:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/8DboZjY-speed-up-your-data-processing/&quot;&gt;Parallel and Asynchronous Programming in DS&lt;/a&gt;, Chin Hwee Ong&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-of-the-talk-3&quot;&gt;Notes of the talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Background. Engineer at ST Engineering. Background in aerospace engineer and modelling. Contributor to pandas. Mentor at BigDataX.&lt;/li&gt;
-  &lt;li&gt;Typical flow: extract raw data, process data, train model, evaluate and deploy model.&lt;/li&gt;
-  &lt;li&gt;Bottlenecks in real world
-    &lt;ul&gt;
-      &lt;li&gt;Lack of data. Poor quality data&lt;/li&gt;
-      &lt;li&gt;Data processing. 80/20 dilemma. More like 90/10!&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Data processing in python
-    &lt;ul&gt;
-      &lt;li&gt;For loops, &lt;code class=&quot;highlighter-rouge&quot;&gt;list = [], for i in range(100), list.append(i*i)&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;This is slow!&lt;/li&gt;
-      &lt;li&gt;Comprehensions. &lt;code class=&quot;highlighter-rouge&quot;&gt;list = [i*i for i in range(100)]&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Slightly better. No need to call append on each iteration&lt;/li&gt;
-      &lt;li&gt;Pandas, optimised for in-memory analytics. But get performance issues when dealing with large datasets, e.g. 1&amp;gt;GB. Particularly in 100GB plus range.&lt;/li&gt;
-      &lt;li&gt;Why not just use spark? Overhead cost of communication. Need very big data for this to be worthwhile. What to do in ‘small big data’?&lt;/li&gt;
-      &lt;li&gt;&lt;em&gt;Small Big Data Manifesto&lt;/em&gt; by Itamar Turner-Trauring&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Parallel processing
-    &lt;ul&gt;
-      &lt;li&gt;Analogy: preparing toast.&lt;/li&gt;
-      &lt;li&gt;Traditional breakfast in Singapore is tea, toast and egg&lt;/li&gt;
-      &lt;li&gt;Sequential processing: one single-slice toaster&lt;/li&gt;
-      &lt;li&gt;Parallel processing: four single-slice toaster. Each toaster is independent&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Synchronous vs asynchronous
-    &lt;ul&gt;
-      &lt;li&gt;Analogy: also want coffee. Assume it takes 5 mins for each coffee, 2 mins for single toaster.&lt;/li&gt;
-      &lt;li&gt;Synchronous execution: first make coffee, and then make toast.&lt;/li&gt;
-      &lt;li&gt;Asynchronous: make coffee and toast at the same time&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Practical considerations
-    &lt;ul&gt;
-      &lt;li&gt;Parellelism sounds great. Get mega time savings&lt;/li&gt;
-      &lt;li&gt;Is code already optimised? Using loops instead of array operations&lt;/li&gt;
-      &lt;li&gt;Problem architecture. If many tasks depends on previous tasks being completed, parallelism isn’t great. Data dependency vs task dependency.&lt;/li&gt;
-      &lt;li&gt;Overhead costs. Limit to parallelisation. Amdahl’s.&lt;/li&gt;
-      &lt;li&gt;Multi processing vs multi threading&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;In python
-    &lt;ul&gt;
-      &lt;li&gt;concurrent.futures module&lt;/li&gt;
-      &lt;li&gt;ProcessPoolExecutor vs ThreadPoolExecutor.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Example
-    &lt;ul&gt;
-      &lt;li&gt;Obtaining data from API. JSON data. 20x speed up versus list comprehension.&lt;/li&gt;
-      &lt;li&gt;Rescaling x-ray images. map gives 40 seconds. list comprehension 24 seconds. ProcessPoolExecutor about 7s with 8 cores.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Takeaways
-    &lt;ul&gt;
-      &lt;li&gt;Not all processes should be parallelized. Amdahl’s law, system overhead, cost of re-writing code.&lt;/li&gt;
-      &lt;li&gt;Don’t use for loops!&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-3&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Something for me to investigate. I have not needed to use this yet. Nice bonus - I learnt about Singaporean breakfasts!&lt;/p&gt;
-
-&lt;h2 id=&quot;1245-automate-nlp-model-deployment-william-arias&quot;&gt;12:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/5hXHveq-deploy-your-machine-learning-bots-like-a-boss-with-cicd/&quot;&gt;Automate NLP model deployment&lt;/a&gt;, William Arias&lt;/h2&gt;
-&lt;h3 id=&quot;notes-of-the-talk-4&quot;&gt;Notes of the talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Background. Colombian, lives in Prague. Works at GitLab&lt;/li&gt;
-  &lt;li&gt;Often, data scientists are a one-person band. Have to do learn many different tool.&lt;/li&gt;
-  &lt;li&gt;Define a symphony. Produce flowchart of data workflow. Make explicit where different people can/should contribute to process.
-    &lt;ul&gt;
-      &lt;li&gt;Favour for yourself&lt;/li&gt;
-      &lt;li&gt;Makes easier for everyone to understand process&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Symphony components.
-&lt;img src=&quot;/blog/images/europython_arias1.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;I found it hard to follow details here. I’d have to re-watch the video.&lt;/li&gt;
-  &lt;li&gt;This might be standard knowlege for people who already work in software engineering. But somebody with maths background, say, this kind of automation and workflow is not obvious.&lt;/li&gt;
-  &lt;li&gt;This will make your life easier!&lt;/li&gt;
-  &lt;li&gt;Has video showing example of making small change to chat bot, and how much is automated.&lt;/li&gt;
-  &lt;li&gt;See examples on &lt;a href=&quot;https://gitlab.com/warias/pycon2020&quot;&gt;github&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-4&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Probably too advanced for me at this stage. But, something I should be aware of when I work on bigger projects.&lt;/p&gt;
-
-&lt;h2 id=&quot;1315-building-models-with-no-expertise-with-automl-laurent-picard&quot;&gt;13:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/C8WFfBR-building-smarter-solutions-with-no-expertise-in-machine-learning/&quot;&gt;Building models with no expertise with AutoML&lt;/a&gt;, Laurent Picard&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-of-the-talk-5&quot;&gt;Notes of the talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Background, French, ebook pioneer, cofounder of bookeen&lt;/li&gt;
-  &lt;li&gt;Their definition of ML: given data, extract data.&lt;/li&gt;
-  &lt;li&gt;Correct definition: AI contains machine learning contains deep learning.&lt;/li&gt;
-  &lt;li&gt;Graph showing increase of ‘Brain Model’ at Google. Number of directories using it. At 7000 around 2017.&lt;/li&gt;
-  &lt;li&gt;AutoML - somewhere between ML APIs (developer skills) and ML (machine learning skills).&lt;/li&gt;
-  &lt;li&gt;Ready-to-use models.&lt;/li&gt;
-  &lt;li&gt;Vision API. Laurent in 90s tried to detect edges, and it was very hard.
-    &lt;ul&gt;
-      &lt;li&gt;Label detection. What is in picture?&lt;/li&gt;
-      &lt;li&gt;Locate picture by matching with google’s database&lt;/li&gt;
-      &lt;li&gt;Bounding boxes for objects in the picture, e.g. box for trousers, box for person&lt;/li&gt;
-      &lt;li&gt;Face detection. Emotion prediction.&lt;/li&gt;
-      &lt;li&gt;Text detection. Identify blocks of text. Works even if image is slanted.&lt;/li&gt;
-      &lt;li&gt;Hand-writing detection. Not as good as text detection (obviously), but still good.&lt;/li&gt;
-      &lt;li&gt;Web entity detection/image matching. Identify source of image, identify topic of image. E.g. picture of Tolkien identified as Tolkien and its source found.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;from google.cloud import vision&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Video intelligence
-    &lt;ul&gt;
-      &lt;li&gt;Apply image analysis to each frame&lt;/li&gt;
-      &lt;li&gt;from google.cloud import videointelligence&lt;/li&gt;
-      &lt;li&gt;codelabs.developers.google.com/codelabs/cloud-video-intelligence-python3&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;NLP
-    &lt;ul&gt;
-      &lt;li&gt;Syntax analysis. Language detection, syntax analysis (dependency, grammar, etc.)&lt;/li&gt;
-      &lt;li&gt;Entity detection. Understands context. Given match, gives unique id and wikipedia link!&lt;/li&gt;
-      &lt;li&gt;Content classification.&lt;/li&gt;
-      &lt;li&gt;Sentiment analysis. E.g helps company judge how people are talking about their service or product.&lt;/li&gt;
-      &lt;li&gt;Tutorials available on codelabs&lt;/li&gt;
-      &lt;li&gt;Translation API.&lt;/li&gt;
-      &lt;li&gt;Speech-to-text API&lt;/li&gt;
-      &lt;li&gt;Speech timestamps. Given script and audio, attach&lt;/li&gt;
-      &lt;li&gt;Text-to-speech. WaveNet by DeepMind&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Cloud AutomL
-    &lt;ul&gt;
-      &lt;li&gt;You provide data. AutoML does training, deployment and serving&lt;/li&gt;
-      &lt;li&gt;Can create your own API for cloud model&lt;/li&gt;
-      &lt;li&gt;For offline, can get TF Lite model for mobile, TF model for browser, or container for anywhere.&lt;/li&gt;
-      &lt;li&gt;Example of identifying between different types of clouds. Upload around thousand images. Can specify computer hours and visualise results.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-5&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Not sure what my takeaway message is here. Looks like a useful and easy to use set of tools. But not sure when I will use it given that I am aiming to become a data scientist.&lt;/p&gt;
-
-&lt;h2 id=&quot;1415-simulating-hours-of-robots-work-in-minutes-eran-friedman&quot;&gt;14:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/9k2qHA7-boosting-simulation-performance-with-python/&quot;&gt;Simulating hours of robots’ work in minutes&lt;/a&gt;, Eran Friedman&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-of-the-talk-6&quot;&gt;Notes of the talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Works at Fabric. Helps develop ground robot.&lt;/li&gt;
-  &lt;li&gt;SimPy library. Discreate event simulation&lt;/li&gt;
-  &lt;li&gt;Three objects: environment, …&lt;/li&gt;
-  &lt;li&gt;And I stopped taking notes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-6&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;I do not anticipate needing to know about simulations any time soon, and I am feeling exhausted from first several hours of talks, so I decided to take a break. SimPy looks cool, but not for me.&lt;/p&gt;
-
-&lt;h2 id=&quot;1445-parallel-stream-processing-at-massive-scale-alejandro-saucedo&quot;&gt;14:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/Ccb6D5Z-real-time-stream-processing-for-machine-learning-at-massive-scale/&quot;&gt;Parallel Stream Processing at Massive Scale&lt;/a&gt;, Alejandro Saucedo&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-of-the-talk-7&quot;&gt;Notes of the talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Chief Scientist at Institue for Ethical AI. Director at Seldon.&lt;/li&gt;
-  &lt;li&gt;Realtime ML in today’s talk, conceptual intro to stream processing, tradeoffs in different tools, example case&lt;/li&gt;
-  &lt;li&gt;Real-time ML model for reddit comments. To help automate comment moderation.&lt;/li&gt;
-  &lt;li&gt;ETL, Extract Transform Load framework for data transformation. Batch processing. Variations: ETL, ELT, EL, LT. Many specialised tools. Image of about 40 different packages that deal with this.
-    &lt;ul&gt;
-      &lt;li&gt;EL, Nifi and Flume&lt;/li&gt;
-      &lt;li&gt;ETL, Oozie, Airflow&lt;/li&gt;
-      &lt;li&gt;ELT, Elasticsearch, Data Warehouse&lt;/li&gt;
-      &lt;li&gt;Jupyter notebook?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Batch vs streaming
-    &lt;ul&gt;
-      &lt;li&gt;Data processed in batches. E.g. periodically&lt;/li&gt;
-      &lt;li&gt;Stream processing. Process data as it comes in, each data entry at a time. Real time&lt;/li&gt;
-      &lt;li&gt;In reality, have combination of the two. Rarely all or nothing.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Stream concepts
-    &lt;ul&gt;
-      &lt;li&gt;Windows. Can have moving window or tumbling window&lt;/li&gt;
-      &lt;li&gt;Checkpoints. Keep track of stream progress. Leads to other ideas, e.g. processing at most/at least once.&lt;/li&gt;
-      &lt;li&gt;Water mark. Somehow allows you to deal with data that arrives later than is expected&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Some tools. Flink, Kafka, Spark, Faust, Apache Beam, Seldon&lt;/li&gt;
-  &lt;li&gt;Traditional ML workflow. Train a model on cleaning training data. Obtain ‘persisted’ model. Then get unseen data, and use model to make predictions.
-    &lt;ul&gt;
-      &lt;li&gt;Reddit example: clean text, spaCy tokenizer, TFIDF vectoriser, logistic regression.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;You are a DUMMY!!!!&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;You are dummy&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;[PRON, IS, DUMB]&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;[0010, 1000, 1100]&lt;/code&gt; -&amp;gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;1&lt;/code&gt; (which equals moderated).&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Stream-based workflow. Note that ‘core’ is part of Seldon.
-&lt;img src=&quot;/blog/images/europython_2.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Gives example code in video for each step in workflow.&lt;/li&gt;
-  &lt;li&gt;Seldon still developing service. Have open examples on github. They are open to feedback.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-7&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Good to learn about this newer workflow and the tools available for stream processing. Again, at this stage of my learning, I am unlikely to use the ideas directly any time soon, but it is good to have an awareness.&lt;/p&gt;
-
-&lt;h2 id=&quot;1830-a-brief-history-of-jupyter-notebooks-william-horton&quot;&gt;18:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/7UBMYed-a-brief-history-of-jupyter-notebooks/&quot;&gt;A Brief History of Jupyter Notebooks&lt;/a&gt;, William Horton&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-of-the-talk-8&quot;&gt;Notes of the talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Tension between traditional python IDE and jupyter notebooks
-    &lt;ul&gt;
-      &lt;li&gt;“I don’t like notebooks” - Joel Grus&lt;/li&gt;
-      &lt;li&gt;First Notebook War, Martin Skarynski. Talk at PyData 2018&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Instead of arguing, lets understand the history. Better understanding as as result
-    &lt;ul&gt;
-      &lt;li&gt;No significant piece of software doesn’t come out of nowhere&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Long-term trends: scientific computing, literate programming, proprietary vs open source, python&lt;/li&gt;
-  &lt;li&gt;Mathematica, 1988. By Stephen Wolfram. Theodore Gray created Notebook interface. Well received at the time.
-    &lt;ul&gt;
-      &lt;li&gt;Had two parts to notebooks. Kernel and front-end. Notebooks are objects in themselves that could be manipulated by mathematica.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;The Art of Computer Programming, by Knuth.
-    &lt;ul&gt;
-      &lt;li&gt;Literate programming. Implemented ‘WEB’ system.&lt;/li&gt;
-      &lt;li&gt;TANGLE - generates compilable source code&lt;/li&gt;
-      &lt;li&gt;WEAVE - generate formatted documentation&lt;/li&gt;
-      &lt;li&gt;Used this idea to implement Tex!&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Maple. In 1992, had ‘worksheet’ interface.&lt;/li&gt;
-  &lt;li&gt;Maple, Mathematica.
-    &lt;ul&gt;
-      &lt;li&gt;Mathematical entry vs programming style entry, enter vs shift+enter, etc.&lt;/li&gt;
-      &lt;li&gt;But both expensive and propritary&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Open source. SciPy, IPython and Matplotlib&lt;/li&gt;
-  &lt;li&gt;Big name: Fernando Perez. Created IPython in 2001 as grad student.&lt;/li&gt;
-  &lt;li&gt;…&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-8&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;I stopped taking notes, because I do not think I will need to refer back to this. Time to just enjoy the talk!&lt;/p&gt;
-
-&lt;h2 id=&quot;1900-quickly-prototype-translation-from-scratch-and-serve-it-in-production-shreya-khurana&quot;&gt;19:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/7W3cA68-train-serve-deploy-story-of-a-nlp-model-ft-pytorch-docker-uwsgi-and-nginx/&quot;&gt;Quickly prototype translation from scratch and serve it in production&lt;/a&gt;, Shreya Khurana&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-of-the-talk-9&quot;&gt;Notes of the talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Background. Data Scientist at GoDaddy, deep learning NLP&lt;/li&gt;
-  &lt;li&gt;Workflow in academia is different to business use. Deployment is whole extra part of the workflow.&lt;/li&gt;
-  &lt;li&gt;Lots of new tools that you wouldn’t be familiar with from just training models.&lt;/li&gt;
-  &lt;li&gt;Example: seq2seq model i.e. translation. E.g. german sentence to english sentence.
-    &lt;ul&gt;
-      &lt;li&gt;Small dataset from TedTalk transcripts.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Fairseq. Used for preprocessing, training, model serving. In some unknown language - shell script?&lt;/li&gt;
-  &lt;li&gt;Flask. Tool to create API. Development server. Example code given in talk.&lt;/li&gt;
-  &lt;li&gt;uwsgi. Helps make Flask app secure / ready for production. There is uwsgi.ini file to configure stuff.&lt;/li&gt;
-  &lt;li&gt;nginx. (pronounced ‘engine-x’). Idea of QPS - queries per second. Make sure all requests are appropriately routed to server. Unknown language for nginx.&lt;/li&gt;
-  &lt;li&gt;supervisord. coordinates nginx and uwsgi.&lt;/li&gt;
-  &lt;li&gt;Docker. The above system has many dependencies. Docker creates containers where you can isolate all the requirements and programs, which can loaded up and run remotely.&lt;/li&gt;
-  &lt;li&gt;General good practice: check logs frequently, caching, unit tests.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-9&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;A lot of useful information here. I will be returning to this when I have to put a model into production.&lt;/p&gt;
-
-&lt;h2 id=&quot;1930-painless-machine-learning-in-production-chase-stevens&quot;&gt;19:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/3iErRxw-painless-machine-learning-in-production/&quot;&gt;Painless Machine Learning in Production&lt;/a&gt;, Chase Stevens&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-of-the-talk-10&quot;&gt;Notes of the talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Background. Works for teikametrics&lt;/li&gt;
-  &lt;li&gt;Focus on production, not on machine learning. Model building is relatively mature, but still need lots of work on improving production.&lt;/li&gt;
-  &lt;li&gt;Goal of teikametrics - helps online e-commerce businesses.&lt;/li&gt;
-  &lt;li&gt;Motivation: Ops is intrinsic to ML, ‘MLOps’ is unsustainable (where data scientists pass their models to software engineers). Conclusion: data scientists need to productionise their own models. But data scientists want to do data science. Hence, need tooling and services to make it easier as possible.&lt;/li&gt;
-  &lt;li&gt;Looked for services to do full cycle (preprocess, train, evaluate, deploy, repeat), but couldn’t find any.&lt;/li&gt;
-  &lt;li&gt;Interesting graph showing how AUC drops for models over time. Models need to be re-trained! Another example of how covid makes models from 2019 almost useless.&lt;/li&gt;
-  &lt;li&gt;Different clients will have different markets which require different models.&lt;/li&gt;
-  &lt;li&gt;Previous two points show importance of having efficient workflow and cycle.&lt;/li&gt;
-  &lt;li&gt;MLOps is unsustainbly
-    &lt;ul&gt;
-      &lt;li&gt;Brief history of programming. Punch cards programmers separate from people who run programs, changes with terminal, late 90s, programmers separate from quality assurance and release team, rise of devops.&lt;/li&gt;
-      &lt;li&gt;MLOps is making similar mistakes of past. Lots of slow back and forth between data scientists and production team.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Modern experience at tiekametrics.
-    &lt;ul&gt;
-      &lt;li&gt;Use cookiecutter on their sagemaker-framework. Asked a bunch of questions, which after answering, get repo made with good structure built in.&lt;/li&gt;
-      &lt;li&gt;Define preprocessing function (SQL, Pandas), define train and validation training sets and model, define model loading function.&lt;/li&gt;
-      &lt;li&gt;Various details skimmed over. E.g. need to update config file.&lt;/li&gt;
-      &lt;li&gt;Whole list of tasks that care standardised and made easy. See talk for list.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Their stack:
-&lt;img src=&quot;/blog/images/europython_3.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Various details given in talk&lt;/li&gt;
-  &lt;li&gt;Big lesson. Do this! Big savings. Even little things: example of automating process of choosing which AWS instance to use.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-10&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Another useful set of resources and examples I can use as a reference if/when I need to make production based decisions.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Summary EuroPython Conference 2020, Day 2</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Summary EuroPython Conference 2020, Day 1</summary></entry></feed>
