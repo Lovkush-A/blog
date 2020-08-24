@@ -1,6 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-21T14:16:55-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Analysing the movies I’ve watched, Part III, Joining the tables</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part III, Joining the tables" /><published>2020-08-19T00:00:00-05:00</published><updated>2020-08-19T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-24T16:11:07-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Analysing the movies I’ve watched, Part IV, Data visualisation</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part IV, Data visualisation" /><published>2020-08-24T00:00:00-05:00</published><updated>2020-08-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/19/mymovies3.html&quot;&gt;Analysing the movies I’ve watched, Part III, Joining the tables&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/03/mymovies2.html&quot;&gt;Analysing the movies I’ve watched, Part II, Data cleaning&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/02/mymovies1.html&quot;&gt;Analysing the movies I’ve watched, Part I, Data collection&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;movies-per-year&quot;&gt;Movies per year&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies4_year.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The most striking thing is how many movies I watched in 2008 and 2009! More than an average of 2 per week. The uptick in 2016 and 2017 can be explained by my mum buying me an Odeon Unlimited card in September 2016. The slight rise in 2018 and 2019 compared to mid 2010s I think is explained by moving into a house where watching movies was a common social activity for the housemates. And 2020 is significantly above average (given it is not complete), and this is explained by the covid-19 pandemic.&lt;/p&gt;
+
+&lt;h2 id=&quot;movies-by-source&quot;&gt;Movies by source&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies4_source.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The majority of my movie-watching experience is done on Netflix. To help see any other patterns, I tried grouping them together:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies4_source2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Not sure if there is anything noteworthy to say about this. Note that the category ‘internet’ may or may not refer to streaming from dodgy websites.&lt;/p&gt;
+
+&lt;h2 id=&quot;movies-by-source-and-year&quot;&gt;Movies by source and year&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies4_sourceyear.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Stackplots are awesome! Visually striking, and provides an overal sense of how my movie watching habits changed. Some patterns which are clear from this diagram:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;There is a clear decline in the use of ‘the internet’ to watch movies in 2017.&lt;/li&gt;
+  &lt;li&gt;There is a clear rise in the use of Netflix, starting from around 2014.&lt;/li&gt;
+  &lt;li&gt;There is a big bulge in cinema viewings in 2016 and 2017, corresponding to when I had an Odeon Unlimited card.&lt;/li&gt;
+  &lt;li&gt;There is a big pink bulge, for a surge in ‘other online’ activity. A quick search in the dataframe shows this corresponds to me making a full use of free trials of NowTV.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;movies-by-month&quot;&gt;Movies by month&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies4_month.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Again, there are some patterns visible in this plot:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;There are generally peaks in December, the holiday period! Looks like I enjoy watching movies when I am back home during the Christmas break.&lt;/li&gt;
+  &lt;li&gt;There are smaller peaks in several summer times, also likely due to me watching movies while at home.&lt;/li&gt;
+  &lt;li&gt;You can see some peaks at the end of 2016 and start of 2017, corresponding to the odeon unlimited card.&lt;/li&gt;
+  &lt;li&gt;You can see the increase in movie watching from March 2020, corresponding to covid-19.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I recently contributed to an open source project Darts, which does Time Series predictions. I was curious to see what patterns it would find. The following is obtained via an exponential smoothing:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies4_month22.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The clearest pattern in the models prediction is that it predicts peaks in December. Given how small and error-filled the dataset is, I do not think there is much to read in the smaller peaks at other times of the year.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+&lt;p&gt;Even with a dataset as noisy as this one, it is still possible to obtain some nice visuals and uncover some overall patterns. My favourite chart is the stackplot showing how the source used to watch movies has changed over the years.&lt;/p&gt;
+
+&lt;p&gt;Another nice thing about this project has been that it included various firsts for me: first stackplot, first time series model (admittedly basic), first pivotting in pandas (to create stack chart), first time grappling with Time formats to create precisely the plot I want (for the plot by month).&lt;/p&gt;
+
+&lt;p&gt;Next time, I will see what patterns there in the subset of data for which I could join it with imdb data.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part II, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">Analysing the movies I’ve watched, Part III, Joining the tables</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part III, Joining the tables" /><published>2020-08-19T00:00:00-05:00</published><updated>2020-08-19T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/24/mymovies4.html&quot;&gt;Analysing the movies I’ve watched, Part IV, Data visualisation&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/03/mymovies2.html&quot;&gt;Analysing the movies I’ve watched, Part II, Data cleaning&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
@@ -43,7 +112,7 @@
 &lt;p&gt;By removing all the TV episodes, the number of matches decreased, but we still have a large problem. Only 351 of my entries have precisely one match. That is a low number indeed.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;I have decided to leave the dataset in the mess that it is and move onto the analysis stage. I will look for patterns within my dataframe first, and then look at those 351 entries which should be able to join with the imdb dataset for any patterns there.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part II, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">DynamoDB Part I, the CAP Theorem’s never ending rabbit hole</title><link href="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html" rel="alternate" type="text/html" title="DynamoDB Part I, the CAP Theorem's never ending rabbit hole" /><published>2020-08-14T00:00:00-05:00</published><updated>2020-08-14T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;I have decided to leave the dataset in the mess that it is and move onto the analysis stage. I will look for patterns within my dataframe first, and then look at those 351 entries which should be able to join with the imdb dataset for any patterns there.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part II, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">DynamoDB Part I, the CAP Theorem’s never ending rabbit hole</title><link href="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html" rel="alternate" type="text/html" title="DynamoDB Part I, the CAP Theorem's never ending rabbit hole" /><published>2020-08-14T00:00:00-05:00</published><updated>2020-08-14T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I recently started this &lt;a href=&quot;https://courses.edx.org/courses/course-v1:AWS+OTP-AWS-D6+2T2019/course/&quot;&gt;EdEx course&lt;/a&gt; on Amazon’s DynamoDB service. Within one of the first few videos, the CAP Theorem was
@@ -125,6 +194,9 @@ discussed. As someone with a pure maths background, theorems are irresistable ba
 
 &lt;ul&gt;
   &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/24/mymovies4.html&quot;&gt;Analysing the movies I’ve watched, Part IV, Data visualisation&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/19/mymovies3.html&quot;&gt;Analysing the movies I’ve watched, Part III, Joining the tables&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -180,9 +252,12 @@ discussed. As someone with a pure maths background, theorems are irresistable ba
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;This was a considerable effort, with a lot of manual grinding. I am curious to know what would happen in a commerical context with millions of entries, with a similar hodge-podge of bad data. I presume there must be more efficient ways of tidying, but maybe you really do just have to get your hands dirty if the data is messy enough.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">Analysing the movies I’ve watched, Part I, Data collection</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part I, Data collection" /><published>2020-08-02T00:00:00-05:00</published><updated>2020-08-02T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;This was a considerable effort, with a lot of manual grinding. I am curious to know what would happen in a commerical context with millions of entries, with a similar hodge-podge of bad data. I presume there must be more efficient ways of tidying, but maybe you really do just have to get your hands dirty if the data is messy enough.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">Analysing the movies I’ve watched, Part I, Data collection</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part I, Data collection" /><published>2020-08-02T00:00:00-05:00</published><updated>2020-08-02T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/24/mymovies4.html&quot;&gt;Analysing the movies I’ve watched, Part IV, Data visualisation&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/19/mymovies3.html&quot;&gt;Analysing the movies I’ve watched, Part III, Joining the tables&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
@@ -384,7 +459,7 @@ The format of the entries in the list has changed over time.&lt;/p&gt;
 &lt;span class=&quot;c1&quot;&gt;# create dataframe from data, and save as csv file
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataFrame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mymovies1.csv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part II, Data cleaning</summary></entry><entry><title type="html">First ever open source contribution</title><link href="https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen.html" rel="alternate" type="text/html" title="First ever open source contribution" /><published>2020-07-30T00:00:00-05:00</published><updated>2020-07-30T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen</id><content type="html" xml:base="https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part II, Data cleaning</summary></entry><entry><title type="html">First ever open source contribution</title><link href="https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen.html" rel="alternate" type="text/html" title="First ever open source contribution" /><published>2020-07-30T00:00:00-05:00</published><updated>2020-07-30T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen</id><content type="html" xml:base="https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;A few days ago, I successfully completed my first ever open source contribution. :) In this article, I will briefly describe the experience, and some little things I learnt.&lt;/p&gt;
 
 &lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
@@ -798,750 +873,4 @@ The format of the entries in the list has changed over time.&lt;/p&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
   &lt;li&gt;Goes through an example in the talk&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Day 2 EuroPython Conference 2020, Day 1</summary></entry><entry><title type="html">EuroPython Conference 2020, Day 2</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Day 2" /><published>2020-07-24T00:00:00-05:00</published><updated>2020-07-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/24/europython2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/26/europython3.html&quot;&gt;EuroPython Conference 2020, Summary&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;I am attending the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt;, and I thought it would be good to record what my thoughts and the things I learn from the talks.&lt;/p&gt;
-
-&lt;h2 id=&quot;700-automating-machine-learning-workflow-with-dvc-hongjoo-lee&quot;&gt;7:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/CXG7TcM-automating-machine-learning-workflow-with-dvc/&quot;&gt;Automating machine learning workflow with DVC&lt;/a&gt;, Hongjoo Lee&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Works for SK hynix, a memory chip maker in South Korea.&lt;/li&gt;
-  &lt;li&gt;Waterfall vs agile production. Waterfall = design, then build, then release, then done. Agile, more iterative approach.&lt;/li&gt;
-  &lt;li&gt;Software dev/dev ops: code git, build sbt maven, test jUnit, release Jenkins, deploy Docker aws, operate Kubernetes, monitor ELK stack&lt;/li&gt;
-  &lt;li&gt;ML dev lifecycle: get data, preprocess, build model, optimise model, deployment.
-    &lt;ul&gt;
-      &lt;li&gt;Often getting data requires domain expertise&lt;/li&gt;
-      &lt;li&gt;Often software engineers are needed for deployment&lt;/li&gt;
-      &lt;li&gt;Still improvement and modification needed for ML dev workflow. In early stages.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Data versioning.
-    &lt;ul&gt;
-      &lt;li&gt;Can be terrible, with names like &lt;code class=&quot;highlighter-rouge&quot;&gt;raw_data&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;cleaned_data&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;cleaned_data_final&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;Need to have system where any change in data will trigger pipeline&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;ML is metric driven. Software engineering is feature driven.
-    &lt;ul&gt;
-      &lt;li&gt;ML Models version should be tracked.&lt;/li&gt;
-      &lt;li&gt;Metrics should be versioned/tracked&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;DVC helps. Some laternatives: git-LFS, MLflow, Apache Airflow
-    &lt;ul&gt;
-      &lt;li&gt;Easy to use&lt;/li&gt;
-      &lt;li&gt;Language independent&lt;/li&gt;
-      &lt;li&gt;Useful for individuals and for large teams&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Example code: &lt;a href=&quot;https://github.com/midnightradio/handson-dvc&quot;&gt;on github&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Hongjoo works through a cats vs dogs example in talk
-    &lt;ul&gt;
-      &lt;li&gt;Download template directory&lt;/li&gt;
-      &lt;li&gt;Use git to keep track of changes&lt;/li&gt;
-      &lt;li&gt;Use dvc command-line commands to define each of the steps in ml pipeline&lt;/li&gt;
-      &lt;li&gt;dvc dag command - shows ascii diagram of pipeline&lt;/li&gt;
-      &lt;li&gt;dvc repro - checks if there are changes, and if so, re-runs pipeline. E.g. change model by adding a layer, then dvc repro does everything. you have to manually to git commit command and naming of versions&lt;/li&gt;
-      &lt;li&gt;dvc metric show. shows metrics of all versions done.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Looks simple enough! I could follow the talk. :D It is clear that finding a good ML workflow is a big theme. At the end of the conference, I will have to go through these notes and collate the various tools and workflows people use, so I have a reference for when I need to use it.&lt;/p&gt;
-
-&lt;h2 id=&quot;730-tips-for-data-cleaning-hui-ziang-chua&quot;&gt;7:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/CivrR5y-top-15-python-tips-for-data-cleaning-understanding/&quot;&gt;Tips for Data Cleaning&lt;/a&gt;, Hui Ziang Chua&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk-1&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Background. Singaporean. Works at essence. Blog data double confirm.&lt;/li&gt;
-  &lt;li&gt;Will try to give business centred context - very different from academic/research/learning contetx&lt;/li&gt;
-  &lt;li&gt;Tasks
-    &lt;ul&gt;
-      &lt;li&gt;Get column names&lt;/li&gt;
-      &lt;li&gt;Get size of dataset. Make sure all data has been loaded.&lt;/li&gt;
-      &lt;li&gt;Check datatypes. Sometimes goes wrong. Sign for data-cleaning.&lt;/li&gt;
-      &lt;li&gt;Get unique values. Some cases, need to combine different values into one. E.g. ‘Male’ and ‘M’&lt;/li&gt;
-      &lt;li&gt;Get range of values&lt;/li&gt;
-      &lt;li&gt;Get count of values. Group-by various columns as appropriate.&lt;/li&gt;
-      &lt;li&gt;Rename column names. E.g. for merging&lt;/li&gt;
-      &lt;li&gt;Remove symbols in values. E.g. currency signs&lt;/li&gt;
-      &lt;li&gt;Convert strings to numeric or to dates&lt;/li&gt;
-      &lt;li&gt;Replace values with more sensible values. E.g. ‘Male’ vs ‘M’&lt;/li&gt;
-      &lt;li&gt;Identify variables/columns similar or different across datasets&lt;/li&gt;
-      &lt;li&gt;Concatenate data. Data from different quarters added to single table.&lt;/li&gt;
-      &lt;li&gt;Deduplication. Remove duplicate data.&lt;/li&gt;
-      &lt;li&gt;Merge&lt;/li&gt;
-      &lt;li&gt;Recoding. Feature engineering&lt;/li&gt;
-      &lt;li&gt;Data profiling (optional)&lt;/li&gt;
-      &lt;li&gt;Input missing values (optional)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Common issues
-    &lt;ul&gt;
-      &lt;li&gt;inconsistent naming of variables&lt;/li&gt;
-      &lt;li&gt;bad data formats&lt;/li&gt;
-      &lt;li&gt;invalid,missing values&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Resources: tinyurl.com/y5b3y7to&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-1&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;It is useful to have a checklist of tasks one should do when they have to clean data. Interesting that they considered the input of missing values as a bonus task - the impression I got from the Kaggle tutorials is that one ought to do some imputation.&lt;/p&gt;
-
-&lt;h2 id=&quot;900-neural-style-transfer-and-gans-anmol-krishan-sachdeva&quot;&gt;9:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/BSeL2FG-painting-with-gans-challenges-and-technicalities-of-neural-style-transfer/&quot;&gt;Neural Style Transfer and GANs&lt;/a&gt;, Anmol Krishan Sachdeva&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk-2&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Recap of GANs
-    &lt;ul&gt;
-      &lt;li&gt;Discriminative model. Supervised classification model. Fed in data.&lt;/li&gt;
-      &lt;li&gt;Generative model. Mostly unsupervised. Generates new data by underlying underlying data distribution. Generates near-real looking data. (Conditional generators have some element of supervised learning included). Learning of distribution called implicit density estimation.&lt;/li&gt;
-      &lt;li&gt;In end, have GAN which takes random input and creates an output that has similar distribution it was trained on.&lt;/li&gt;
-      &lt;li&gt;Training. Dicriminator gets true entry x and fake input from generator network x*. Generator tries to classify. Compute error and backpropogate. Generator then trained. Similar.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Book: &lt;a href=&quot;https://www.manning.com/books/gans-in-action#toc&quot;&gt;GANs in Action by Langr and Bok&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;GANs have been successful in creating near-real images.&lt;/li&gt;
-  &lt;li&gt;Style Transfer: Content image + style image gives new image with content from first in style of second image.&lt;/li&gt;
-  &lt;li&gt;Aim of Style Transfer Networks
-    &lt;ul&gt;
-      &lt;li&gt;Not to learn underlying distrbution.&lt;/li&gt;
-      &lt;li&gt;Somehow learn style from style image and embed it into content cimage&lt;/li&gt;
-      &lt;li&gt;Interpolation is bad&lt;/li&gt;
-      &lt;li&gt;Used in gaming industry, mobile applications, fashion/design&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Popular networks: Pix2Pix, CycleGAN, Neural Style Transfer&lt;/li&gt;
-  &lt;li&gt;Neural Style Transfer.
-    &lt;ul&gt;
-      &lt;li&gt;No training set! Just take as input the two images.&lt;/li&gt;
-      &lt;li&gt;Example from Neural Algorithm of Artistic Style. Photo turned into painting of certain artist&lt;/li&gt;
-      &lt;li&gt;Content loss - measure of content between new image and content image&lt;/li&gt;
-      &lt;li&gt;Style loss - measure of style between new image and style image.&lt;/li&gt;
-      &lt;li&gt;total variation loss. Check for blurriness, distortions, pixelations&lt;/li&gt;
-      &lt;li&gt;How is learning done? No trianing set, no back prop?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Shows example notebook, using TensorFlow and Keras. Imports pre-trained model.&lt;/li&gt;
-  &lt;li&gt;Content loss.
-    &lt;ul&gt;
-      &lt;li&gt;Pixel by pixel comparison not done.&lt;/li&gt;
-      &lt;li&gt;Compare higher level features, obtained from pre-trained model. E.g. VGG19 is 19 layered CNN, which classifies images into 1000 categories. Trained on million images.&lt;/li&gt;
-      &lt;li&gt;VGG architecture. See &lt;a href=&quot;https://www.amazon.co.uk/Generative-Deep-Learning-Teaching-Machines/dp/1492041947&quot;&gt;Generative Deep Learning by David Foster&lt;/a&gt;.&lt;/li&gt;
-      &lt;li&gt;Keras repo. Neural style transfer.&lt;/li&gt;
-      &lt;li&gt;Take 3rd layer of block 5 from VGG19 model as measure of higher level features.&lt;/li&gt;
-      &lt;li&gt;Content loss = mean squared error between this vector encoding of high level features from VGG19 for content image and generated image.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Style loss
-    &lt;ul&gt;
-      &lt;li&gt;Take dot product of ‘flattened feature maps’&lt;/li&gt;
-      &lt;li&gt;Lower level layers represent style.&lt;/li&gt;
-      &lt;li&gt;GRAM matrix. Dot product of ‘flattened features’ of image with itself.&lt;/li&gt;
-      &lt;li&gt;Didn’t understand this.&lt;/li&gt;
-      &lt;li&gt;Loss = MSE (gram matrix(style image), gram matrix(generated image))&lt;/li&gt;
-      &lt;li&gt;Then take weighted sum over different sets of layers&lt;/li&gt;
-      &lt;li&gt;Shows example code.&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;features = K.batch_flatten(K.permute...)&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Take first layer in each block&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Total variation loss
-    &lt;ul&gt;
-      &lt;li&gt;sum of squared difference between image and image shifted on pixel down, and of shifted one pixel right&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Training
-    &lt;ul&gt;
-      &lt;li&gt;Add up all the loss&lt;/li&gt;
-      &lt;li&gt;Use L-BFGS optimisation. Essentially just gradient descent on individual pixel values.&lt;/li&gt;
-      &lt;li&gt;Example code shown in talk.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Pix2Pix
-    &lt;ul&gt;
-      &lt;li&gt;Various cool things you can do. E.g. aerial image to a map. Sketch to full image.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;CycleGAN
-    &lt;ul&gt;
-      &lt;li&gt;E.g. convert image of apples to oranges. Or horses to zebras!&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-2&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Excellent talk! I had seen some of the neural style transfer images before, and now I have some understanding of how they are created!&lt;/p&gt;
-
-&lt;h2 id=&quot;1000-data-visualisation-landscape-bence-arato&quot;&gt;10:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/B5Vff6U-the-python-data-visualization-landscape-in-2020/&quot;&gt;Data Visualisation Landscape&lt;/a&gt;, Bence Arato&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk-3&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;There are lots of libraries out there.&lt;/li&gt;
-  &lt;li&gt;Imperative vs declarative. Imperative: specify how something should be done. Declarative: specify what should be done.&lt;/li&gt;
-  &lt;li&gt;Matplotlib. Biggest example. Has gallery + code examples
-    &lt;ul&gt;
-      &lt;li&gt;Background in MATLAB&lt;/li&gt;
-      &lt;li&gt;Challenge: imperative&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Seaborn. Aim to provide higher level package on top of matplotlib. Good defaults for charts that look good.
-    &lt;ul&gt;
-      &lt;li&gt;Example scatterplot much easier in seaborn than in matplotlib&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;plotnine. Aim to higher-level. Based on ggplot2 in R.
-    &lt;ul&gt;
-      &lt;li&gt;Syntax is basically same as ggplot syntax!&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;aes&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;geom_point&lt;/code&gt; etc.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;bokeh. 2nd most widely known tool.
-    &lt;ul&gt;
-      &lt;li&gt;Big thing is interactivity, like sliders, checkboxes, etc.&lt;/li&gt;
-      &lt;li&gt;Example scatterplot. Quite long and low-level&lt;/li&gt;
-      &lt;li&gt;Based on web/javascript background&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;HoloViews
-    &lt;ul&gt;
-      &lt;li&gt;Higher level language for bokeh, matplotlib, plotly&lt;/li&gt;
-      &lt;li&gt;Just have to change one line code to switch between bokeh or matplotlib output&lt;/li&gt;
-      &lt;li&gt;Scatterplot example. Short code.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;hvPlot. built on top of holoviews&lt;/li&gt;
-  &lt;li&gt;pandas bokeh. add plot_bokeh() method in pandas.&lt;/li&gt;
-  &lt;li&gt;Chartify. From spotify. Built on top of bokeh.&lt;/li&gt;
-  &lt;li&gt;Plotly.
-    &lt;ul&gt;
-      &lt;li&gt;Might be only one to do 3d charts well&lt;/li&gt;
-      &lt;li&gt;Low level charts&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Plotly express
-    &lt;ul&gt;
-      &lt;li&gt;Higher level version of plotly.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Vega, vega-lite
-    &lt;ul&gt;
-      &lt;li&gt;Visualisation ‘grammar’.&lt;/li&gt;
-      &lt;li&gt;JSON based way of describing charts&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Altair
-    &lt;ul&gt;
-      &lt;li&gt;High level version of vega&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Dashboards.
-    &lt;ul&gt;
-      &lt;li&gt;Plotly Dash&lt;/li&gt;
-      &lt;li&gt;Panel. Anaconda related. Built on top of four big charting libaries above&lt;/li&gt;
-      &lt;li&gt;Voila. Looks cool - can visualise ML things. Need to check out!&lt;/li&gt;
-      &lt;li&gt;Streamlit. Datascience specific tools. Example of GAN Image generator with sliders. Change slider will re-run model and create new image.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;PyViz. Thorough list of all visualisation libraries.&lt;/li&gt;
-  &lt;li&gt;Python Data Visualisation, at AnacondaCON 2020&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-3&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Excellent talk. Well structured, good examples, good summary of key things I should know about.&lt;/p&gt;
-
-&lt;h2 id=&quot;1030-binder-sarah-gibson&quot;&gt;10:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/BqQBN6J-sharing-reproducible-python-environments-with-binder/&quot;&gt;Binder&lt;/a&gt;, Sarah Gibson&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk-4&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Table of levels of reproducibility&lt;/li&gt;
-  &lt;li&gt;Same or different data or analysis.
-    &lt;ul&gt;
-      &lt;li&gt;Rep = same, same&lt;/li&gt;
-      &lt;li&gt;Replicable = different data&lt;/li&gt;
-      &lt;li&gt;Robust = different analysis&lt;/li&gt;
-      &lt;li&gt;Generalisable = diff, diff.&lt;/li&gt;
-      &lt;li&gt;Repeatable is subset of reproducible. Literally same programs running same data and analysis to get same result.&lt;/li&gt;
-      &lt;li&gt;Reproducible means getting same result using same data and method - but maybe implemented in different language or program or …&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;CI/CD = continous integration / development&lt;/li&gt;
-  &lt;li&gt;Two big tools needed for repeatable research: dockers and version control. But requires learning. Not for everyone.&lt;/li&gt;
-  &lt;li&gt;Shows example from ligo about gravitational waves.&lt;/li&gt;
-  &lt;li&gt;Steps
-    &lt;ul&gt;
-      &lt;li&gt;Use jupyter notebook&lt;/li&gt;
-      &lt;li&gt;Upload on public repositiy, e.g. GitHub.&lt;/li&gt;
-      &lt;li&gt;Describe software needed to run notebook. Binder automatically identifies common configuration files&lt;/li&gt;
-      &lt;li&gt;Done!&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Brief history of Binder. Now 140,000 sessions per week!&lt;/li&gt;
-  &lt;li&gt;Binder is open source, can adapt to your own needs. E.g. share only with specific people in your institution.&lt;/li&gt;
-  &lt;li&gt;Technologies
-    &lt;ul&gt;
-      &lt;li&gt;Github, clone reposity&lt;/li&gt;
-      &lt;li&gt;repo2docker. Build docker image based on standard configuration files. Don’t need docker file!&lt;/li&gt;
-      &lt;li&gt;Docker. Execute docker image&lt;/li&gt;
-      &lt;li&gt;Jupyter Hub. Allocate resources, make image accessible at url&lt;/li&gt;
-      &lt;li&gt;Binder, redirect user to the url&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Scaling up
-    &lt;ul&gt;
-      &lt;li&gt;Created federation&lt;/li&gt;
-      &lt;li&gt;Highly stable. Uses different kubernetes implementations&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;User surveys
-    &lt;ul&gt;
-      &lt;li&gt;Around 80% of respondants would recommend service&lt;/li&gt;
-      &lt;li&gt;Most common use case is teaching related. Examples, workings, uni teaching, demos, etc.&lt;/li&gt;
-      &lt;li&gt;Biggest complaint: needs to be faster to load&lt;/li&gt;
-      &lt;li&gt;Hard to speed up. But fully explained on jupyter hub blog. Why it is slow but also tips to speed things up.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-4&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;I had already heard of Binder - because I am friends with the spaker Sarah Gibson! However, the talk was still good, and I learnt more than I already knew. In particular, I liked the classification of different levels of reproducibility.&lt;/p&gt;
-
-&lt;h2 id=&quot;1100-data-pipelines-with-python-robson-junior&quot;&gt;11:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/4bNvaVk-mastering-a-data-pipeline-with-python-6-years-of-learned-lessons-from-mistakes/&quot;&gt;Data pipelines with Python&lt;/a&gt;, Robson Junior&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk-5&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Agenda: Not about code. Anatomy of data product, different architectures, qualities of data pipelines, how python matters.&lt;/li&gt;
-  &lt;li&gt;Anatomy of data product.
-    &lt;ul&gt;
-      &lt;li&gt;Ingress. Logs, databases, etc. Volume and variety are important.&lt;/li&gt;
-      &lt;li&gt;Processes. Processing both input and output data.  Veracity and velocity are important here. E.g bank processing payment may have to run fraud detection - has to be very quick!&lt;/li&gt;
-      &lt;li&gt;Egress. Apis or databases. Veracity is important.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Lambda and Kappa Architeture
-    &lt;ul&gt;
-      &lt;li&gt;Above anatomy of data product is same as computer program: input is files and memory, processes in ram, output to screen.&lt;/li&gt;
-      &lt;li&gt;Lambda. Input data. Processing split into two layers. Speed layer for stream data, real time view. Batch layer, all data, batch views, usually processed periodically. Then output via query. See talk for diagram. Some pros and cons given in talk&lt;/li&gt;
-      &lt;li&gt;Kappa. Only have a speed layer - no batch layer. Pros and cons given in talk.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Qualities of a pipeline
-    &lt;ul&gt;
-      &lt;li&gt;Should be secure. Who has access to which data levels, use common format for data storage, be conscious of who has access to which parts of data and why.&lt;/li&gt;
-      &lt;li&gt;Should be automated. Use good tools. Versioning, ci/cd, code review.&lt;/li&gt;
-      &lt;li&gt;Monitoring. ??&lt;/li&gt;
-      &lt;li&gt;Testable and tracable. Test all parts of the pipeline. Try to containerise tools.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Python tools
-    &lt;ul&gt;
-      &lt;li&gt;ELT. Apache Spark, dash, luigi, mrjob, ray&lt;/li&gt;
-      &lt;li&gt;Streaming. faust based on Kafka streams, streamparse via Apache Storm&lt;/li&gt;
-      &lt;li&gt;Analysis. Pandas, Blaze, Open Mining, Orange, Optimus&lt;/li&gt;
-      &lt;li&gt;Mangaement and scheduling. Apache Airflow. Programmatically create workflow&lt;/li&gt;
-      &lt;li&gt;Testing. pytest, mimesis (create fake data), fake2db, spark-test-base&lt;/li&gt;
-      &lt;li&gt;Validation. Cerberus, schema, voluptuous&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-5&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Unfortunately, I found the talk/speaker hard to follow. But I still got a list of tools that I can use as a reference.&lt;/p&gt;
-
-&lt;h2 id=&quot;1215-probabilistic-forecasting-with-deepar-nicolas-kuhaupt&quot;&gt;12:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/ANSma2D-probabilistic-forecasting-with-deepar-and-aws-sagemaker/&quot;&gt;Probabilistic Forecasting with DeepAR&lt;/a&gt;, Nicolas Kuhaupt&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk-6&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Freelance data scientist. German.&lt;/li&gt;
-  &lt;li&gt;DeepAR published by Amazon Research&lt;/li&gt;
-  &lt;li&gt;It is probabilistic, like ARIMA and regression models, but not like Plain LSTMs&lt;/li&gt;
-  &lt;li&gt;Automatic Feature Engineering. Key point of neural networks! Like Plain LSTMs but unlike ARIMA and regression models.&lt;/li&gt;
-  &lt;li&gt;One algorithm for multiple timeseries. Seems unlike other algorithms.  Like meta learning? Transfer learning??&lt;/li&gt;
-  &lt;li&gt;Disadvantages: time and resource intensive to train, difficult to set hyperparameters (like most neural networks).&lt;/li&gt;
-  &lt;li&gt;How it works: inputs time series x. At time t, outputs &lt;code class=&quot;highlighter-rouge&quot;&gt;z_t&lt;/code&gt;, which are parameters for a probability distribution to predict. Then &lt;code class=&quot;highlighter-rouge&quot;&gt;z_t&lt;/code&gt; &lt;em&gt;and&lt;/em&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;x_t+1&lt;/code&gt; are inputted into next stage.&lt;/li&gt;
-  &lt;li&gt;Example datasets. Sales at amazons - one time series for each product, sales of magazines in different stores, forecast loads of servers in datacenters, car traffic - each lane has its own time series, energy consumption in households - each household has its own time series.&lt;/li&gt;
-  &lt;li&gt;Integrated into Sagemaker.
-    &lt;ul&gt;
-      &lt;li&gt;Provides notebook&lt;/li&gt;
-      &lt;li&gt;Lots of different tools for different stages of data science workflow. e.g. Ground Truth to use mechanical turk to build data sets. Studio is IDE. Autopilot for training models, Neo for deployment, etc.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;boto3 - access services in aws. s3fs - file storage stuff. various other details in talk&lt;/li&gt;
-  &lt;li&gt;data inform of json lines, (not pandas)
-    &lt;ul&gt;
-      &lt;li&gt;start - start time, target - the time series, cat - some categories that timeseries belongs to, dynamic_feat - extra time series (of same length as target).  note that different json lines can have time series of different lengths&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;hyperparameters. standard stuff, with few extras for deepar.&lt;/li&gt;
-  &lt;li&gt;code to set up model and train it&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-6&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Looks like a powerful algorithm. Probabilistic algorithms are definitely the way to go - how else can you manage and predict risk?&lt;/p&gt;
-
-&lt;h2 id=&quot;1315-fast-and-scalable-ml-in-python-victoriya-fedotova-and-frank-schlimbach&quot;&gt;13:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/CR4ben4-the-painless-route-in-python-to-fast-and-scalable-machine-learning/&quot;&gt;Fast and Scalable ML in Python&lt;/a&gt;, Victoriya Fedotova and Frank Schlimbach&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk-7&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Python is useful but slow. So often companies hire engineers to translate python to faster languages like C++.&lt;/li&gt;
-  &lt;li&gt;Intel made a python distribution. No code changes required. * Just-in-time computation. JIT gives big speed boost.&lt;/li&gt;
-  &lt;li&gt;ML workflow: input and preprocessing via pandas, spark, SDC. model creation and prediction: scikit learn, spark, dl frameworks, daal4py.&lt;/li&gt;
-  &lt;li&gt;In this talk, talk about SDC, sckit learn, daal4py&lt;/li&gt;
-  &lt;li&gt;Intel Daal. Data analytics acceleration library. Linear Algebra already sped up (e.g. with MKL from intel), but this new library helps in situations whcih do not use linear algebra - e.g. tree based algorithms.&lt;/li&gt;
-  &lt;li&gt;Talk gives details on how to install packages and use it.&lt;/li&gt;
-  &lt;li&gt;Many algorithms have equivalent output to scikit learn algorithms. But not all - e.g. randomforest does not have 100% same output.&lt;/li&gt;
-  &lt;li&gt;Example of k-means in scikit-learn versus daal4py. Similar structure. Slightly different syntax. e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;n_clusters&lt;/code&gt; versus &lt;code class=&quot;highlighter-rouge&quot;&gt;nClusters&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Scalable dataframe compiler SDC. a just in time compiler. Extension of Numba - made by anaconda.&lt;/li&gt;
-  &lt;li&gt;Easy to use. Just add decorator &lt;code class=&quot;highlighter-rouge&quot;&gt;@numba.jit&lt;/code&gt; to function that you want to be compiled.&lt;/li&gt;
-  &lt;li&gt;Explanation of compiler pipeline.&lt;/li&gt;
-  &lt;li&gt;Talks through basic example of reading file, storing in frame, calculating mean, ordering a column. E.g. reading of file is parallelised, whereas pandas just reads data in single line.&lt;/li&gt;
-  &lt;li&gt;SDC requires code to be statically compilable - i.e. type stable. Examples where this wouldn’t work.&lt;/li&gt;
-  &lt;li&gt;Charts showing speed-ups of different operations, as you increase the number of threads. Some operations get good speeds up, and some get mega speeds ups. Most was &lt;code class=&quot;highlighter-rouge&quot;&gt;apply(lambda x:x)&lt;/code&gt; with 400x speed up. Something to do with lambda function being compiled too, not just apply function.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-7&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Looks easy to use and can give big speed boosts. Is there a catch?&lt;/p&gt;
-
-&lt;h2 id=&quot;1415--small-big-data-in-pandas-dask-and-vaex-ian-ozsvald&quot;&gt;14:15 , &lt;a href=&quot;https://ep2020.europython.eu/talks/A7TniMV-making-pandas-fly/&quot;&gt;Small Big Data in Pandas, Dask and Vaex&lt;/a&gt;, Ian Ozsvald&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk-8&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Discuss how to speed things up in pandas. Why when there are tools out there? Ought to increase our knowledge and push our speed in current tools.&lt;/li&gt;
-  &lt;li&gt;Example of company registration data in uk&lt;/li&gt;
-  &lt;li&gt;Ram considerations
-    &lt;ul&gt;
-      &lt;li&gt;Strings are slow. Takes up lots of ram.&lt;/li&gt;
-      &lt;li&gt;In example of company category taking up 300MB. Convert to category type and it takes 4.5 MB. Numeric code stored instead of strings.&lt;/li&gt;
-      &lt;li&gt;Get speed up on value_counts. 0.485s vs 0.028s.&lt;/li&gt;
-      &lt;li&gt;Example of settign this column to index and then creating mask based on index. 281ms vs 569 microseconds.&lt;/li&gt;
-      &lt;li&gt;Try using category for low cardinality data.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;float64 is default and expansive.
-    &lt;ul&gt;
-      &lt;li&gt;Example of age of company, up to 190 years.&lt;/li&gt;
-      &lt;li&gt;Use float32 or float16 instead.&lt;/li&gt;
-      &lt;li&gt;Less RAM. Small time saving. (float16 might actually be slower!)&lt;/li&gt;
-      &lt;li&gt;Might have loss in precision in data. Depends on data and usage&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Has a tool &lt;code class=&quot;highlighter-rouge&quot;&gt;dtype_diet&lt;/code&gt; to automate process of optimising dataframe.
-    &lt;ul&gt;
-      &lt;li&gt;Produces table showing how different things can improve RAM usage.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Saving RAM is good. Can process more data. Speeds things up.&lt;/li&gt;
-  &lt;li&gt;Dropping to NumPy.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;df.sum()&lt;/code&gt; versus &lt;code class=&quot;highlighter-rouge&quot;&gt;df.values.sum()&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;In example, 19.1ms to 2ms.&lt;/li&gt;
-      &lt;li&gt;Somethings to watch out for, e.g. NaN.&lt;/li&gt;
-      &lt;li&gt;James Powell produced diagram showing all files and functions called when doing sum in pandas versus in numpy. (Doing this using &lt;code class=&quot;highlighter-rouge&quot;&gt;ser.sum()&lt;/code&gt;).&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Is pandas just super slow.
-    &lt;ul&gt;
-      &lt;li&gt;Can get big boost just by using bottleneck. see code in example.&lt;/li&gt;
-      &lt;li&gt;just instal bottleneck, numexpr&lt;/li&gt;
-      &lt;li&gt;Investigate dtype_diet&lt;/li&gt;
-      &lt;li&gt;ipython_memory_usage&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Pure python is slow
-    &lt;ul&gt;
-      &lt;li&gt;Use numba, njit wrapper. See Intel talk above for newer extensions to numba.&lt;/li&gt;
-      &lt;li&gt;Parallelise with Dask. Overhead may overwhelm benefit. USe profiling and timing tools to check.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Big time savings come from our own habits
-    &lt;ul&gt;
-      &lt;li&gt;Reduce mistakes. Try nullable Int64, boolean&lt;/li&gt;
-      &lt;li&gt;Write tests, unit and end-to-end&lt;/li&gt;
-      &lt;li&gt;Lots of other examples from blog&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Vaex and Modin. Two other tools.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-8&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Excellent talk! Ian clearly knows his stuff. Lots of insights. These are things I should start to implement to get some easy time savings.&lt;/p&gt;
-
-&lt;h2 id=&quot;1445-ipython-miki-tebeka&quot;&gt;14:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/5LGWwvT-ipython-the-productivity-booster/&quot;&gt;IPython&lt;/a&gt;, Miki Tebeka&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk-9&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Programmer for 30 years.&lt;/li&gt;
-  &lt;li&gt;Wrote book, Python Brain Teasers&lt;/li&gt;
-  &lt;li&gt;Likes ipython. It is a REPL: Real, Eval, Prompt Loop&lt;/li&gt;
-  &lt;li&gt;Magic commands, via &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt;. E.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;%pwd&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Can refer to outputs like variables. &lt;code class=&quot;highlighter-rouge&quot;&gt;logs_dir = Out[4]&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Command line. &lt;code class=&quot;highlighter-rouge&quot;&gt;!ls $logs_dir&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Auto-complete features&lt;/li&gt;
-  &lt;li&gt;He uses Vim! Woo!&lt;/li&gt;
-  &lt;li&gt;pprint for pretty printing.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt; for help. &lt;code class=&quot;highlighter-rouge&quot;&gt;??&lt;/code&gt; for source code&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%timeit function&lt;/code&gt; to give time analysis&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%%timeit&lt;/code&gt;` for multiline stuff&lt;/li&gt;
-  &lt;li&gt;Can do sql stuff. have to install extension. see video for example.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%cow IPython Rocks!&lt;/code&gt; Produces ascii art of cow!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-9&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Always good to see a live demo to see exactly how somebody does things. I learnt some neat little features. Also, cool to see someone using Vim!&lt;/p&gt;
-
-&lt;h2 id=&quot;1515-nlpeasy-philipp-thomann&quot;&gt;15:15, &lt;a href=&quot;https://ep2020.europython.eu/talks/6x7ezDb-nlpeasy-a-workflow-to-analyse-enrich-and-explore-textual-data/&quot;&gt;NLPeasy&lt;/a&gt;, Philipp Thomann&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk-10&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Co-creator of liquidSVM, Nabu, NLPeasy, PlotVR&lt;/li&gt;
-  &lt;li&gt;Works at D One. ML consultancy&lt;/li&gt;
-  &lt;li&gt;NLP. Big progress recently. Word2Vec, Deep learning and many good pre-trained models. Lots of data, many use cases&lt;/li&gt;
-  &lt;li&gt;Challenges for data scientists.
-    &lt;ul&gt;
-      &lt;li&gt;NLP is generally harder - high dimensions, specialised pre-processing required, nlp experts/researchers focus only on text but there is usually other data in business.&lt;/li&gt;
-      &lt;li&gt;Methods have repuation of being hard to use&lt;/li&gt;
-      &lt;li&gt;standard tools not good for text. e.g. seaborn, tableau&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;NLPeasy to the rescue!&lt;/li&gt;
-  &lt;li&gt;Pandas based pipeline, built in Regex based tagging, spaCy based NLP methods, Vader, scraping with beautiful soup, …&lt;/li&gt;
-  &lt;li&gt;ElasticSearch. ??&lt;/li&gt;
-  &lt;li&gt;See Github repo for code, ntoebook example, etc.&lt;/li&gt;
-  &lt;li&gt;Talk through example, of looking at abstracts from some conference.&lt;/li&gt;
-  &lt;li&gt;Live demo!
-    &lt;ul&gt;
-      &lt;li&gt;Scraping EP 2020 data.&lt;/li&gt;
-      &lt;li&gt;Doing NLPeasy stuff&lt;/li&gt;
-      &lt;li&gt;Go to Elastic dashboard&lt;/li&gt;
-      &lt;li&gt;Lots of things shown, possible. E.g. entity extraction, tSNE&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;REstaurant similarity using clustering algorithms. based only on reviews! can detect similarities&lt;/li&gt;
-  &lt;li&gt;Kibana (I think) can produce geoview / heatmap&lt;/li&gt;
-  &lt;li&gt;Can create networks using entity recognition&lt;/li&gt;
-  &lt;li&gt;Can try examples in different setups, e.g. Binder, or do it all yourself.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-10&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Not much to say. Another tool that I now know about.&lt;/p&gt;
-
-&lt;h2 id=&quot;1745-30-golden-rules-for-deep-learning-performance-siddha-ganju&quot;&gt;17:45, &lt;a href=&quot;https://ep2020.europython.eu/talks/30-golden-rules-deep-learning-performance/&quot;&gt;30 Golden Rules for Deep Learning Performance&lt;/a&gt;, Siddha Ganju&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk-11&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Forbes 30 under 30!&lt;/li&gt;
-  &lt;li&gt;Recommended &lt;a href=&quot;https://www.PracticalDeepLearning.ai&quot;&gt;book&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;95% of all AI Training is Transfer Learning
-    &lt;ul&gt;
-      &lt;li&gt;Playing melodica much easier if you already know how to play the piano&lt;/li&gt;
-      &lt;li&gt;In Neural Network, earlier layers contains generic knowledge, and later layers contain task specific knowledge - at least in CNNs&lt;/li&gt;
-      &lt;li&gt;So remove last ‘classifier layers’, and classify on new task, keeping first layers as is.&lt;/li&gt;
-      &lt;li&gt;See github PracticalDL for examples and runnable scripts* Optimising hardware use.&lt;/li&gt;
-      &lt;li&gt;In standard process, CPU and GPU switch between being idle or active.&lt;/li&gt;
-      &lt;li&gt;Use a profiler. E.g. TensorFlow Profiler + TensorBoard&lt;/li&gt;
-      &lt;li&gt;Example code shown to use profiler.&lt;/li&gt;
-      &lt;li&gt;Simpler: nvidia-smi.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;We have thing we want to optimise and metric. So how can we optimise. Here comes the 30 rules.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;DATA PROCESSING&lt;/li&gt;
-  &lt;li&gt;Use TFRecords
-    &lt;ul&gt;
-      &lt;li&gt;Anti-pattern: thousands of tiny files/gigantic file.&lt;/li&gt;
-      &lt;li&gt;Better to have handful for large files.&lt;/li&gt;
-      &lt;li&gt;Sweet spot: 100MB TFRecord files&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Reduce size of input data
-    &lt;ul&gt;
-      &lt;li&gt;Bad: read image, rezie, train. Then iterate&lt;/li&gt;
-      &lt;li&gt;Good: read all images, resizes, save as TFRecord. Then read and train - iterating as appropriate.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Use TensorFlow Datasets
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;import tensorflow_datasets as tfds&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;If you have new datasets, publish your data on TensorFlow datasets, so people can build on your research.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Use tf.data pipeline
-    &lt;ul&gt;
-      &lt;li&gt;Example code given&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Prefetch data
-    &lt;ul&gt;
-      &lt;li&gt;Somehow breaks circular dependency, where CPU has to wait for GPU and vice versa.&lt;/li&gt;
-      &lt;li&gt;Does asynchronous stuff&lt;/li&gt;
-      &lt;li&gt;Code given in talk&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Parallelize CPU processing.
-    &lt;ul&gt;
-      &lt;li&gt;same as number of cpu cores&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Paralleize input and output. interleaving.&lt;/li&gt;
-  &lt;li&gt;Non-deterministic ordering. If randomising, forget ordering.
-    &lt;ul&gt;
-      &lt;li&gt;Somehow, not reading files ‘in order’ avoids potential bottlenecks.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Cache data
-    &lt;ul&gt;
-      &lt;li&gt;Avoid repeated reading from disk after first epoch&lt;/li&gt;
-      &lt;li&gt;Avoid repeatedly resizing&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Turn on experimental optimisations&lt;/li&gt;
-  &lt;li&gt;Autotune parameter values. code given in talk. Seems to refer to hardware based parameters&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Slide showing it all combined.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;DATA AUGMENTATION&lt;/li&gt;
-  &lt;li&gt;Use GPU for augmentation, with tf.image
-    &lt;ul&gt;
-      &lt;li&gt;Still work in progress. Limited functionality. Only rotate by 90 degrees as of now.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Use GPU with NVIDIA DALI&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;TRAINING&lt;/li&gt;
-  &lt;li&gt;Use automatic mixed precision.
-    &lt;ul&gt;
-      &lt;li&gt;Using 8-bit or 16-bit encodings rather than 32 or 64-bit.&lt;/li&gt;
-      &lt;li&gt;Caveat - fp.16 can cause drop in accuracy, and even loss of convergence. E.g. if gradient is tiny, fp.16 will treat it as zero.&lt;/li&gt;
-      &lt;li&gt;auto mixed precision somehow deals with this issue&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Use larger batch size.
-    &lt;ul&gt;
-      &lt;li&gt;Larger batch size leads to smaller time per epoch (but less steps per epoch too, no?)&lt;/li&gt;
-      &lt;li&gt;Larger batch size leads to greater GPU utilization&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Use batch szies that are multiples of eight. Big jump in performance from 4095 to 4096!
-    &lt;ul&gt;
-      &lt;li&gt;Video describes other restrictions/options&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Finding optimal learning rate
-    &lt;ul&gt;
-      &lt;li&gt;Use keras_lr_finder&lt;/li&gt;
-      &lt;li&gt;‘point of greatest decrease in loss’ corresponds to best learning rate, somehow. Leslie N Smith paper&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Use tf.function
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@tf.function&lt;/code&gt;.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Overtrain, then generalise. STart from from dataset and increase.&lt;/li&gt;
-  &lt;li&gt;Install optimised stack&lt;/li&gt;
-  &lt;li&gt;Optimise number of parallel threads&lt;/li&gt;
-  &lt;li&gt;Use better hardware.&lt;/li&gt;
-  &lt;li&gt;Distribute training. MirroredStrat vs Multiworker…&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Look at industiral benchmarks.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;INFERENCE
-    &lt;ul&gt;
-      &lt;li&gt;Use an efficient model. Fewer weights.&lt;/li&gt;
-      &lt;li&gt;Quantize. 16 to 8bit.&lt;/li&gt;
-      &lt;li&gt;Prune model, remove weights close to zero&lt;/li&gt;
-      &lt;li&gt;Used fused operations&lt;/li&gt;
-      &lt;li&gt;Enable GPU persistence&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-11&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Very handy list of tips and tricks. Sevreal of them go beyond my understanding, but does not mean I can not benefit from using them!&lt;/p&gt;
-
-&lt;h2 id=&quot;1900-analytical-functions-in-sql-brendan-tierney&quot;&gt;19:00, &lt;a href=&quot;https://ep2020.europython.eu/talks/AWFiM7F-sql-for-data-science-using-analytical-function/&quot;&gt;Analytical Functions in SQL&lt;/a&gt;, Brendan Tierney&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk-12&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;TALK CANCELLED&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-12&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;p&gt;Not applicable&lt;/p&gt;
-
-&lt;h2 id=&quot;1930-collaborative-data-pipelines-with-kedro-tam-sanh-nguyen&quot;&gt;19:30, &lt;a href=&quot;https://ep2020.europython.eu/talks/45GhXwE-writing-and-scaling-collaborative-data-pipelines-with-kedro/&quot;&gt;Collaborative data pipelines with Kedro&lt;/a&gt;, Tam-Sanh Nguyen&lt;/h2&gt;
-
-&lt;h3 id=&quot;notes-from-talk-13&quot;&gt;Notes from talk&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Apparently 40% of Vietnamese have surname Nguyen.&lt;/li&gt;
-  &lt;li&gt;Data engineering is relatively new discipline, so there aren’t established practices.&lt;/li&gt;
-  &lt;li&gt;QuantumBlack addressed this issue with Kedro.&lt;/li&gt;
-  &lt;li&gt;Pipelines.
-    &lt;ul&gt;
-      &lt;li&gt;Kedro viz used to visualise messy data pipeline.&lt;/li&gt;
-      &lt;li&gt;But how does it get there?&lt;/li&gt;
-      &lt;li&gt;Starts off simple. Iris data -&amp;gt; cleaning function, cleaned data, analyze function, analyzed data.&lt;/li&gt;
-      &lt;li&gt;But then splitting data to test/train, gets messy.&lt;/li&gt;
-      &lt;li&gt;Then have multiple data sources, each which needs to be split, and then all jumbled up&lt;/li&gt;
-      &lt;li&gt;Without any tools, hard to grow larger and more complex than this.&lt;/li&gt;
-      &lt;li&gt;But Kedro can allow you to deal with more complex pipelines.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;One source of tension is difference between data engineer and data science
-    &lt;ul&gt;
-      &lt;li&gt;Data science usually have strong engineering skills. More data modelling skills&lt;/li&gt;
-      &lt;li&gt;Data science has more research bent / experimental bent / want to be close to data and have many iterations&lt;/li&gt;
-      &lt;li&gt;Data engineers more like engineers. Focus is on making things tidy, rather than experimentation.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Two other challenges
-    &lt;ul&gt;
-      &lt;li&gt;Being ready for production quickly, for business use&lt;/li&gt;
-      &lt;li&gt;Is it easy to pass the pipeline to future users - which may even be the future you!&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;QuantumBlack startup from London, famous for doing work on F1. Got bought by McKinsey&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Kedro made by QuantumBlack. Big focus on standardisation, and making it as easy as possible for long-term use.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;How does Kedro work&lt;/li&gt;
-  &lt;li&gt;Analogy - audio world has standardised:
-    &lt;ul&gt;
-      &lt;li&gt;Input and output tools. Microphones, speakers, etc.&lt;/li&gt;
-      &lt;li&gt;Functional transformers. Filters, etc.&lt;/li&gt;
-      &lt;li&gt;Redirecting components. Make it easy for output from one tool easy to input into others.&lt;/li&gt;
-      &lt;li&gt;Standard organisational conventions. Mic, audio mixer, computer.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Standard is to use jupyter notebook. Some conventions (e.g. inputs and outputs via &lt;code class=&quot;highlighter-rouge&quot;&gt;pd.read_csv&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;pd.to_csv&lt;/code&gt;), but mostly hard to follow. E.g. many many parameters is hard-coded, e.g. names of files being saved, parameters throughout processing, etc.&lt;/li&gt;
-  &lt;li&gt;Live example:
-    &lt;ul&gt;
-      &lt;li&gt;install kedro&lt;/li&gt;
-      &lt;li&gt;kedro new. follow steps, e.g. naming things, etc.&lt;/li&gt;
-      &lt;li&gt;created default template&lt;/li&gt;
-      &lt;li&gt;kedro viz to visualise pipeline&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Run out of time, so rushes through lots of kedro features&lt;/li&gt;
-  &lt;li&gt;Has YouTube series DataEngineerOne&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;my-thoughts-13&quot;&gt;My thoughts&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Looks like an intuitive system. Looks simpler than other pipelines presented in the conference. But is it because it actually is simpler, or is it because I am just getting used to pipelines. (Before this conference, I hadn’t studied pipelines at all).&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Summary EuroPython Conference 2020, Day 1</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Day 2 EuroPython Conference 2020, Day 1</summary></entry></feed>
