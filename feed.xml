@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-24T16:11:07-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Analysing the movies I’ve watched, Part IV, Data visualisation</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part IV, Data visualisation" /><published>2020-08-24T00:00:00-05:00</published><updated>2020-08-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-24T16:22:24-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Analysing the movies I’ve watched, Part IV, Data visualisation</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part IV, Data visualisation" /><published>2020-08-24T00:00:00-05:00</published><updated>2020-08-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -32,7 +32,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/blog/images/mymovies4_sourceyear.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Stackplots are awesome! Visually striking, and provides an overal sense of how my movie watching habits changed. Some patterns which are clear from this diagram:&lt;/p&gt;
+&lt;p&gt;Stackplots are awesome! Visually striking, and provides an overall sense of how my movie watching habits changed. Some patterns which are clear from this diagram:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;There is a clear decline in the use of ‘the internet’ to watch movies in 2017.&lt;/li&gt;
@@ -55,7 +55,7 @@
 
 &lt;p&gt;I recently contributed to an open source project Darts, which does Time Series predictions. I was curious to see what patterns it would find. The following is obtained via an exponential smoothing:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies4_month22.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies4_month2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The clearest pattern in the models prediction is that it predicts peaks in December. Given how small and error-filled the dataset is, I do not think there is much to read in the smaller peaks at other times of the year.&lt;/p&gt;
 
