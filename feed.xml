@@ -1,4 +1,129 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-25T03:20:15-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Analysing the movies I’ve watched, Part IV, Data visualisation</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part IV, Data visualisation" /><published>2020-08-24T00:00:00-05:00</published><updated>2020-08-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-28T16:35:18-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Increasing the resolution of an image using an SRGAN</title><link href="https://lovkush-a.github.io/blog/python/neural%20network/2020/08/28/srgan1.html" rel="alternate" type="text/html" title="Increasing the resolution of an image using an SRGAN" /><published>2020-08-28T00:00:00-05:00</published><updated>2020-08-28T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/neural%20network/2020/08/28/srgan1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/neural%20network/2020/08/28/srgan1.html">&lt;!---
+## Other posts in series
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* [Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle](/blog/python/data%20science/2020/06/25/creditcard6.html)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* [Investigating Credit Card Fraud, Part V, Final Models](/blog/python/data%20science/2020/05/30/creditcard5.html)
+
+
+
+* [Investigating Credit Card Fraud, Part IV, `n_estimators`](/blog/python/data%20science/2020/05/29/creditcard4.html)
+
+
+
+
+
+
+
+* [Investigating Credit Card Fraud, Part III, Handmade Model](/blog/python/data%20science/2020/05/19/creditcard3.html)
+
+
+
+* [Investigating Credit Card Fraud, Part II, Removing data](/blog/python/data%20science/2020/05/16/creditcard2.html)
+
+
+
+
+
+* [Investigating Credit Card Fraud, Part I, First Models](/blog/python/data%20science/2020/05/14/creditcard1.html)
+
+
+
+
+
+
+
+
+
+
+--&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I wanted to print out an image for a friend, and I wanted to first crop the image to only include a relatively small part of the photo (namely, the individuals in the photo. The original photo was 90% scenary).  However, after the cropping, the image became too small and would have been pixelated when printed.  I thought that a neural network ought to be able to solve this problem, because it could be trained on a manually created dataset (just take a bunch of images and use these as the &lt;em&gt;outputs&lt;/em&gt;, then reduce the quality of these images to create the &lt;em&gt;inputs&lt;/em&gt;). I decided to Google around to see what already had been done, and I found out about SRGANs.  At my current level of knowledge, I cannot understand the details of the architecture, so for now, my aim was just to see if I could use a pre-trained network to achieve my goal. After a bit more searching, I found &lt;a href=&quot;https://github.com/HasnainRaz/Fast-SRGAN&quot;&gt;this Github repo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;steps-taken&quot;&gt;Steps taken&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Create a new directory and environment.&lt;/li&gt;
+  &lt;li&gt;Download the github repo.&lt;/li&gt;
+  &lt;li&gt;Install the requirements.&lt;/li&gt;
+  &lt;li&gt;Create a directory &lt;code class=&quot;highlighter-rouge&quot;&gt;inputs&lt;/code&gt; for input images, and folder &lt;code class=&quot;highlighter-rouge&quot;&gt;outputs&lt;/code&gt; for where the output images will go.&lt;/li&gt;
+  &lt;li&gt;Add images to the inputs directory.&lt;/li&gt;
+  &lt;li&gt;Run the command `python infer.py –image_dir ‘inputs’ –output_dir ‘outputs’&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
+&lt;p&gt;Below are samples of the images, comparing before and after applying the neural network.&lt;/p&gt;
+
+&lt;h3 id=&quot;example-1&quot;&gt;Example 1&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/srgan1_1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;example-2&quot;&gt;Example 2&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/srgan1_2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;example-3&quot;&gt;Example 3&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/srgan1_3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is amazing! This feels like magic to me.&lt;/p&gt;
+
+&lt;h2 id=&quot;limits&quot;&gt;Limits&lt;/h2&gt;
+&lt;p&gt;I tried applying this to blurry images, expecting it to make the images less blurry. This did not happen:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/srgan1_4.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This reveals how limited my understanding is! After thinking and googling a bit, I think the issue is that resolution and blurriness/sharpness are two separate issues. Previously, I just lumped them together as ‘reasons an image can look bad’. After a bit more searching, it seems I might learn about anti-blurring / sharpening in the FastAI course that I am doing, so that is something to look forward to.&lt;/p&gt;
+
+&lt;p&gt;Finally, I hope I will soon be at at stage where I can understand these intricate architectures, and be able to train my own cutting edge neural networks.&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Analysing the movies I’ve watched, Part IV, Data visualisation</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part IV, Data visualisation" /><published>2020-08-24T00:00:00-05:00</published><updated>2020-08-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/24/mymovies4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -608,269 +733,4 @@ The format of the entries in the list has changed over time.&lt;/p&gt;
             &lt;span class=&quot;c1&quot;&gt;# close browser and switch back to page with list of questions
 &lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
             &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;switch_to_window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;window_handles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Introduction Though I am transitioning from teaching to data science, I still continue to teach via private tuition. I am currently helping somebody prepare for the STEP, so I wanted to obtain as many past papers and solutions as I could. To do this manually would have required hours of clicking on links and ‘Saving as…’, so I decided to automate it with python.</summary></entry><entry><title type="html">EuroPython Conference 2020, Summary</title><link href="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html" rel="alternate" type="text/html" title="EuroPython Conference 2020, Summary" /><published>2020-07-26T00:00:00-05:00</published><updated>2020-07-26T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/conference/2020/07/26/europython3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/24/europython2.html&quot;&gt;EuroPython Conference 2020, Day 2&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/conference/2020/07/23/europython1.html&quot;&gt;EuroPython Conference 2020, Day 1&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;I attended the online conference &lt;a href=&quot;https://ep2020.europython.eu/&quot;&gt;EuroPython 2020&lt;/a&gt; and recorded notes while watching the talks. Today, I reviewed the notes with the aim of consolidating the main lessons, grouping together similar talks, and recording key lessons.&lt;/p&gt;
-
-&lt;h2 id=&quot;workflows&quot;&gt;Workflows&lt;/h2&gt;
-&lt;p&gt;This seems to be a big theme, and sounds like the next big challenge for the data scientist profession.&lt;/p&gt;
-
-&lt;h3 id=&quot;gitlab-tools-william-arias&quot;&gt;GitLab Tools, William Arias&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;I found this talk hard to follow, so my notes are not great.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;parallel-stream-processing-alejandro-saucedo&quot;&gt;Parallel stream processing, Alejandro Saucedo&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;I found this talk hard to follow, but notes are bit better than the example above&lt;/li&gt;
-  &lt;li&gt;Faust - stream processor&lt;/li&gt;
-  &lt;li&gt;Kafka - ?&lt;/li&gt;
-  &lt;li&gt;Seldon - deployment&lt;/li&gt;
-  &lt;li&gt;Example of developing workflow to use ML to help moderate reddit comments.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;example-workflow-for-translation-shreya-khurana&quot;&gt;Example workflow for Translation, Shreya Khurana&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;I found this talk hard to follow, but still managed to take some notes.&lt;/li&gt;
-  &lt;li&gt;Tools used include: seq2seq, Fairseq, Flask, uwsgi, nginx, supervisord, Docker&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;example-from-teikametrics-chase-stevens&quot;&gt;Example from teikametrics, Chase Stevens&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Significant time spent emphasising need for good systems and workflows. Make the effort to automate!&lt;/li&gt;
-  &lt;li&gt;My notes are not great when it comes to actually describing the tools or workflow they used. Watch the video to find out.&lt;/li&gt;
-  &lt;li&gt;Interesting example at end: they automated task of choosing which AWS instance to use.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;dvc-hongjoo-lee&quot;&gt;DVC, Hongjoo Lee&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Software development has following standard workflow and tools (I don’t know what most of these things mean…):
-    &lt;ul&gt;
-      &lt;li&gt;Coding management: git&lt;/li&gt;
-      &lt;li&gt;Build: sbt maven&lt;/li&gt;
-      &lt;li&gt;Test: jUnit&lt;/li&gt;
-      &lt;li&gt;Release: Jenkins&lt;/li&gt;
-      &lt;li&gt;Deploy: Docker, AWS&lt;/li&gt;
-      &lt;li&gt;Operate: Kubernetes&lt;/li&gt;
-      &lt;li&gt;Monitor: ELK stack&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Hongjoo goes through live example of using DVC on simple model&lt;/li&gt;
-  &lt;li&gt;Some alternatives to DVC: git-LFS, MLflow, Apache Airflow&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;data-pipelines-robson-junior&quot;&gt;Data pipelines, Robson Junior&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;I found the speaker particularly hard to follow. Despite this, it looks like I got some decent notes.&lt;/li&gt;
-  &lt;li&gt;List of tools for different tasks&lt;/li&gt;
-  &lt;li&gt;ELT: Apache Spark, dash, luigi, mrjob, ray&lt;/li&gt;
-  &lt;li&gt;Streaming: faust and kafka, streamparse and Apache Storm&lt;/li&gt;
-  &lt;li&gt;Analysis: Pandas, Blaze, Open Mining, Orange, Optimus&lt;/li&gt;
-  &lt;li&gt;Management and scheduling: Apache Airflow&lt;/li&gt;
-  &lt;li&gt;Testing: pytest, mimesis (to create fake data), fake2db, spark-test-base&lt;/li&gt;
-  &lt;li&gt;Validation: Cerberus, schema, voluptuous&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;example-from-deepar-talk-nicola-kuhaupt&quot;&gt;Example from DeepAR talk, Nicola Kuhaupt&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Workflow was not focus of talk, but talk contained information on workflows anyway&lt;/li&gt;
-  &lt;li&gt;Integrated into Sagemaker, which has many in built tools
-    &lt;ul&gt;
-      &lt;li&gt;Ground Truth. Use mechanical turk to build data sets&lt;/li&gt;
-      &lt;li&gt;Studio. An IDA&lt;/li&gt;
-      &lt;li&gt;Autopilot. For training models&lt;/li&gt;
-      &lt;li&gt;Neo. For deployment&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;boto3, to access aws&lt;/li&gt;
-  &lt;li&gt;s3fs, file storage&lt;/li&gt;
-  &lt;li&gt;Others were also mentioned. Re-watch talk to find them.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;nlpeasy-philipp-thomann&quot;&gt;NLPeasy, Philipp Thomann&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;NLPeasy is intended to make NLP easy&lt;/li&gt;
-  &lt;li&gt;Has lots of built in tools, e.g. spaCy, Vader, BeautifulSoup&lt;/li&gt;
-  &lt;li&gt;The talk presented example of analysing EuroPython abtracts&lt;/li&gt;
-  &lt;li&gt;Had nice dashboard to visualise lots of outputs of models&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;kedro-tam-sanh-nguyen&quot;&gt;Kedro, Tam-Sanh Nguyen&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Open source complete workflow package by QuantumBlack&lt;/li&gt;
-  &lt;li&gt;Talk rushed through features of Kedro, but from the brief glimpse, it looks easy to use and has a nice UI.&lt;/li&gt;
-  &lt;li&gt;See examples on GitHub or Tam-Sanh’s YouTube series DataEngineerOne&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;recommended-packages--tools&quot;&gt;Recommended packages / tools&lt;/h2&gt;
-&lt;h3 id=&quot;spacy-alexander-hendorf&quot;&gt;spaCy, Alexander Hendorf&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Open source library for NLP&lt;/li&gt;
-  &lt;li&gt;Has many state-of-the-art algorithms built-in&lt;/li&gt;
-  &lt;li&gt;Highly recommended by the speaker&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;diffprivlib-naoise-holohan&quot;&gt;diffprivlib, Naoise Holohan&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Open source library for differential privacy&lt;/li&gt;
-  &lt;li&gt;(For background theory on differential privacy, I recommended &lt;a href=&quot;https://www.youtube.com/watch?v=bScJdHX0Hac&quot;&gt;this talk&lt;/a&gt; from &lt;a href=&quot;https://faculty.ai/&quot;&gt;FacultyAI&lt;/a&gt;.)&lt;/li&gt;
-  &lt;li&gt;If you want to work with sensitive data, this is a good open source library to consider&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;googles-ml-apis-and-automl-laurent-picard&quot;&gt;Google’s ML APIs and AutoML, Laurent Picard&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Google has a lot of ML tools available&lt;/li&gt;
-  &lt;li&gt;Looks nicely packaged and looks very user-friendly.&lt;/li&gt;
-  &lt;li&gt;Is there even any point in me learning data science?!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;simpy-eran-friedman&quot;&gt;SimPy, Eran Friedman&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;SimPy can be used to do discrete event simulation&lt;/li&gt;
-  &lt;li&gt;E.g. for robotics training&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;data-visualisation-landscape-bence-arato&quot;&gt;Data Visualisation Landscape, Bence Arato&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;See notes or the talk for brief descriptions of the different tools.&lt;/li&gt;
-  &lt;li&gt;Tools discussed are in image from this slide:
-&lt;img src=&quot;/blog/images/europython_4.png&quot; alt=&quot;image&quot; /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;binder-sarah-gibson&quot;&gt;Binder, Sarah Gibson&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;For repeatable research (and for teaching/workshops), use Binder&lt;/li&gt;
-  &lt;li&gt;Just have to give Binder link to your GitHub repo which contains a jupyter notebook and a standard requirements configuration file, and then Binder will create link.&lt;/li&gt;
-  &lt;li&gt;You give link to somebody, they go to it, and they can run the jupyter notebook from their browser. Super easy&lt;/li&gt;
-  &lt;li&gt;Binder is open source, so can be configured for your own needs. E.g. can make it so only certain individuals can access the link (or something like that).&lt;/li&gt;
-  &lt;li&gt;Talk contained details of how Binder works, and the tools and infrastructure they use&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;ipython-miki-tebeka&quot;&gt;IPython, Miki Tebeka&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Did live example of using IPython to do some initial experimentation of data and pre-processing style stuff&lt;/li&gt;
-  &lt;li&gt;Magic commands with &lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt;, comand line with &lt;code class=&quot;highlighter-rouge&quot;&gt;!&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;pprint&lt;/code&gt; for pretty printing, &lt;code class=&quot;highlighter-rouge&quot;&gt;?&lt;/code&gt; for help, &lt;code class=&quot;highlighter-rouge&quot;&gt;??&lt;/code&gt; for source code, &lt;code class=&quot;highlighter-rouge&quot;&gt;%timeit&lt;/code&gt; for time analysis, can do sql with extension, &lt;code class=&quot;highlighter-rouge&quot;&gt;%cow&lt;/code&gt; for ascii art.&lt;/li&gt;
-  &lt;li&gt;See talk for more examples not listed here&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;analytical-functions-in-sql-brendan-tierney&quot;&gt;Analytical Functions in SQL, Brendan Tierney&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Talk was cancelled, but their slides are available&lt;/li&gt;
-  &lt;li&gt;Looks like SQL can do a lot more than what most of us know&lt;/li&gt;
-  &lt;li&gt;Something worth researching&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;tricks-and-tools-for-efficiencyspeed-gains&quot;&gt;Tricks and tools for efficiency/speed gains&lt;/h2&gt;
-&lt;p&gt;Several talks were about this, so I thought it was worth grouping them together&lt;/p&gt;
-
-&lt;h3 id=&quot;concurrentfutures-chin-hwee-ong&quot;&gt;concurrent.futures, Chin Hwee Ong&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Built in package in Python for parallel / asynchronous computing&lt;/li&gt;
-  &lt;li&gt;For big data, can use tools like Spark.&lt;/li&gt;
-  &lt;li&gt;For small big data, overhead cost is too large&lt;/li&gt;
-  &lt;li&gt;Using concurrent.futures module can speed things up&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;daal4py-and-sdc-by-intel-fedotova-and-schlimbach&quot;&gt;daal4py and SDC by Intel, Fedotova and Schlimbach&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;These are open source tools that can drastically speed things up.&lt;/li&gt;
-  &lt;li&gt;daal4py gives optimised versions of scikitlearn functions. But still in production. Some functions do not give identical output to their scikitlearn counterparts.&lt;/li&gt;
-  &lt;li&gt;SDC. A just-in-time compiler. Extension of Numba.
-    &lt;ul&gt;
-      &lt;li&gt;Easy to use; just add decorate &lt;code class=&quot;highlighter-rouge&quot;&gt;@numba.jit&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;Only works for statically compilable code&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Examples of speed ups provided in the talk&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;tips-and-tricks-for-efficiency-gains-in-pandas-ian-ozsvald&quot;&gt;Tips and tricks for efficiency gains in Pandas, Ian Ozsvald&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;RAM considerations.
-    &lt;ul&gt;
-      &lt;li&gt;Use category instead of strings, for low cardinality data&lt;/li&gt;
-      &lt;li&gt;Use float32 or float16 instead of float64&lt;/li&gt;
-      &lt;li&gt;Has tool &lt;code class=&quot;highlighter-rouge&quot;&gt;dtype_diet&lt;/code&gt; to automate optimisation of a dataframe&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Dropping to NumPy
-    &lt;ul&gt;
-      &lt;li&gt;E.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;df.sum()&lt;/code&gt; versus &lt;code class=&quot;highlighter-rouge&quot;&gt;df.values.sum()&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Some tools
-    &lt;ul&gt;
-      &lt;li&gt;bottleneck. See talk for example&lt;/li&gt;
-      &lt;li&gt;dtype_diet&lt;/li&gt;
-      &lt;li&gt;ipython_memory_usage&lt;/li&gt;
-      &lt;li&gt;numba, njit wrapper.&lt;/li&gt;
-      &lt;li&gt;Parallelise with Dask. Use profiling to check if benefit outweighs overhead&lt;/li&gt;
-      &lt;li&gt;Vaex and modin.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Our own habits
-    &lt;ul&gt;
-      &lt;li&gt;Write tests!&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Lots of other examples in their blog and book&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;30-rules-for-deep-learning-performance-siddha-ganju&quot;&gt;30 Rules for Deep Learning Performance, Siddha Ganju&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;30 tips and tricks for deep learning in TensforFlow&lt;/li&gt;
-  &lt;li&gt;No point repeating them all here. See notes from talk, or watch talk (or buy their book Practical Deep Learning)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;miscellaneous&quot;&gt;Miscellaneous&lt;/h2&gt;
-&lt;h3 id=&quot;tips-for-docker-tania-allard&quot;&gt;Tips for Docker, Tania Allard.&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Expect things to be tricky and frustrating. There are many bad tutorials online&lt;/li&gt;
-  &lt;li&gt;Do not re-invent the wheel: use cookie-cutter, repo2docker&lt;/li&gt;
-  &lt;li&gt;Many other useful tips in the talk&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;data-cleaning-checklist-hui-zhang-chua&quot;&gt;Data Cleaning Checklist, Hui Zhang Chua&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Hui provided a checklist of tasks you should do when cleaning data.&lt;/li&gt;
-  &lt;li&gt;Refer to the notes from the talk for the list&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;history-of-jupyter-notebooks-william-horton&quot;&gt;History of Jupyter Notebooks, William Horton&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Does what it says on the tin. I stopped taking notes because I do not anticipate learning the history. Watch the talk if you want to know more.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;neural-style-transfer-and-gans-anmol-krishan-sachdeva&quot;&gt;Neural Style Transfer and GANs, Anmol Krishan Sachdeva&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;Anmol described the algorithm for GANs and for neural style transfer&lt;/li&gt;
-  &lt;li&gt;Showed example code in the talk&lt;/li&gt;
-  &lt;li&gt;See notes for the details. It’s pretty clever stuff!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;probabilistic-forecasting-with-deepar-nicolas-kuhaupt&quot;&gt;Probabilistic forecasting with DeepAR, Nicolas Kuhaupt&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;DeepAR is an algorithm to produce probabilistic time series predictions, by Amazon&lt;/li&gt;
-  &lt;li&gt;One interesting feature is it deals with multiple time series simultaneously&lt;/li&gt;
-  &lt;li&gt;I did not understand details. Would have to read paper to understand&lt;/li&gt;
-  &lt;li&gt;Example uses cases
-    &lt;ul&gt;
-      &lt;li&gt;Sales at amazon. Each product has its own time series&lt;/li&gt;
-      &lt;li&gt;Sales of magazines in different stores. Each store has its own time series.&lt;/li&gt;
-      &lt;li&gt;Loads on servers in data centers&lt;/li&gt;
-      &lt;li&gt;Car traffic. Separate time series for each lane&lt;/li&gt;
-      &lt;li&gt;Energy consumption by household.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Goes through an example in the talk&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series EuroPython Conference 2020, Day 2 EuroPython Conference 2020, Day 1</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Introduction Though I am transitioning from teaching to data science, I still continue to teach via private tuition. I am currently helping somebody prepare for the STEP, so I wanted to obtain as many past papers and solutions as I could. To do this manually would have required hours of clicking on links and ‘Saving as…’, so I decided to automate it with python.</summary></entry></feed>
