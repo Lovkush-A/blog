@@ -1,5 +1,156 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-28T16:35:18-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Increasing the resolution of an image using an SRGAN</title><link href="https://lovkush-a.github.io/blog/python/neural%20network/2020/08/28/srgan1.html" rel="alternate" type="text/html" title="Increasing the resolution of an image using an SRGAN" /><published>2020-08-28T00:00:00-05:00</published><updated>2020-08-28T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/neural%20network/2020/08/28/srgan1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/neural%20network/2020/08/28/srgan1.html">&lt;!---
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-30T14:09:12-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">FastAI Course, Part II, Lesson 1 and sentimental analysis</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/30/fastai2.html" rel="alternate" type="text/html" title="FastAI Course, Part II, Lesson 1 and sentimental analysis" /><published>2020-08-30T00:00:00-05:00</published><updated>2020-08-30T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/30/fastai2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/30/fastai2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/08/09/fastai1.html&quot;&gt;FastAI Course, Part I, Lessons 1 and 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Recently, FastAI launched a new version of their course, using their revamped FastAI version 2 packages. As I had only completed the first two lessons of the previous version of the course, I thought I’d restart.  It is good I did re-start, because they have made big changes to the how the course is organised and also to the syntax (e.g. in the old version, there was significant discussion about setting the learning rate using their ‘learning rate finder’, but so far, there has been no mention of this and it looks like that has been automated).  Towards the end of the first lesson, Jeremy showcases the different domains in which one can use Deep Learning. One of those was NLP. I have not yet done any NLP, so I thought this is a good chance to play around a little, without having to delve into any of the technical details.&lt;/p&gt;
+
+&lt;p&gt;In this particular example, the NLP consists of sentiment analysis of movie reviews. Looking at the code, they use AWD LSTM architecture. A quick google search reveals that this is a fairly new algorithm, combining various ideas and tools into one. I am not yet at the stage to understand this though, but hopefully it will be discussed later in the course.&lt;/p&gt;
+
+&lt;h2 id=&quot;experimentation&quot;&gt;Experimentation&lt;/h2&gt;
+&lt;p&gt;The input to the model is a string containing a movie review. The output is a probability/score between 0 and 1 indicating how much the model thinks the review is positive. My initial thought was to to see if the model had learnt about numbers, by seeing how it rates reviews of the form ‘x out of y’.&lt;/p&gt;
+
+&lt;h3 id=&quot;x-out-of-5&quot;&gt;‘x out of 5’&lt;/h3&gt;
+&lt;p&gt;The results of this experimentation:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0 out of 5: 0.5570
+1 out of 5: 0.4760
+2 out of 5: 0.3281
+3 out of 5: 0.4038
+4 out of 5: 0.4073
+5 out of 5: 0.8569
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This was surprising - the model thinks that the review ‘0 out of 5’ is likely a positive review, is roughly undecided about ‘1 out of 5’, thinks 2,3 or 4 out of 5 is negative, and that ‘5 out of 5’ is positive. This was a surprise to me. As will most of these models, this must be a reflection of the underlying dataset. I imagine very few people actually give a movie 0 or 1 out of 5, so the model doesn’t really know what to do with it, whereas ‘2 out of 5’ probably is more common and basically says the movie is bad, and ‘3 out of 5’ and ‘4 out of 5’ are more average-y ratings.&lt;/p&gt;
+
+&lt;h3 id=&quot;x-out-of-10&quot;&gt;‘x out of 10’&lt;/h3&gt;
+&lt;p&gt;The results of this:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0 out of 10: 0.5402
+1 out of 10: 0.4478
+2 out of 10: 0.2972
+3 out of 10: 0.3741
+4 out of 10: 0.3798
+5 out of 10: 0.8475
+6 out of 10: 0.9897
+7 out of 10: 0.99996
+8 out of 10: 0.99991
+9 out of 10: 0.9998
+10 out of 10:0.99996
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Again the model is confused with the worst reviews, presumably because they just don’t occur in the training data. Then the model seems to deal with 2,3 and 4 out of 10 sensibly. But then it has big jump and thinks the rest are definitely positive, with anything above 7 out of 10 being considered positive with high confidence. Again, the explanation for these unusual evaluations of the reviews must be that they are uncommon in the dataset.&lt;/p&gt;
+
+&lt;h3 id=&quot;variations-on-x-out-of-5&quot;&gt;Variations on ‘x out of 5’&lt;/h3&gt;
+&lt;p&gt;I tried a few little variations on ‘x out of 5’ to see if it would make any impact: adding an exclamation mark at the end, adding the word ‘stars’ at the end, and adding the word ‘Only’ at the start.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;x&lt;/th&gt;
+      &lt;th&gt;‘x out of 5’&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;‘x out of 5!’&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;‘x out of 5 stars’&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;‘Only x out of 5’&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+      &lt;td&gt;0.5570&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.7436&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.7247&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.0240&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+      &lt;td&gt;0.4760&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.6756&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.6538&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.0247&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
+      &lt;td&gt;0.3281&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.4901&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.4884&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.0196&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
+      &lt;td&gt;0.4038&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.5670&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.5634&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.0189&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
+      &lt;td&gt;0.4073&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.5634&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.5589&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.0179&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5&lt;/td&gt;
+      &lt;td&gt;0.8569&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.9051&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.8969&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.5464&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Adding an exclamation mark makes the model think the reviews are more positive, which in my opinion is sensible.&lt;/li&gt;
+  &lt;li&gt;Adding the word ‘stars’ seems to have very similar effect to adding an exclamation mark. I do not know if this is just a coincidence - I do not have intuition for this. I guess it must mean that if the word ‘star’ appeared in the training data, then it mostly meant it was a positive review.&lt;/li&gt;
+  &lt;li&gt;Adding the word ‘only’ dramatically reduced the positivity score, which makes sense.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;miscellaneous-statements&quot;&gt;Miscellaneous statements&lt;/h3&gt;
+&lt;p&gt;Lastly, I tried a variety of miscellaneous statements:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;I liked some bits and I disliked other bits
+0.9345
+
+I disliked some bits and I liked other bits
+0.8857
+
+I liked most of it, but not all of it
+0.9906
+
+I disliked most of it, but not all of it
+0.9782
+
+I hated most of it, but not all of it
+0.9486
+
+I disliked the movie
+0.7621
+
+I hated the movie
+0.6873
+
+I cannot believe how bad the movie is
+0.5535
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The model is comically bad at judging whether the statement is positive. I started by trying a neutral statement, but the model thought it was great.  I then tried the favourable statement ‘I liked most of it…’ and the model thought it was positive (sensible), but still thought the statement was positive when I switched liked and disliked. Using the word ‘hated’ instead reduced it a bit.&lt;/p&gt;
+
+&lt;p&gt;Maybe the model hasn’t even learnt the word ‘disliked’ and ‘hated’. So I just tried the simple statements ‘I dislike/hated the movie’, and the model does reduce its score, but still thinks these are overall positive. I end with a particularly strong negative review, which the model perceives as slightly positive.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+&lt;p&gt;It is nice to play around with a model without any expectation to understand the inner-intricacies or working. My main takeaways are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The model has learnt some sensible patterns, e.g. adding ‘only’ indicates a negative review, adding an exclamation mark indicates a positive review, etc.&lt;/li&gt;
+  &lt;li&gt;The model fails spectacularly badly on several examples, which do not feel contrived to me. This makes me question the reliability of sentiment analysis. Maybe the examples I created are not representative of real-world examples.&lt;/li&gt;
+  &lt;li&gt;If I were a decision-maker in some business, I would definitely be using manual analysis until I see better evidence.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series FastAI Course, Part I, Lessons 1 and 2</summary></entry><entry><title type="html">Increasing the resolution of an image using an SRGAN</title><link href="https://lovkush-a.github.io/blog/python/neural%20network/2020/08/28/srgan1.html" rel="alternate" type="text/html" title="Increasing the resolution of an image using an SRGAN" /><published>2020-08-28T00:00:00-05:00</published><updated>2020-08-28T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/neural%20network/2020/08/28/srgan1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/neural%20network/2020/08/28/srgan1.html">&lt;!---
 ## Other posts in series
+
+
 
 
 
@@ -268,6 +419,10 @@ discussed. As someone with a pure maths background, theorems are irresistable ba
 &lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
 &lt;p&gt;There is too much to learn! One thing I still need to improve in myself is my ability to prioritise all these difference things.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">FastAI Course, Part I, Lessons 1 and 2</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/09/fastai1.html" rel="alternate" type="text/html" title="FastAI Course, Part I, Lessons 1 and 2" /><published>2020-08-09T00:00:00-05:00</published><updated>2020-08-09T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/09/fastai1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/09/fastai1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/08/30/fastai2.html&quot;&gt;FastAI Course, Part II, Lesson 1 and sentimental analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
 &lt;h2 id=&quot;first-impressions&quot;&gt;First impressions&lt;/h2&gt;
 &lt;p&gt;I recently started this &lt;a href=&quot;https://course.fast.ai/&quot;&gt;FastAI Deep Learning course&lt;/a&gt; and done a couple of little projects. Below I summarise some of what I did and my thoughts.&lt;/p&gt;
 
@@ -277,7 +432,7 @@ discussed. As someone with a pure maths background, theorems are irresistable ba
   &lt;li&gt;I like how Jeremy showcases various examples of what students have done. It is surprising to see how many state-of-the-art things can be done with just the knowledge given in the first couple of lectures. The FastAI team should be chuffed with themselves for creating such a course, tool and community.&lt;/li&gt;
   &lt;li&gt;I tried a couple of image classification tasks. The first was to distinguish between the Dragonball Z characters Goku and Vegeta. The second was to distinguish between squash and tennis rackets. I got ok results. At this stage, the main way to improve the algorithm is to improve the image set (I just downloaded the first bunch of images from Google Image Search).&lt;/li&gt;
   &lt;li&gt;This was slowed down a bit, because the first online GPU provider I used was &lt;a href=&quot;https://www.paperspace.com/&quot;&gt;paperspace&lt;/a&gt;, but there was some bug which meant I could not re-open a notebook after using it once. I then tried Google Colab, which took a bit more time to learn, and got things working there. In the meantime, the bug in paperspace was fixed, so I will use that again.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Web Scraping for STEP past papers and solutions, Part II, a bug</title><link href="https://lovkush-a.github.io/blog/python/2020/08/06/downloadstep2.html" rel="alternate" type="text/html" title="Web Scraping for STEP past papers and solutions, Part II, a bug" /><published>2020-08-06T00:00:00-05:00</published><updated>2020-08-06T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/2020/08/06/downloadstep2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/2020/08/06/downloadstep2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series FastAI Course, Part II, Lesson 1 and sentimental analysis</summary></entry><entry><title type="html">Web Scraping for STEP past papers and solutions, Part II, a bug</title><link href="https://lovkush-a.github.io/blog/python/2020/08/06/downloadstep2.html" rel="alternate" type="text/html" title="Web Scraping for STEP past papers and solutions, Part II, a bug" /><published>2020-08-06T00:00:00-05:00</published><updated>2020-08-06T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/2020/08/06/downloadstep2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/2020/08/06/downloadstep2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/python/2020/07/27/downloadstep.html&quot;&gt;Web Scraping for STEP past papers and solutions&lt;/a&gt;&lt;/li&gt;
@@ -629,108 +784,4 @@ The format of the entries in the list has changed over time.&lt;/p&gt;
         &lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pd_dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
         &lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applymap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TimeSeries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq_str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Introduction A few days ago, I successfully completed my first ever open source contribution. :) In this article, I will briefly describe the experience, and some little things I learnt.</summary></entry><entry><title type="html">Web Scraping for STEP past papers and solutions</title><link href="https://lovkush-a.github.io/blog/python/2020/07/27/downloadstep.html" rel="alternate" type="text/html" title="Web Scraping for STEP past papers and solutions" /><published>2020-07-27T00:00:00-05:00</published><updated>2020-07-27T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/2020/07/27/downloadstep</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/2020/07/27/downloadstep.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Though I am transitioning from teaching to data science, I still continue to teach via private tuition. I am currently helping somebody prepare for the &lt;a href=&quot;https://www.admissionstesting.org/for-test-takers/step/about-step/&quot;&gt;STEP&lt;/a&gt;, so I wanted to obtain as many past papers and solutions as I could. To do this manually would have required hours of clicking on links and ‘Saving as…’, so I decided to automate it with python.&lt;/p&gt;
-
-&lt;h2 id=&quot;downloading-the-step-papers&quot;&gt;Downloading the step papers&lt;/h2&gt;
-&lt;p&gt;This was straightforward. The website &lt;a href=&quot;https://stepdatabase.maths.org&quot;&gt;stepdatabase.com&lt;/a&gt; has past papers on them, and the urls and naming system they use is systematic and 100% consistent. I was able to download the papers using a simple loop with a &lt;code class=&quot;highlighter-rouge&quot;&gt;wget&lt;/code&gt; command.  See the code below.&lt;/p&gt;
-
-&lt;h2 id=&quot;downloading-the-answers&quot;&gt;Downloading the answers&lt;/h2&gt;
-&lt;p&gt;This was less straightforward. &lt;a href=&quot;https://mei.org.uk/step-aea-solutions&quot;&gt;This website&lt;/a&gt; provides answers to the STEP papers but the urls did not have a consistent format, so I could not just use wget again. Therefore, I used some web-scraping tools to help me.&lt;/p&gt;
-
-&lt;p&gt;There was a considerable learning curve, as I had not done any web scraping before. There were actually a couple of moments where I was going to give up. However, I persisted in the knowledge that if I want to be successful in a tech role, I will encounter such difficulties, and the only way to improve is to perservere.&lt;/p&gt;
-
-&lt;p&gt;In the end, I succeeded and the final code is given below. I will not go through the full process of trying things out, failing, tweaking, de-bugging, etc., but I will provide some of the key learning points for me.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;BeautifulSoup is only suitable for statically generated pages. For dynamic ones, you can use Selenium.&lt;/li&gt;
-  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;dir&lt;/code&gt; function in python is extremely handy. I have to thank this &lt;a href=&quot;https://www.kaggle.com/colinmorris/working-with-external-libraries&quot;&gt;Kaggle tutorial&lt;/a&gt; for introducing me to this function. On two or three occasions, I wanted to do something, and by looking at the list of methods, I was able to find one which worked. The example I remember is &lt;code class=&quot;highlighter-rouge&quot;&gt;find_elements_by_partial_link_text&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;StackOverFlow is extremely handy. I am not sure what I would have done without it.&lt;/li&gt;
-  &lt;li&gt;Don’t make assumptions. I assumed that the answers would all have different file names, but that was not always the case. This meant that previously downloaded were sometimes over-written by later answers. Fortunately, the was apparent in the first few minutes of running the program, so I could stop the program, and quickly modify it to add my own naming convention.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
-&lt;p&gt;The code to download the past papers is:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;subprocess&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;87&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;119&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://stepdatabase.maths.org/database/db/{i:02}/{i:02}-S{j}.pdf&quot;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;subprocess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;87&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;119&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://stepdatabase.maths.org/database/db/{i:02}/{i:02}-S{j}.tex&quot;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;subprocess&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;wget&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The (ugly) code I created to download the solutions is:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;selenium&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# open browser and go to the url
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webdriver&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Chrome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'https://mei.org.uk/step-aea-solutions'&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# click button, which opens new tab, so move to new tab
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_xpath&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'//button[text()=&quot;STEP Solutions&quot;]'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;switch_to_window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;window_handles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# click on link to go to next page
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_element_by_link_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'STEP past paper worked solutions'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# obtain list of links in this page
-# each of these refers to a group of step papers, e.g. STEP I, 2016-2019
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;elements&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_elements_by_partial_link_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'STEP solutions'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;groups&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;element&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;elements&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;groups&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;href&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# define regex pattern to help identify correct links
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;r&quot;STEP (1|I)+: \d\d\d\d&quot;&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# loop through links in groups
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url_group&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;groups&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;c1&quot;&gt;# open the link
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url_group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;# obtain list of links and names of papers in this group.
-&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# this requires the regex pattern from above
-&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;papers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paper&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_elements_by_partial_link_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'STEP '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pattern&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;paper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_property&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'textContent'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;papers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;paper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;href&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paper&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_property&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'textContent'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt;
-    
-    &lt;span class=&quot;c1&quot;&gt;# loop through the list of papers
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url_paper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paper_name&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;papers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;# open link for an individual paper
-&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url_paper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-        &lt;span class=&quot;c1&quot;&gt;# obtain list of links for answers to individual questions
-&lt;/span&gt;        &lt;span class=&quot;n&quot;&gt;questions&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_elements_by_partial_link_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Question '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-        &lt;span class=&quot;c1&quot;&gt;# loop through the questions
-&lt;/span&gt;        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;question&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;questions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-            
-            &lt;span class=&quot;c1&quot;&gt;# open link to answer for individual question
-&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;question&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;click&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;switch_to_window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;window_handles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-            &lt;span class=&quot;c1&quot;&gt;# download image
-&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;# note that the url you end on is different to the url you use to get to this page
-&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_url&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paper_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'-'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;allow_redirects&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'wb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-            &lt;span class=&quot;c1&quot;&gt;# close browser and switch back to page with list of questions
-&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;switch_to_window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;window_handles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Introduction Though I am transitioning from teaching to data science, I still continue to teach via private tuition. I am currently helping somebody prepare for the STEP, so I wanted to obtain as many past papers and solutions as I could. To do this manually would have required hours of clicking on links and ‘Saving as…’, so I decided to automate it with python.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Introduction A few days ago, I successfully completed my first ever open source contribution. :) In this article, I will briefly describe the experience, and some little things I learnt.</summary></entry></feed>
