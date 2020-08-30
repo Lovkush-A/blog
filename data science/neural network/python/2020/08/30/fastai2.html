@@ -150,7 +150,7 @@ window.onload = wrap_img;
 
 <h2 id="introduction">
 <a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
-<p>Recently, FastAI launched a new version of their course, using their revamped FastAI version 2 packages. As I had only completed the first two lessons of the previous version of the course, I thought I’d restart.  It is good I did re-start, because they have made big changes to the how the course is organised and also to the syntax (e.g. in the old version, there was significant discussion about setting the learning rate using their ‘learning rate finder’, but so far, there has been no mention of this and it looks like that has been automated).  Towards the end of the first lesson, Jeremy showcases the different domains in which one can use Deep Learning. One of those was NLP. I have not yet done any NLP, so I thought this is a good chance to play around a little, without having to delve into any of the technical details.</p>
+<p>Recently, FastAI launched a new version of their course, using their revamped FastAI version 2 packages. As I had only completed the first two lessons of the previous version of the course, I thought I’d restart.  It is good I did re-start, because they have made big changes to how the course is organised and also to the syntax (e.g. in the old version, there was significant discussion about setting the learning rate using their ‘learning rate finder’, but so far, there has been no mention of this and it looks like that has been automated).  Towards the end of the first lesson, Jeremy showcases the different domains in which one can use Deep Learning. One of those was NLP. I have not yet done any NLP, so I thought this is a good chance to play around a little, without having to delve into any of the technical details.</p>
 
 <p>In this particular example, the NLP consists of sentiment analysis of movie reviews. Looking at the code, they use AWD LSTM architecture. A quick google search reveals that this is a fairly new algorithm, combining various ideas and tools into one. I am not yet at the stage to understand this though, but hopefully it will be discussed later in the course.</p>
 
@@ -170,7 +170,15 @@ window.onload = wrap_img;
 5 out of 5: 0.8569
 </code></pre></div></div>
 
-<p>This was surprising - the model thinks that the review ‘0 out of 5’ is likely a positive review, is roughly undecided about ‘1 out of 5’, thinks 2,3 or 4 out of 5 is negative, and that ‘5 out of 5’ is positive. This was a surprise to me. As will most of these models, this must be a reflection of the underlying dataset. I imagine very few people actually give a movie 0 or 1 out of 5, so the model doesn’t really know what to do with it, whereas ‘2 out of 5’ probably is more common and basically says the movie is bad, and ‘3 out of 5’ and ‘4 out of 5’ are more average-y ratings.</p>
+<p>This was surprising to me:</p>
+<ul>
+  <li>The model thinks that the review ‘0 out of 5’ is likely a positive review</li>
+  <li>The model is roughly undecided about ‘1 out of 5’</li>
+  <li>The model thinks 2,3 or 4 out of 5 is negative</li>
+  <li>The model thinksthat ‘5 out of 5’ is positive.</li>
+</ul>
+
+<p>As with most of these ML models, this must be a reflection of the underlying dataset. I imagine very few people actually give a movie 0 or 1 out of 5, so the model doesn’t really know what to do with it, whereas ‘2 out of 5’ probably is more common and basically says the movie is bad, and ‘3 out of 5’ and ‘4 out of 5’ are more average-y ratings.</p>
 
 <h3 id="x-out-of-10">
 <a class="anchor" href="#x-out-of-10" aria-hidden="true"><span class="octicon octicon-link"></span></a>‘x out of 10’</h3>
