@@ -1,4 +1,869 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-08-30T14:56:22-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">FastAI Course, Part II, Lesson 1 and sentimental analysis</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/30/fastai2.html" rel="alternate" type="text/html" title="FastAI Course, Part II, Lesson 1 and sentimental analysis" /><published>2020-08-30T00:00:00-05:00</published><updated>2020-08-30T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/30/fastai2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/30/fastai2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-09-03T09:38:19-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Analysing the movies I’ve watched, Part V, Data visualisation II</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/09/02/mymovies5.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part V, Data visualisation II" /><published>2020-09-02T00:00:00-05:00</published><updated>2020-09-02T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/09/02/mymovies5</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/09/02/mymovies5.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/24/mymovies4.html&quot;&gt;Analysing the movies I’ve watched, Part IV, Data visualisation&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/19/mymovies3.html&quot;&gt;Analysing the movies I’ve watched, Part III, Joining the tables&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/03/mymovies2.html&quot;&gt;Analysing the movies I’ve watched, Part II, Data cleaning&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/02/mymovies1.html&quot;&gt;Analysing the movies I’ve watched, Part I, Data collection&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies4_year.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;I created the various charts, but there was noise in the data, never mind the fact that I already lost half the data when attempting to join. So I bit the bullet and decided I would have to manually do the joining. Learning the lessons from past attempts at manual processing, it was a fairly smooth process. (Furthermore, things were significantly sped up by using Selenium - which allowed me to automate the process of searching for a movie on imdb). In the end, it took roughly 3 hours to tidy the dataset and have the official imdb id attached to each entry in my database. And now for the charts!&lt;/p&gt;
+
+&lt;h2 id=&quot;year-of-release&quot;&gt;Year of release&lt;/h2&gt;
+&lt;p&gt;Below are charts showing information about the year of release for the movies I have watched. The first one is just a histogram, and the second shows a scatter-chart showing the year I watched the movie against the year the movie released.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies5_releaseyear.png&quot; alt=&quot;image&quot; /&gt;
+&lt;img src=&quot;/blog/images/mymovies5_releaseyear2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Not sure if there is anything surprising about any of these charts. One neat thing is that one could probably get an idea of my age based on the first chart. The second chart seems to show that the majority of movies I watch are relatively new.&lt;/p&gt;
+
+&lt;h2 id=&quot;ratings&quot;&gt;Ratings&lt;/h2&gt;
+&lt;p&gt;Below is a chart showing the average ratings (by users of imdb) for the movies I have watched, along with the distribution of ratings for all the movies in imdb.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies5_ratings1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It is clear from this chart that I tend to watch ‘decent’ movies, as judged by the movies, and that I avoid ‘bad’ movies, but I also seem to avoid the ‘best’ movies.&lt;/p&gt;
+
+&lt;p&gt;Below is a chart comparing the ratings for all the movies I have watched compared with the ratings of the movie I would recommend.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies5_ratings2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It is reassuring to see that, overall, the movies I recommend are generally better regarded than the movies I do not watch.&lt;/p&gt;
+
+&lt;p&gt;Lastly, here is a chart showing how variation in ratings by year.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies5_ratings3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I cannot really discern any patterns here, that aren’t revealed by other charts. Patterns that I can see are that I watched a lot more movies (and greater variety of quality of  movies) in 2008 and 2009, and that the movies I recommend tend to have higher ratings than those I don’t.&lt;/p&gt;
+
+&lt;p&gt;To end this section, here is a list of the most and least popular movies I have watched.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Movie&lt;/th&gt;
+      &lt;th&gt;Rating on imdb&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;the shawshank redemption&lt;/td&gt;
+      &lt;td&gt;9.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;the dark knight&lt;/td&gt;
+      &lt;td&gt;9.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;12 angry men&lt;/td&gt;
+      &lt;td&gt;8.9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;the lord of the rings: the return of the king&lt;/td&gt;
+      &lt;td&gt;8.9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;pulp fiction&lt;/td&gt;
+      &lt;td&gt;8.9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;fight club&lt;/td&gt;
+      &lt;td&gt;8.8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;the lord of the rings: the fellowship of the ring&lt;/td&gt;
+      &lt;td&gt;8.8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;forrest gump&lt;/td&gt;
+      &lt;td&gt;8.8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;inception&lt;/td&gt;
+      &lt;td&gt;8.8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;the matrix&lt;/td&gt;
+      &lt;td&gt;8.7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;the lord of the rings: the two towers&lt;/td&gt;
+      &lt;td&gt;8.7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;goodfellas&lt;/td&gt;
+      &lt;td&gt;8.7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;star wars: episode v - the empire strikes back&lt;/td&gt;
+      &lt;td&gt;8.7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;se7en&lt;/td&gt;
+      &lt;td&gt;8.6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;city of god&lt;/td&gt;
+      &lt;td&gt;8.6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;interstellar&lt;/td&gt;
+      &lt;td&gt;8.6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;saving private ryan&lt;/td&gt;
+      &lt;td&gt;8.6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;the silence of the lambs&lt;/td&gt;
+      &lt;td&gt;8.6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;star wars: episode iv - a new hope&lt;/td&gt;
+      &lt;td&gt;8.6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;gladiator&lt;/td&gt;
+      &lt;td&gt;8.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;the departed&lt;/td&gt;
+      &lt;td&gt;8.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;casablanca&lt;/td&gt;
+      &lt;td&gt;8.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;the usual suspects&lt;/td&gt;
+      &lt;td&gt;8.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;dear zachary: a letter to a son about his father&lt;/td&gt;
+      &lt;td&gt;8.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;whiplash&lt;/td&gt;
+      &lt;td&gt;8.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;joker&lt;/td&gt;
+      &lt;td&gt;8.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;psycho&lt;/td&gt;
+      &lt;td&gt;8.5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;senna&lt;/td&gt;
+      &lt;td&gt;8.5&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Movie&lt;/th&gt;
+      &lt;th&gt;Rating on imdb&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;steel&lt;/td&gt;
+      &lt;td&gt;2.8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;troll 2&lt;/td&gt;
+      &lt;td&gt;2.9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;the foreigner&lt;/td&gt;
+      &lt;td&gt;3.4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;batman &amp;amp; robin&lt;/td&gt;
+      &lt;td&gt;3.7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;half a person&lt;/td&gt;
+      &lt;td&gt;3.8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;friday the 13th part viii: jason takes manhattan&lt;/td&gt;
+      &lt;td&gt;4.6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;barely legal&lt;/td&gt;
+      &lt;td&gt;4.7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;elektra&lt;/td&gt;
+      &lt;td&gt;4.7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;doe: dead or alive&lt;/td&gt;
+      &lt;td&gt;4.8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;friday the 13th: a new beginning&lt;/td&gt;
+      &lt;td&gt;4.8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;uncut gem&lt;/td&gt;
+      &lt;td&gt;4.8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;blair witch&lt;/td&gt;
+      &lt;td&gt;5.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;a teacher’s crime&lt;/td&gt;
+      &lt;td&gt;5.0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;tekken: the motion picture&lt;/td&gt;
+      &lt;td&gt;5.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;in their skin&lt;/td&gt;
+      &lt;td&gt;5.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;daredevil&lt;/td&gt;
+      &lt;td&gt;5.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;scary movie 2&lt;/td&gt;
+      &lt;td&gt;5.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;the circle&lt;/td&gt;
+      &lt;td&gt;5.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;friday the 13th part vii: the new blood&lt;/td&gt;
+      &lt;td&gt;5.3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;little&lt;/td&gt;
+      &lt;td&gt;5.4&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The one thing I feel slightly ashamed of is that I watched so many of the Friday the 13th movies. I think my reasoning was that if a series has that many movies, there must be something good about it, so I kept going on even, though I thought the movies were bad, in the hope that there is a moment in the series where the movies become good. I did finally stop watching the series - just took 8 movies to make that decision…&lt;/p&gt;
+
+&lt;h2 id=&quot;genres&quot;&gt;Genres&lt;/h2&gt;
+&lt;p&gt;Below is a table showing a breakdown of the genres of movie I watched, ordered by which genre has the highest odds of me recommending it. Note that most movies had multiple genres.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Genre&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Frequency&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Frequency Recommended&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Percent recommended&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;thriller&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;126&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;37&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.29&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;war&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;14&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.29&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;sport&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;18&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.28&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;drama&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;319&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;87&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.27&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;sci-fi&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;86&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;22&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.26&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;crime&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;146&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;36&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.25&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;biography&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;47&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;11&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.23&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;music&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;18&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.22&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;romance&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;56&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;11&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.20&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;comedy&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;210&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;42&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.20&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;mystery&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;80&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;15&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.19&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;animation&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;51&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.16&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;family&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;25&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.16&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;history&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;26&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;fantasy&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;70&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.14&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;documentary&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;31&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.13&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;adventure&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;188&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;23&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;horror&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;66&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;action&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;227&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;23&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;musical&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;news&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;western&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The entries that stand out to me are those with the largest frequencies. There is strong evidence that I am more likely to recommend a thriller or a drama than a comedy, and that I am unlikely to recommend adventure or action movies.&lt;/p&gt;
+
+&lt;h2 id=&quot;directors&quot;&gt;Directors&lt;/h2&gt;
+&lt;p&gt;Below is a list of the directors, along with the movies, whose movies I have most watched.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Steven Spielberg
+ a.i. artificial intelligence
+          catch me if you can
+                         jaws
+                jurassic park
+              minority report
+      raiders of the lost ark
+          saving private ryan
+     the adventures of tintin
+
+Peter Jackson
+                                         king kong
+                 the hobbit: an unexpected journey
+         the hobbit: the battle of the five armies
+ the lord of the rings: the fellowship of the ring
+     the lord of the rings: the return of the king
+             the lord of the rings: the two towers
+
+Christopher Nolan
+               dunkirk
+             inception
+          interstellar
+               memento
+       the dark knight
+ the dark knight rises
+
+Guy Ritchie
+ lock, stock and two smoking barrels
+                          rocknrolla
+                     sherlock holmes
+  sherlock holmes: a game of shadows
+                              snatch
+             the man from u.n.c.l.e.
+
+Martin Scorsese
+               cape fear
+              goodfellas
+                 silence
+             taxi driver
+            the departed
+ the wolf of wall street
+
+Quentin Tarantino
+             inglourious basterds
+                kill bill: vol. 1
+ once upon a time... in hollywood
+                     pulp fiction
+                   reservoir dogs
+                the hateful eight
+
+Danny Boyle
+    28 days later
+       steve jobs
+ t2 trainspotting
+    trainspotting
+        yesterday
+
+Matthew Vaughn
+                     kick-ass
+ kingsman: the secret service
+                   layer cake
+                     stardust
+           x-men: first class
+
+David Fincher
+                          fight club
+                           gone girl
+                               se7en
+ the curious case of benjamin button
+                  the social network
+
+M. Night Shyamalan
+             glass
+ lady in the water
+             split
+   the sixth sense
+       unbreakable
+
+Darren Aronofsky
+          black swan
+             mother!
+                noah
+ requiem for a dream
+        the wrestler
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I tend not to pay any attention to who the director is, so for me, the interesting thing here is to see how movies that I would have said had no connection in fact have the same director. E.g. I did not realise I had watched that many movies my Spielberg. The other thing that stands out here is that all the directors are male.&lt;/p&gt;
+
+&lt;h2 id=&quot;actors&quot;&gt;Actors&lt;/h2&gt;
+&lt;p&gt;Below is a list of actors, along with the movies, that I have most watched.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Brad Pitt
+                    12 years a slave
+                              allied
+                  burn after reading
+                          fight club
+                inglourious basterds
+                 killing them softly
+                            megamind
+                           moneyball
+    once upon a time... in hollywood
+                               se7en
+                              snatch
+                       the big short
+ the curious case of benjamin button
+                                troy
+                         war machine
+
+Bruce Willis
+                 alpha dog
+                  die hard
+                die hard 2
+              die hard 4.0
+ die hard with a vengeance
+          fast food nation
+                     glass
+                    looper
+          moonrise kingdom
+              pulp fiction
+                  sin city
+           the sixth sense
+               unbreakable
+
+Samuel L. Jackson
+                    die hard with a vengeance
+                                        glass
+                                       jumper
+                 kingsman: the secret service
+                                 pulp fiction
+ star wars: episode iii - revenge of the sith
+                            the hateful eight
+                       the hitman's bodyguard
+                              the incredibles
+                               the negotiator
+                                  unbreakable
+                                unicorn store
+
+Matt Damon
+          adjustment bureau
+                  contagion
+          good will hunting
+               jason bourne
+                      ponyo
+        saving private ryan
+        the bourne identity
+       the bourne ultimatum
+               the departed
+ the legend of bagger vance
+                the martian
+    the talented mr. ripley
+
+Tom Hanks
+     angels &amp;amp; demons
+ catch me if you can
+        forrest gump
+ saving private ryan
+          the circle
+           toy story
+         toy story 2
+ toy story of terror
+     you've got mail
+
+Robert De Niro
+     analyze this
+        cape fear
+    dirty grandpa
+       goodfellas
+    hide and seek
+            joker
+ meet the parents
+   righteous kill
+      taxi driver
+
+Rachel McAdams
+                         about time
+                              aloha
+                     doctor strange
+                         mean girls
+                            red eye
+                    sherlock holmes
+ sherlock holmes: a game of shadows
+                      state of play
+                   wedding crashers
+
+Natalie Portman
+                                 annihilation
+                                   black swan
+                                       closer
+    star wars: episode i - the phantom menace
+ star wars: episode ii - attack of the clones
+ star wars: episode iii - revenge of the sith
+                        the other boleyn girl
+                                         thor
+                               v for vendetta
+
+Leonardo DiCaprio
+                    blood diamond
+              catch me if you can
+                        inception
+ once upon a time... in hollywood
+                     the departed
+         the man in the iron mask
+                     the revenant
+          the wolf of wall street
+
+Ben Affleck
+                               argo
+ batman v superman: dawn of justice
+                          daredevil
+                          gone girl
+                  good will hunting
+                           paycheck
+                      state of play
+                     the accountant
+
+Jake Gyllenhaal
+      donnie darko
+           jarhead
+      nightcrawler
+ nocturnal animals
+         prisoners
+             proof
+       source code
+    velvet buzzsaw
+
+Ian McKellen
+                                          stardust
+                 the hobbit: an unexpected journey
+         the hobbit: the battle of the five armies
+ the lord of the rings: the fellowship of the ring
+     the lord of the rings: the return of the king
+             the lord of the rings: the two towers
+                                             x-men
+                                  x2: x-men united
+
+Christian Bale
+          3:10 to yuma
+       american psycho
+        public enemies
+  terminator salvation
+         the big short
+       the dark knight
+ the dark knight rises
+         the machinist
+
+Morgan Freeman
+      along came a spider
+              deep impact
+                     lucy
+      million dollar baby
+                    se7en
+          the bucket list
+ the shawshank redemption
+                   wanted
+
+Tom Cruise
+          collateral
+    edge of tomorrow
+     minority report
+ mission: impossible
+            rain man
+    the last samurai
+            valkyrie
+         vanilla sky
+
+Johnny Depp
+                   a nightmare on elm street
+ fantastic beasts: the crimes of grindelwald
+              fear and loathing in las vegas
+     pirate of the caribbean: at world's end
+  pirates of the caribbean: dead man's chest
+                              public enemies
+                                 the tourist
+
+Ewan McGregor
+                              angels &amp;amp; demons
+                              black hawk down
+    star wars: episode i - the phantom menace
+ star wars: episode ii - attack of the clones
+ star wars: episode iii - revenge of the sith
+                             t2 trainspotting
+                                trainspotting
+
+Laurence Fishburne
+ john wick: chapter 3 - parabellum
+                        passengers
+                         predators
+                        the matrix
+               the matrix reloaded
+            the matrix revolutions
+                        the signal
+
+Robert Downey Jr.
+             avengers: infinity war
+                         iron man 2
+                         iron man 3
+                    sherlock holmes
+ sherlock holmes: a game of shadows
+             spider-man: homecoming
+                       the avengers
+
+Jude Law
+       a.i. artificial intelligence
+                             closer
+                          contagion
+                            gattaca
+                    sherlock holmes
+ sherlock holmes: a game of shadows
+            the talented mr. ripley
+
+Kevin Spacey
+       a bug's life
+    american beauty
+        margin call
+               moon
+              se7en
+     the negotiator
+ the usual suspects
+
+Orlando Bloom
+                                       good doctor
+           pirate of the caribbean: at world's end
+        pirates of the caribbean: dead man's chest
+ the lord of the rings: the fellowship of the ring
+     the lord of the rings: the return of the king
+             the lord of the rings: the two towers
+                                              troy
+
+Scarlett Johansson
+                   her
+           jojo rabbit
+   lost in translation
+                  lucy
+        marriage story
+          the avengers
+ the other boleyn girl
+
+Angelina Jolie
+         alexander
+ girl, interrupted
+     kung fu panda
+   kung fu panda 2
+       the tourist
+            wanted
+
+Paul Giamatti
+         duplicity
+ lady in the water
+      private life
+          sideways
+   the illusionist
+           win win
+
+Joaquin Phoenix
+                  gladiator
+                        her
+               hotel rwanda
+                      joker
+                     quills
+ you were never really here
+
+Jim Carrey
+            ace ventura: pet detective
+                       dumb and dumber
+ eternal sunshine of the spotless mind
+                              the mask
+                       the truman show
+                               yes man
+
+Anthony Hopkins
+                alexander
+                     noah
+                    proof
+               red dragon
+ the silence of the lambs
+                     thor
+
+Tom Hardy
+               dunkirk
+            layer cake
+                 locke
+    mad max: fury road
+ the dark knight rises
+          the revenant
+
+Keanu Reeves
+                         john wick
+              john wick: chapter 2
+ john wick: chapter 3 - parabellum
+                        the matrix
+               the matrix reloaded
+            the matrix revolutions
+
+Emma Watson
+                         beauty and the beast
+ harry potter and the deathly hallows: part 1
+          harry potter and the goblet of fire
+       harry potter and the half-blood prince
+                                         noah
+                                   the circle
+
+Clive Owen
+     children of men
+              closer
+           duplicity
+          inside man
+            sin city
+ the bourne identity
+
+Ethan Hawke
+               boyhood
+               gattaca
+           lord of war
+        predestination
+ the magnificent seven
+             the purge
+
+John Malkovich
+     being john malkovich
+       burn after reading
+           johnny english
+            ripley's game
+ the man in the iron mask
+              warm bodies
+
+Elijah Wood
+                                       deep impact
+                                        happy feet
+                                            maniac
+ the lord of the rings: the fellowship of the ring
+     the lord of the rings: the return of the king
+             the lord of the rings: the two towers
+
+Cameron Diaz
+  being john malkovich
+   shrek forever after
+       shrek the third
+              the mask
+           vanilla sky
+ what happens in vegas
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Nice list of some of the more famous actors in the industry. One thing that surprised is how many movies I have watched that starred Brad Pitt - I did not realise it was that many! Once again, it is worth noting that females are under-represented here.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This project has probably been the one that I spent the most time on so far. I have learnt a whole bunch and managed to produce some nice visuals and summaries. Hopefully it was interesting to read!&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part II, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">FastAI Course, Part II, Lesson 1 and sentimental analysis</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/30/fastai2.html" rel="alternate" type="text/html" title="FastAI Course, Part II, Lesson 1 and sentimental analysis" /><published>2020-08-30T00:00:00-05:00</published><updated>2020-08-30T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/30/fastai2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/30/fastai2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/08/09/fastai1.html&quot;&gt;FastAI Course, Part I, Lessons 1 and 2&lt;/a&gt;&lt;/li&gt;
@@ -197,6 +1062,8 @@ I cannot believe how bad the movie is
 
 
 
+
+
 * [Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle](/blog/python/data%20science/2020/06/25/creditcard6.html)
 
 
@@ -286,6 +1153,9 @@ I cannot believe how bad the movie is
 
 &lt;ul&gt;
   &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/09/02/mymovies5.html&quot;&gt;Analysing the movies I’ve watched, Part V, Data visualisation II&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/19/mymovies3.html&quot;&gt;Analysing the movies I’ve watched, Part III, Joining the tables&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -348,9 +1218,12 @@ I cannot believe how bad the movie is
 
 &lt;p&gt;Another nice thing about this project has been that it included various firsts for me: first stackplot, first time series model (admittedly basic), first pivotting in pandas (to create stack chart), first time grappling with Time formats to create precisely the plot I want (for the plot by month).&lt;/p&gt;
 
-&lt;p&gt;Next time, I will see what patterns there in the subset of data for which I could join it with imdb data.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part II, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">Analysing the movies I’ve watched, Part III, Joining the tables</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part III, Joining the tables" /><published>2020-08-19T00:00:00-05:00</published><updated>2020-08-19T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;Next time, I will see what patterns there in the subset of data for which I could join it with imdb data.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part V, Data visualisation II Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part II, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">Analysing the movies I’ve watched, Part III, Joining the tables</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part III, Joining the tables" /><published>2020-08-19T00:00:00-05:00</published><updated>2020-08-19T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/19/mymovies3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/09/02/mymovies5.html&quot;&gt;Analysing the movies I’ve watched, Part V, Data visualisation II&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/24/mymovies4.html&quot;&gt;Analysing the movies I’ve watched, Part IV, Data visualisation&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
@@ -396,7 +1269,7 @@ I cannot believe how bad the movie is
 &lt;p&gt;By removing all the TV episodes, the number of matches decreased, but we still have a large problem. Only 351 of my entries have precisely one match. That is a low number indeed.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;I have decided to leave the dataset in the mess that it is and move onto the analysis stage. I will look for patterns within my dataframe first, and then look at those 351 entries which should be able to join with the imdb dataset for any patterns there.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part II, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">DynamoDB Part I, the CAP Theorem’s never ending rabbit hole</title><link href="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html" rel="alternate" type="text/html" title="DynamoDB Part I, the CAP Theorem's never ending rabbit hole" /><published>2020-08-14T00:00:00-05:00</published><updated>2020-08-14T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;I have decided to leave the dataset in the mess that it is and move onto the analysis stage. I will look for patterns within my dataframe first, and then look at those 351 entries which should be able to join with the imdb dataset for any patterns there.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part V, Data visualisation II Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part II, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">DynamoDB Part I, the CAP Theorem’s never ending rabbit hole</title><link href="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html" rel="alternate" type="text/html" title="DynamoDB Part I, the CAP Theorem's never ending rabbit hole" /><published>2020-08-14T00:00:00-05:00</published><updated>2020-08-14T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I recently started this &lt;a href=&quot;https://courses.edx.org/courses/course-v1:AWS+OTP-AWS-D6+2T2019/course/&quot;&gt;EdEx course&lt;/a&gt; on Amazon’s DynamoDB service. Within one of the first few videos, the CAP Theorem was
@@ -482,6 +1355,9 @@ discussed. As someone with a pure maths background, theorems are irresistable ba
 
 &lt;ul&gt;
   &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/09/02/mymovies5.html&quot;&gt;Analysing the movies I’ve watched, Part V, Data visualisation II&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/24/mymovies4.html&quot;&gt;Analysing the movies I’ve watched, Part IV, Data visualisation&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
@@ -540,9 +1416,12 @@ discussed. As someone with a pure maths background, theorems are irresistable ba
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;This was a considerable effort, with a lot of manual grinding. I am curious to know what would happen in a commerical context with millions of entries, with a similar hodge-podge of bad data. I presume there must be more efficient ways of tidying, but maybe you really do just have to get your hands dirty if the data is messy enough.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">Analysing the movies I’ve watched, Part I, Data collection</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part I, Data collection" /><published>2020-08-02T00:00:00-05:00</published><updated>2020-08-02T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;This was a considerable effort, with a lot of manual grinding. I am curious to know what would happen in a commerical context with millions of entries, with a similar hodge-podge of bad data. I presume there must be more efficient ways of tidying, but maybe you really do just have to get your hands dirty if the data is messy enough.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part V, Data visualisation II Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">Analysing the movies I’ve watched, Part I, Data collection</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part I, Data collection" /><published>2020-08-02T00:00:00-05:00</published><updated>2020-08-02T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/08/02/mymovies1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/09/02/mymovies5.html&quot;&gt;Analysing the movies I’ve watched, Part V, Data visualisation II&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/24/mymovies4.html&quot;&gt;Analysing the movies I’ve watched, Part IV, Data visualisation&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
@@ -747,49 +1626,4 @@ The format of the entries in the list has changed over time.&lt;/p&gt;
 &lt;span class=&quot;c1&quot;&gt;# create dataframe from data, and save as csv file
 &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DataFrame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_rows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;df&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_csv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'mymovies1.csv'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part II, Data cleaning</summary></entry><entry><title type="html">First ever open source contribution</title><link href="https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen.html" rel="alternate" type="text/html" title="First ever open source contribution" /><published>2020-07-30T00:00:00-05:00</published><updated>2020-07-30T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen</id><content type="html" xml:base="https://lovkush-a.github.io/blog/github/python/2020/07/30/firstopen.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;A few days ago, I successfully completed my first ever open source contribution. :) In this article, I will briefly describe the experience, and some little things I learnt.&lt;/p&gt;
-
-&lt;h2 id=&quot;highlights&quot;&gt;Highlights&lt;/h2&gt;
-&lt;p&gt;I contributed to the relatively new package &lt;a href=&quot;https://github.com/unit8co/darts&quot;&gt;darts&lt;/a&gt; by &lt;a href=&quot;https://unit8.co/&quot;&gt;Unit8&lt;/a&gt;. It is a package that makes TimeSeries analysis easy. It does not create any new models, but just creates a TimeSeries class which uses the &lt;code class=&quot;highlighter-rouge&quot;&gt;fit&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;predict&lt;/code&gt; syntax from &lt;code class=&quot;highlighter-rouge&quot;&gt;scikitlearn&lt;/code&gt; to carry out analyses imported from other packages.&lt;/p&gt;
-
-&lt;p&gt;I went to the issues tab and saw an issue that seemed accessible - implementing a &lt;code class=&quot;highlighter-rouge&quot;&gt;map&lt;/code&gt; method for the Time Series object. Next I read the contribution guidelines, to make sure I follow the right steps and conventions. Next I forked the repository and then pulled it to my local machine.  After this, I spent some time getting familiar with the package, and working out how the TimeSeries class works. Next I wrote the code for the map function. I would refer to other bits of the code to make sure I was using consistent conventions and wording (e.g. wording for the doc text). Then I tested the code by creating a Jupyter Notebook, and seeing that the function does what was intended. Once it all looked fine, I then pushed the changes to my forked copy of the repository, and then made a pull request.&lt;/p&gt;
-
-&lt;p&gt;It was a bit nerve-racking, because there are so many little things to get correct to successfully contribute to a project. Shortly after, I got some feedback, and fortunately it was positive! Phew. They liked how the function was implemented, but had various minor comments. I made the changes, pushed them to my forked copy and was about to make another pull request. But then I noticed that the original pull request automatically absorbs any new commits - that is a neat feature!&lt;/p&gt;
-
-&lt;p&gt;After a couple of other minor comments and changes, the owners of the project were happy and merged the changes into the main code. Woohoo! My first ever contribution is done.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;In case you care, here is the code I wrote for the map function:&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Callable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Optional&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Union&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'TimeSeries'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
-    Applies the function `fn` elementwise to all values in this TimeSeries, or, to only those
-    values in the columns specified by the optional argument `cols`. Returns a new
-    TimeSeries instance.
-        
-    Parameters
-    ----------
-    fn
-        A numerical function
-    cols
-        Optionally, an integer or list of integers specifying the column(s) onto which fn should be applied
-    Returns
-    -------
-    TimeSeries
-        A new TimeSeries instance
-    &quot;&quot;&quot;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_df&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applymap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;isinstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;raise_if_not&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]),&lt;/span&gt;
-                 &lt;span class=&quot;s&quot;&gt;'The indices in `cols` must be between 0 and the number of components of the current '&lt;/span&gt;
-                 &lt;span class=&quot;s&quot;&gt;'TimeSeries instance - 1, {}'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;width&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pd_dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; 
-        &lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cols&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applymap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TimeSeries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new_dataframe&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;freq_str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Introduction A few days ago, I successfully completed my first ever open source contribution. :) In this article, I will briefly describe the experience, and some little things I learnt.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part V, Data visualisation II Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part II, Data cleaning</summary></entry></feed>
