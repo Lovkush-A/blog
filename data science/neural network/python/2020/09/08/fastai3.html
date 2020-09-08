@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>FastAI Course, Part III, Creating a productionised image classifier | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="FastAI Course, Part III, Creating a productionised image classifier" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I create my first image classifier and create a ‘web app’ out of it. I also describe various issues I encountered, which hopefully you can learn from." />
+<meta property="og:description" content="I create my first image classifier and create a ‘web app’ out of it. I also describe various issues I encountered, which hopefully you can learn from." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-08T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"FastAI Course, Part III, Creating a productionised image classifier","description":"I create my first image classifier and create a ‘web app’ out of it. I also describe various issues I encountered, which hopefully you can learn from.","datePublished":"2020-09-08T00:00:00-05:00","dateModified":"2020-09-08T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html"},"url":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>FastAI Course, Part III, Creating a productionised image classifier | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="FastAI Course, Part III, Creating a productionised image classifier" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I create my first image classifier and create a ‘web app’ out of it. I also describe various issues I encountered, which hopefully you can learn from." />
+<meta property="og:description" content="I create my first image classifier and create a ‘web app’ out of it. I also describe various issues I encountered, which hopefully you can learn from." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-08T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"FastAI Course, Part III, Creating a productionised image classifier","description":"I create my first image classifier and create a ‘web app’ out of it. I also describe various issues I encountered, which hopefully you can learn from.","datePublished":"2020-09-08T00:00:00-05:00","dateModified":"2020-09-08T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html"},"url":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">FastAI Course, Part III, Creating a productionised image classifier</h1><p class="page-description">I create my first image classifier and create a 'web app' out of it. I also describe various issues I encountered, which hopefully you can learn from.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-09-08T00:00:00-05:00" itemprop="datePublished">
+        Sep 8, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      11 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#neural network">neural network</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#a-comedy-of-errors">A comedy of errors</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#the-bing-api">The Bing API</a></li>
+<li class="toc-entry toc-h3"><a href="#padding">Padding</a></li>
+<li class="toc-entry toc-h3"><a href="#runtimeerror-dataloader-worker-pid-19862-is-killed-by-signal-killed">RuntimeError: DataLoader worker (pid 19862) is killed by signal: Killed.</a></li>
+<li class="toc-entry toc-h3"><a href="#google-colab">Google Colab</a></li>
+<li class="toc-entry toc-h3"><a href="#re-training-model-post-cleaning">Re-training model post cleaning</a></li>
+<li class="toc-entry toc-h3"><a href="#binder">Binder</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#final-remarks">Final remarks</a></li>
+</ul><h2 id="other-posts-in-series">
+<a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
+
+<ul>
+  <li>
+    <p><a href="/blog/data%20science/neural%20network/python/2020/08/30/fastai2.html">FastAI Course, Part II, Lesson 1 and sentimental analysis</a></p>
+  </li>
+  <li>
+    <p><a href="/blog/data%20science/neural%20network/python/2020/08/09/fastai1.html">FastAI Course, Part I, Lessons 1 and 2</a></p>
+  </li>
+</ul>
+
+<h2 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<p>After reading through Chapter 2 of the Fast AI course/book, it was time I tried putting the ideas into practice. I decided to create a classifier that distinguishes between squash, tennis and badminton rackets. Then using voila and binder, I created a little web app for it: check it out <a href="https://mybinder.org/v2/gh/Lovkush-A/production/master?urlpath=%2Fvoila%2Frender%2Ffastai_rackets%2Frackets.ipynb">here</a>!</p>
+
+<h2 id="a-comedy-of-errors">
+<a class="anchor" href="#a-comedy-of-errors" aria-hidden="true"><span class="octicon octicon-link"></span></a>A comedy of errors</h2>
+<p>This project was frustrating for me. I somehow managed to make numerous errors at every step which could not be straightforwardly de-bugged. I try to describe them here, but I have undoubtedly forgotten many of them.</p>
+
+<h3 id="the-bing-api">
+<a class="anchor" href="#the-bing-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Bing API</h3>
+<p>The instructions from the notes: “To download images with Bing Image Search, sign up at Microsoft for a free account. You will be given a key, which you can copy and enter in a cell as follows.” Sounds simple. I went to the Microsoft website and logged on. This is what I saw:</p>
+
+<p><img src="/blog/images/fastai3_microsoft.png" alt="image"></p>
+
+<p>Hmm, there’s nothing obvious here regarding Bing or APIs. I spent a whole bunch of time looking through all the menus, but to no avail. The instructions made it sound simple, and yet I couldn’t manage. I searched in the FastAI forums and a relevant <a href="https://forums.fast.ai/t/getting-the-bing-image-search-key/67417">post</a> was easy to find. It explained the (non-trivial) steps needed. A big non-triviality is that you should be using a Microsoft <em>Azure</em> account, not a Microsoft account. I think the book should make this clearer. It would have saved me (and presumably many others) a bunch of time.</p>
+
+<h3 id="padding">
+<a class="anchor" href="#padding" aria-hidden="true"><span class="octicon octicon-link"></span></a>Padding</h3>
+<p>I downloaded the datasets, viewed some of the images, and deleted the files which were erroneous. Next up was to create a <code class="highlighter-rouge">DataBlock</code> with the appropriate transforms/data augmentation. To ensure the images have the correct aspect ratio, I decided that padding is the best option. I tried it, using <code class="highlighter-rouge">pad_mode = 'zeros'</code>. It looked alright, but most of the images have white backgrounds, so I thought maybe it would be better for the images to be padded with white space. I guessed that <code class="highlighter-rouge">pad_mode = 'ones'</code> would work, but alas it did not. So, I did what has been recommended numerous times, and go to the docs.</p>
+
+<p>This is what I found:</p>
+
+<p><img src="/blog/images/fastai3_pad.png" alt="image"></p>
+
+<p>Maybe I am in the minority, but I do not find this helpful. Here are some things that frustrate me about this:</p>
+
+<ul>
+  <li>What are the possibilities for <code class="highlighter-rouge">*args</code> and <code class="highlighter-rouge">** kwargs</code>? How would I find out?</li>
+  <li>What does ‘All possible mode as attributes to get tab-completion and typo-proofing’ mean?!  What does it have to do with padding images?</li>
+  <li>What is <code class="highlighter-rouge">TensorBBox</code>? Or <code class="highlighter-rouge">TensorPoint</code>?</li>
+  <li>What’s the relevance of the change in font in the headings? Is it self-evident? Looking at it more closely, you have one font for classes and one font for methods. But do we need a different font for that? Changing heading formats usually indicates a change in the level of headings, but I don’t think that is what is happening here.</li>
+  <li>Most importantly, what are the different options for <code class="highlighter-rouge">pad_mode</code>? If you scroll further down, three examples are provided (zeros, reflection and border), but it is not clear if these are all the options. Maybe they are, maybe they aren’t. I don’t know.</li>
+</ul>
+
+<p>Perhaps I could find out more by looking at the source code. After all, as is emphasised several times in the lectures, most of the source code is only a few lines and easy to understand.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">CropPad</span><span class="p">(</span><span class="n">RandTransform</span><span class="p">):</span>
+    <span class="s">"Center crop or pad an image to `size`"</span>
+    <span class="n">order</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">pad_mode</span><span class="o">=</span><span class="n">PadMode</span><span class="o">.</span><span class="n">Zeros</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">_process_sz</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">store_attr</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">encodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:(</span><span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span><span class="n">TensorBBox</span><span class="p">,</span><span class="n">TensorPoint</span><span class="p">)):</span>
+        <span class="n">orig_sz</span> <span class="o">=</span> <span class="n">_get_sz</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">tl</span> <span class="o">=</span> <span class="p">(</span><span class="n">orig_sz</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span><span class="o">//</span><span class="mi">2</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">crop_pad</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">tl</span><span class="p">,</span> <span class="n">orig_sz</span><span class="o">=</span><span class="n">orig_sz</span><span class="p">,</span> <span class="n">pad_mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pad_mode</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Yes, there are only several lines of code here. However, they are not helpful, at least not for me. In order to understand any of this, I need to go searching through the rest of the code base, which I am not inclined to do. I should not have to do this to find out if I can create white padding instead of black padding (or maybe I should?).</p>
+
+<p>Anyway, I stopped here with the presumption that it is not possible.</p>
+
+<h3 id="runtimeerror-dataloader-worker-pid-19862-is-killed-by-signal-killed">
+<a class="anchor" href="#runtimeerror-dataloader-worker-pid-19862-is-killed-by-signal-killed" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">RuntimeError: DataLoader worker (pid 19862) is killed by signal: Killed.</code>
+</h3>
+<p>I made various other decisions for the DataBlock and created the DataLoaders. Now it was time to do the modelling! I ran the cell, and to my dismay, I got the error message shown in the heading. I didn’t understand it. I checked all my code carefully and did not spot anything wrong. Next I tried to run the examples from the book as is. The same error came up. This was bizarre!</p>
+
+<p>It was time for some Googling. I searched around, saw people with similar error messages, and tried their suggestions. None of them solved the problem. It was time to get to bed at this stage, so I decided I will ask about this in the forum, and have another stab the next day.</p>
+
+<p>Next day, I got ready to tackle the problem and opened up Gradient. But something was a little off:</p>
+
+<p><img src="/blog/images/fastai3_gradient.png" alt="image"></p>
+
+<p>The machine type was set to CPU! I did not remember selecting this, so was a bit confused. Anyway, I tried starting up the notebook, and the pop-up comes up to select the options. The default selection is the CPU. Hmm, that is odd. I tried to change it to GPU, and then I discovered the problem: there was no Free GPU available. It looks like the day before, I just assumed the settings would be the same as previous runs, so I did not check the machine type, and I must have been using the CPU option. This is almost certainly the cause of the <code class="highlighter-rouge">DataLoader worker</code> error. At least I now know the issue.</p>
+
+<p>Time to move to Colab.</p>
+
+<h3 id="google-colab">
+<a class="anchor" href="#google-colab" aria-hidden="true"><span class="octicon octicon-link"></span></a>Google Colab</h3>
+<p>This is just me, but I dislike the Colab interface. It is similar to Jupyter Notebook, but different in little ways that my brain finds off-putting. One little example is that in Colab, the shortcut <code class="highlighter-rouge">a</code> to insert a new cell automatically enters the cell; this is not what I want, as I often want to create a bunch of cells at once, and then move into them.</p>
+
+<p>These are minor issues, but I thought I may as well include them, in case anybody else out there gets some comfort knowing they are not alone.</p>
+
+<h3 id="re-training-model-post-cleaning">
+<a class="anchor" href="#re-training-model-post-cleaning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Re-training model post cleaning</h3>
+<p>I continued with the project, and managed to get the classifier to work. I then cleaned the data using the easy-to-use widget created by FastAI. I then tried to do some further fine tuning, but I got an error message saying that a certain image file, <code class="highlighter-rouge">00000149.png</code>, cannot be found.</p>
+
+<p>I had a little look at the code, and realised my error. I deleted some images while cleaning (including image <code class="highlighter-rouge">00000149.png</code>), but did not re-run the cell that defines the dataloaders <code class="highlighter-rouge">dls</code> variable, where the information on the dataset is stored. So I re-ran the cell, and tried again. But I still got the error message.</p>
+
+<p>I wanted to investigate the <code class="highlighter-rouge">dls</code> variable to find out what is going on; specifically, I wanted to see which filenames are stored in the variable and check whether <code class="highlighter-rouge">00000149.png</code> is listed there. Similar to the issues I had with the padding above, I did not find the documentation helpful. However, using <code class="highlighter-rouge">dir</code> (a super handy function, by the way. It lists <em>all</em> the properties and methods that an object has) and playing a bit, I was able to find the list of filenames stored in <code class="highlighter-rouge">dls</code>; <code class="highlighter-rouge">00000149.png</code> was not there!</p>
+
+<p>This left only one possibility: that filenames are stored in the <code class="highlighter-rouge">learn</code> variable. Based on my experience with other ML tools (e.g. scikitlearn), this is counter-intuitive to me. At this stage, I just wanted to get a working example as quickly as possible, so I did not investigate how I can do additional fine-tuning cycles on new datasets. Instead, I just created a fresh learner object, and trained that.</p>
+
+<p>I am not sure anybody can do anything about this kind of problem, as it stems from using tools as black-boxes, without understanding how they work. Another example of this I have had is in using conda: I am comfortable creating new environments, but I do not know how to rename a directory or move directories around, because that information is stored somewhere for conda to function, and I do not know how to change that information.</p>
+
+<p>Unfortunately, it does not change that the experience is frustrating - there is a simple task that I want to do, my naive approach does not work, and in order to learn how do it properly, I have to get a fairly comprehensive understanding of the tool. If anybody has any advice or suggestions, do please let me know!</p>
+
+<h3 id="binder">
+<a class="anchor" href="#binder" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binder</h3>
+<p>The next bunch of tasks went well, as far as I can remember. Exporting the learner, creating a local environment where I can create the jupyter notebook that will be turned into the web app, installing all the packages, creating the notebook, getting voila to work locally, and pushing it to github. I was literally one step away: get binder to work. The finish line was literally right in front of me.</p>
+
+<p>Oh boy was I wrong. I do not know how I managed to make such a mess of this step. From what I remember, I encountered two main problems, but my ineptitude dragged out the process far longer than it ought to have.</p>
+
+<p>The first mistake was not to change the <code class="highlighter-rouge">File</code> setting to <code class="highlighter-rouge">URL</code>, when you enter the path to the file in Binder. This setting was in my blindspot; I never even noticed that box. This is made worse because the voila documentation clearly states that you should do this; in fact, this is how I found the error, because I chose to re-read the instructions carefully, after my various other attempts failed.</p>
+
+<p>The second issue I had was with the requirements file that should be provided. I first tried using the file created by using <code class="highlighter-rouge">conda env export</code>, but that did not work. Googling the error messages revealed that conda lists many device specific requirements, which will not work with the Linux machines that binder uses. Googling also showed the two-step process to get around this issue: create a modified version of the requirements by adding some tags to the <code class="highlighter-rouge">conda env export</code> command, and then manually remove any requirements that still cause an error on Binder.</p>
+
+<p>This was it: I fixed the two problems and was minutes away from completion. I got binder going, and as it does, it was taking a few minutes to things set-up.  But things were taking very long. Something was not right. I just kept waiting, but eventually, the process quit with some other error message.</p>
+
+<p>I was so close, yet so far. I tried searching around on the forums, to see if anybody else had any issues on binder. I ended up finding a blog post and example github repo, so I tried to imitate that. The main takeaway was that they manually constructed a requirements file with 4 or 5 requirements, rather than using an automatically generated file from conda with many more requirements.</p>
+
+<p>After a few more attempts and ironing out several little mistakes (e.g. they used <code class="highlighter-rouge">fastai2</code> in their requirements, which is now out-of-date), it finally worked.</p>
+
+<h2 id="final-remarks">
+<a class="anchor" href="#final-remarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final remarks</h2>
+<p>These has been a stressful but enlightening experience. Just writing this blog made me re-live the emotions: the frustration when things seemed unnecessarily complicated, and the sense of achievement and relief when I finally reached the end.</p>
+
+<p>It may sound like I dislike FastAI and the course, but the opposite is true. Like I said in my first post on the FastAI course, I am impressed with the teaching and all the thought that has gone into this. I would strongly recommend this course to anybody interested in AI or Machine Learning. However, I think this may also be why I experience more frustration with it. I have such a high opinion of the course, that any negative stands out; I am holding the team to particularly high standards.</p>
+
+<p>To end, I hope this blog entry has been useful for you in some way. I welcome any comments or thoughts or disagreements; please feel free to let me know.</p>
+
+
+  </div><a class="u-url" href="/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
