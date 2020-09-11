@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-09-11T14:48:36-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data" /><published>2020-09-10T00:00:00-05:00</published><updated>2020-09-10T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-09-11T15:13:56-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data" /><published>2020-09-10T00:00:00-05:00</published><updated>2020-09-10T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;At the end of &lt;a href=&quot;https://youtu.be/5L3Ao5KuCC4?t=7244&quot;&gt;Lecture 3 of the 2020 FastAI course&lt;/a&gt; and at the end of &lt;a href=&quot;https://youtu.be/ccMHJeQU4Qw?t=6394&quot;&gt;Lecture 2 of the 2018 FastAI course&lt;/a&gt;, there are visualisations of the gradient descent algorithm. I quite liked them, in particular the animation from the 2018 version, and I wanted to re-create them and on more complex examples.&lt;/p&gt;
@@ -25,7 +25,50 @@
   &lt;/video&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;The pattern here is very similar to the pattern for the linear case: gradient descent quickly reaches a good model, and then the learning dramatically slows down. This is not too surprising, because though the final function is non-linear, this is still a linear-regression problem by treating &lt;code class=&quot;highlighter-rouge&quot;&gt;x*x&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; as separate features.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">FastAI Course, Part III, Frustrations with creating an image classifier</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html" rel="alternate" type="text/html" title="FastAI Course, Part III, Frustrations with creating an image classifier" /><published>2020-09-08T00:00:00-05:00</published><updated>2020-09-08T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;The pattern here is very similar to the pattern for the linear case: gradient descent quickly reaches a good model, and then the learning dramatically slows down. This is not too surprising, because though the final function is non-linear, this is still a linear-regression problem by treating &lt;code class=&quot;highlighter-rouge&quot;&gt;x*x&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; as separate features.&lt;/p&gt;
+
+&lt;h2 id=&quot;sinusoidal-data&quot;&gt;Sinusoidal data&lt;/h2&gt;
+&lt;p&gt;Next I created some sinusoidal data &lt;code class=&quot;highlighter-rouge&quot;&gt;y = a*(sin(b*x + c)) + d&lt;/code&gt;. Things were more interesting here.&lt;/p&gt;
+
+&lt;p&gt;The first video shows you what happened when I chose a learning rate that was too large (but not so large so as to have everything diverge to infinity):&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd1_sin_1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Crazy, right! The model is oscillating back and forth, with the oscillations slowly getting larger with time. In Lecture 3 of the 2020 course, this behaviour is illustrated with the example of using gradient descent to minimise a quadratic function, but I never thought I would actually encounter this behaviour out in the wild.&lt;/p&gt;
+
+&lt;p&gt;This second video shows what happens when I choose a smaller learning rate:&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd1_sin_2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;No craziness here, but it does not converge to an appropriate solution. I think the explanation for this is that the algorithm has found a local-minimum, and so the algorithm gets stuck and cannot improve.  This is qualitatively different to the linear and quadratic cases: since those were both instances of linear regression, it is known from theory that there is only one minimum so gradient descent will reach it. This sinusoidal case cannot be re-written as a linear regression problem, so there is not automatic guarantee of there being only one minimum point; from this experimentation, it looks like there multiple minimum points!&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;I learnt various things by doing this experiment.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Learning rate is very important! I had to play around with the learning rates to get things to work.&lt;/li&gt;
+  &lt;li&gt;The range of values in the training data seemed to have big impact on the which learning rates to use. I am not 100% sure about this, but I have read in places that it is important to normalise your data, and perhaps its effect on learning rates is a big reason.&lt;/li&gt;
+  &lt;li&gt;I learnt how to create animations in matplotlib! And also how to include video files in this blog. :D&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are various things I would like to try.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The next thing I will try is using the same datasets, but seeing if I can fit a neural network to the data.&lt;/li&gt;
+  &lt;li&gt;Stochastic gradient descent. My hope is that it will avoid the local minimum problem in the sinusoidal case.&lt;/li&gt;
+  &lt;li&gt;Creating a web-app out of this, so you can easily experiment for yourselves.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
+&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/production/tree/master/pytorch_gd&quot;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">FastAI Course, Part III, Frustrations with creating an image classifier</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html" rel="alternate" type="text/html" title="FastAI Course, Part III, Frustrations with creating an image classifier" /><published>2020-09-08T00:00:00-05:00</published><updated>2020-09-08T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;

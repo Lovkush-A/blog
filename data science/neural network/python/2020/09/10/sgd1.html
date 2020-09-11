@@ -107,7 +107,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      3 min read
     
 </span></p>
 
@@ -134,6 +134,9 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
 <li class="toc-entry toc-h2"><a href="#linear-data">Linear data</a></li>
 <li class="toc-entry toc-h2"><a href="#quadratic-data">Quadratic data</a></li>
+<li class="toc-entry toc-h2"><a href="#sinusoidal-data">Sinusoidal data</a></li>
+<li class="toc-entry toc-h2"><a href="#conclusion">Conclusion</a></li>
+<li class="toc-entry toc-h2"><a href="#the-code">The code</a></li>
 </ul><h2 id="other-posts-in-series">
 <a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
 
@@ -167,6 +170,51 @@ window.onload = wrap_img;
 
 <p>The pattern here is very similar to the pattern for the linear case: gradient descent quickly reaches a good model, and then the learning dramatically slows down. This is not too surprising, because though the final function is non-linear, this is still a linear-regression problem by treating <code class="highlighter-rouge">x*x</code> and <code class="highlighter-rouge">x</code> as separate features.</p>
 
+<h2 id="sinusoidal-data">
+<a class="anchor" href="#sinusoidal-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sinusoidal data</h2>
+<p>Next I created some sinusoidal data <code class="highlighter-rouge">y = a*(sin(b*x + c)) + d</code>. Things were more interesting here.</p>
+
+<p>The first video shows you what happened when I chose a learning rate that was too large (but not so large so as to have everything diverge to infinity):</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd1_sin_1.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>Crazy, right! The model is oscillating back and forth, with the oscillations slowly getting larger with time. In Lecture 3 of the 2020 course, this behaviour is illustrated with the example of using gradient descent to minimise a quadratic function, but I never thought I would actually encounter this behaviour out in the wild.</p>
+
+<p>This second video shows what happens when I choose a smaller learning rate:</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd1_sin_2.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>No craziness here, but it does not converge to an appropriate solution. I think the explanation for this is that the algorithm has found a local-minimum, and so the algorithm gets stuck and cannot improve.  This is qualitatively different to the linear and quadratic cases: since those were both instances of linear regression, it is known from theory that there is only one minimum so gradient descent will reach it. This sinusoidal case cannot be re-written as a linear regression problem, so there is not automatic guarantee of there being only one minimum point; from this experimentation, it looks like there multiple minimum points!</p>
+
+<h2 id="conclusion">
+<a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h2>
+<p>I learnt various things by doing this experiment.</p>
+
+<ul>
+  <li>Learning rate is very important! I had to play around with the learning rates to get things to work.</li>
+  <li>The range of values in the training data seemed to have big impact on the which learning rates to use. I am not 100% sure about this, but I have read in places that it is important to normalise your data, and perhaps its effect on learning rates is a big reason.</li>
+  <li>I learnt how to create animations in matplotlib! And also how to include video files in this blog. :D</li>
+</ul>
+
+<p>There are various things I would like to try.</p>
+
+<ul>
+  <li>The next thing I will try is using the same datasets, but seeing if I can fit a neural network to the data.</li>
+  <li>Stochastic gradient descent. My hope is that it will avoid the local minimum problem in the sinusoidal case.</li>
+  <li>Creating a web-app out of this, so you can easily experiment for yourselves.</li>
+</ul>
+
+<h2 id="the-code">
+<a class="anchor" href="#the-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>The code</h2>
+<p>The code for this project is in this <a href="https://github.com/Lovkush-A/production/tree/master/pytorch_gd">GitHub repository</a>.</p>
 
   </div><a class="u-url" href="/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html" hidden></a>
 </article>
