@@ -153,10 +153,20 @@ window.onload = wrap_img;
   </video>
 </figure>
 
-<p>This animation is representative of the various examples I tried for linear data. Gradient descent is quick to get very close to the data, but then the learning dramatically slows down and it takes many iterations to improve further.  Clearly, there is some optimisation that can be done with the learning rate; I did try to create a cutoff point where the learning rate gets bigger, but I am sure there are much better ways of doing things.</p>
+<p>This animation is representative of the various examples I tried for linear data. Gradient descent is quick to get very close to the data, but then the learning dramatically slows down and it takes many iterations to improve further. (Note, you have to pay close attention to notice that there is still learning going on throughout the whole video).  Clearly, there is some optimisation that can be done with the learning rate; I did try to create a cutoff point where the learning rate gets bigger, but I am sure there are much better ways of doing things.</p>
 
 <h2 id="quadratic-data">
 <a class="anchor" href="#quadratic-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quadratic data</h2>
+<p>Next I created some quadratic data <code class="highlighter-rouge">y=a*x*x + b*x + c + noise</code>.</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd1_quadratic_1.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>The pattern here is very similar to the pattern for the linear case: gradient descent quickly reaches a good model, and then the learning dramatically slows down. This is not too surprising, because though the final function is non-linear, this is still a linear-regression problem by treating <code class="highlighter-rouge">x*x</code> and <code class="highlighter-rouge">x</code> as separate features.</p>
+
 
   </div><a class="u-url" href="/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html" hidden></a>
 </article>
