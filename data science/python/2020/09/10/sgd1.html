@@ -9,13 +9,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="After seeing the visualisations of gradient descent in the FastAI course, I thought I’d try to create my own. I start by looking at gradient descent applied to linear, quadratic and sinusoidal data." />
 <meta property="og:description" content="After seeing the visualisations of gradient descent in the FastAI course, I thought I’d try to create my own. I start by looking at gradient descent applied to linear, quadratic and sinusoidal data." />
-<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html" />
-<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html" />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html" />
 <meta property="og:site_name" content="Lovkush Agarwal" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-09-10T00:00:00-05:00" />
 <script type="application/ld+json">
-{"headline":"Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data","description":"After seeing the visualisations of gradient descent in the FastAI course, I thought I’d try to create my own. I start by looking at gradient descent applied to linear, quadratic and sinusoidal data.","datePublished":"2020-09-10T00:00:00-05:00","dateModified":"2020-09-10T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html"},"url":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html","@context":"https://schema.org"}</script>
+{"headline":"Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data","description":"After seeing the visualisations of gradient descent in the FastAI course, I thought I’d try to create my own. I start by looking at gradient descent applied to linear, quadratic and sinusoidal data.","datePublished":"2020-09-10T00:00:00-05:00","dateModified":"2020-09-10T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html"},"url":"https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -34,13 +34,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="After seeing the visualisations of gradient descent in the FastAI course, I thought I’d try to create my own. I start by looking at gradient descent applied to linear, quadratic and sinusoidal data." />
 <meta property="og:description" content="After seeing the visualisations of gradient descent in the FastAI course, I thought I’d try to create my own. I start by looking at gradient descent applied to linear, quadratic and sinusoidal data." />
-<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html" />
-<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html" />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html" />
 <meta property="og:site_name" content="Lovkush Agarwal" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-09-10T00:00:00-05:00" />
 <script type="application/ld+json">
-{"headline":"Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data","description":"After seeing the visualisations of gradient descent in the FastAI course, I thought I’d try to create my own. I start by looking at gradient descent applied to linear, quadratic and sinusoidal data.","datePublished":"2020-09-10T00:00:00-05:00","dateModified":"2020-09-10T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html"},"url":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html","@context":"https://schema.org"}</script>
+{"headline":"Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data","description":"After seeing the visualisations of gradient descent in the FastAI course, I thought I’d try to create my own. I start by looking at gradient descent applied to linear, quadratic and sinusoidal data.","datePublished":"2020-09-10T00:00:00-05:00","dateModified":"2020-09-10T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html"},"url":"https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -115,9 +115,6 @@ window.onload = wrap_img;
       <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
         <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
-        &nbsp;
-      
-        <a class="category-tags-link" href="/blog/categories/#neural network">neural network</a>
         &nbsp;
       
         <a class="category-tags-link" href="/blog/categories/#python">python</a>
@@ -203,7 +200,7 @@ window.onload = wrap_img;
 <p>I learnt various things by doing this experiment.</p>
 
 <ul>
-  <li>Learning rate is very important! I had to play around with the learning rates to get things to work.</li>
+  <li>The learning rate is very important! I had to play around with the learning rates to get things to work.</li>
   <li>The range of values in the training data seemed to have big impact on the which learning rates to use. I am not 100% sure about this, but I have read in places that it is important to normalise your data, and perhaps its effect on learning rates is a big reason.</li>
   <li>I learnt how to create animations in matplotlib! And also how to include video files in this blog. :D</li>
 </ul>
@@ -220,7 +217,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#the-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>The code</h2>
 <p>The code for this project is in this <a href="https://github.com/Lovkush-A/production/tree/master/pytorch_gd">GitHub repository</a>.</p>
 
-  </div><a class="u-url" href="/blog/data%20science/neural%20network/python/2020/09/10/sgd1.html" hidden></a>
+  </div><a class="u-url" href="/blog/data%20science/python/2020/09/10/sgd1.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
