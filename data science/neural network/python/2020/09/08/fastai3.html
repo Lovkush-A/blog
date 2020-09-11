@@ -187,9 +187,10 @@ window.onload = wrap_img;
   <li>What is <code class="highlighter-rouge">TensorBBox</code>? Or <code class="highlighter-rouge">TensorPoint</code>?</li>
   <li>What’s the relevance of the change in font in the headings? Is it self-evident? Looking at it more closely, you have one font for classes and one font for methods. But do we need a different font for that? Changing heading formats usually indicates a change in the level of headings, but I don’t think that is what is happening here.</li>
   <li>Most importantly, what are the different options for <code class="highlighter-rouge">pad_mode</code>? If you scroll further down, three examples are provided (zeros, reflection and border), but it is not clear if these are all the options. Maybe they are, maybe they aren’t. I don’t know.</li>
+  <li>Really, what does ‘All possible mode as attributes to get tab-completion and typo-proofing’ actually mean??</li>
 </ul>
 
-<p>Perhaps I could find out more by looking at the source code. After all, as is emphasised several times in the lectures, most of the source code is only a few lines and easy to understand.</p>
+<p>Perhaps I could find out more by looking at the source code. After all, as is emphasised several times in the lectures, most of the source code is only a few lines and thus easy to understand.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">CropPad</span><span class="p">(</span><span class="n">RandTransform</span><span class="p">):</span>
     <span class="s">"Center crop or pad an image to `size`"</span>
@@ -207,7 +208,7 @@ window.onload = wrap_img;
 
 <p>Yes, there are only several lines of code here. However, they are not helpful, at least not for me. In order to understand any of this, I need to go searching through the rest of the code base, which I am not inclined to do. I should not have to do this to find out if I can create white padding instead of black padding (or maybe I should?).</p>
 
-<p>Anyway, I stopped here with the presumption that it is not possible.</p>
+<p>Anyway, I stopped here with the presumption that it is not possible to get white padding.</p>
 
 <h3 id="runtimeerror-dataloader-worker-pid-19862-is-killed-by-signal-killed">
 <a class="anchor" href="#runtimeerror-dataloader-worker-pid-19862-is-killed-by-signal-killed" aria-hidden="true"><span class="octicon octicon-link"></span></a><code class="highlighter-rouge">RuntimeError: DataLoader worker (pid 19862) is killed by signal: Killed.</code>
@@ -226,7 +227,7 @@ window.onload = wrap_img;
 
 <h3 id="google-colab">
 <a class="anchor" href="#google-colab" aria-hidden="true"><span class="octicon octicon-link"></span></a>Google Colab</h3>
-<p>This is just me, but I dislike the Colab interface. It is similar to Jupyter Notebook, but different in little ways that my brain finds off-putting. One little example is that in Colab, the shortcut <code class="highlighter-rouge">a</code> to insert a new cell automatically enters the cell; this is not what I want, as I often want to create a bunch of cells at once, and then move into them.</p>
+<p>This is just me, but I dislike the Colab interface. It is similar to Jupyter Notebook, but different in little ways that my brain finds off-putting. One example is that in Colab, the shortcut <code class="highlighter-rouge">a</code> to insert a new cell automatically enters the cell; this is not what I want, as I often want to create a bunch of cells at once, and then move into them.</p>
 
 <p>These are minor issues, but I thought I may as well include them, in case anybody else out there gets some comfort knowing they are not alone.</p>
 
@@ -262,9 +263,9 @@ window.onload = wrap_img;
 
 <h2 id="final-remarks">
 <a class="anchor" href="#final-remarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final remarks</h2>
-<p>These has been a stressful but enlightening experience. Just writing this blog made me re-live the emotions: the frustration when things seemed unnecessarily complicated, and the sense of achievement and relief when I finally reached the end.</p>
+<p>This has been a stressful but enlightening experience. Just writing this blog made me re-live the emotions: the frustration when things seemed unnecessarily complicated, and the sense of achievement and relief when I finally reached the end.</p>
 
-<p>It may sound like I dislike FastAI and the course, but the opposite is true. Like I said in my first post on the FastAI course, I am impressed with the teaching and all the thought that has gone into this. I would strongly recommend this course to anybody interested in AI or Machine Learning. However, I think this may also be why I experience more frustration with it. I have such a high opinion of the course, that any negative stands out; I am holding the team to particularly high standards.</p>
+<p>It may sound like I dislike FastAI and the course, but the opposite is true. Like I said in my first post on the FastAI course, I am impressed with the teaching and all the thought that has gone into it. I would strongly recommend this course to anybody interested in AI or Machine Learning. However, I think this may also be why I experience more frustration with it. I have such a high opinion of the course, that any negative stands out; I am holding the team to particularly high standards.</p>
 
 <p>To end, I hope this blog entry has been useful for you in some way. I welcome any comments or thoughts or disagreements; please feel free to let me know.</p>
 
