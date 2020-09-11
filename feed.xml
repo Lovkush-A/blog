@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-09-11T15:44:59-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" /><published>2020-09-11T00:00:00-05:00</published><updated>2020-09-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-09-11T16:01:21-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" /><published>2020-09-11T00:00:00-05:00</published><updated>2020-09-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/data%20science/python/2020/09/10/sgd1.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;In the previous post, I showed my attempts at using gradient descent to fit linear, quadratic and sinusoidal data using (respectively) linear, quadratic and sinusoidal models. However, the universal approximation theorem says that the set of vanilla neural networks with one hidden layer can approximate any function to arbitrary precision. (An excellent and interactive sketch proof of this, where I first learnt about this theorem, is given in &lt;a href=&quot;http://neuralnetworksanddeeplearning.com/chap4.html&quot;&gt;Michael Nielsen’s online book on neural networks&lt;/a&gt;.) Therefore, I wanted to visualise what happened if we trie to do just that!&lt;/p&gt;
+&lt;p&gt;In the previous post, I showed my attempts at using gradient descent to fit linear, quadratic and sinusoidal data using (respectively) linear, quadratic and sinusoidal models. However, the universal approximation theorem says that the set of vanilla neural networks with one hidden layer can approximate any function to arbitrary precision. (An excellent and interactive sketch proof of this, where I first learnt about this theorem, is given in &lt;a href=&quot;http://neuralnetworksanddeeplearning.com/chap4.html&quot;&gt;Michael Nielsen’s online book on neural networks&lt;/a&gt;.) Therefore, I wanted to visualise what happened if we trie to do just that! I created a function (see code below) which behaves like a neural network with one hidden layer containing twenty neurons.&lt;/p&gt;
 
 &lt;h2 id=&quot;linear-data&quot;&gt;Linear data&lt;/h2&gt;
 &lt;p&gt;I created some linear data &lt;code class=&quot;highlighter-rouge&quot;&gt;y = a*x + b + noise&lt;/code&gt;, and then tried to fit a neural network to it.&lt;/p&gt;
@@ -28,7 +28,7 @@
   &lt;/video&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Changing the learning rate has improved the performance of the neural network considerably. The video is not as calm and satisfying to watch as the firt one (though there is something comical about the jerky movements at the start), but it illustrates the value in choosing a good learning rate.&lt;/p&gt;
+&lt;p&gt;Changing the learning rate has improved the performance of the neural network considerably. The video is not as calm and satisfying to watch as the first one (though there is something comical about the jerky movements at the start), but it illustrates the value in choosing a good learning rate.&lt;/p&gt;
 
 &lt;p&gt;I next tried introducing a cutoff point where the learning rate increases from &lt;code class=&quot;highlighter-rouge&quot;&gt;1e-3&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;3e-3&lt;/code&gt;. I have two examples of this.&lt;/p&gt;
 
@@ -42,7 +42,34 @@
   &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
     &lt;source src=&quot;/blog/images/sgd2_linearnn_6.mp4&quot; type=&quot;video/mp4&quot; /&gt;
   &lt;/video&gt;
-&lt;/figure&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data" /><published>2020-09-10T00:00:00-05:00</published><updated>2020-09-10T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;In both of these videos, there is a moment in the middle where things go a bit wacky for a few iterations and then quickly settle back down. This wacky moment occurs precisely when the increase in the learning rate kicks in. My explanation for this is that we are seeing the algorithm jump away from one local minimum and moving towards another.&lt;/p&gt;
+
+&lt;p&gt;One thing I should have said is that in each of these videos, the training dataset remains the same, but the initialisation of the parameters of the neural network are different. So one other thing we are witnessing from these experiments is how different initialisation results in different models using gradient descent - i.e. there are many local minimums in the parameter space!&lt;/p&gt;
+
+&lt;h2 id=&quot;quadratic-data&quot;&gt;Quadratic data&lt;/h2&gt;
+&lt;p&gt;I created some quadratic data &lt;code class=&quot;highlighter-rouge&quot;&gt;y = a*x*x + b*x + c + noise&lt;/code&gt; and tried to fit a neural network to it. Below are three examples. Note that as above, the dataset is staying the same each time, but the parameters are initialised differently each time and I play with the learning rates a bit, too.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_quadraticnn_1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_quadraticnn_2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_quadraticnn_4.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;All these examples have similar overall behaviour. It is quick to get close-ish to the quadratic, and then the learning dramatically slows (but there is still learning going on throughout). Again we see how the different initialisations leads to different final models, showing how we are finding different local minimums.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data" /><published>2020-09-10T00:00:00-05:00</published><updated>2020-09-10T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html&quot;&gt;Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD&lt;/a&gt;&lt;/li&gt;
