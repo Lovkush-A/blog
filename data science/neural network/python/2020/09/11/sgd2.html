@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="I continue my project to visual and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data." />
-<meta property="og:description" content="I continue my project to visual and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data." />
+<meta name="description" content="I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data." />
+<meta property="og:description" content="I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data." />
 <link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" />
 <meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" />
 <meta property="og:site_name" content="Lovkush Agarwal" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-09-11T00:00:00-05:00" />
 <script type="application/ld+json">
-{"headline":"Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD","description":"I continue my project to visual and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data.","datePublished":"2020-09-11T00:00:00-05:00","dateModified":"2020-09-11T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html"},"url":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html","@context":"https://schema.org"}</script>
+{"headline":"Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD","description":"I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data.","datePublished":"2020-09-11T00:00:00-05:00","dateModified":"2020-09-11T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html"},"url":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -32,15 +32,15 @@
 <meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="I continue my project to visual and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data." />
-<meta property="og:description" content="I continue my project to visual and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data." />
+<meta name="description" content="I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data." />
+<meta property="og:description" content="I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data." />
 <link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" />
 <meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" />
 <meta property="og:site_name" content="Lovkush Agarwal" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-09-11T00:00:00-05:00" />
 <script type="application/ld+json">
-{"headline":"Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD","description":"I continue my project to visual and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data.","datePublished":"2020-09-11T00:00:00-05:00","dateModified":"2020-09-11T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html"},"url":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html","@context":"https://schema.org"}</script>
+{"headline":"Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD","description":"I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data.","datePublished":"2020-09-11T00:00:00-05:00","dateModified":"2020-09-11T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html"},"url":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -101,7 +101,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</h1><p class="page-description">I continue my project to visual and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-09-11T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</h1><p class="page-description">I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-09-11T00:00:00-05:00" itemprop="datePublished">
         Sep 11, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -276,7 +276,7 @@ window.onload = wrap_img;
   <li>The initialisation of parameters matters a lot for neural networks.
     <ul>
       <li>My very first settings were useless, and were seemingly only capable of modelling a sigmoid function. For a while, I thought my code was buggy, but after some experimentation, it turned out the initial parameter settings were inappropriate.</li>
-      <li>Different initialisations resulted in vastly different final models. Presumably this is also the case with more complex tasks, but maybe it does not matter when doing a classification on reall data.</li>
+      <li>Different initialisations resulted in vastly different final models. Presumably this is also the case with more complex tasks, but maybe it does not matter when doing a classification on real data.</li>
     </ul>
   </li>
   <li>
