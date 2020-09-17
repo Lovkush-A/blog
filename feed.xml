@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-09-17T09:20:14-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Squash rankings, Part I, Scraping wikipedia and data analysis</title><link href="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html" rel="alternate" type="text/html" title="Squash rankings, Part I, Scraping wikipedia and data analysis" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-09-17T15:22:44-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Squash rankings, Part I, Scraping wikipedia and data analysis</title><link href="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html" rel="alternate" type="text/html" title="Squash rankings, Part I, Scraping wikipedia and data analysis" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I am going through the CS109 Harvard lectures on data science. I just watched a couple of lectures on web-scraping with BeautifulSoup, so I wanted to practice. I decided to scrape squash ranking data from wikipedia, as I am a avid fan of the sport. On wikipedia, the best information I could find was the top 10 players at the end of each year for the past 25 years or so.&lt;/p&gt;
@@ -197,7 +197,153 @@
 &lt;span class=&quot;n&quot;&gt;df_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df_m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url_to_pandas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;players_f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player_summaries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;players_m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player_summaries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" /><published>2020-09-11T00:00:00-05:00</published><updated>2020-09-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/data%20science/python/2020/09/10/sgd1.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In the previous post, I showed my attempts at using gradient descent to fit linear, quadratic and sinusoidal data using (respectively) linear, quadratic and sinusoidal models. However, the universal approximation theorem says that the set of vanilla neural networks with one hidden layer can approximate any function to arbitrary precision. (An excellent and interactive sketch proof of this, where I first learnt about this theorem, is given in &lt;a href=&quot;http://neuralnetworksanddeeplearning.com/chap4.html&quot;&gt;Michael Nielsen’s online book on neural networks&lt;/a&gt;.) Therefore, it should be possible for a neural network to model the datasets I created in the first post, and it should be interesting to see the visualisations of the learning taking place.&lt;/p&gt;
+
+&lt;h2 id=&quot;linear-data&quot;&gt;Linear data&lt;/h2&gt;
+&lt;p&gt;I created some linear data &lt;code class=&quot;highlighter-rouge&quot;&gt;y = a*x + b + noise&lt;/code&gt;, and then tried to fit a neural network to it.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_linearnn_1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;This is enchanting. I never thought I’d see something so delicate and graceful from crunching a whole bunch of numbers. I could watch this over and over again.&lt;/p&gt;
+
+&lt;p&gt;You will probably notice that the learning suddenly speeds up at about 17 seconds in the video. This is a result of me increasing the learning rate (from &lt;code class=&quot;highlighter-rouge&quot;&gt;1e-5&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;1e-4&lt;/code&gt;) at a certain cut-off point. It is nice to be able to visually see the effect of changing the learning rate. Regarding the learning itself. it seems that the neural network struggles to fit the line well.&lt;/p&gt;
+
+&lt;p&gt;I next tried increasing the learning rate. This next video is an example when the learning rate was &lt;code class=&quot;highlighter-rouge&quot;&gt;1e-3&lt;/code&gt; throughout.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_linearnn_3.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Changing the learning rate has improved the performance of the neural network considerably. The video is not as calm and satisfying to watch as the first one (though there is something comical about the jerky movements at the start), but it illustrates the value in choosing a good learning rate.&lt;/p&gt;
+
+&lt;p&gt;I next tried introducing a cutoff point where the learning rate increases from &lt;code class=&quot;highlighter-rouge&quot;&gt;1e-3&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;3e-3&lt;/code&gt;. I have two examples of this.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_linearnn_5.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_linearnn_6.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;In both of these videos, there is a moment in the middle where things go a bit wacky for a few iterations and then quickly settle back down. This wacky moment occurs precisely when the increase in the learning rate kicks in. My explanation for this is that we are seeing the algorithm jump away from one local minimum and moving towards another.&lt;/p&gt;
+
+&lt;p&gt;One thing I should have said is that in each of these videos, the training dataset remains the same, but the initialisation of the parameters of the neural network are different. So one other thing we are witnessing from these experiments is how different initialisation results in different models using gradient descent - i.e. there are many local minimums in the parameter space!&lt;/p&gt;
+
+&lt;h2 id=&quot;quadratic-data&quot;&gt;Quadratic data&lt;/h2&gt;
+&lt;p&gt;I created some quadratic data &lt;code class=&quot;highlighter-rouge&quot;&gt;y = a*x*x + b*x + c + noise&lt;/code&gt; and tried to fit a neural network to it. Below are three examples. Note that as above, the dataset is staying the same each time, but the parameters are initialised differently each time and I play with the learning rates a bit, too.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_quadraticnn_1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_quadraticnn_2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_quadraticnn_4.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;All these examples have similar overall behaviour. It is quick to get close-ish to the quadratic, and then the learning dramatically slows (but there is still learning going on throughout). Again we see how the different initialisations leads to different final models, showing how we are finding different local minimums.&lt;/p&gt;
+
+&lt;h2 id=&quot;sinusoidal-data&quot;&gt;Sinusoidal data&lt;/h2&gt;
+&lt;p&gt;I created some sinusoidal data &lt;code class=&quot;highlighter-rouge&quot;&gt;y = a*sin(b*x+ c) + d&lt;/code&gt; and tried to fit a neural network to it. As before, same dataset but with different starting parameters.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_sinnn_1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_sinnn_2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_sinnn_3.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The first one shows some oscillating behaviour, similar to the first sinusoidal case in the first post of this series. Looks like the behaviour is not as unlikely as I previously thought. The second two produce mediocre results, at best.&lt;/p&gt;
+
+&lt;p&gt;Looking at the graphs, there seem to be ‘too many wiggles’, so I thought I’d try reducing the number of neurons in the hidden layer. The next three videos show what happens with eight neurons.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_sinnn_4.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_sinnn_5.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd2_sinnn_6.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;These perform less well than with twenty neurons. The final video is intersting for its crazy behaviour at the start - the function seems to spin around and do all kinds of weird stuff before settling down. I do not know what to make of that.&lt;/p&gt;
+
+&lt;p&gt;There is lots more experimentation that can be done, but I feel this is a good place to stop and move on to other things to investigate.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+&lt;p&gt;There are various things I learnt doing this.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;There is a lot to be learnt by playing around with the ideas. Though (I think) I understand the theory of gradient descent and of vanilla neural networks, it is evident that the whole is greater than the sum of its parts. I under-estimated what I could have learnt by experimenting.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;It seems neural networks are only useful for interpolation - i.e. making predictions for data similar to the training data. They are hopeless at extrapolating: I think they necessarily have horizontal asymptotes in both x-directions.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The initialisation of parameters matters a lot for neural networks.
+    &lt;ul&gt;
+      &lt;li&gt;My very first settings were useless, and were seemingly only capable of modelling a sigmoid function. For a while, I thought my code was buggy, but after some experimentation, it turned out the initial parameter settings were inappropriate.&lt;/li&gt;
+      &lt;li&gt;Different initialisations resulted in vastly different final models. Presumably this is also the case with more complex tasks, but maybe it does not matter when doing a classification on real data.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The range of values in the data impacts the choice of parameters. As I mentioned in the first post, I have read that normalising is important. The fact that the parameter settings are sensitive to the range of values in the dataset could be a big reason why normalising is important.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Manually creating a neural network (even with only 1 layer) is a bit of faff; I should learn how to create one using the pytorch library.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;You can create some funky visuals with neural networks! Somebody more creative than I am could add some music to each of these to produce some interesting art. These animations may even be a weird alternative to &lt;a href=&quot;https://en.wikipedia.org/wiki/Rorschach_test&quot;&gt;Rorschach inkblot tests&lt;/a&gt;: ‘How does this video make you feel? What do you see in this video?’&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
+&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" /><published>2020-09-11T00:00:00-05:00</published><updated>2020-09-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;/blog/data%20science/python/2020/09/10/sgd1.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/li&gt;
@@ -346,7 +492,12 @@
 &lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data" /><published>2020-09-10T00:00:00-05:00</published><updated>2020-09-10T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html&quot;&gt;Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html&quot;&gt;Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html&quot;&gt;Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -417,7 +568,7 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</summary></entry><entry><title type="html">FastAI Course, Part III, Frustrations with creating an image classifier</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html" rel="alternate" type="text/html" title="FastAI Course, Part III, Frustrations with creating an image classifier" /><published>2020-09-08T00:00:00-05:00</published><updated>2020-09-08T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</summary></entry><entry><title type="html">FastAI Course, Part III, Frustrations with creating an image classifier</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html" rel="alternate" type="text/html" title="FastAI Course, Part III, Frustrations with creating an image classifier" /><published>2020-09-08T00:00:00-05:00</published><updated>2020-09-08T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1607,6 +1758,8 @@ I cannot believe how bad the movie is
 
 
 
+
+
 * [Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle](/blog/python/data%20science/2020/06/25/creditcard6.html)
 
 
@@ -1812,33 +1965,4 @@ I cannot believe how bad the movie is
 &lt;p&gt;By removing all the TV episodes, the number of matches decreased, but we still have a large problem. Only 351 of my entries have precisely one match. That is a low number indeed.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;I have decided to leave the dataset in the mess that it is and move onto the analysis stage. I will look for patterns within my dataframe first, and then look at those 351 entries which should be able to join with the imdb dataset for any patterns there.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part V, Data visualisation II Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part II, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">DynamoDB Part I, the CAP Theorem’s never ending rabbit hole</title><link href="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html" rel="alternate" type="text/html" title="DynamoDB Part I, the CAP Theorem's never ending rabbit hole" /><published>2020-08-14T00:00:00-05:00</published><updated>2020-08-14T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/data%20engineering/2020/08/14/dynamodb1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;I recently started this &lt;a href=&quot;https://courses.edx.org/courses/course-v1:AWS+OTP-AWS-D6+2T2019/course/&quot;&gt;EdEx course&lt;/a&gt; on Amazon’s DynamoDB service. Within one of the first few videos, the CAP Theorem was
-discussed. As someone with a pure maths background, theorems are irresistable bait, so I wanted to find out more about it.&lt;/p&gt;
-
-&lt;h2 id=&quot;my-journey&quot;&gt;My journey&lt;/h2&gt;
-&lt;p&gt;I cannot remember all the details, but here are some of the things I have found and thought in my trip down the rabbit hole.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The wikipedia page was the starting point, of course. I couldn’t say it really helped me, as most of the terms described were not helpful.&lt;/li&gt;
-  &lt;li&gt;However, when looking at the references, something stood out. One of my friend’s brothers, Martin Kleppmann, has written a bunch of stuff on this!&lt;/li&gt;
-  &lt;li&gt;This &lt;a href=&quot;https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html&quot;&gt;blogpost&lt;/a&gt; on why the CAP framework is practically unhelpful, was helpful. It gave an intuitive proof of the theorem.  However, the proof is so simple that I wonder what the big deal is. There is clearly something I am missing.&lt;/li&gt;
-  &lt;li&gt;The blogpost contained various links. At this stage, I lose track of things and which links came from where.&lt;/li&gt;
-  &lt;li&gt;A couple of other helpful blogposts were &lt;a href=&quot;https://www.the-paper-trail.org/page/cap-faq/&quot;&gt;this&lt;/a&gt; and &lt;a href=&quot;http://www.julianbrowne.com/article/brewers-cap-theorem&quot;&gt;this&lt;/a&gt;. I gained a better sense of why this is an important issue, and what underlying problems are that people are thinking about.&lt;/li&gt;
-  &lt;li&gt;One thing that is frustrating is how many terms people take for granted. E.g. the concepts of &lt;em&gt;nodes&lt;/em&gt; and &lt;em&gt;network&lt;/em&gt; are taken as self-evident, yet they are fundamental to the statement of the theorem. They cannot just be the same thing as nodes and networks from Graph Theory, because stuff is actually happening within the nodes, but none of the blog posts I found actually explain these concepts.&lt;/li&gt;
-  &lt;li&gt;There is whole bunch of things I found in this journey that look interesting and I intend to read at some point:
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://www.cl.cam.ac.uk/~pes20/weakmemory/cacm.pdf&quot;&gt;This&lt;/a&gt; paper on how certain multiprocessors do not provide sequentially consistent memory, and their proposed solution.&lt;/li&gt;
-      &lt;li&gt;These &lt;a href=&quot;http://www.cs.cmu.edu/~harchol/ISCA15show.pdf&quot;&gt;lecture notes&lt;/a&gt; on queueing theory and its application to computer systems.&lt;/li&gt;
-      &lt;li&gt;This &lt;a href=&quot;https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf&quot;&gt;article&lt;/a&gt; by Microsoft explaining data consistency in databases using baseball.&lt;/li&gt;
-      &lt;li&gt;This &lt;a href=&quot;http://dataintensive.net/&quot;&gt;book&lt;/a&gt; on ‘The big ideas behind reliable, scalable, maintainable data-intensive systems’. Seems to be well-regarded by many people.&lt;/li&gt;
-      &lt;li&gt;This &lt;a href=&quot;https://www.benkuhn.net/progessays/&quot;&gt;blogpost&lt;/a&gt; containing a list of highly recommended essays on programming.&lt;/li&gt;
-      &lt;li&gt;This &lt;a href=&quot;https://smile.amazon.com/Explain-Cloud-Like-Im-10-ebook/dp/B0765C4SNR&quot;&gt;book&lt;/a&gt; ‘Explain the Cloud Like I’m 10’ looks like an easy to read book where I will learn a lot about what really goes on behind the scenes.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;There is too much to learn! One thing I still need to improve in myself is my ability to prioritise all these difference things.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry></feed>
+&lt;p&gt;I have decided to leave the dataset in the mess that it is and move onto the analysis stage. I will look for patterns within my dataframe first, and then look at those 351 entries which should be able to join with the imdb dataset for any patterns there.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part V, Data visualisation II Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part II, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry></feed>

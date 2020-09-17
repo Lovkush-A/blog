@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data." />
+<meta property="og:description" content="I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-17T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD","description":"I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data.","datePublished":"2020-09-17T00:00:00-05:00","dateModified":"2020-09-17T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html"},"url":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data." />
+<meta property="og:description" content="I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-17T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD","description":"I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data.","datePublished":"2020-09-17T00:00:00-05:00","dateModified":"2020-09-17T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html"},"url":"https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</h1><p class="page-description">I continue my project to visualise and understand gradient descent. This time I try to fit a neural network to linear, quadratic and sinusoidal data.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-09-17T00:00:00-05:00" itemprop="datePublished">
+        Sep 17, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#neural network">neural network</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#linear-data">Linear data</a></li>
+<li class="toc-entry toc-h2"><a href="#quadratic-data">Quadratic data</a></li>
+<li class="toc-entry toc-h2"><a href="#sinusoidal-data">Sinusoidal data</a></li>
+<li class="toc-entry toc-h2"><a href="#conclusions">Conclusions</a></li>
+<li class="toc-entry toc-h2"><a href="#the-code">The code</a></li>
+</ul><h2 id="other-posts-in-series">
+<a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
+
+<ul>
+  <li><a href="/blog/data%20science/python/2020/09/10/sgd1.html">Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</a></li>
+</ul>
+
+<h2 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<p>In the previous post, I showed my attempts at using gradient descent to fit linear, quadratic and sinusoidal data using (respectively) linear, quadratic and sinusoidal models. However, the universal approximation theorem says that the set of vanilla neural networks with one hidden layer can approximate any function to arbitrary precision. (An excellent and interactive sketch proof of this, where I first learnt about this theorem, is given in <a href="http://neuralnetworksanddeeplearning.com/chap4.html">Michael Nielsen’s online book on neural networks</a>.) Therefore, it should be possible for a neural network to model the datasets I created in the first post, and it should be interesting to see the visualisations of the learning taking place.</p>
+
+<h2 id="linear-data">
+<a class="anchor" href="#linear-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Linear data</h2>
+<p>I created some linear data <code class="highlighter-rouge">y = a*x + b + noise</code>, and then tried to fit a neural network to it.</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd2_linearnn_1.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>This is enchanting. I never thought I’d see something so delicate and graceful from crunching a whole bunch of numbers. I could watch this over and over again.</p>
+
+<p>You will probably notice that the learning suddenly speeds up at about 17 seconds in the video. This is a result of me increasing the learning rate (from <code class="highlighter-rouge">1e-5</code> to <code class="highlighter-rouge">1e-4</code>) at a certain cut-off point. It is nice to be able to visually see the effect of changing the learning rate. Regarding the learning itself. it seems that the neural network struggles to fit the line well.</p>
+
+<p>I next tried increasing the learning rate. This next video is an example when the learning rate was <code class="highlighter-rouge">1e-3</code> throughout.</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd2_linearnn_3.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>Changing the learning rate has improved the performance of the neural network considerably. The video is not as calm and satisfying to watch as the first one (though there is something comical about the jerky movements at the start), but it illustrates the value in choosing a good learning rate.</p>
+
+<p>I next tried introducing a cutoff point where the learning rate increases from <code class="highlighter-rouge">1e-3</code> to <code class="highlighter-rouge">3e-3</code>. I have two examples of this.</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd2_linearnn_5.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd2_linearnn_6.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>In both of these videos, there is a moment in the middle where things go a bit wacky for a few iterations and then quickly settle back down. This wacky moment occurs precisely when the increase in the learning rate kicks in. My explanation for this is that we are seeing the algorithm jump away from one local minimum and moving towards another.</p>
+
+<p>One thing I should have said is that in each of these videos, the training dataset remains the same, but the initialisation of the parameters of the neural network are different. So one other thing we are witnessing from these experiments is how different initialisation results in different models using gradient descent - i.e. there are many local minimums in the parameter space!</p>
+
+<h2 id="quadratic-data">
+<a class="anchor" href="#quadratic-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quadratic data</h2>
+<p>I created some quadratic data <code class="highlighter-rouge">y = a*x*x + b*x + c + noise</code> and tried to fit a neural network to it. Below are three examples. Note that as above, the dataset is staying the same each time, but the parameters are initialised differently each time and I play with the learning rates a bit, too.</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd2_quadraticnn_1.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd2_quadraticnn_2.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd2_quadraticnn_4.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>All these examples have similar overall behaviour. It is quick to get close-ish to the quadratic, and then the learning dramatically slows (but there is still learning going on throughout). Again we see how the different initialisations leads to different final models, showing how we are finding different local minimums.</p>
+
+<h2 id="sinusoidal-data">
+<a class="anchor" href="#sinusoidal-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sinusoidal data</h2>
+<p>I created some sinusoidal data <code class="highlighter-rouge">y = a*sin(b*x+ c) + d</code> and tried to fit a neural network to it. As before, same dataset but with different starting parameters.</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd2_sinnn_1.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd2_sinnn_2.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd2_sinnn_3.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>The first one shows some oscillating behaviour, similar to the first sinusoidal case in the first post of this series. Looks like the behaviour is not as unlikely as I previously thought. The second two produce mediocre results, at best.</p>
+
+<p>Looking at the graphs, there seem to be ‘too many wiggles’, so I thought I’d try reducing the number of neurons in the hidden layer. The next three videos show what happens with eight neurons.</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd2_sinnn_4.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd2_sinnn_5.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd2_sinnn_6.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>These perform less well than with twenty neurons. The final video is intersting for its crazy behaviour at the start - the function seems to spin around and do all kinds of weird stuff before settling down. I do not know what to make of that.</p>
+
+<p>There is lots more experimentation that can be done, but I feel this is a good place to stop and move on to other things to investigate.</p>
+
+<h2 id="conclusions">
+<a class="anchor" href="#conclusions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusions</h2>
+<p>There are various things I learnt doing this.</p>
+
+<ul>
+  <li>
+    <p>There is a lot to be learnt by playing around with the ideas. Though (I think) I understand the theory of gradient descent and of vanilla neural networks, it is evident that the whole is greater than the sum of its parts. I under-estimated what I could have learnt by experimenting.</p>
+  </li>
+  <li>
+    <p>It seems neural networks are only useful for interpolation - i.e. making predictions for data similar to the training data. They are hopeless at extrapolating: I think they necessarily have horizontal asymptotes in both x-directions.</p>
+  </li>
+  <li>The initialisation of parameters matters a lot for neural networks.
+    <ul>
+      <li>My very first settings were useless, and were seemingly only capable of modelling a sigmoid function. For a while, I thought my code was buggy, but after some experimentation, it turned out the initial parameter settings were inappropriate.</li>
+      <li>Different initialisations resulted in vastly different final models. Presumably this is also the case with more complex tasks, but maybe it does not matter when doing a classification on real data.</li>
+    </ul>
+  </li>
+  <li>
+    <p>The range of values in the data impacts the choice of parameters. As I mentioned in the first post, I have read that normalising is important. The fact that the parameter settings are sensitive to the range of values in the dataset could be a big reason why normalising is important.</p>
+  </li>
+  <li>
+    <p>Manually creating a neural network (even with only 1 layer) is a bit of faff; I should learn how to create one using the pytorch library.</p>
+  </li>
+  <li>You can create some funky visuals with neural networks! Somebody more creative than I am could add some music to each of these to produce some interesting art. These animations may even be a weird alternative to <a href="https://en.wikipedia.org/wiki/Rorschach_test">Rorschach inkblot tests</a>: ‘How does this video make you feel? What do you see in this video?’</li>
+</ul>
+
+<h2 id="the-code">
+<a class="anchor" href="#the-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>The code</h2>
+<p>The code for this project is in this <a href="https://github.com/Lovkush-A/pytorch_sgd">GitHub repository</a>. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.</p>
+
+  </div><a class="u-url" href="/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
