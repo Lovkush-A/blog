@@ -2,7 +2,7 @@
 toc: true
 layout: post
 description: I briefly describe my first experience web scraping, for STEP past papers and solutions.
-categories: [python]
+categories: [python, scraping]
 title: Web Scraping for STEP past papers and solutions
 ---
 

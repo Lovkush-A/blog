@@ -2,7 +2,7 @@
 toc: true
 layout: post
 description: There was a major bug in my first attempt at scraping!
-categories: [python]
+categories: [python, scraping]
 title: Web Scraping for STEP past papers and solutions, Part II, a bug
 ---
 ## Other posts in series
