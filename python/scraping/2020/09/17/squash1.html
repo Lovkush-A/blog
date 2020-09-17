@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Squash rankings, Part I, Scraping wikipedia and data analysis | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Squash rankings, Part I, Scraping wikipedia and data analysis" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I practice some web-scraping and pandas manipulation by scraping squash ranking data from Wikipedia." />
+<meta property="og:description" content="I practice some web-scraping and pandas manipulation by scraping squash ranking data from Wikipedia." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-17T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Squash rankings, Part I, Scraping wikipedia and data analysis","description":"I practice some web-scraping and pandas manipulation by scraping squash ranking data from Wikipedia.","datePublished":"2020-09-17T00:00:00-05:00","dateModified":"2020-09-17T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html"},"url":"https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Squash rankings, Part I, Scraping wikipedia and data analysis | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Squash rankings, Part I, Scraping wikipedia and data analysis" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I practice some web-scraping and pandas manipulation by scraping squash ranking data from Wikipedia." />
+<meta property="og:description" content="I practice some web-scraping and pandas manipulation by scraping squash ranking data from Wikipedia." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-17T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Squash rankings, Part I, Scraping wikipedia and data analysis","description":"I practice some web-scraping and pandas manipulation by scraping squash ranking data from Wikipedia.","datePublished":"2020-09-17T00:00:00-05:00","dateModified":"2020-09-17T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html"},"url":"https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Squash rankings, Part I, Scraping wikipedia and data analysis</h1><p class="page-description">I practice some web-scraping and pandas manipulation by scraping squash ranking data from Wikipedia.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-09-17T00:00:00-05:00" itemprop="datePublished">
+        Sep 17, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      13 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#scraping">scraping</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#results">Results</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#summary-for-female-players">Summary for female players</a></li>
+<li class="toc-entry toc-h3"><a href="#summary-for-male-players">Summary for male players</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#patterns-and-observations">Patterns and observations</a></li>
+<li class="toc-entry toc-h2"><a href="#next-steps">Next steps</a></li>
+<li class="toc-entry toc-h2"><a href="#the-code">The code</a></li>
+</ul><h2 id="other-posts-in-series">
+<a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
+
+<h2 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<p>I am going through the CS109 Harvard lectures on data science. I just watched a couple of lectures on web-scraping with BeautifulSoup, so I wanted to practice. I decided to scrape squash ranking data from wikipedia, as I am a avid fan of the sport. On wikipedia, the best information I could find was the top 10 players at the end of each year for the past 25 years or so.</p>
+
+<h2 id="results">
+<a class="anchor" href="#results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h2>
+<p>The results of the scraping process are in the following tables, summarising some key stats for the players. The tables are ordered by players’ average rank in the dataset. It is worth emphasising that the data only contains information on Top 10 rankings and only at the end of each year; this will skew the data in various ways.</p>
+
+<h3 id="summary-for-female-players">
+<a class="anchor" href="#summary-for-female-players" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary for female players</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|                  player | average_rank | years_in_top10 | best_rank | worst_rank | earliest_year | latest_year |
+|------------------------:|-------------:|---------------:|----------:|-----------:|--------------:|------------:|
+|         Michelle Martin |     1.400000 |              5 |         1 |          2 |          1994 |        1998 |
+|       Sarah Fitz-Gerald |     2.333333 |              9 |         1 |          5 |          1994 |        2002 |
+|             Nicol David |     2.357143 |             14 |         1 |          6 |          2004 |        2017 |
+|       Raneem El Weleily |     2.444444 |              9 |         1 |          7 |          2011 |        2019 |
+|          Leilani Rorani |     2.750000 |              4 |         1 |          7 |          1998 |        2001 |
+|        Nour El Sherbini |     3.142857 |              7 |         1 |          6 |          2012 |        2019 |
+|         Rachael Grinham |     3.909091 |             11 |         1 |          8 |          2001 |        2011 |
+|             Carol Owens |     4.100000 |             10 |         1 |          8 |          1994 |        2003 |
+|           Laura Massaro |     4.111111 |              9 |         2 |          9 |          2010 |        2018 |
+|          Cassie Jackman |     4.545455 |             11 |         2 |          8 |          1994 |        2004 |
+|         Natalie Grinham |     4.666667 |              9 |         2 |          9 |          2003 |        2013 |
+|        Natalie Grainger |     5.100000 |             10 |         3 |          7 |          1999 |        2009 |
+|              Sue Wright |     5.250000 |              4 |         4 |          8 |          1994 |        1998 |
+|           Jenny Duncalf |     5.375000 |              8 |         2 |          9 |          2005 |        2013 |
+|            Nouran Gohar |     5.400000 |              5 |         3 |          9 |          2015 |        2019 |
+|           Linda Elriani |     5.555556 |              9 |         3 |          9 |          1997 |        2005 |
+|          Suzanne Horner |     5.625000 |              8 |         2 |          9 |          1994 |        2001 |
+|            Tania Bailey |     5.666667 |              6 |         5 |          9 |          1999 |        2007 |
+|        Vanessa Atkinson |     5.875000 |              8 |         1 |         10 |          2002 |        2010 |
+|           Camille Serme |     5.888889 |              9 |         3 |         10 |          2010 |        2019 |
+|           Nour El Tayeb |     6.000000 |              5 |         3 |          8 |          2014 |        2019 |
+|             Kasey Brown |     6.000000 |              2 |         5 |          7 |          2010 |        2011 |
+|              Liz Irving |     6.200000 |              5 |         3 |         10 |          1994 |        1998 |
+|           Alison Waters |     6.400000 |             10 |         3 |         10 |          2008 |        2018 |
+|             Joelle King |     6.666667 |              6 |         4 |         10 |          2012 |        2019 |
+|         Vicky Botwright |     7.000000 |              4 |         5 |          9 |          2003 |        2007 |
+|            Amanda Sobhy |     7.000000 |              2 |         7 |          7 |          2016 |        2019 |
+|        Sarah-Jane Perry |     7.000000 |              3 |         6 |          8 |          2017 |        2019 |
+|            Low Wee Wern |     7.333333 |              3 |         7 |          8 |          2012 |        2014 |
+|          Madeline Perry |     7.428571 |              7 |         4 |         10 |          2006 |        2013 |
+|          Sabine Schoene |     7.500000 |              4 |         6 |          9 |          1995 |        1998 |
+|       Omneya Abdel Kawy |     7.900000 |             10 |         4 |         10 |          2004 |        2016 |
+|            Fiona Geaves |     8.444444 |              9 |         5 |         10 |          1994 |        2004 |
+| Laura Lengthorn-Massaro |     8.500000 |              2 |         8 |          9 |          2008 |        2009 |
+|                Annie Au |     8.750000 |              4 |         8 |         10 |          2011 |        2015 |
+|             Tesni Evans |     9.000000 |              2 |         9 |          9 |          2018 |        2019 |
+|          Rebecca Macree |     9.250000 |              4 |         8 |         10 |          2001 |        2004 |
+|         Stephanie Brind |     9.250000 |              4 |         7 |         10 |          1999 |        2003 |
+|            Claire Nitch |     9.333333 |              3 |         9 |         10 |          1994 |        1996 |
+|             Jane Martin |     9.500000 |              2 |         9 |         10 |          1994 |        1995 |
+|        Hania El Hammamy |    10.000000 |              1 |        10 |         10 |          2019 |        2019 |
+|         Shelley Kitchen |    10.000000 |              2 |        10 |         10 |          2007 |        2008 |
+|         Dipika Pallikal |    10.000000 |              1 |        10 |         10 |          2012 |        2012 |
+</code></pre></div></div>
+
+<h3 id="summary-for-male-players">
+<a class="anchor" href="#summary-for-male-players" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary for male players</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>|                 player | average_rank | years_in_top10 | best_rank | worst_rank | earliest_year | latest_year |
+|-----------------------:|-------------:|---------------:|----------:|-----------:|--------------:|------------:|
+|            Peter Nicol |     2.400000 |             10 |         1 |          8 |          1996 |        2005 |
+|              Ali Farag |     3.250000 |              4 |         1 |          7 |          2016 |        2019 |
+|           Jansher Khan |     3.333333 |              3 |         1 |          8 |          1996 |        1998 |
+|         Jonathon Power |     3.666667 |              9 |         1 |          9 |          1997 |        2005 |
+|    Mohamed El Shorbagy |     3.700000 |             10 |         1 |         10 |          2010 |        2019 |
+|            Ramy Ashour |     3.909091 |             11 |         1 |          7 |          2006 |        2016 |
+|       Grégory Gaultier |     4.000000 |             15 |         1 |         10 |          2003 |        2018 |
+|           Ahmed Barada |     4.250000 |              4 |         2 |          7 |          1997 |        2000 |
+|           Rodney Eyles |     4.333333 |              3 |         2 |          7 |          1996 |        1998 |
+|           Nick Matthew |     4.642857 |             14 |         1 |         10 |          2004 |        2017 |
+|           David Palmer |     4.727273 |             11 |         1 |          9 |          2000 |        2011 |
+|            Amr Shabana |     4.727273 |             11 |         1 |          9 |          2004 |        2014 |
+|           Paul Johnson |     5.000000 |              3 |         4 |          7 |          1998 |        2000 |
+|        Stewart Boswell |     5.000000 |              2 |         4 |          6 |          2001 |        2002 |
+|         Thierry Lincou |     5.200000 |             10 |         1 |          9 |          2001 |        2010 |
+|        James Willstrop |     5.272727 |             11 |         1 |         10 |          2005 |        2017 |
+|       Anthony Ricketts |     5.500000 |              4 |         3 |          7 |          2002 |        2006 |
+|          Karim Darwish |     5.600000 |             10 |         1 |          9 |          2003 |        2013 |
+|      Karim Abdel Gawad |     5.666667 |              6 |         2 |          9 |          2015 |        2019 |
+|           Martin Heath |     5.666667 |              3 |         5 |          6 |          1998 |        2000 |
+|             Del Harris |     6.000000 |              2 |         6 |          6 |          1996 |        1997 |
+|             Dan Jenson |     6.000000 |              1 |         6 |          6 |          1998 |        1998 |
+|     Marwan El Shorbagy |     6.250000 |              4 |         5 |          9 |          2016 |        2019 |
+|             John White |     6.571429 |              7 |         2 |         10 |          1999 |        2007 |
+|              Paul Coll |     6.666667 |              3 |         5 |          8 |          2017 |        2019 |
+|            Omar Mosaad |     6.666667 |              3 |         4 |          8 |          2012 |        2016 |
+|            Tarek Momen |     6.800000 |              5 |         4 |         10 |          2014 |        2019 |
+|           Lee Beachill |     6.800000 |              5 |         1 |         10 |          2002 |        2006 |
+| Miguel Ángel Rodríguez |     7.000000 |              3 |         5 |         10 |          2015 |        2019 |
+|            Diego Elias |     7.000000 |              1 |         7 |          7 |          2019 |        2019 |
+|       Stefan Casteleyn |     7.000000 |              1 |         7 |          7 |          1999 |        1999 |
+|            David Evans |     7.000000 |              2 |         4 |         10 |          2000 |        2001 |
+|            Simon Parke |     7.000000 |              5 |         3 |         10 |          1996 |        2000 |
+|          Craig Rowland |     7.000000 |              1 |         7 |          7 |          1996 |        1996 |
+|           Chris Walker |     7.000000 |              2 |         4 |         10 |          1996 |        1997 |
+|           Brett Martin |     7.000000 |              2 |         5 |          9 |          1996 |        1997 |
+|            Borja Golán |     7.000000 |              2 |         7 |          7 |          2013 |        2014 |
+|           Peter Barker |     7.142857 |              7 |         5 |          9 |          2008 |        2014 |
+|           Anthony Hill |     7.333333 |              3 |         5 |          9 |          1996 |        1999 |
+|           Simon Rösner |     7.500000 |              6 |         3 |         10 |          2014 |        2019 |
+|           Ong Beng Hee |     7.666667 |              3 |         7 |          8 |          2001 |        2003 |
+|          Mark Chaloner |     8.666667 |              3 |         8 |         10 |          1996 |        2002 |
+|     Laurens Jan Anjema |     9.000000 |              1 |         9 |          9 |          2010 |        2010 |
+|             Alex Gough |     9.000000 |              2 |         9 |          9 |          1999 |        2000 |
+|          Wael El Hindi |     9.000000 |              3 |         8 |         10 |          2007 |        2009 |
+|      Mathieu Castagnet |     9.000000 |              2 |         9 |          9 |          2015 |        2016 |
+|             Paul Price |     9.500000 |              2 |         9 |         10 |          2000 |        2001 |
+|             Derek Ryan |    10.000000 |              1 |        10 |         10 |          1998 |        1998 |
+|    Mohd Azlan Iskandar |    10.000000 |              1 |        10 |         10 |          2011 |        2011 |
+|     Mohamed Abouelghar |    10.000000 |              1 |        10 |         10 |          2018 |        2018 |
+|            Daryl Selby |    10.000000 |              2 |        10 |         10 |          2012 |        2013 |
+</code></pre></div></div>
+
+<h2 id="patterns-and-observations">
+<a class="anchor" href="#patterns-and-observations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Patterns and observations</h2>
+<p>It is satisfying to be able to compare the various big names in squash.</p>
+
+<ul>
+  <li>From this, the most outstanding player is Nicol David. They have the largest number of years in the top 10 of any female player by a big margin, and she has the 3rd best average rating. Only two players have a higher average rating: Sarah Fitz-Gerald’s average is for practical purposes the same (2.33 vs 2.35) and Michelle Martin’s is probably skewed by the fact the data only goes as far back as 1994.</li>
+  <li>A stand-out statistic is that Gaultier has been in the Top 10 for 15 years! Though it is mentioned by commentators frequently, it is only when I compare it to other players’ durations do I fully appreciate how incredible the achievement is. Nick Matthew is not far behind with 14 years.</li>
+  <li>Another surprise for me is how high Ramy Ashour is, compared to other players. It is well-recognised that he is the best player of his generation by a large margin, but he has also been plagued by injury for most of it, too. I would have predicted that it would have had a noticable dent on his stats. It is scary to think how much better his stats would have been if he did not have injuries!</li>
+  <li>Ali Farag’s average is very high. Though I do not want diminish this achievement, I think this is a reflection of how the modern game has fewer elite players, whereas ten years ago, 7 or 8 of the top 10 players had all achieved a World Ranking of 1.</li>
+  <li>It is interesting to see general patterns. E.g. the players who have spent the most years in the top 10 are also players with higher averages and higher maximum ranks. For the males, this pattern is stark: if they have spent at least 9 years in the Top-10 rankings then they have reached the No. 1 spot.  For the females, the pattern is not as clear. This might suggeset that female squash has had a few players that have dominated the top spot, with the remaining players competiting for the other spots in the top 10.</li>
+</ul>
+
+<p>Like I said earlier, the data is skewed in various ways.</p>
+<ul>
+  <li>The data only includes rankings at the end of each year. This will hide variations throughout the year. If you use monthly data instead, I expect the patterns will be clearer, and the best players will stand out even more from the good players.</li>
+  <li>The data only includes rankings that are in the top 10. For the absolute best players, this is not a loss of much data, but for the players in the 5-10 range, significant data is missing about their ranking history.</li>
+  <li>The data only goes back to the early 90s. This skews data by missing out the achievements of previous great players. The main one is Jahangir Khan, who had a 500+ match winning streak in the 80s!</li>
+</ul>
+
+<h2 id="next-steps">
+<a class="anchor" href="#next-steps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Next steps</h2>
+<p>I will see if I can find more detailed ranking information, so I can get a more fine-grained analysis of the players. A project I have in the back of my mind is to create my own ranking system based on match history, and see if I can create a system which is more predictive than the current system. I think this should be possible, but again, I will need to see if I can obtain the relevant data.</p>
+
+<h2 id="the-code">
+<a class="anchor" href="#the-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>The code</h2>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="s">'https://en.wikipedia.org/wiki/Official_Women</span><span class="si">%27</span><span class="s">s_Squash_World_Ranking'</span><span class="p">,</span>
+    <span class="s">'https://en.wikipedia.org/wiki/Official_Men</span><span class="si">%27</span><span class="s">s_Squash_World_Ranking'</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">is_not_numeric</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">float</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="k">except</span> <span class="nb">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+<span class="k">def</span> <span class="nf">table_to_pandas</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">'tr'</span><span class="p">)</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span> <span class="s">''</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">'th'</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]]</span>
+    
+    <span class="n">n_cols</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">'td'</span><span class="p">))</span>    
+    
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span><span class="s">''</span><span class="p">)</span>
+             <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">'td'</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+             <span class="k">if</span> <span class="n">is_not_numeric</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span><span class="s">''</span><span class="p">))</span>
+            <span class="p">]</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">rows</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+           <span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">headers</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">url_to_pandas</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="s">"""
+    headers contains id needed to cut html into two pieces
+    """</span>
+    <span class="n">html</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'id="Year_end_world_top_10_players'</span><span class="p">)</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'id="Year-end_number_1'</span><span class="p">)</span>
+    <span class="n">tables</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">],</span> <span class="s">'html.parser'</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">'table'</span><span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">table_to_pandas</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tables</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df_stack</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">df_stack</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">'rank'</span><span class="p">,</span> <span class="s">'year'</span><span class="p">,</span> <span class="s">'player'</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">df_stack</span>
+
+<span class="k">def</span> <span class="nf">player_summaries</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="c1">#     years_in_top10 = df.player.value_counts()
+</span>    <span class="n">players</span> <span class="o">=</span> <span class="p">(</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">'player'</span><span class="p">)</span>
+               <span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s">'rank'</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="s">'count'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="nb">min</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="nb">max</span><span class="p">],</span>
+                     <span class="s">'year'</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="nb">min</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="nb">max</span><span class="p">]</span>
+                    <span class="p">})</span>
+              <span class="p">)</span>
+
+    <span class="n">players</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">'average_rank'</span><span class="p">,</span> <span class="s">'years_in_top10'</span><span class="p">,</span><span class="s">'best_rank'</span><span class="p">,</span> <span class="s">'worst_rank'</span><span class="p">,</span>
+                       <span class="s">'earliest_year'</span><span class="p">,</span><span class="s">'latest_year'</span><span class="p">]</span>
+    <span class="n">players</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s">'average_rank'</span><span class="p">],</span> <span class="n">inplace</span> <span class="o">=</span> <span class="bp">True</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">players</span>
+
+<span class="n">df_f</span><span class="p">,</span> <span class="n">df_m</span> <span class="o">=</span> <span class="p">[</span><span class="n">url_to_pandas</span><span class="p">(</span><span class="n">urls</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)]</span>
+<span class="n">players_f</span> <span class="o">=</span> <span class="n">player_summaries</span><span class="p">(</span><span class="n">df_f</span><span class="p">)</span>
+<span class="n">players_m</span> <span class="o">=</span> <span class="n">player_summaries</span><span class="p">(</span><span class="n">df_m</span><span class="p">)</span>
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/blog/python/scraping/2020/09/17/squash1.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
