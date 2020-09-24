@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-09-24T11:55:14-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">An intuitive but unknown version of Bayes’ Theorem</title><link href="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html" rel="alternate" type="text/html" title="An intuitive but unknown version of Bayes' Theorem" /><published>2020-09-24T00:00:00-05:00</published><updated>2020-09-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes</id><content type="html" xml:base="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-09-24T11:57:29-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">An intuitive but unknown version of Bayes’ Theorem</title><link href="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html" rel="alternate" type="text/html" title="An intuitive but unknown version of Bayes' Theorem" /><published>2020-09-24T00:00:00-05:00</published><updated>2020-09-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes</id><content type="html" xml:base="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;One of the big lessons I have learnt is that no matter how well (you think) you understand something, there is almost always a deeper or clearer level of understanding available. Even for trivially simple things, like addition. Today, I will describe my experience with this phenomena in the context of Baye’s Theorem, by going through four different ways I have of conceptualising it. The final way  is surprisingly simple but largely unknown; I learnt about it from this &lt;a href=&quot;https://80000hours.org/podcast/episodes/spencer-greenberg-bayesian-updating/#bayesian-updating&quot;&gt;80000 Hours’ interview of Spencer Greenberg&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Recall that Bayes Theorem states that:
@@ -132,12 +132,12 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 
 &lt;p&gt;…&lt;/p&gt;
 
-&lt;p&gt;OK, I assume you have tried it. Or at least, that you have done it before. If it was me, I would probably draw a probability tree and then do the various calculations.&lt;/p&gt;
+&lt;p&gt;OK, I assume you have tried it. Or at least, that you have done it before. If it was me, I would draw a probability tree and then do the various calculations.&lt;/p&gt;
 
-&lt;p&gt;Now, here is how to answer this question using the magical alternative Bayes’ via odds.&lt;/p&gt;
+&lt;p&gt;Now, here is how to answer this question using the magical alternative: Bayes’ via odds.&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;Determine the odds without any information.
+  &lt;li&gt;Determine the odds without any information, i.e. the prior odds.
     &lt;ul&gt;
       &lt;li&gt;They are 1:999 of having the disease versus not having the disease. (Why is it 999 and not 1000?)&lt;/li&gt;
     &lt;/ul&gt;
@@ -159,6 +159,8 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 &lt;/ol&gt;
 
 &lt;p&gt;!!! This is amazing! I still find it surreal how straightforward the odds perspective makes the whole process. It is basically magic. (Though, if you did do the question using traditional means, you should see how all the numbers and calculations match up).&lt;/p&gt;
+
+&lt;p&gt;Furthermore, this process makes explicit the effect of the new information. The prior belief is that we have the disease with roughly 1:1000 odds, and the posterior belief is that we have the disease with roughly 1:10 odds. The odds have increased by a factor of 100. By looking at the calculations (which is easy to do because they are so short), we see that this factor of 100 arises as the ratio of values in Step 2. I have a 99% chance of a positive result if I have the disease, and a 1% chance if I do not have the disease, so I should put 99 times more weight on having the disease once I know I have a positive test result.&lt;/p&gt;
 
 &lt;h3 id=&quot;example-2-the-monty-hall-problem&quot;&gt;Example 2. The Monty-Hall Problem&lt;/h3&gt;
 &lt;p&gt;Another famous question. I assume you know about it, but here is a brief description of the set-up. You are on a game show. There are three doors. Behind two of the doors are goats and behind the third door is a prize (which you value more than a goat). You initially guess that the prize is behind Door 1. The gameshow host is nice, and reveals that Door 3 has a goat behind it. You are then offered to switch your choice from Door 1 to Door 2.&lt;/p&gt;
@@ -195,7 +197,7 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 &lt;p&gt;Note, I do not think this is the most intuitive explanation of the Monty-Hall Problem. But I hope it is an illustration of the incredible ease of this odds-based Bayes’ Theorem.&lt;/p&gt;
 
 &lt;h3 id=&quot;exercises&quot;&gt;Exercises&lt;/h3&gt;
-&lt;p&gt;As I said above, the best way to learn is be actively engaging with the ideas, rather than passively reading. Hence, here are some exercises to try out.&lt;/p&gt;
+&lt;p&gt;As I said above, the best way to learn is by actively engaging with the ideas, rather than passively reading. Hence, here are some exercises to try out.&lt;/p&gt;
 &lt;ol&gt;
   &lt;li&gt;Formulate a statement of Bayes’ Theorem in this odds framework. Then prove it.&lt;/li&gt;
   &lt;li&gt;A bag contains 1000 coins - 999 are fair coins but one of them is dodgy and has two heads. You take one out randomly, toss it five times-in-a-row, and get heads each time. What is the probability you have the dodgy coin? How many heads in a row would you have to observe so that you think it is more likely you have a dodgy coin than not?&lt;/li&gt;
