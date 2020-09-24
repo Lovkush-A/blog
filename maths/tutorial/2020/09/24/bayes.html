@@ -317,7 +317,7 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}</annotation></semantics></math></span><span cl
 <a class="anchor" href="#example-1-odds-of-having-a-disease-given-a-positive-test-result" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 1. Odds of having a disease given a positive test result</h3>
 <p>This is a famous question that demonstrates how bad our intuitions are when it comes to reasoning about uncertainty and probabilities. Here are the assumptions:</p>
 <ul>
-  <li>Without any further information, there is a 1 in a 1000 chance somebody has the disease, independent of everybody else.</li>
+  <li>Without any other information, there is a 1 in a 1000 chance somebody has the disease, independent of everybody else.</li>
   <li>There is a test for the disease which is 99% effective. Explicitly, 99% of people who have the disease will get a positive test result, and 99% of people who do not have the disease will get a negative test result.</li>
 </ul>
 
@@ -343,23 +343,21 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}</annotation></semantics></math></span><span cl
       <li>They are 1:999 of having the disease versus not having the disease. (Why is it 999 and not 1000?)</li>
     </ul>
   </li>
-  <li>Determine the probabilities of getting a positive test result, conditioned on the possibilities from 1.
+  <li>Determine the probabilities of getting a positive test result, conditioned on the possibilities from Step 1.
     <ul>
       <li>If I have the disease, I have 0.99 chance of getting positive result.</li>
       <li>If I do not have the disease, it is a 0.01 chance.</li>
     </ul>
   </li>
-  <li>Multiply the corresponding numbers from 1 and 2 together. Re-scale so numbers are nice.
+  <li>Multiply the corresponding numbers from Steps 1 and 2 together. Re-scale so numbers are nice.
     <ul>
-      <li>From 1 we had 1:999. From 2 we had 0.99:0.01</li>
+      <li>From Step 1 we had 1:999. From Step 2 we had 0.99:0.01</li>
       <li>Multiplying them together gives 0.99:9.99</li>
       <li>Re-scaling gives 99:999</li>
     </ul>
   </li>
   <li>Marvel at the fact we’re done. Those final numbers you worked out are the posterior odds!</li>
 </ol>
-
-<p>If you want the probability, you just convert (so it is 99/1098).</p>
 
 <p>!!! This is amazing! I still find it surreal how straightforward the odds perspective makes the whole process. It is basically magic. (Though, if you did do the question using traditional means, you should see how all the numbers and calculations match up).</p>
 
@@ -369,7 +367,7 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}</annotation></semantics></math></span><span cl
 
 <p>Question: Should you stay on Door 1, switch to Door 2, or does it make no difference (statistically speaking)?</p>
 
-<p>This question is a real brain-burner, because counter-intuitively, the answer is that you should switch. The most common thought is that once Door 3 is ruled out, there is a 50:50 chance of the prize being behind Door 1 or Door 2, so it makes no difference if you switch or not.</p>
+<p>This question is a real brain-burner because, counter-intuitively, the answer is that you should switch. The most common thought is that once Door 3 is ruled out, there is a 50:50 chance of the prize being behind Door 1 or Door 2, so it makes no difference if you switch or not.</p>
 
 <p>Here, I will illustrate how using odds, we can gain some understanding of this situation.</p>
 
@@ -379,7 +377,7 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}</annotation></semantics></math></span><span cl
       <li>The odds are 1:1:1 for the prize being behind Doors 1, 2 and 3 respectively.</li>
     </ul>
   </li>
-  <li>Determine the probabilities of Door 3 being revealed, conditioned on the events in 1.
+  <li>Determine the probabilities of Door 3 being revealed, conditioned on the events in Step 1.
     <ul>
       <li>If the prize is behind Door 1, then there is a 50% chance of Door 3 being opened by the host. (The host picks randomly if they have a choice).</li>
       <li>If the prize is behind Door 2, then there is a 100% chance of Door 3 being opened by the host. (The host will never open the door you originally guessed.)</li>
@@ -403,7 +401,7 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}</annotation></semantics></math></span><span cl
 <p>As I said above, the best way to learn is be actively engaging with the ideas, rather than passively reading. Hence, here are some exercises to try out.</p>
 <ol>
   <li>Formulate a statement of Bayes’ Theorem in this odds framework. Then prove it.</li>
-  <li>A bag contains 1000 coins - 999 are fair coins but one of them is dodgy and has two heads. You take one out randomly, toss it five times-in-a-row, and get heads each time. What is the probability you have the dodgy coin. How many heads in a row would you have to observe so that you think it is more likely you have a dodgy coin than not.</li>
+  <li>A bag contains 1000 coins - 999 are fair coins but one of them is dodgy and has two heads. You take one out randomly, toss it five times-in-a-row, and get heads each time. What is the probability you have the dodgy coin? How many heads in a row would you have to observe so that you think it is more likely you have a dodgy coin than not?</li>
   <li>You meet somebody. They tell you they have two kids and that at least one of them is born on a Tuesday. What is the probability the other is born on Friday?</li>
 </ol>
 
@@ -427,7 +425,7 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}</annotation></semantics></math></span><span cl
 <a class="anchor" href="#final-remarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Final remarks</h2>
 <p>I hope you gained some new insights into Bayes’ Theorem. If you have any other perspectives on it, please let me know! As I said at the start, it is always surprising how things that you feel you understand contain hidden layers and deeper insights.</p>
 
-<p>Lastly, I recommend you listen to the <a href="https://80000hours.org/podcast/episodes/spencer-greenberg-bayesian-updating/#bayesian-updating">80000 Hours’ interview of Spencer Greenberg</a>. First, you will hear Spencer’s description and perspectives on this odds framework. Second, you will learn a whole bunch of other insightful things: Spencer researches thinking and rationality and tries to develop software tools that take make use of his insights. For example, in the podcast, Spencer discusses some of the findings in research done on when are people over- or under-confident.</p>
+<p>Lastly, I recommend you listen to the <a href="https://80000hours.org/podcast/episodes/spencer-greenberg-bayesian-updating/#bayesian-updating">80000 Hours’ interview of Spencer Greenberg</a>. First, you will hear Spencer’s description and perspectives on this odds framework. Second, you will learn a whole bunch of other insightful things: Spencer researches thinking and rationality and tries to develop software tools that take make use of his insights. For example, Spencer discusses their research on when people are over- or under-confident.</p>
 
   </div><a class="u-url" href="/blog/maths/tutorial/2020/09/24/bayes.html" hidden></a>
 </article>
