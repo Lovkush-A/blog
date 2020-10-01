@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-01T16:23:45-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data" /><published>2020-10-01T00:00:00-05:00</published><updated>2020-10-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-01T16:31:27-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case" /><published>2020-10-01T00:00:00-05:00</published><updated>2020-10-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -7,15 +7,10 @@
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html&quot;&gt;Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/09/10/sgd1.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;At the end of &lt;a href=&quot;https://youtu.be/5L3Ao5KuCC4?t=7244&quot;&gt;Lecture 3 of the 2020 FastAI course&lt;/a&gt; and at the end of &lt;a href=&quot;https://youtu.be/ccMHJeQU4Qw?t=6394&quot;&gt;Lecture 2 of the 2018 FastAI course&lt;/a&gt;, there are visualisations of the gradient descent algorithm. I quite liked them, in particular the animation from the 2018 version, and I wanted to re-create them and on more complex examples.&lt;/p&gt;
-
-&lt;p&gt;The animations I created are available below. Note that in all animations, the orange dots represent the training data, and the blue line represents the model’s predictions. I will go through them and give my thoughts. At the end I describe some insights I gained by doing this.&lt;/p&gt;
-
-&lt;h2 id=&quot;linear-data&quot;&gt;Linear data&lt;/h2&gt;
-&lt;p&gt;I created some linear data &lt;code class=&quot;highlighter-rouge&quot;&gt;y = a*x + b + noise&lt;/code&gt;, and then tried to use gradient descent to determine the coefficients.&lt;/p&gt;
 
 &lt;figure class=&quot;video_container&quot;&gt;
   &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
@@ -23,61 +18,92 @@
   &lt;/video&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;This animation is representative of the various examples I tried for linear data. Gradient descent is quick to get very close to the data, but then the learning dramatically slows down and it takes many iterations to improve further. (Note, you have to pay close attention to notice that there is still learning going on throughout the whole video).  Clearly, there is some optimisation that can be done with the learning rate; I did try to create a cutoff point where the learning rate gets bigger, but I am sure there are much better ways of doing things.&lt;/p&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;After the post of the series, I believed that the issue with fitting sinusoidal data with sinusoidal model using Gradient Descent is that it gets stuck in a local minimum where the amplitude is small. I hoped that adding stochasticity would fix it. In Part III, I describe the process of adding stochasticity, and that still did not help. Also in Part III, I describe how I eventually realised that the issue was with the learning rate.&lt;/p&gt;
 
-&lt;h2 id=&quot;quadratic-data&quot;&gt;Quadratic data&lt;/h2&gt;
-&lt;p&gt;Next I created some quadratic data &lt;code class=&quot;highlighter-rouge&quot;&gt;y=a*x*x + b*x + c + noise&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In this post, I will describe a couple of things I tried, before trying to lower the learning rate.&lt;/p&gt;
 
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd1_quadratic_1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
+&lt;h2 id=&quot;regularisation&quot;&gt;Regularisation&lt;/h2&gt;
+&lt;p&gt;Based on the examples I had tried, the amplitude would always tend to zero and stabilise there. Hence, I thought it would be worth trying adding a regularisation term that punishes having small amplitudes!&lt;/p&gt;
 
-&lt;p&gt;The pattern here is very similar to the pattern for the linear case: gradient descent quickly reaches a good model, and then the learning dramatically slows down. This is not too surprising, because though the final function is non-linear, this is still a linear-regression problem by treating &lt;code class=&quot;highlighter-rouge&quot;&gt;x*x&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; as separate features.&lt;/p&gt;
-
-&lt;h2 id=&quot;sinusoidal-data&quot;&gt;Sinusoidal data&lt;/h2&gt;
-&lt;p&gt;Next I created some sinusoidal data &lt;code class=&quot;highlighter-rouge&quot;&gt;y = a*(sin(b*x + c)) + d&lt;/code&gt;. Things were more interesting here.&lt;/p&gt;
-
-&lt;p&gt;The first video shows you what happened when I chose a learning rate that was too large (but not so large so as to have everything diverge to infinity):&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd1_sin_1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Crazy, right! The model is oscillating back and forth, with the oscillations slowly getting larger with time. In Lecture 3 of the 2020 course, this behaviour is illustrated with the example of using gradient descent to minimise a quadratic function, but I never thought I would actually encounter this behaviour out in the wild.&lt;/p&gt;
-
-&lt;p&gt;This second video shows what happens when I choose a smaller learning rate:&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd1_sin_2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;No craziness here, but it does not converge to an appropriate solution. I think the explanation for this is that the algorithm has found a local-minimum, and so the algorithm gets stuck and cannot improve.  This is qualitatively different to the linear and quadratic cases: since those were both instances of linear regression, it is known from theory that there is only one minimum so gradient descent will reach it. This sinusoidal case cannot be re-written as a linear regression problem, so there is not automatic guarantee of there being only one minimum point; from this experimentation, it looks like there multiple minimum points!&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;I learnt various things by doing this experiment.&lt;/p&gt;
+&lt;p&gt;The loss function was &lt;code class=&quot;highlighter-rouge&quot;&gt;loss = mse(y_est, y)&lt;/code&gt;. After the regularisation, it became &lt;code class=&quot;highlighter-rouge&quot;&gt;loss = mse(y_est, y) - parameters_est[0]&lt;/code&gt;.  Why did I choose this regularisation?&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;The learning rate is very important! I had to play around with the learning rates to get things to work.&lt;/li&gt;
-  &lt;li&gt;The range of values in the training data seemed to have big impact on the which learning rates to use. I am not 100% sure about this, but I have read in places that it is important to normalise your data, and perhaps its effect on learning rates is a big reason.&lt;/li&gt;
-  &lt;li&gt;I learnt how to create animations in matplotlib! And also how to include video files in this blog. :D&lt;/li&gt;
+  &lt;li&gt;I believed that the amplitude would naturally tend to small values. Thus, I want to punish small values and encourage large values.&lt;/li&gt;
+  &lt;li&gt;The loss function is defined so that the smaller the loss, the better.&lt;/li&gt;
+  &lt;li&gt;Therefore, the larger the amplitude, the smaller the loss should be.&lt;/li&gt;
+  &lt;li&gt;Subtracting the amplitude from the loss achieves this. (Note that the first element of &lt;code class=&quot;highlighter-rouge&quot;&gt;parameters_est&lt;/code&gt; was the amplitude).&lt;/li&gt;
+  &lt;li&gt;By thinking about the learning step, this regularisation would cause the amplitude to increase by a constant amount each step, so there is a constant upward pressure on the amplitude.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;There are various things I would like to try.&lt;/p&gt;
+&lt;p&gt;Below is the first result of introducing this regularisation.&lt;/p&gt;
 
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd4_sin1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;As you can see, there are moments where the model gets close to the data. This got my hopes up, and made me feel like I was onto something.&lt;/p&gt;
+
+&lt;p&gt;I tried various other things to see if I could make it better. I tried changing the weight of the regularisation term. I tried adding other regularisation terms (because in the experiments, it looked like there was now a tendency for the frequency to keep increasing). I can’t remember if I tried other things or not. Suffice it to say, I made no progress.&lt;/p&gt;
+
+&lt;p&gt;Below is an animation of an experiment which involved changing the weight of the regularisation term. I include it only because I thought it was particularly funky and visually interesting.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd4_sin2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&quot;visualising-the-loss-function&quot;&gt;Visualising the loss function&lt;/h2&gt;
+&lt;p&gt;After failing to get regularisation to work, I decided I should try to visualise the loss function, and find out exactly where the local minima were, and hopefully better understand why things were not working.&lt;/p&gt;
+
+&lt;p&gt;The process I followed was:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;The next thing I will try is using the same datasets, but seeing if I can fit a neural network to the data.&lt;/li&gt;
-  &lt;li&gt;Stochastic gradient descent. My hope is that it will avoid the local minimum problem in the sinusoidal case.&lt;/li&gt;
-  &lt;li&gt;Creating a web-app out of this, so you can easily experiment for yourselves.&lt;/li&gt;
+  &lt;li&gt;Create data to be fit. That was just &lt;code class=&quot;highlighter-rouge&quot;&gt;y = sin(x)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Create generic sinusoidal models &lt;code class=&quot;highlighter-rouge&quot;&gt;y_est = a*sin(b*x + c) + d&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Vary the parameters &lt;code class=&quot;highlighter-rouge&quot;&gt;a,b,c,d&lt;/code&gt; and calculate the loss, &lt;code class=&quot;highlighter-rouge&quot;&gt;mse(y, y_est)&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Plot graphs to visualise the loss function&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</summary></entry><entry><title type="html">An intuitive but unknown version of Bayes’ Theorem</title><link href="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html" rel="alternate" type="text/html" title="An intuitive but unknown version of Bayes' Theorem" /><published>2020-09-24T00:00:00-05:00</published><updated>2020-09-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes</id><content type="html" xml:base="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;To begin, I set &lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;d&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt; and varied &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; is the amplitude and &lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt; is the frequency (multiplied by &lt;code class=&quot;highlighter-rouge&quot;&gt;2*pi&lt;/code&gt;) or the coefficient of &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;. The reason for fixing &lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;d&lt;/code&gt; is that it was the amplitude and the frequency which were giving the most trouble.&lt;/p&gt;
+
+&lt;p&gt;The first animation below shows a sequence of charts. Each individual chart shows how the loss varies with frequency, and from chart to chart the amplitude is changing.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd4_loss_vs_freq.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;As can be seen from this, there are many local minima, so it seems sensible to believe that the model might have trouble getting stuck in one of them. However, it is not clear why there should be a tendency for the frequency to increase, as we saw in the SGD examples in Part III.&lt;/p&gt;
+
+&lt;p&gt;The next animation is the opposite. For each individual chart, we see how the loss varies with amplitude, and from chart to chart we are modifying the frequency.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd4_loss_vs_amp.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Fantastic! This I feel like I can understand. For the majority of frequencies, the optimal value for amplitude is zero and the amplitude will just slide its way to that value. Only for a narrow range of frequencies is the optimal value of the amplitude non-zero.&lt;/p&gt;
+
+&lt;p&gt;To summarise, based on these two animations, here is what I would predict:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Regardless of amplitude, there is a narrow band of frequencies which would result in finding the global minimum. Otherwise, you will get stuck in some other local minimum.&lt;/li&gt;
+  &lt;li&gt;For ‘small’ and ‘large’ frequencies, the amplitude will want to decay to zero. For a certain range of frequncies, the amplitude will tend towards the a sensible value.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As I am writing this up and thinking things through, I am starting to wonder about my conclusion in Part III about the sinusoidal model. In Part III, I concluded that the issue all along was having an inappropriate learning rate, but the two animations above suggest there is more to it. Did I just get lucky and stumble upon starting parameters which fit the criteria I described above, and hence that is why I got the sinusoidal model to fit.  There’s only one way to find out, which is to do more experimentation!&lt;/p&gt;
+
+&lt;h2 id=&quot;investigating-parameter-initialisation&quot;&gt;Investigating parameter initialisation&lt;/h2&gt;
+&lt;p&gt;The steps for the investigation are as follows:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Create data to be fit and generic model, as above.&lt;/li&gt;
+  &lt;li&gt;Initialise the estimated parameters: &lt;code class=&quot;highlighter-rouge&quot;&gt;a=1, b=?, c=0, d=0&lt;/code&gt;. We will be varying the value of initial value of &lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Do SGD and visualise the learning&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">An intuitive but unknown version of Bayes’ Theorem</title><link href="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html" rel="alternate" type="text/html" title="An intuitive but unknown version of Bayes' Theorem" /><published>2020-09-24T00:00:00-05:00</published><updated>2020-09-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes</id><content type="html" xml:base="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;One of the big lessons I have learnt is that no matter how well (you think) you understand something, there is almost always a deeper or clearer level of understanding available. Even for trivially simple things, like addition. Today, I will describe my experience with this phenomena in the context of Baye’s Theorem, by going through four different ways I have of conceptualising it. The final way  is surprisingly simple but largely unknown; I learnt about it from this &lt;a href=&quot;https://80000hours.org/podcast/episodes/spencer-greenberg-bayesian-updating/#bayesian-updating&quot;&gt;80000 Hours’ interview of Spencer Greenberg&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Recall that Bayes Theorem states that:
@@ -504,7 +530,7 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/10/01/sgd4.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/10/01/sgd4.html&quot;&gt;Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html&quot;&gt;Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD&lt;/a&gt;&lt;/p&gt;
@@ -606,11 +632,11 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" /><published>2020-09-11T00:00:00-05:00</published><updated>2020-09-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" /><published>2020-09-11T00:00:00-05:00</published><updated>2020-09-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/10/01/sgd4.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/10/01/sgd4.html&quot;&gt;Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html&quot;&gt;Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and &lt;strong&gt;S&lt;/strong&gt;GD&lt;/a&gt;&lt;/p&gt;
@@ -760,9 +786,12 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data" /><published>2020-09-10T00:00:00-05:00</published><updated>2020-09-10T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data" /><published>2020-09-10T00:00:00-05:00</published><updated>2020-09-10T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/09/10/sgd1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/10/01/sgd4.html&quot;&gt;Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html&quot;&gt;Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and &lt;strong&gt;S&lt;/strong&gt;GD&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
@@ -839,7 +868,7 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</summary></entry><entry><title type="html">FastAI Course, Part III, Frustrations with creating an image classifier</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html" rel="alternate" type="text/html" title="FastAI Course, Part III, Frustrations with creating an image classifier" /><published>2020-09-08T00:00:00-05:00</published><updated>2020-09-08T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</summary></entry><entry><title type="html">FastAI Course, Part III, Frustrations with creating an image classifier</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html" rel="alternate" type="text/html" title="FastAI Course, Part III, Frustrations with creating an image classifier" /><published>2020-09-08T00:00:00-05:00</published><updated>2020-09-08T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
