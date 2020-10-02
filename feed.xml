@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-01T16:31:27-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case" /><published>2020-10-01T00:00:00-05:00</published><updated>2020-10-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-02T09:01:04-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case" /><published>2020-10-01T00:00:00-05:00</published><updated>2020-10-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -19,21 +19,28 @@
 &lt;/figure&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;After the post of the series, I believed that the issue with fitting sinusoidal data with sinusoidal model using Gradient Descent is that it gets stuck in a local minimum where the amplitude is small. I hoped that adding stochasticity would fix it. In Part III, I describe the process of adding stochasticity, and that still did not help. Also in Part III, I describe how I eventually realised that the issue was with the learning rate.&lt;/p&gt;
+&lt;p&gt;After the first post of the series, I believed that the issue with fitting sinusoidal data with a sinusoidal model using Gradient Descent is that it gets stuck in a local minimum where the amplitude is small. I hoped that adding stochasticity would fix it. In Part III, I described the process of adding stochasticity, and that still did not help. Also in Part III, I described how I eventually realised that the issue was with the learning rate.&lt;/p&gt;
 
-&lt;p&gt;In this post, I will describe a couple of things I tried, before trying to lower the learning rate.&lt;/p&gt;
+&lt;p&gt;I will recap my investigations into fitting sinusoidal data using sinusoidal models with SGD.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;In Part I, I described my attempt at using GD and my belief that the failure to fit was due to the model getting stuck in a local minimum where the amplitude is small. I hoped that SGD would fix this problem.&lt;/li&gt;
+  &lt;li&gt;I tried using SGD but it did not help (described in Part III).&lt;/li&gt;
+  &lt;li&gt;I then tried using regularisation to solve the amplitude issue (described below).&lt;/li&gt;
+  &lt;li&gt;I had the idea of investigating the loss function in detail. However, I decided it would be better to separate off this detailed investigation into sinusoidal models into a separate post (this one), and have a post discussing only the stochasticity (Part III).&lt;/li&gt;
+  &lt;li&gt;While writing up Part III, for the sake of completeness, I investigated the learning rate. This solved the issue!&lt;/li&gt;
+  &lt;li&gt;However, even though I solved the issues, I thought it would still be worthwhile to write-up my experiments with regularisation and also to carry out the investigation into the loss function. So here we are!&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;regularisation&quot;&gt;Regularisation&lt;/h2&gt;
-&lt;p&gt;Based on the examples I had tried, the amplitude would always tend to zero and stabilise there. Hence, I thought it would be worth trying adding a regularisation term that punishes having small amplitudes!&lt;/p&gt;
+&lt;p&gt;Based on the examples I had tried, the amplitude would always tend to zero. Hence, I thought it would be worth adding a regularisation term that punishes having small amplitudes.&lt;/p&gt;
 
 &lt;p&gt;The loss function was &lt;code class=&quot;highlighter-rouge&quot;&gt;loss = mse(y_est, y)&lt;/code&gt;. After the regularisation, it became &lt;code class=&quot;highlighter-rouge&quot;&gt;loss = mse(y_est, y) - parameters_est[0]&lt;/code&gt;.  Why did I choose this regularisation?&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;I believed that the amplitude would naturally tend to small values. Thus, I want to punish small values and encourage large values.&lt;/li&gt;
-  &lt;li&gt;The loss function is defined so that the smaller the loss, the better.&lt;/li&gt;
-  &lt;li&gt;Therefore, the larger the amplitude, the smaller the loss should be.&lt;/li&gt;
-  &lt;li&gt;Subtracting the amplitude from the loss achieves this. (Note that the first element of &lt;code class=&quot;highlighter-rouge&quot;&gt;parameters_est&lt;/code&gt; was the amplitude).&lt;/li&gt;
-  &lt;li&gt;By thinking about the learning step, this regularisation would cause the amplitude to increase by a constant amount each step, so there is a constant upward pressure on the amplitude.&lt;/li&gt;
+  &lt;li&gt;Smaller losses should correspond to better models. Therefore, the larger the amplitude, the smaller the loss should be.&lt;/li&gt;
+  &lt;li&gt;Subtracting the amplitude from the loss achieves this. (Note that the first element of &lt;code class=&quot;highlighter-rouge&quot;&gt;parameters_est&lt;/code&gt; is the amplitude).&lt;/li&gt;
+  &lt;li&gt;By differentiating, this regularisation causes the amplitude to increase by a constant amount each step, so there is a constant upward pressure on the amplitude.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Below is the first result of introducing this regularisation.&lt;/p&gt;
@@ -77,7 +84,7 @@
   &lt;/video&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;As can be seen from this, there are many local minima, so it seems sensible to believe that the model might have trouble getting stuck in one of them. However, it is not clear why there should be a tendency for the frequency to increase, as we saw in the SGD examples in Part III.&lt;/p&gt;
+&lt;p&gt;As can be seen from this, there are many local minima, so the model might get stuck in the wrong one. Eye-balling the chart, if the initial frequency is below 0.5 or above 1.7, then gradient descent will push the frequency away from the optimal value of 1. It is not clear why there should be a tendency for the frequency to increase, as we saw in the SGD examples in Part III.&lt;/p&gt;
 
 &lt;p&gt;The next animation is the opposite. For each individual chart, we see how the loss varies with amplitude, and from chart to chart we are modifying the frequency.&lt;/p&gt;
 
@@ -91,11 +98,11 @@
 
 &lt;p&gt;To summarise, based on these two animations, here is what I would predict:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Regardless of amplitude, there is a narrow band of frequencies which would result in finding the global minimum. Otherwise, you will get stuck in some other local minimum.&lt;/li&gt;
-  &lt;li&gt;For ‘small’ and ‘large’ frequencies, the amplitude will want to decay to zero. For a certain range of frequncies, the amplitude will tend towards the a sensible value.&lt;/li&gt;
+  &lt;li&gt;Regardless of amplitude, there is a narrow band of frequencies which would result in SGD finding the global minimum. Otherwise, you will get stuck in some other local minimum.&lt;/li&gt;
+  &lt;li&gt;For ‘small’ and ‘large’ frequencies, the amplitude will want to decay to zero. For a certain range of frequncies, the amplitude will tend towards a sensible value.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;As I am writing this up and thinking things through, I am starting to wonder about my conclusion in Part III about the sinusoidal model. In Part III, I concluded that the issue all along was having an inappropriate learning rate, but the two animations above suggest there is more to it. Did I just get lucky and stumble upon starting parameters which fit the criteria I described above, and hence that is why I got the sinusoidal model to fit.  There’s only one way to find out, which is to do more experimentation!&lt;/p&gt;
+&lt;p&gt;As I am writing this up and thinking things through, I am starting to wonder about my conclusion in Part III about the sinusoidal model. In Part III, I concluded that the issue all along was having an inappropriate learning rate, but the two animations above suggest there is more to it. Did I just get lucky and stumble upon starting parameters which fit the criteria I described above, and hence that is why I got the sinusoidal model to fit?  There’s only one way to find out, which is to do more experimentation!&lt;/p&gt;
 
 &lt;h2 id=&quot;investigating-parameter-initialisation&quot;&gt;Investigating parameter initialisation&lt;/h2&gt;
 &lt;p&gt;The steps for the investigation are as follows:&lt;/p&gt;
