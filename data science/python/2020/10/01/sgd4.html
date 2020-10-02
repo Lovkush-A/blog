@@ -123,7 +123,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      6 min read
+      7 min read
     
 </span></p>
 
@@ -148,6 +148,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#regularisation">Regularisation</a></li>
 <li class="toc-entry toc-h2"><a href="#visualising-the-loss-function">Visualising the loss function</a></li>
 <li class="toc-entry toc-h2"><a href="#investigating-parameter-initialisation">Investigating parameter initialisation</a></li>
+<li class="toc-entry toc-h2"><a href="#conclusion">Conclusion</a></li>
 </ul><h2 id="other-posts-in-series">
 <a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
 
@@ -270,6 +271,62 @@ window.onload = wrap_img;
 </li>
   <li>Do SGD and visualise the learning</li>
 </ul>
+
+<p>I start by trying a large value for the frequency, 5.</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd4_sin_f5.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>So, as predicted, the frequency gets stuck in some sub-optimal value and the amplitude tends to zero. It looks like I did just get lucky in Part III.</p>
+
+<p>Frequency of 2 and 1.5 is similar:</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd4_sin_f2.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd4_sin_f15.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>Frequency of 1.2:</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd4_sin_f12.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>We get the model converging to the data! Though this is to be expected, it is still satisfying to see it actually work. With a bit of manual experimentation, the cut-off between these two behaviours is roughly 1.46.</p>
+
+<p>How about lower frequencies? A frequency of 0.6 converges to the correct model:</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd4_sin_f06.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>And a frequency of 0.5 converges to a different minima:</p>
+
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true">
+    <source src="/blog/images/sgd4_sin_f05.mp4" type="video/mp4"></source>
+  </video>
+</figure>
+
+<p>Again, this is consistent with the frequncy vs loss charts above, where you can see there are local minima to the left of the global minimum.</p>
+
+<h2 id="conclusion">
+<a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h2>
+<p>This has been a bit of a topsy-turvy learning experience. I am still surprised at how much I learnt from this basic example. And having struggled with this simple example, I better appreciate how impressive it is to get complicated neural networks to learn.</p>
 
   </div><a class="u-url" href="/blog/data%20science/python/2020/10/01/sgd4.html" hidden></a>
 </article>

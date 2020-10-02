@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-02T09:01:04-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case" /><published>2020-10-01T00:00:00-05:00</published><updated>2020-10-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-02T09:39:34-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case" /><published>2020-10-01T00:00:00-05:00</published><updated>2020-10-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -110,7 +110,62 @@
   &lt;li&gt;Create data to be fit and generic model, as above.&lt;/li&gt;
   &lt;li&gt;Initialise the estimated parameters: &lt;code class=&quot;highlighter-rouge&quot;&gt;a=1, b=?, c=0, d=0&lt;/code&gt;. We will be varying the value of initial value of &lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;Do SGD and visualise the learning&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">An intuitive but unknown version of Bayes’ Theorem</title><link href="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html" rel="alternate" type="text/html" title="An intuitive but unknown version of Bayes' Theorem" /><published>2020-09-24T00:00:00-05:00</published><updated>2020-09-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes</id><content type="html" xml:base="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I start by trying a large value for the frequency, 5.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd4_sin_f5.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;So, as predicted, the frequency gets stuck in some sub-optimal value and the amplitude tends to zero. It looks like I did just get lucky in Part III.&lt;/p&gt;
+
+&lt;p&gt;Frequency of 2 and 1.5 is similar:&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd4_sin_f2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd4_sin_f15.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Frequency of 1.2:&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd4_sin_f12.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;We get the model converging to the data! Though this is to be expected, it is still satisfying to see it actually work. With a bit of manual experimentation, the cut-off between these two behaviours is roughly 1.46.&lt;/p&gt;
+
+&lt;p&gt;How about lower frequencies? A frequency of 0.6 converges to the correct model:&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd4_sin_f06.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;And a frequency of 0.5 converges to a different minima:&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd4_sin_f05.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Again, this is consistent with the frequncy vs loss charts above, where you can see there are local minima to the left of the global minimum.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This has been a bit of a topsy-turvy learning experience. I am still surprised at how much I learnt from this basic example. And having struggled with this simple example, I better appreciate how impressive it is to get complicated neural networks to learn.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">An intuitive but unknown version of Bayes’ Theorem</title><link href="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html" rel="alternate" type="text/html" title="An intuitive but unknown version of Bayes' Theorem" /><published>2020-09-24T00:00:00-05:00</published><updated>2020-09-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes</id><content type="html" xml:base="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;One of the big lessons I have learnt is that no matter how well (you think) you understand something, there is almost always a deeper or clearer level of understanding available. Even for trivially simple things, like addition. Today, I will describe my experience with this phenomena in the context of Baye’s Theorem, by going through four different ways I have of conceptualising it. The final way  is surprisingly simple but largely unknown; I learnt about it from this &lt;a href=&quot;https://80000hours.org/podcast/episodes/spencer-greenberg-bayesian-updating/#bayesian-updating&quot;&gt;80000 Hours’ interview of Spencer Greenberg&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Recall that Bayes Theorem states that:
