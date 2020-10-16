@@ -1,4 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-16T05:48:15-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case" /><published>2020-10-01T00:00:00-05:00</published><updated>2020-10-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-16T10:08:51-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Visualising L1 and L2 regularisation</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html" rel="alternate" type="text/html" title="Visualising L1 and L2 regularisation" /><published>2020-10-11T00:00:00-05:00</published><updated>2020-10-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In this &lt;a href=&quot;https://medium.com/@davidsotunbo/ridge-and-lasso-regression-an-illustration-and-explanation-using-sklearn-in-python-4853cd543898&quot;&gt;medium post comparing L1 and L2 regularisation&lt;/a&gt; there is an image showing how L1 regularisation is more likely to make one of the parameters equal to zero than L2 regularisation.&lt;/p&gt;
+
+&lt;p&gt;One of my co-fellows at Faculty pointed out that this image is not convincing, because it could just be a case of a cherry-picked cost function. As I had never made any effort to properly understanding L1 versus L2 regularisation previously, this was good motivation for me to better to understand.&lt;/p&gt;
+
+&lt;p&gt;The results are bunch of visuals that are below.&lt;/p&gt;
+
+&lt;h2 id=&quot;varying-cost-function-with-parameters-restricted-to-l1-or-l2-balls&quot;&gt;Varying cost function with parameters restricted to L1 or L2 balls&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/l1l2reg_l11.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case" /><published>2020-10-01T00:00:00-05:00</published><updated>2020-10-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -2068,147 +2079,4 @@ I cannot believe how bad the movie is
   &lt;li&gt;The model has learnt some sensible patterns, e.g. adding ‘only’ indicates a negative review, adding an exclamation mark indicates a positive review, etc.&lt;/li&gt;
   &lt;li&gt;The model fails spectacularly badly on several examples, which do not feel contrived to me. This makes me question the reliability of sentiment analysis. Maybe the examples I created are not representative of real-world examples.&lt;/li&gt;
   &lt;li&gt;If I were a decision-maker in some business, I would definitely be using manual analysis until I see better evidence.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series FastAI Course, Part III, Frustrations with creating an image classifier FastAI Course, Part I, Lessons 1 and 2</summary></entry><entry><title type="html">Increasing the resolution of an image using an SRGAN</title><link href="https://lovkush-a.github.io/blog/python/neural%20network/2020/08/28/srgan1.html" rel="alternate" type="text/html" title="Increasing the resolution of an image using an SRGAN" /><published>2020-08-28T00:00:00-05:00</published><updated>2020-08-28T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/neural%20network/2020/08/28/srgan1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/neural%20network/2020/08/28/srgan1.html">&lt;!---
-## Other posts in series
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-* [Investigating Credit Card Fraud, Part VI, Summary and Lessons from Kaggle](/blog/python/data%20science/2020/06/25/creditcard6.html)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-* [Investigating Credit Card Fraud, Part V, Final Models](/blog/python/data%20science/2020/05/30/creditcard5.html)
-
-
-
-* [Investigating Credit Card Fraud, Part IV, `n_estimators`](/blog/python/data%20science/2020/05/29/creditcard4.html)
-
-
-
-
-
-
-
-* [Investigating Credit Card Fraud, Part III, Handmade Model](/blog/python/data%20science/2020/05/19/creditcard3.html)
-
-
-
-* [Investigating Credit Card Fraud, Part II, Removing data](/blog/python/data%20science/2020/05/16/creditcard2.html)
-
-
-
-
-
-* [Investigating Credit Card Fraud, Part I, First Models](/blog/python/data%20science/2020/05/14/creditcard1.html)
-
-
-
-
-
-
-
-
-
-
---&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;I wanted to print out an image for a friend, and I wanted to first crop the image to only include a relatively small part of the photo (namely, the individuals in the photo. The original photo was 90% scenary).  However, after the cropping, the image became too small and would have been pixelated when printed.  I thought that a neural network ought to be able to solve this problem, because it could be trained on a manually created dataset (just take a bunch of images and use these as the &lt;em&gt;outputs&lt;/em&gt;, then reduce the quality of these images to create the &lt;em&gt;inputs&lt;/em&gt;). I decided to Google around to see what already had been done, and I found out about SRGANs.  At my current level of knowledge, I cannot understand the details of the architecture, so for now, my aim was just to see if I could use a pre-trained network to achieve my goal. After a bit more searching, I found &lt;a href=&quot;https://github.com/HasnainRaz/Fast-SRGAN&quot;&gt;this Github repo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;steps-taken&quot;&gt;Steps taken&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Create a new directory and environment.&lt;/li&gt;
-  &lt;li&gt;Download the github repo.&lt;/li&gt;
-  &lt;li&gt;Install the requirements.&lt;/li&gt;
-  &lt;li&gt;Create a directory &lt;code class=&quot;highlighter-rouge&quot;&gt;inputs&lt;/code&gt; for input images, and folder &lt;code class=&quot;highlighter-rouge&quot;&gt;outputs&lt;/code&gt; for where the output images will go.&lt;/li&gt;
-  &lt;li&gt;Add images to the inputs directory.&lt;/li&gt;
-  &lt;li&gt;Run the command `python infer.py –image_dir ‘inputs’ –output_dir ‘outputs’&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
-&lt;p&gt;Below are samples of the images, comparing before and after applying the neural network.&lt;/p&gt;
-
-&lt;h3 id=&quot;example-1&quot;&gt;Example 1&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/srgan1_1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;example-2&quot;&gt;Example 2&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/srgan1_2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;example-3&quot;&gt;Example 3&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/blog/images/srgan1_3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This is amazing! This feels like magic to me.&lt;/p&gt;
-
-&lt;h2 id=&quot;limits&quot;&gt;Limits&lt;/h2&gt;
-&lt;p&gt;I tried applying this to blurry images, expecting it to make the images less blurry. This did not happen:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/srgan1_4.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This reveals how limited my understanding is! After thinking and googling a bit, I think the issue is that resolution and blurriness/sharpness are two separate issues. Previously, I just lumped them together as ‘reasons an image can look bad’. After a bit more searching, it seems I might learn about anti-blurring / sharpening in the FastAI course that I am doing, so that is something to look forward to.&lt;/p&gt;
-
-&lt;p&gt;Finally, I hope I will soon be at at stage where I can understand these intricate architectures, and be able to train my own cutting edge neural networks.&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series FastAI Course, Part III, Frustrations with creating an image classifier FastAI Course, Part I, Lessons 1 and 2</summary></entry></feed>
