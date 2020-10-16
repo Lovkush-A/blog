@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-16T18:19:09-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Visualising L1 and L2 regularisation</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html" rel="alternate" type="text/html" title="Visualising L1 and L2 regularisation" /><published>2020-10-11T00:00:00-05:00</published><updated>2020-10-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-16T18:27:23-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Visualising L1 and L2 regularisation</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html" rel="alternate" type="text/html" title="Visualising L1 and L2 regularisation" /><published>2020-10-11T00:00:00-05:00</published><updated>2020-10-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this &lt;a href=&quot;https://medium.com/@davidsotunbo/ridge-and-lasso-regression-an-illustration-and-explanation-using-sklearn-in-python-4853cd543898&quot;&gt;medium post comparing L1 and L2 regularisation&lt;/a&gt; there is an image showing how L1 regularisation is more likely to make one of the parameters equal to zero than L2 regularisation.&lt;/p&gt;
 
-&lt;p&gt;One of my &lt;a href=&quot;https://faculty.ai/fellowship/&quot;&gt;co-fellows at Faculty&lt;/a&gt; pointed out that this image is not convincing, because it could just be a case of a cherry-picked cost function. As I had never made any effort to properly understanding L1 versus L2 regularisation previously, this was good motivation for me to better to understand.&lt;/p&gt;
+&lt;p&gt;One of my &lt;a href=&quot;https://faculty.ai/fellowship/&quot;&gt;co-fellows at Faculty&lt;/a&gt; pointed out that this image is not convincing, because it could just be a case of a cherry-picked cost function. As I had never made any effort to properly understand L1 versus L2 regularisation previously, this was good motivation for me to better to understand.&lt;/p&gt;
 
 &lt;p&gt;The results are bunch of visuals that are below.&lt;/p&gt;
 
@@ -21,19 +21,19 @@
 &lt;ul&gt;
   &lt;li&gt;The circular things that are moving around are contour plots of cost functions. They are all convex.&lt;/li&gt;
   &lt;li&gt;The shaded regions are L1 and L2 balls, i.e. all points where the L1 or L2 norm of the parameters are less than some fixed radius r.&lt;/li&gt;
-  &lt;li&gt;The red dot is the parameter which minimizes the cost function, given the restriction of being within the ball.&lt;/li&gt;
+  &lt;li&gt;The red dot is the parameter which minimizes the cost function, given the restriction of being within the ballh.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;What can be seen is that restricting the parameters to an L1-ball results in one of the two paramters being zero, most of the time.  The L2-ball has no preference for values and the red dot just tracks the cost function.&lt;/p&gt;
+&lt;p&gt;What can be seen is that restricting the parameters to an L1-ball results in one of the two paramters being zero, most of the time.  The L2-ball has no preference for values.&lt;/p&gt;
 
 &lt;p&gt;This matches the general descriptions I have seen of L1 regularisation in various blog posts and articles.&lt;/p&gt;
 
 &lt;h2 id=&quot;varying-cost-functions-with-l1-or-l2-regularisations&quot;&gt;Varying cost functions with L1 or L2 regularisations&lt;/h2&gt;
-&lt;p&gt;An issue with the above plots is that I have forced my parameters to be within an L1 or L2 ball, but in regularisation, the parameters can have any value, but there is simply a regularisation term added to incentivise the model to reduce the L1 or L2 norm.&lt;/p&gt;
+&lt;p&gt;An issue with the above plots is that I have forced my parameters to be within an L1 or L2 ball. In regularisation, the parameters can have any value, but there is a regularisation term added to incentivise the model to reduce the L1 or L2 norm.&lt;/p&gt;
 
-&lt;p&gt;(Having this forced restriction corresponds to have a regularisation term that is zero if the parameters are inside the ball, and infinity if the parameters are outside the ball. So normal regularisation can be thought of as being a smoothed out version of this forced restriction.)&lt;/p&gt;
+&lt;p&gt;(Having this forced restriction corresponds to having a regularisation term that is zero if the parameters are inside the ball and infinity if the parameters are outside the ball. So normal regularisation can be thought of as being a smoothed out version of this forced restriction.)&lt;/p&gt;
 
-&lt;p&gt;To check that the insights gained in the above plots do work when we have regularisation I create a couple more plots.&lt;/p&gt;
+&lt;p&gt;To check that the insights gained in the above plots do work when we have regularisation I created a couple more plots.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;I created a cost function &lt;code class=&quot;highlighter-rouge&quot;&gt;(x-x0)^2 + (y-y0))^2 + r*norm((x,y))&lt;/code&gt;&lt;/li&gt;
@@ -55,7 +55,7 @@
 &lt;p&gt;We can see in the plots above that the pattern continues. L1 regularisation will force parameters to zero, and L2 regularisation does not have any preferred direction - L2 just wants the length of the vector to be smaller.&lt;/p&gt;
 
 &lt;h2 id=&quot;max-norm&quot;&gt;Max norm&lt;/h2&gt;
-&lt;p&gt;So you can check your understanding, imagine how the plots above would look if we replaced the L1and L2 norms with the max norm, &lt;code class=&quot;highlighter-rouge&quot;&gt;max_norm((x,y)) = max(|x|, |y|)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To check your understanding, imagine how the plots above would look if we replaced the L1 and L2 norms with the max norm, &lt;code class=&quot;highlighter-rouge&quot;&gt;max_norm((x,y)) = max(|x|, |y|)&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;No really, take a couple of minutes to think this through. You learn the most by actively engaging with the ideas rather than passively reading somebody else’s thoughts.&lt;/p&gt;
 
@@ -63,14 +63,14 @@
 
 &lt;p&gt;…&lt;/p&gt;
 
-&lt;p&gt;Well, here are the two plots. Minor note, the plots are for the L10 norm, but it is a good enough approximation.&lt;/p&gt;
+&lt;p&gt;Well, here are the two plots. Minor note, the plots are for the L10 norm, but it is a good enough approximation to the max-norm.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/blog/images/l1l2reg_linf1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/blog/images/l1l2reg_linf2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;Like I said in my recent post on Bayes Rule, there is always a deeper level of understanding available, even for simple concepts. I am glad I produced these plots. I have read before that L1-regularisation ought to have parameters go to zero, but I never really understood it, but now I feel I have some feel for it.  Also, it was good python practice.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case" /><published>2020-10-01T00:00:00-05:00</published><updated>2020-10-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;I am glad I produced these plots. I have read before that L1-regularisation ought to have parameters go to zero, but I never really understood it, but now I have some feel for it.  Also, it was good python practice.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case" /><published>2020-10-01T00:00:00-05:00</published><updated>2020-10-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/01/sgd4.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;

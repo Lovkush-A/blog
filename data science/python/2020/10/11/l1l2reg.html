@@ -166,7 +166,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
 <p>In this <a href="https://medium.com/@davidsotunbo/ridge-and-lasso-regression-an-illustration-and-explanation-using-sklearn-in-python-4853cd543898">medium post comparing L1 and L2 regularisation</a> there is an image showing how L1 regularisation is more likely to make one of the parameters equal to zero than L2 regularisation.</p>
 
-<p>One of my <a href="https://faculty.ai/fellowship/">co-fellows at Faculty</a> pointed out that this image is not convincing, because it could just be a case of a cherry-picked cost function. As I had never made any effort to properly understanding L1 versus L2 regularisation previously, this was good motivation for me to better to understand.</p>
+<p>One of my <a href="https://faculty.ai/fellowship/">co-fellows at Faculty</a> pointed out that this image is not convincing, because it could just be a case of a cherry-picked cost function. As I had never made any effort to properly understand L1 versus L2 regularisation previously, this was good motivation for me to better to understand.</p>
 
 <p>The results are bunch of visuals that are below.</p>
 
@@ -187,20 +187,20 @@ window.onload = wrap_img;
 <ul>
   <li>The circular things that are moving around are contour plots of cost functions. They are all convex.</li>
   <li>The shaded regions are L1 and L2 balls, i.e. all points where the L1 or L2 norm of the parameters are less than some fixed radius r.</li>
-  <li>The red dot is the parameter which minimizes the cost function, given the restriction of being within the ball.</li>
+  <li>The red dot is the parameter which minimizes the cost function, given the restriction of being within the ballh.</li>
 </ul>
 
-<p>What can be seen is that restricting the parameters to an L1-ball results in one of the two paramters being zero, most of the time.  The L2-ball has no preference for values and the red dot just tracks the cost function.</p>
+<p>What can be seen is that restricting the parameters to an L1-ball results in one of the two paramters being zero, most of the time.  The L2-ball has no preference for values.</p>
 
 <p>This matches the general descriptions I have seen of L1 regularisation in various blog posts and articles.</p>
 
 <h2 id="varying-cost-functions-with-l1-or-l2-regularisations">
 <a class="anchor" href="#varying-cost-functions-with-l1-or-l2-regularisations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Varying cost functions with L1 or L2 regularisations</h2>
-<p>An issue with the above plots is that I have forced my parameters to be within an L1 or L2 ball, but in regularisation, the parameters can have any value, but there is simply a regularisation term added to incentivise the model to reduce the L1 or L2 norm.</p>
+<p>An issue with the above plots is that I have forced my parameters to be within an L1 or L2 ball. In regularisation, the parameters can have any value, but there is a regularisation term added to incentivise the model to reduce the L1 or L2 norm.</p>
 
-<p>(Having this forced restriction corresponds to have a regularisation term that is zero if the parameters are inside the ball, and infinity if the parameters are outside the ball. So normal regularisation can be thought of as being a smoothed out version of this forced restriction.)</p>
+<p>(Having this forced restriction corresponds to having a regularisation term that is zero if the parameters are inside the ball and infinity if the parameters are outside the ball. So normal regularisation can be thought of as being a smoothed out version of this forced restriction.)</p>
 
-<p>To check that the insights gained in the above plots do work when we have regularisation I create a couple more plots.</p>
+<p>To check that the insights gained in the above plots do work when we have regularisation I created a couple more plots.</p>
 
 <ul>
   <li>I created a cost function <code class="highlighter-rouge">(x-x0)^2 + (y-y0))^2 + r*norm((x,y))</code>
@@ -228,7 +228,7 @@ window.onload = wrap_img;
 
 <h2 id="max-norm">
 <a class="anchor" href="#max-norm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Max norm</h2>
-<p>So you can check your understanding, imagine how the plots above would look if we replaced the L1and L2 norms with the max norm, <code class="highlighter-rouge">max_norm((x,y)) = max(|x|, |y|)</code>.</p>
+<p>To check your understanding, imagine how the plots above would look if we replaced the L1 and L2 norms with the max norm, <code class="highlighter-rouge">max_norm((x,y)) = max(|x|, |y|)</code>.</p>
 
 <p>No really, take a couple of minutes to think this through. You learn the most by actively engaging with the ideas rather than passively reading somebody else’s thoughts.</p>
 
@@ -236,7 +236,7 @@ window.onload = wrap_img;
 
 <p>…</p>
 
-<p>Well, here are the two plots. Minor note, the plots are for the L10 norm, but it is a good enough approximation.</p>
+<p>Well, here are the two plots. Minor note, the plots are for the L10 norm, but it is a good enough approximation to the max-norm.</p>
 
 <p><img src="/blog/images/l1l2reg_linf1.gif" alt="image"></p>
 
@@ -244,7 +244,7 @@ window.onload = wrap_img;
 
 <h2 id="conclusions">
 <a class="anchor" href="#conclusions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusions</h2>
-<p>Like I said in my recent post on Bayes Rule, there is always a deeper level of understanding available, even for simple concepts. I am glad I produced these plots. I have read before that L1-regularisation ought to have parameters go to zero, but I never really understood it, but now I feel I have some feel for it.  Also, it was good python practice.</p>
+<p>I am glad I produced these plots. I have read before that L1-regularisation ought to have parameters go to zero, but I never really understood it, but now I have some feel for it.  Also, it was good python practice.</p>
 
   </div><a class="u-url" href="/blog/data%20science/python/2020/10/11/l1l2reg.html" hidden></a>
 </article>
