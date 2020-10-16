@@ -3,15 +3,8 @@ toc: true
 layout: post
 description: I describe the rabbit hole I ended up in by trying to learn about the CAP Theorem. 
 categories: [data science, data engineering]
-title: DynamoDB Part I, the CAP Theorem's never ending rabbit hole 
+title: The CAP Theorem's never ending rabbit hole 
 ---
-## Other posts in series
-{% for post in site.posts %}
-{% if (post.title contains "DynamoDB") and (post.title != page.title) %}
-* [{{ post.title }}]({{ site.baseurl }}{{ post.url }})
-{% endif %}
-{% endfor %}
-
 ## Introduction
 I recently started this [EdEx course](https://courses.edx.org/courses/course-v1:AWS+OTP-AWS-D6+2T2019/course/) on Amazon's DynamoDB service. Within one of the first few videos, the CAP Theorem was
 discussed. As someone with a pure maths background, theorems are irresistable bait, so I wanted to find out more about it.
