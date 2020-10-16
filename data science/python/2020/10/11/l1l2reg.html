@@ -123,7 +123,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      3 min read
     
 </span></p>
 
@@ -145,7 +145,20 @@ window.onload = wrap_img;
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
 <li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
-<li class="toc-entry toc-h2"><a href="#varying-cost-function-with-parameters-restricted-to-l1-or-l2-balls">Varying cost function with parameters restricted to L1 or L2 balls</a></li>
+<li class="toc-entry toc-h2"><a href="#varying-cost-function-with-parameters-restricted-to-l1-or-l2-balls">Varying cost function with parameters restricted to L1 or L2 balls</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#parameters-restricted-to-l1-ball">Parameters restricted to L1 ball</a></li>
+<li class="toc-entry toc-h3"><a href="#parameters-restricted-to-l2-ball">Parameters restricted to L2 ball</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#varying-cost-functions-with-l1-or-l2-regularisations">Varying cost functions with L1 or L2 regularisations</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#optimal-parameters-with-l1-regularisation">Optimal parameters with L1 regularisation</a></li>
+<li class="toc-entry toc-h3"><a href="#optimal-parameters-with-l2-regularisation">Optimal parameters with L2 regularisation</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#max-norm">Max norm</a></li>
+<li class="toc-entry toc-h2"><a href="#conclusions">Conclusions</a></li>
 </ul><h2 id="other-posts-in-series">
 <a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
 
@@ -153,14 +166,85 @@ window.onload = wrap_img;
 <a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
 <p>In this <a href="https://medium.com/@davidsotunbo/ridge-and-lasso-regression-an-illustration-and-explanation-using-sklearn-in-python-4853cd543898">medium post comparing L1 and L2 regularisation</a> there is an image showing how L1 regularisation is more likely to make one of the parameters equal to zero than L2 regularisation.</p>
 
-<p>One of my co-fellows at Faculty pointed out that this image is not convincing, because it could just be a case of a cherry-picked cost function. As I had never made any effort to properly understanding L1 versus L2 regularisation previously, this was good motivation for me to better to understand.</p>
+<p>One of my <a href="https://faculty.ai/fellowship/">co-fellows at Faculty</a> pointed out that this image is not convincing, because it could just be a case of a cherry-picked cost function. As I had never made any effort to properly understanding L1 versus L2 regularisation previously, this was good motivation for me to better to understand.</p>
 
 <p>The results are bunch of visuals that are below.</p>
 
 <h2 id="varying-cost-function-with-parameters-restricted-to-l1-or-l2-balls">
 <a class="anchor" href="#varying-cost-function-with-parameters-restricted-to-l1-or-l2-balls" aria-hidden="true"><span class="octicon octicon-link"></span></a>Varying cost function with parameters restricted to L1 or L2 balls</h2>
 
+<h3 id="parameters-restricted-to-l1-ball">
+<a class="anchor" href="#parameters-restricted-to-l1-ball" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters restricted to L1 ball</h3>
+
 <p><img src="/blog/images/l1l2reg_l11.gif" alt="image"></p>
+
+<h3 id="parameters-restricted-to-l2-ball">
+<a class="anchor" href="#parameters-restricted-to-l2-ball" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters restricted to L2 ball</h3>
+
+<p><img src="/blog/images/l1l2reg_l21.gif" alt="image"></p>
+
+<p>In the plots above:</p>
+<ul>
+  <li>The circular things that are moving around are contour plots of cost functions. They are all convex.</li>
+  <li>The shaded regions are L1 and L2 balls, i.e. all points where the L1 or L2 norm of the parameters are less than some fixed radius r.</li>
+  <li>The red dot is the parameter which minimizes the cost function, given the restriction of being within the ball.</li>
+</ul>
+
+<p>What can be seen is that restricting the parameters to an L1-ball results in one of the two paramters being zero, most of the time.  The L2-ball has no preference for values and the red dot just tracks the cost function.</p>
+
+<p>This matches the general descriptions I have seen of L1 regularisation in various blog posts and articles.</p>
+
+<h2 id="varying-cost-functions-with-l1-or-l2-regularisations">
+<a class="anchor" href="#varying-cost-functions-with-l1-or-l2-regularisations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Varying cost functions with L1 or L2 regularisations</h2>
+<p>An issue with the above plots is that I have forced my parameters to be within an L1 or L2 ball, but in regularisation, the parameters can have any value, but there is simply a regularisation term added to incentivise the model to reduce the L1 or L2 norm.</p>
+
+<p>(Having this forced restriction corresponds to have a regularisation term that is zero if the parameters are inside the ball, and infinity if the parameters are outside the ball. So normal regularisation can be thought of as being a smoothed out version of this forced restriction.)</p>
+
+<p>To check that the insights gained in the above plots do work when we have regularisation I create a couple more plots.</p>
+
+<ul>
+  <li>I created a cost function <code class="highlighter-rouge">(x-x0)^2 + (y-y0))^2 + r*norm((x,y))</code>
+</li>
+  <li>
+<code class="highlighter-rouge">r</code> is a regularisation constant.</li>
+  <li>
+<code class="highlighter-rouge">norm</code> is the L1 norm in the first plot and the L2 norm in the second plot.</li>
+  <li>I determined the coordinates <code class="highlighter-rouge">(x', y')</code> that minimised the cost function above.</li>
+  <li>I added those coordinates to a scatterplot.</li>
+  <li>I then varied <code class="highlighter-rouge">x0</code> and <code class="highlighter-rouge">y0</code>, producing many cost functions, and plotting the resulting <code class="highlighter-rouge">(x', y')</code> coordinates in the scatterplot.</li>
+</ul>
+
+<h3 id="optimal-parameters-with-l1-regularisation">
+<a class="anchor" href="#optimal-parameters-with-l1-regularisation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optimal parameters with L1 regularisation</h3>
+
+<p><img src="/blog/images/l1l2reg_l12.gif" alt="image"></p>
+
+<h3 id="optimal-parameters-with-l2-regularisation">
+<a class="anchor" href="#optimal-parameters-with-l2-regularisation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optimal parameters with L2 regularisation</h3>
+
+<p><img src="/blog/images/l1l2reg_l22.gif" alt="image"></p>
+
+<p>We can see in the plots above that the pattern continues. L1 regularisation will force parameters to zero, and L2 regularisation does not have any preferred direction - L2 just wants the length of the vector to be smaller.</p>
+
+<h2 id="max-norm">
+<a class="anchor" href="#max-norm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Max norm</h2>
+<p>So you can check your understanding, imagine how the plots above would look if we replaced the L1and L2 norms with the max norm, <code class="highlighter-rouge">max_norm((x,y)) = max(|x|, |y|)</code>.</p>
+
+<p>No really, take a couple of minutes to think this through. You learn the most by actively engaging with the ideas rather than passively reading somebody else’s thoughts.</p>
+
+<p>…</p>
+
+<p>…</p>
+
+<p>Well, here are the two plots. Minor note, the plots are for the L10 norm, but it is a good enough approximation.</p>
+
+<p><img src="/blog/images/l1l2reg_linf1.gif" alt="image"></p>
+
+<p><img src="/blog/images/l1l2reg_linf2.gif" alt="image"></p>
+
+<h2 id="conclusions">
+<a class="anchor" href="#conclusions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusions</h2>
+<p>Like I said in my recent post on Bayes Rule, there is always a deeper level of understanding available, even for simple concepts. I am glad I produced these plots. I have read before that L1-regularisation ought to have parameters go to zero, but I never really understood it, but now I feel I have some feel for it.  Also, it was good python practice.</p>
 
   </div><a class="u-url" href="/blog/data%20science/python/2020/10/11/l1l2reg.html" hidden></a>
 </article>
