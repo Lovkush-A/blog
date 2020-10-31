@@ -22,7 +22,7 @@ I ran the SQL commands in Python using the module sqlite3. I used [this article]
         cursor.close()
         connection.close()
     
-    return results
+        return results
 ```
 
 
