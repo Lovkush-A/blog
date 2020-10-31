@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-31T08:52:10-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Visualising L1 and L2 regularisation</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html" rel="alternate" type="text/html" title="Visualising L1 and L2 regularisation" /><published>2020-10-11T00:00:00-05:00</published><updated>2020-10-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-31T09:07:43-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Visualising L1 and L2 regularisation</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html" rel="alternate" type="text/html" title="Visualising L1 and L2 regularisation" /><published>2020-10-11T00:00:00-05:00</published><updated>2020-10-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this &lt;a href=&quot;https://medium.com/@davidsotunbo/ridge-and-lasso-regression-an-illustration-and-explanation-using-sklearn-in-python-4853cd543898&quot;&gt;medium post comparing L1 and L2 regularisation&lt;/a&gt; there is an image showing how L1 regularisation is more likely to make one of the parameters equal to zero than L2 regularisation.&lt;/p&gt;
@@ -245,7 +245,19 @@
 &lt;p&gt;Again, this is consistent with the frequncy vs loss charts above, where you can see there are local minima to the left of the global minimum.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;This has been a bit of a topsy-turvy learning experience. I am still surprised at how much I learnt from this basic example. And having struggled with this simple example, I better appreciate how impressive it is to get complicated neural networks to learn.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">An intuitive but unknown version of Bayes’ Theorem</title><link href="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html" rel="alternate" type="text/html" title="An intuitive but unknown version of Bayes' Theorem" /><published>2020-09-24T00:00:00-05:00</published><updated>2020-09-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes</id><content type="html" xml:base="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This has been a bit of a topsy-turvy learning experience. I am still surprised at how much I learnt from this basic example. And having struggled with this simple example, I better appreciate how impressive it is to get complicated neural networks to learn.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Squash rankings, Part II, dimension reduction and clustering</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/09/28/squash2.html" rel="alternate" type="text/html" title="Squash rankings, Part II, dimension reduction and clustering" /><published>2020-09-28T00:00:00-05:00</published><updated>2020-09-28T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/09/28/squash2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/09/28/squash2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/scraping/2020/09/17/squash1.html&quot;&gt;Squash rankings, Part I, Scraping wikipedia and data analysis&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In the previous post, I scraped squash ranking data and produced a dataframe out of it. I then simply eye-balled the table to see the patterns. However, doing some kind of visualisation is always better than just listing a table, so that is what I did next.  Furthermore, I decided to finally try out some dimension reduction algorithms and clustering to help with the visualisations and pattern-finding.&lt;/p&gt;
+
+&lt;h2 id=&quot;male-rankings&quot;&gt;Male Rankings&lt;/h2&gt;
+&lt;h3 id=&quot;pca&quot;&gt;PCA&lt;/h3&gt;
+&lt;p&gt;I first tried using PCA on the data and see how it would present the data.
+&lt;img src=&quot;/blog/images/squash2_malepca1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part I, Scraping wikipedia and data analysis</summary></entry><entry><title type="html">An intuitive but unknown version of Bayes’ Theorem</title><link href="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html" rel="alternate" type="text/html" title="An intuitive but unknown version of Bayes' Theorem" /><published>2020-09-24T00:00:00-05:00</published><updated>2020-09-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes</id><content type="html" xml:base="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;One of the big lessons I have learnt is that no matter how well (you think) you understand something, there is almost always a deeper or clearer level of understanding available. Even for trivially simple things, like addition. Today, I will describe my experience with this phenomena in the context of Baye’s Theorem, by going through four different ways I have of conceptualising it. The final way  is surprisingly simple but largely unknown; I learnt about it from this &lt;a href=&quot;https://80000hours.org/podcast/episodes/spencer-greenberg-bayesian-updating/#bayesian-updating&quot;&gt;80000 Hours’ interview of Spencer Greenberg&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Recall that Bayes Theorem states that:
@@ -469,7 +481,117 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 &lt;h2 id=&quot;final-remarks&quot;&gt;Final remarks&lt;/h2&gt;
 &lt;p&gt;I hope you gained some new insights into Bayes’ Theorem. If you have any other perspectives on it, please let me know! As I said at the start, it is always surprising how things that you feel you understand contain hidden layers and deeper insights.&lt;/p&gt;
 
-&lt;p&gt;Lastly, I recommend you listen to the &lt;a href=&quot;https://80000hours.org/podcast/episodes/spencer-greenberg-bayesian-updating/#bayesian-updating&quot;&gt;80000 Hours’ interview of Spencer Greenberg&lt;/a&gt;. First, you will hear Spencer’s description and perspectives on this odds framework. Second, you will learn a whole bunch of other insightful things: Spencer researches thinking and rationality and tries to develop software tools that take make use of his insights. For example, Spencer discusses their research on when people are over- or under-confident.&lt;/p&gt;</content><author><name></name></author><summary type="html">Introduction One of the big lessons I have learnt is that no matter how well (you think) you understand something, there is almost always a deeper or clearer level of understanding available. Even for trivially simple things, like addition. Today, I will describe my experience with this phenomena in the context of Baye’s Theorem, by going through four different ways I have of conceptualising it. The final way is surprisingly simple but largely unknown; I learnt about it from this 80000 Hours’ interview of Spencer Greenberg.</summary></entry><entry><title type="html">Squash rankings, Part I, Scraping wikipedia and data analysis</title><link href="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html" rel="alternate" type="text/html" title="Squash rankings, Part I, Scraping wikipedia and data analysis" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;Lastly, I recommend you listen to the &lt;a href=&quot;https://80000hours.org/podcast/episodes/spencer-greenberg-bayesian-updating/#bayesian-updating&quot;&gt;80000 Hours’ interview of Spencer Greenberg&lt;/a&gt;. First, you will hear Spencer’s description and perspectives on this odds framework. Second, you will learn a whole bunch of other insightful things: Spencer researches thinking and rationality and tries to develop software tools that take make use of his insights. For example, Spencer discusses their research on when people are over- or under-confident.&lt;/p&gt;</content><author><name></name></author><summary type="html">Introduction One of the big lessons I have learnt is that no matter how well (you think) you understand something, there is almost always a deeper or clearer level of understanding available. Even for trivially simple things, like addition. Today, I will describe my experience with this phenomena in the context of Baye’s Theorem, by going through four different ways I have of conceptualising it. The final way is surprisingly simple but largely unknown; I learnt about it from this 80000 Hours’ interview of Spencer Greenberg.</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/10/01/sgd4.html&quot;&gt;Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html&quot;&gt;Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/09/10/sgd1.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In the previous posts, I used gradient descent to model linear, quadratic and sinusoidal data. In the first post, the linear and quadratic models could be fit, but the sinusoidal data could not be fit.  In the second post, we saw how neural networks kind of fit the data, but not very well.&lt;/p&gt;
+
+&lt;p&gt;This time, I will add the stochasticity by introducing mini-batches. My hope is that I will be able to fit the sinusoidal data that I could not fit in the first post. I will discuss this example at the end, because it is the most interesting&lt;/p&gt;
+
+&lt;h2 id=&quot;models-with-neural-networks&quot;&gt;Models with neural networks&lt;/h2&gt;
+&lt;p&gt;Here are animations of a neural network trying to fit using stochastic gradient descent.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_linearnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_quadraticnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sinnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The end results look similar to the end results without using mini-batches. The big difference is that the network converges much faster.&lt;/p&gt;
+
+&lt;h2 id=&quot;fitting-sinusoidal-data-using-a-sinusoidal-model&quot;&gt;Fitting sinusoidal data using a sinusoidal model&lt;/h2&gt;
+&lt;p&gt;Here is a representative example of my first attempts using SGD on sinusoidal data. Note that in all of the animations in this section, the same dataset and initial parameters were used, so the comparisons are more rigorous.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;To my dismay, we seem to have the same problem as with normal gradient descent. The system gets stuck in some local minimum where the amplitude is small. It still continues to ‘learn’ though.&lt;/p&gt;
+
+&lt;p&gt;At this point, I experimented a little (e.g. with some ‘regularisation’), which I plan to describe in a separate post (spoiler alert - they didn’t work). While planning this blogpost, I re-watched the animation above and thought that maybe the learning rate is too big. I presumably tried playing with the learning rate already but for the sake of completeness, I thought it would be good to produce a series of animations to show you that varying the learning rate does not help.&lt;/p&gt;
+
+&lt;p&gt;The learning rate in the animation above was 0.1.  Below is an animation for a learning rate of 0.01.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;! That was unexpected! It managed to find good parameters, but then jumped to some inferior local minimum. I managed to achieve something similar to this using the regularisation mentioned above (and which I will describe in a later post), but I was not expecting to see this by changing the learning rate. Clearly my memory is off and I had not experimented with the learning rate. I thought I would re-run the calculations to see if the same behaviour would occur again. (Note that the initial parameters are the same in all these animations, but there is still randomness from how the mini-batches are selected.)&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin2b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;So we get similar behaviour. For some time it looks like we are getting close to a good model but then it jumps away to some other set of parameters.&lt;/p&gt;
+
+&lt;p&gt;Looks like I should make the learning rate smaller, and see if that prevents jumping away from the correct model. The next animation is for a learning rate of 0.001.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin3.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;!!! Wow! Given that I had failed after several hours of trying, this was basically magic to me. The model gently and slides its way into position, increases its amplitude, then stays there. Fantastic!&lt;/p&gt;
+
+&lt;p&gt;Now a big question arises. Were the learning rates in the first post of this series too high, and that was the reason for the struggles with sinusoidal models? There’s only one way to find out, and that’s by doing the experiment. Below is the resulting animation.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin3b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;!!! All this time, it was as simple as changing the learning rate. How did I miss this?! What is noteworthy is how slow the learning is in gradient descent as compared to stochastic gradient descent.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+&lt;p&gt;There are two big lessons I learnt from this.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The first is to somehow take good notes of what I have tried and to be systematic. In my previous job teaching maths to STEM Foundation Year students, my colleague who taught Laboratory Skills was trying to explain the purpose of a lab-book to students: it should be a record of what you did, why you did it, what you observed, etc. so that somebody else (in particular, future-you) can read it and re-live your experience. It looks like I have only now learnt this lesson my colleague was trying to teach. Better late than never, I suppose.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The second is that the main benefit of stochastic gradient descent seems to be in efficiency/speed. I have read in places that it can help with preventing local minimums, but I am still unsure of this latter point.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
+&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Squash rankings, Part I, Scraping wikipedia and data analysis</title><link href="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html" rel="alternate" type="text/html" title="Squash rankings, Part I, Scraping wikipedia and data analysis" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/2020/09/28/squash2.html&quot;&gt;Squash rankings, Part II, dimension reduction and clustering&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I am going through the CS109 Harvard lectures on data science. I just watched a couple of lectures on web-scraping with BeautifulSoup, so I wanted to practice. I decided to scrape squash ranking data from wikipedia, as I am a avid fan of the sport. On wikipedia, the best information I could find was the top 10 players at the end of each year for the past 25 years or so.&lt;/p&gt;
@@ -668,113 +790,7 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 &lt;span class=&quot;n&quot;&gt;df_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df_m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url_to_pandas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;players_f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player_summaries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;players_m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player_summaries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/10/01/sgd4.html&quot;&gt;Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html&quot;&gt;Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/09/10/sgd1.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;In the previous posts, I used gradient descent to model linear, quadratic and sinusoidal data. In the first post, the linear and quadratic models could be fit, but the sinusoidal data could not be fit.  In the second post, we saw how neural networks kind of fit the data, but not very well.&lt;/p&gt;
-
-&lt;p&gt;This time, I will add the stochasticity by introducing mini-batches. My hope is that I will be able to fit the sinusoidal data that I could not fit in the first post. I will discuss this example at the end, because it is the most interesting&lt;/p&gt;
-
-&lt;h2 id=&quot;models-with-neural-networks&quot;&gt;Models with neural networks&lt;/h2&gt;
-&lt;p&gt;Here are animations of a neural network trying to fit using stochastic gradient descent.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_linearnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_quadraticnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sinnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;The end results look similar to the end results without using mini-batches. The big difference is that the network converges much faster.&lt;/p&gt;
-
-&lt;h2 id=&quot;fitting-sinusoidal-data-using-a-sinusoidal-model&quot;&gt;Fitting sinusoidal data using a sinusoidal model&lt;/h2&gt;
-&lt;p&gt;Here is a representative example of my first attempts using SGD on sinusoidal data. Note that in all of the animations in this section, the same dataset and initial parameters were used, so the comparisons are more rigorous.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;To my dismay, we seem to have the same problem as with normal gradient descent. The system gets stuck in some local minimum where the amplitude is small. It still continues to ‘learn’ though.&lt;/p&gt;
-
-&lt;p&gt;At this point, I experimented a little (e.g. with some ‘regularisation’), which I plan to describe in a separate post (spoiler alert - they didn’t work). While planning this blogpost, I re-watched the animation above and thought that maybe the learning rate is too big. I presumably tried playing with the learning rate already but for the sake of completeness, I thought it would be good to produce a series of animations to show you that varying the learning rate does not help.&lt;/p&gt;
-
-&lt;p&gt;The learning rate in the animation above was 0.1.  Below is an animation for a learning rate of 0.01.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;! That was unexpected! It managed to find good parameters, but then jumped to some inferior local minimum. I managed to achieve something similar to this using the regularisation mentioned above (and which I will describe in a later post), but I was not expecting to see this by changing the learning rate. Clearly my memory is off and I had not experimented with the learning rate. I thought I would re-run the calculations to see if the same behaviour would occur again. (Note that the initial parameters are the same in all these animations, but there is still randomness from how the mini-batches are selected.)&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin2b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;So we get similar behaviour. For some time it looks like we are getting close to a good model but then it jumps away to some other set of parameters.&lt;/p&gt;
-
-&lt;p&gt;Looks like I should make the learning rate smaller, and see if that prevents jumping away from the correct model. The next animation is for a learning rate of 0.001.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin3.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;!!! Wow! Given that I had failed after several hours of trying, this was basically magic to me. The model gently and slides its way into position, increases its amplitude, then stays there. Fantastic!&lt;/p&gt;
-
-&lt;p&gt;Now a big question arises. Were the learning rates in the first post of this series too high, and that was the reason for the struggles with sinusoidal models? There’s only one way to find out, and that’s by doing the experiment. Below is the resulting animation.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin3b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;!!! All this time, it was as simple as changing the learning rate. How did I miss this?! What is noteworthy is how slow the learning is in gradient descent as compared to stochastic gradient descent.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;There are two big lessons I learnt from this.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;The first is to somehow take good notes of what I have tried and to be systematic. In my previous job teaching maths to STEM Foundation Year students, my colleague who taught Laboratory Skills was trying to explain the purpose of a lab-book to students: it should be a record of what you did, why you did it, what you observed, etc. so that somebody else (in particular, future-you) can read it and re-live your experience. It looks like I have only now learnt this lesson my colleague was trying to teach. Better late than never, I suppose.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The second is that the main benefit of stochastic gradient descent seems to be in efficiency/speed. I have read in places that it can help with preventing local minimums, but I am still unsure of this latter point.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" /><published>2020-09-11T00:00:00-05:00</published><updated>2020-09-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part II, dimension reduction and clustering</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" /><published>2020-09-11T00:00:00-05:00</published><updated>2020-09-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1986,166 +2002,4 @@ Cameron Diaz
 &lt;p&gt;Nice list of some of the more famous actors in the industry. One thing that surprised is how many movies I have watched that starred Brad Pitt - I did not realise it was that many! Once again, it is worth noting that females are under-represented here.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;This project has probably been the one that I spent the most time on so far. I have learnt a whole bunch and managed to produce some nice visuals and summaries. Hopefully it was interesting to read!&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part II, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry><entry><title type="html">FastAI Course, Part II, Lesson 1 and sentiment analysis</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/30/fastai2.html" rel="alternate" type="text/html" title="FastAI Course, Part II, Lesson 1 and sentiment analysis" /><published>2020-08-30T00:00:00-05:00</published><updated>2020-08-30T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/30/fastai2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/08/30/fastai2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/08/fastai3.html&quot;&gt;FastAI Course, Part III, Frustrations with creating an image classifier&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/08/09/fastai1.html&quot;&gt;FastAI Course, Part I, Lessons 1 and 2&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Recently, FastAI launched a new version of their course, using their revamped FastAI version 2 packages. As I had only completed the first two lessons of the previous version of the course, I thought I’d restart.  It is good I did re-start, because they have made big changes to how the course is organised and also to the syntax (e.g. in the old version, there was significant discussion about setting the learning rate using their ‘learning rate finder’, but so far, there has been no mention of this and it looks like that has been automated).  Towards the end of the first lesson, Jeremy showcases the different domains in which one can use Deep Learning. One of those was NLP. I have not yet done any NLP, so I thought this is a good chance to play around a little, without having to delve into any of the technical details.&lt;/p&gt;
-
-&lt;p&gt;In this particular example, the NLP consists of sentiment analysis of movie reviews. Looking at the code, they use AWD LSTM architecture. A quick google search reveals that this is a fairly new algorithm, combining various ideas and tools into one. I am not yet at the stage to understand this though, but hopefully it will be discussed later in the course.&lt;/p&gt;
-
-&lt;h2 id=&quot;experimentation&quot;&gt;Experimentation&lt;/h2&gt;
-&lt;p&gt;The input to the model is a string containing a movie review. The output is a probability/score between 0 and 1 indicating how much the model thinks the review is positive. My initial thought was to to see if the model had learnt about numbers, by seeing how it rates reviews of the form ‘x out of y’.&lt;/p&gt;
-
-&lt;h3 id=&quot;x-out-of-5&quot;&gt;‘x out of 5’&lt;/h3&gt;
-&lt;p&gt;The results of this experimentation:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0 out of 5: 0.5570
-1 out of 5: 0.4760
-2 out of 5: 0.3281
-3 out of 5: 0.4038
-4 out of 5: 0.4073
-5 out of 5: 0.8569
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This was surprising to me:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;The model thinks that the review ‘0 out of 5’ is likely a positive review&lt;/li&gt;
-  &lt;li&gt;The model is roughly undecided about ‘1 out of 5’&lt;/li&gt;
-  &lt;li&gt;The model thinks 2,3 or 4 out of 5 is negative&lt;/li&gt;
-  &lt;li&gt;The model thinksthat ‘5 out of 5’ is positive.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;As with most of these ML models, this must be a reflection of the underlying dataset. I imagine very few people actually give a movie 0 or 1 out of 5, so the model doesn’t really know what to do with it, whereas ‘2 out of 5’ probably is more common and basically says the movie is bad, and ‘3 out of 5’ and ‘4 out of 5’ are more average-y ratings.&lt;/p&gt;
-
-&lt;h3 id=&quot;x-out-of-10&quot;&gt;‘x out of 10’&lt;/h3&gt;
-&lt;p&gt;The results of this:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0 out of 10: 0.5402
-1 out of 10: 0.4478
-2 out of 10: 0.2972
-3 out of 10: 0.3741
-4 out of 10: 0.3798
-5 out of 10: 0.8475
-6 out of 10: 0.9897
-7 out of 10: 0.99996
-8 out of 10: 0.99991
-9 out of 10: 0.9998
-10 out of 10:0.99996
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Again the model is confused with the worst reviews, presumably because they just don’t occur in the training data. Then the model seems to deal with 2,3 and 4 out of 10 sensibly. But then it has big jump and thinks the rest are definitely positive, with anything above 7 out of 10 being considered positive with high confidence. Again, the explanation for these unusual evaluations of the reviews must be that they are uncommon in the dataset.&lt;/p&gt;
-
-&lt;h3 id=&quot;variations-on-x-out-of-5&quot;&gt;Variations on ‘x out of 5’&lt;/h3&gt;
-&lt;p&gt;I tried a few little variations on ‘x out of 5’ to see if it would make any impact: adding an exclamation mark at the end, adding the word ‘stars’ at the end, and adding the word ‘Only’ at the start.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;x&lt;/th&gt;
-      &lt;th&gt;‘x out of 5’&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;‘x out of 5!’&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;‘x out of 5 stars’&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;‘Only x out of 5’&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
-      &lt;td&gt;0.5570&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.7436&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.7247&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.0240&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
-      &lt;td&gt;0.4760&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.6756&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.6538&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.0247&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
-      &lt;td&gt;0.3281&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.4901&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.4884&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.0196&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;3&lt;/td&gt;
-      &lt;td&gt;0.4038&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.5670&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.5634&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.0189&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
-      &lt;td&gt;0.4073&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.5634&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.5589&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.0179&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;5&lt;/td&gt;
-      &lt;td&gt;0.8569&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.9051&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.8969&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.5464&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Adding an exclamation mark makes the model think the reviews are more positive, which in my opinion is sensible.&lt;/li&gt;
-  &lt;li&gt;Adding the word ‘stars’ seems to have very similar effect to adding an exclamation mark. I do not know if this is just a coincidence - I do not have intuition for this. I guess it must mean that if the word ‘star’ appeared in the training data, then it mostly meant it was a positive review.&lt;/li&gt;
-  &lt;li&gt;Adding the word ‘only’ dramatically reduced the positivity score, which makes sense.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;miscellaneous-statements&quot;&gt;Miscellaneous statements&lt;/h3&gt;
-&lt;p&gt;Lastly, I tried a variety of miscellaneous statements:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;I liked some bits and I disliked other bits
-0.9345
-
-I disliked some bits and I liked other bits
-0.8857
-
-I liked most of it, but not all of it
-0.9906
-
-I disliked most of it, but not all of it
-0.9782
-
-I hated most of it, but not all of it
-0.9486
-
-I disliked the movie
-0.7621
-
-I hated the movie
-0.6873
-
-I cannot believe how bad the movie is
-0.5535
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The model is comically bad at judging whether the statement is positive. I started by trying a neutral statement, but the model thought it was great.  I then tried the favourable statement ‘I liked most of it…’ and the model thought it was positive (sensible), but still thought the statement was positive when I switched liked and disliked. Using the word ‘hated’ instead reduced it a bit.&lt;/p&gt;
-
-&lt;p&gt;Maybe the model hasn’t even learnt the word ‘disliked’ and ‘hated’. So I just tried the simple statements ‘I dislike/hated the movie’, and the model does reduce its score, but still thinks these are overall positive. I end with a particularly strong negative review, which the model perceives as slightly positive.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;It is nice to play around with a model without any expectation to understand the inner-intricacies or working. My main takeaways are:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The model has learnt some sensible patterns, e.g. adding ‘only’ indicates a negative review, adding an exclamation mark indicates a positive review, etc.&lt;/li&gt;
-  &lt;li&gt;The model fails spectacularly badly on several examples, which do not feel contrived to me. This makes me question the reliability of sentiment analysis. Maybe the examples I created are not representative of real-world examples.&lt;/li&gt;
-  &lt;li&gt;If I were a decision-maker in some business, I would definitely be using manual analysis until I see better evidence.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Other posts in series FastAI Course, Part III, Frustrations with creating an image classifier FastAI Course, Part I, Lessons 1 and 2</summary></entry></feed>
+&lt;p&gt;This project has probably been the one that I spent the most time on so far. I have learnt a whole bunch and managed to produce some nice visuals and summaries. Hopefully it was interesting to read!&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part II, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry></feed>
