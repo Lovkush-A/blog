@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-31T10:18:04-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Visualising L1 and L2 regularisation</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html" rel="alternate" type="text/html" title="Visualising L1 and L2 regularisation" /><published>2020-10-11T00:00:00-05:00</published><updated>2020-10-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-31T13:27:07-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Visualising L1 and L2 regularisation</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html" rel="alternate" type="text/html" title="Visualising L1 and L2 regularisation" /><published>2020-10-11T00:00:00-05:00</published><updated>2020-10-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this &lt;a href=&quot;https://medium.com/@davidsotunbo/ridge-and-lasso-regression-an-illustration-and-explanation-using-sklearn-in-python-4853cd543898&quot;&gt;medium post comparing L1 and L2 regularisation&lt;/a&gt; there is an image showing how L1 regularisation is more likely to make one of the parameters equal to zero than L2 regularisation.&lt;/p&gt;
@@ -91,12 +91,6 @@
     &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/09/10/sgd1.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd1_linear_1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;After the first post of the series, I believed that the issue with fitting sinusoidal data with a sinusoidal model using Gradient Descent is that it gets stuck in a local minimum where the amplitude is small. I hoped that adding stochasticity would fix it. In Part III, I described the process of adding stochasticity, and that still did not help. Also in Part III, I described how I eventually realised that the issue was with the learning rate.&lt;/p&gt;
