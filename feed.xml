@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-31T13:27:07-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Visualising L1 and L2 regularisation</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html" rel="alternate" type="text/html" title="Visualising L1 and L2 regularisation" /><published>2020-10-11T00:00:00-05:00</published><updated>2020-10-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-10-31T13:37:01-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Visualising L1 and L2 regularisation</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html" rel="alternate" type="text/html" title="Visualising L1 and L2 regularisation" /><published>2020-10-11T00:00:00-05:00</published><updated>2020-10-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this &lt;a href=&quot;https://medium.com/@davidsotunbo/ridge-and-lasso-regression-an-illustration-and-explanation-using-sklearn-in-python-4853cd543898&quot;&gt;medium post comparing L1 and L2 regularisation&lt;/a&gt; there is an image showing how L1 regularisation is more likely to make one of the parameters equal to zero than L2 regularisation.&lt;/p&gt;
@@ -93,8 +93,6 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;After the first post of the series, I believed that the issue with fitting sinusoidal data with a sinusoidal model using Gradient Descent is that it gets stuck in a local minimum where the amplitude is small. I hoped that adding stochasticity would fix it. In Part III, I described the process of adding stochasticity, and that still did not help. Also in Part III, I described how I eventually realised that the issue was with the learning rate.&lt;/p&gt;
-
 &lt;p&gt;I will recap my investigations into fitting sinusoidal data using sinusoidal models with SGD.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;In Part I, I described my attempt at using GD and my belief that the failure to fit was due to the model getting stuck in a local minimum where the amplitude is small. I hoped that SGD would fix this problem.&lt;/li&gt;
@@ -158,7 +156,7 @@
   &lt;/video&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;As can be seen from this, there are many local minima, so the model might get stuck in the wrong one. Eye-balling the chart, if the initial frequency is below 0.5 or above 1.7, then gradient descent will push the frequency away from the optimal value of 1. It is not clear why there should be a tendency for the frequency to increase, as we saw in the SGD examples in Part III.&lt;/p&gt;
+&lt;p&gt;As can be seen from this, there are many local minima, so the model might get stuck in the wrong one. Eye-balling the chart, if the initial frequency is below 0.5 or above 1.7, then gradient descent will push the frequency away from the optimal value of 1. It is now clear why there should be a tendency for the frequency to increase, as we saw in the SGD examples in Part III.&lt;/p&gt;
 
 &lt;p&gt;The next animation is the opposite. For each individual chart, we see how the loss varies with amplitude, and from chart to chart we are modifying the frequency.&lt;/p&gt;
 
