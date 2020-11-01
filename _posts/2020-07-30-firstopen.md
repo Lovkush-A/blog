@@ -24,8 +24,15 @@ It was a bit nerve-racking, because there are so many little things to get corre
 After several other minor comments and changes, the owners of the project were happy and merged the changes into the main code. Woohoo! My first ever contribution is done.
 
 ## Things I learnt
-Like I said above, there are many little things to get correct to successfully contribute. Here I list several of the details and things I learnt about as a result.
-*
+Like I said above, there are many little things to get correct to successfully contribute. I list several of the details and things I learnt about as a result.
+* Git and version control. In the contribution guidelines, there are explicit details on which branch to branch off, how to name your branches, and the destination branch of your pull request. In my own personal projects, good Git habits never really matter because they are so small. However, by contributing to an open source project, I better understand the overall Git workflow and the value of its features.
+* Type hints. I had never used these before, but now I have!
+* Good docstrings. Again, in my personal projects, this has not really mattered, but I appreciatehow much difference these make when trying to read new code. These will also be helpful for anybody trying to use the package.
+* Testing. I tested my code by using a Jupyter Notebook, and actually submitted it as part of the pull request to demonstrate that my code worked. However, I have now learnt about unit tests and the python package unittests. There is still a lot for me to learn here; I know how to write tests but I do not know how to set it all up to automatically carry out the tests.
+* Consistent code formatting. I tried to make sure I was fully consistent, but there were still a couple of minor things that I missed (e.g. spaces within a list, ticks around parameters in docstrings). Edit (Oct 2020): I have since learnt about linting and automatic code formatting, so this should make this easier to deal with.
+* Efficient coding. One of the errors I made was to unnecessarily copy a dataframe. In my personal projects, such issues never matter, but it was enlightening to see the kind of considerations one makes when thinking about efficiency. Compared to the other details, this seems difficult to improve on, because it depends on having a deep understanding of standard packages that can only be gained through conscious effort. It is not one of those things that one just 'picks up' with experience.
+
+As you can see, there is a lot I have learnt. The biggest lesson I have learnt is why people recommend contributing to open source projects as a way of improving one's skills. I not only learnt a lot, but I learnt a lot of things that have not come up in any of the blogs, courses or tutorials I have read.
 
 ## The code
 In case you care, here is the code I wrote for the map function:
