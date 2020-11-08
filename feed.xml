@@ -1,4 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-11-08T04:28:45-06:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Visualising L1 and L2 regularisation</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html" rel="alternate" type="text/html" title="Visualising L1 and L2 regularisation" /><published>2020-10-11T00:00:00-05:00</published><updated>2020-10-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-11-08T05:47:41-06:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Squash rankings, Part III, All hail Bokeh!</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3.html" rel="alternate" type="text/html" title="Squash rankings, Part III, All hail Bokeh!" /><published>2020-11-01T00:00:00-05:00</published><updated>2020-11-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/09/28/squash2.html&quot;&gt;Squash rankings, Part II, dimension reduction and clustering&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/scraping/2020/09/17/squash1.html&quot;&gt;Squash rankings, Part I, Scraping wikipedia and data analysis&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;One of my mentors at the Faculty Fellowship, Sania Jevtic, recommended I try using Bokeh to plot various charts I was making. I tried it and without too much effort I managed to get it to work. It is AMAZING! The interactivity you get from it is fantastic and allows for much easier understanding of your data and richer presentation of your data. I will try to illustrate by redrawing some of the charts from Part II of this series.&lt;/p&gt;
+
+&lt;p&gt;I will be re-making the three charts below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/images/squash2_malecluster.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;bokeh-charts&quot;&gt;Bokeh charts&lt;/h2&gt;
+
+&lt;p&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/p&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  
+  &lt;head&gt;
+    
+      &lt;meta charset=&quot;utf-8&quot; /&gt;
+      &lt;title&gt;Bokeh Plot&lt;/title&gt;
+      
+      
+        
+          
+        
+        
+          
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js&quot; integrity=&quot;sha384-T2yuo9Oe71Cz/I4X9Ac5+gpEa5a8PpJCDlqKYO0CfAuEszu1JrXLl8YugMqYe3sM&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            Bokeh.set_log_level(&quot;info&quot;);
+        &lt;/script&gt;
+        
+      
+      
+    
+  &lt;/head&gt;
+  
+  
+  &lt;body&gt;
+    
+      
+        
+          
+          
+            
+              &lt;div class=&quot;bk-root&quot; id=&quot;5896499d-cb1b-4c82-9338-87c574f11e41&quot; data-root-id=&quot;2184&quot;&gt;&lt;/div&gt;
+            
+          
+        
+      
+      
+        &lt;script type=&quot;application/json&quot; id=&quot;2448&quot;&gt;
+          {&quot;4414fc39-3b12-46cd-9e66-65330f4d0c1d&quot;:{&quot;roots&quot;:{&quot;references&quot;:[{&quot;attributes&quot;:{&quot;background_fill_color&quot;:&quot;white&quot;,&quot;below&quot;:[{&quot;id&quot;:&quot;2193&quot;}],&quot;center&quot;:[{&quot;id&quot;:&quot;2196&quot;},{&quot;id&quot;:&quot;2200&quot;}],&quot;left&quot;:[{&quot;id&quot;:&quot;2197&quot;}],&quot;renderers&quot;:[{&quot;id&quot;:&quot;2212&quot;}],&quot;title&quot;:{&quot;id&quot;:&quot;2215&quot;},&quot;toolbar&quot;:{&quot;id&quot;:&quot;2205&quot;},&quot;x_range&quot;:{&quot;id&quot;:&quot;2185&quot;},&quot;x_scale&quot;:{&quot;id&quot;:&quot;2189&quot;},&quot;y_range&quot;:{&quot;id&quot;:&quot;2187&quot;},&quot;y_scale&quot;:{&quot;id&quot;:&quot;2191&quot;}},&quot;id&quot;:&quot;2184&quot;,&quot;subtype&quot;:&quot;Figure&quot;,&quot;type&quot;:&quot;Plot&quot;},{&quot;attributes&quot;:{&quot;active_drag&quot;:&quot;auto&quot;,&quot;active_inspect&quot;:&quot;auto&quot;,&quot;active_multi&quot;:null,&quot;active_scroll&quot;:&quot;auto&quot;,&quot;active_tap&quot;:&quot;auto&quot;,&quot;tools&quot;:[{&quot;id&quot;:&quot;2201&quot;},{&quot;id&quot;:&quot;2202&quot;},{&quot;id&quot;:&quot;2203&quot;}]},&quot;id&quot;:&quot;2205&quot;,&quot;type&quot;:&quot;Toolbar&quot;},{&quot;attributes&quot;:{&quot;formatter&quot;:{&quot;id&quot;:&quot;2219&quot;},&quot;ticker&quot;:{&quot;id&quot;:&quot;2194&quot;}},&quot;id&quot;:&quot;2193&quot;,&quot;type&quot;:&quot;LinearAxis&quot;},{&quot;attributes&quot;:{&quot;text&quot;:&quot;&quot;},&quot;id&quot;:&quot;2215&quot;,&quot;type&quot;:&quot;Title&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;2198&quot;,&quot;type&quot;:&quot;BasicTicker&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;2191&quot;,&quot;type&quot;:&quot;LinearScale&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;2220&quot;,&quot;type&quot;:&quot;UnionRenderers&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;2221&quot;,&quot;type&quot;:&quot;Selection&quot;},{&quot;attributes&quot;:{&quot;data&quot;:{&quot;best_rank&quot;:[1,1,1,1,1,1,1,2,2,1,1,1,4,4,1,1,3,1,2,5,6,6,5,2,5,4,4,1,5,7,7,4,3,7,4,5,7,5,5,3,7,8,9,9,8,9,9,10,10,10,10],&quot;clusters&quot;:[&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;,&quot;0&quot;,&quot;2&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;2&quot;,&quot;1&quot;,&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;2&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;],&quot;earliest_year&quot;:[&quot;1996&quot;,&quot;2016&quot;,&quot;1996&quot;,&quot;1997&quot;,&quot;2010&quot;,&quot;2006&quot;,&quot;2003&quot;,&quot;1997&quot;,&quot;1996&quot;,&quot;2004&quot;,&quot;2000&quot;,&quot;2004&quot;,&quot;1998&quot;,&quot;2001&quot;,&quot;2001&quot;,&quot;2005&quot;,&quot;2002&quot;,&quot;2003&quot;,&quot;2015&quot;,&quot;1998&quot;,&quot;1996&quot;,&quot;1998&quot;,&quot;2016&quot;,&quot;1999&quot;,&quot;2017&quot;,&quot;2012&quot;,&quot;2014&quot;,&quot;2002&quot;,&quot;2015&quot;,&quot;2019&quot;,&quot;1999&quot;,&quot;2000&quot;,&quot;1996&quot;,&quot;1996&quot;,&quot;1996&quot;,&quot;1996&quot;,&quot;2013&quot;,&quot;2008&quot;,&quot;1996&quot;,&quot;2014&quot;,&quot;2001&quot;,&quot;1996&quot;,&quot;2010&quot;,&quot;1999&quot;,&quot;2007&quot;,&quot;2015&quot;,&quot;2000&quot;,&quot;1998&quot;,&quot;2011&quot;,&quot;2018&quot;,&quot;2012&quot;],&quot;players&quot;:[&quot; Peter Nicol&quot;,&quot; Ali Farag&quot;,&quot; Jansher Khan&quot;,&quot; Jonathon Power&quot;,&quot; Mohamed El Shorbagy&quot;,&quot; Ramy Ashour&quot;,&quot; Gr\u00e9gory Gaultier&quot;,&quot; Ahmed Barada&quot;,&quot; Rodney Eyles&quot;,&quot; Nick Matthew&quot;,&quot; David Palmer&quot;,&quot; Amr Shabana&quot;,&quot; Paul Johnson&quot;,&quot; Stewart Boswell&quot;,&quot; Thierry Lincou&quot;,&quot; James Willstrop&quot;,&quot; Anthony Ricketts&quot;,&quot; Karim Darwish&quot;,&quot; Karim Abdel Gawad&quot;,&quot; Martin Heath&quot;,&quot; Del Harris&quot;,&quot; Dan Jenson&quot;,&quot; Marwan El Shorbagy&quot;,&quot; John White&quot;,&quot; Paul Coll&quot;,&quot; Omar Mosaad&quot;,&quot; Tarek Momen&quot;,&quot; Lee Beachill&quot;,&quot; Miguel \u00c1ngel Rodr\u00edguez&quot;,&quot; Diego Elias&quot;,&quot; Stefan Casteleyn&quot;,&quot; David Evans&quot;,&quot; Simon Parke&quot;,&quot; Craig Rowland&quot;,&quot; Chris Walker&quot;,&quot; Brett Martin&quot;,&quot; Borja Gol\u00e1n&quot;,&quot; Peter Barker&quot;,&quot; Anthony Hill&quot;,&quot; Simon R\u00f6sner&quot;,&quot; Ong Beng Hee&quot;,&quot; Mark Chaloner&quot;,&quot; Laurens Jan Anjema&quot;,&quot; Alex Gough&quot;,&quot; Wael El Hindi&quot;,&quot; Mathieu Castagnet&quot;,&quot; Paul Price&quot;,&quot; Derek Ryan&quot;,&quot; Mohd Azlan Iskandar&quot;,&quot; Mohamed Abouelghar&quot;,&quot; Daryl Selby&quot;],&quot;x&quot;:{&quot;__ndarray__&quot;:&quot;6UhB5GHoHcAojcaOrzkvQAhxhMmXlSrAe75Q4b9tG8AOASrFpo4oQBvkZLzOjx1ALxPLk31nHUAO6vfU9CwmwA8dG7gapirANUJq09W8HEDL7xCNDB/Mv9kilmgKnxJAZ7dMcoAMJcBxKm3pQrIcwK+F3k9H1ti/bVEc7PReHkAFSjlwJ3wKwIkKaXqWYglAwSV0hpFqLkDVFAB8vh4lwNv1fy+daizAekavFo91KMCPNeur0lkvQC7pIBNVpxDAg0B0LyI4MEBDvhjjXWMlQDyycOWA+yxA80dosim/CMB9dG6Vt/EtQMqhZFhrUTFAVMkVDBGUJcAXKWWiX9kgwOOp5jH5FCfAEdjQzrMCLsAQkl77jRcswFtSSztCLSzANiv/PppvI0BdnBIyaMAbQASICBpRAynAyL3SGnkvLUCfgB2hbRgZwPQpCtAPfiTAT7qcoqb1EkBvfrMPI8YjwMBjYNfb1wFAfiUyVJYyKUCWMlEfxOIgwOW6QkXFLSjAlrTPt6K4GEABKc47kQQwQKY50gXm1SBA&quot;,&quot;dtype&quot;:&quot;float64&quot;,&quot;order&quot;:&quot;little&quot;,&quot;shape&quot;:[51]},&quot;y&quot;:{&quot;__ndarray__&quot;:&quot;ofkUQYeBIUBnMV8nQcTZP9//q5jorf8/AeCpTCB1HUCrWn9nxbkaQL0y7FHO6B9A7P3MIRjMKEDdyNBCLez/P+WHSiogrPI/u0qRU0DFJUCKi1+Y3qUhQG5vrl/kFyBApE74wNj/0b/jcelCScv5v+evDqxlbx1AbDmye2ewIEDifEks4yrpP6rt5HqkFR1Ap1Mg3rsh7z9O88gFDv7vv3BcyoUXOQLA8cI233iqC8CTCwiwp1ADwEcLHJHHBBJAa+Ccz+LmDMBR2fUuU9/+v74Cx6Zmr+K/YizlZZJAAUBUDXYkYdQGwIamBxPlZxvA+sqaOz9iEcBo6ULruDz/v9xojz1/e/0/r+2UtszCD8Bb0+s+NDj3v2EVHNrVsf+/w607OxOuFMAkxvCIYf3xPw418P9/0eu/17JwpFwO2D+axfpGHzQHwBeZ7CHfgP6/ZJqKdM/+HMC+auMmlMMTwMOUF/9N7xHAx4A60xjIG8Dxz99+BbsUwPxBg3QmCBrA8wFFIOlFIMDFDvgl5gYiwMckJHT6Ux3A&quot;,&quot;dtype&quot;:&quot;float64&quot;,&quot;order&quot;:&quot;little&quot;,&quot;shape&quot;:[51]},&quot;years_in_top10&quot;:[10,4,3,9,10,11,15,4,3,14,11,11,3,2,10,11,4,10,6,3,2,1,4,7,3,3,5,5,3,1,1,2,5,1,2,2,2,7,3,6,3,3,1,2,3,2,2,1,1,1,2]},&quot;selected&quot;:{&quot;id&quot;:&quot;2221&quot;},&quot;selection_policy&quot;:{&quot;id&quot;:&quot;2220&quot;}},&quot;id&quot;:&quot;2182&quot;,&quot;type&quot;:&quot;ColumnDataSource&quot;},{&quot;attributes&quot;:{&quot;formatter&quot;:{&quot;id&quot;:&quot;2217&quot;},&quot;ticker&quot;:{&quot;id&quot;:&quot;2198&quot;}},&quot;id&quot;:&quot;2197&quot;,&quot;type&quot;:&quot;LinearAxis&quot;},{&quot;attributes&quot;:{&quot;bottom_units&quot;:&quot;screen&quot;,&quot;fill_alpha&quot;:0.5,&quot;fill_color&quot;:&quot;lightgrey&quot;,&quot;left_units&quot;:&quot;screen&quot;,&quot;level&quot;:&quot;overlay&quot;,&quot;line_alpha&quot;:1.0,&quot;line_color&quot;:&quot;black&quot;,&quot;line_dash&quot;:[4,4],&quot;line_width&quot;:2,&quot;right_units&quot;:&quot;screen&quot;,&quot;top_units&quot;:&quot;screen&quot;},&quot;id&quot;:&quot;2204&quot;,&quot;type&quot;:&quot;BoxAnnotation&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;2194&quot;,&quot;type&quot;:&quot;BasicTicker&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;2187&quot;,&quot;type&quot;:&quot;DataRange1d&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;2185&quot;,&quot;type&quot;:&quot;DataRange1d&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;2219&quot;,&quot;type&quot;:&quot;BasicTickFormatter&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;2189&quot;,&quot;type&quot;:&quot;LinearScale&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;2203&quot;,&quot;type&quot;:&quot;ResetTool&quot;},{&quot;attributes&quot;:{&quot;data_source&quot;:{&quot;id&quot;:&quot;2182&quot;},&quot;glyph&quot;:{&quot;id&quot;:&quot;2210&quot;},&quot;hover_glyph&quot;:null,&quot;muted_glyph&quot;:null,&quot;nonselection_glyph&quot;:{&quot;id&quot;:&quot;2211&quot;},&quot;selection_glyph&quot;:null,&quot;view&quot;:{&quot;id&quot;:&quot;2213&quot;}},&quot;id&quot;:&quot;2212&quot;,&quot;type&quot;:&quot;GlyphRenderer&quot;},{&quot;attributes&quot;:{&quot;fill_color&quot;:{&quot;field&quot;:&quot;clusters&quot;,&quot;transform&quot;:{&quot;id&quot;:&quot;2183&quot;}},&quot;line_color&quot;:{&quot;field&quot;:&quot;clusters&quot;,&quot;transform&quot;:{&quot;id&quot;:&quot;2183&quot;}},&quot;x&quot;:{&quot;field&quot;:&quot;x&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;y&quot;}},&quot;id&quot;:&quot;2210&quot;,&quot;type&quot;:&quot;Scatter&quot;},{&quot;attributes&quot;:{&quot;axis&quot;:{&quot;id&quot;:&quot;2197&quot;},&quot;dimension&quot;:1,&quot;grid_line_color&quot;:null,&quot;ticker&quot;:null},&quot;id&quot;:&quot;2200&quot;,&quot;type&quot;:&quot;Grid&quot;},{&quot;attributes&quot;:{&quot;source&quot;:{&quot;id&quot;:&quot;2182&quot;}},&quot;id&quot;:&quot;2213&quot;,&quot;type&quot;:&quot;CDSView&quot;},{&quot;attributes&quot;:{&quot;axis&quot;:{&quot;id&quot;:&quot;2193&quot;},&quot;grid_line_color&quot;:null,&quot;ticker&quot;:null},&quot;id&quot;:&quot;2196&quot;,&quot;type&quot;:&quot;Grid&quot;},{&quot;attributes&quot;:{&quot;fill_alpha&quot;:{&quot;value&quot;:0.1},&quot;fill_color&quot;:{&quot;field&quot;:&quot;clusters&quot;,&quot;transform&quot;:{&quot;id&quot;:&quot;2183&quot;}},&quot;line_alpha&quot;:{&quot;value&quot;:0.1},&quot;line_color&quot;:{&quot;field&quot;:&quot;clusters&quot;,&quot;transform&quot;:{&quot;id&quot;:&quot;2183&quot;}},&quot;x&quot;:{&quot;field&quot;:&quot;x&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;y&quot;}},&quot;id&quot;:&quot;2211&quot;,&quot;type&quot;:&quot;Scatter&quot;},{&quot;attributes&quot;:{&quot;overlay&quot;:{&quot;id&quot;:&quot;2204&quot;}},&quot;id&quot;:&quot;2201&quot;,&quot;type&quot;:&quot;BoxZoomTool&quot;},{&quot;attributes&quot;:{&quot;callback&quot;:null,&quot;tooltips&quot;:[[&quot;Player&quot;,&quot;@players&quot;],[&quot;Best rank&quot;,&quot;@best_rank&quot;],[&quot;Years in Top 10&quot;,&quot;@years_in_top10&quot;],[&quot;Earliest year&quot;,&quot;@earliest_year&quot;]]},&quot;id&quot;:&quot;2202&quot;,&quot;type&quot;:&quot;HoverTool&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;2217&quot;,&quot;type&quot;:&quot;BasicTickFormatter&quot;},{&quot;attributes&quot;:{&quot;factors&quot;:[&quot;0&quot;,&quot;1&quot;,&quot;2&quot;],&quot;palette&quot;:[&quot;#1f77b4&quot;,&quot;#ff7f0e&quot;,&quot;#2ca02c&quot;]},&quot;id&quot;:&quot;2183&quot;,&quot;type&quot;:&quot;CategoricalColorMapper&quot;}],&quot;root_ids&quot;:[&quot;2184&quot;]},&quot;title&quot;:&quot;Bokeh Application&quot;,&quot;version&quot;:&quot;2.2.3&quot;}}
+        &lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('2448').textContent;
+                  var render_items = [{&quot;docid&quot;:&quot;4414fc39-3b12-46cd-9e66-65330f4d0c1d&quot;,&quot;root_ids&quot;:[&quot;2184&quot;],&quot;roots&quot;:{&quot;2184&quot;:&quot;5896499d-cb1b-4c82-9338-87c574f11e41&quot;}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts &gt; 100) {
+                          clearInterval(timer);
+                          console.log(&quot;Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing&quot;);
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != &quot;loading&quot;) fn();
+            else document.addEventListener(&quot;DOMContentLoaded&quot;, fn);
+          })();
+        &lt;/script&gt;
+    
+  &lt;/body&gt;
+  
+&lt;/html&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part II, dimension reduction and clustering Squash rankings, Part I, Scraping wikipedia and data analysis</summary></entry><entry><title type="html">Visualising L1 and L2 regularisation</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html" rel="alternate" type="text/html" title="Visualising L1 and L2 regularisation" /><published>2020-10-11T00:00:00-05:00</published><updated>2020-10-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this &lt;a href=&quot;https://medium.com/@davidsotunbo/ridge-and-lasso-regression-an-illustration-and-explanation-using-sklearn-in-python-4853cd543898&quot;&gt;medium post comparing L1 and L2 regularisation&lt;/a&gt; there is an image showing how L1 regularisation is more likely to make one of the parameters equal to zero than L2 regularisation.&lt;/p&gt;
@@ -240,7 +340,12 @@
 &lt;p&gt;This has been a bit of a topsy-turvy learning experience. I am still surprised at how much I learnt from this basic example. And having struggled with this simple example, I better appreciate how impressive it is to get complicated neural networks to learn.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Squash rankings, Part II, dimension reduction and clustering</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/09/28/squash2.html" rel="alternate" type="text/html" title="Squash rankings, Part II, dimension reduction and clustering" /><published>2020-09-28T00:00:00-05:00</published><updated>2020-09-28T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/09/28/squash2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/09/28/squash2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/python/scraping/2020/09/17/squash1.html&quot;&gt;Squash rankings, Part I, Scraping wikipedia and data analysis&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/11/01/squash3.html&quot;&gt;Squash rankings, Part III, All hail Bokeh!&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/scraping/2020/09/17/squash1.html&quot;&gt;Squash rankings, Part I, Scraping wikipedia and data analysis&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -312,7 +417,7 @@
 &lt;p&gt;The patterns here are far less clear as for the mens. I guess I was correct to be surprised at how nicely things worked out earlier! However, the way the algorithms have organised the data is roughly similar: the two important characteristics of a player according to these algorithms are the years they played and their rankings in that time. Also, the clusters have been broken up into similar chunks: players with good rankings, older players and younger players.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;Like I said at the start, this is my first experience using these techniques. The main takeaway for me is how cool (and useful) these algorithms are! Up till now I had only done supervised classification or plotted standard charts for EDA. However, having gone through this experience and got a basic feel what the algorithms can achieve, I will be sure to make more use of it in the future.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part I, Scraping wikipedia and data analysis</summary></entry><entry><title type="html">An intuitive but unknown version of Bayes’ Theorem</title><link href="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html" rel="alternate" type="text/html" title="An intuitive but unknown version of Bayes' Theorem" /><published>2020-09-24T00:00:00-05:00</published><updated>2020-09-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes</id><content type="html" xml:base="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Like I said at the start, this is my first experience using these techniques. The main takeaway for me is how cool (and useful) these algorithms are! Up till now I had only done supervised classification or plotted standard charts for EDA. However, having gone through this experience and got a basic feel what the algorithms can achieve, I will be sure to make more use of it in the future.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part III, All hail Bokeh! Squash rankings, Part I, Scraping wikipedia and data analysis</summary></entry><entry><title type="html">An intuitive but unknown version of Bayes’ Theorem</title><link href="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html" rel="alternate" type="text/html" title="An intuitive but unknown version of Bayes' Theorem" /><published>2020-09-24T00:00:00-05:00</published><updated>2020-09-24T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes</id><content type="html" xml:base="https://lovkush-a.github.io/blog/maths/tutorial/2020/09/24/bayes.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;One of the big lessons I have learnt is that no matter how well (you think) you understand something, there is almost always a deeper or clearer level of understanding available. Even for trivially simple things, like addition. Today, I will describe my experience with this phenomena in the context of Baye’s Theorem, by going through four different ways I have of conceptualising it. The final way  is surprisingly simple but largely unknown; I learnt about it from this &lt;a href=&quot;https://80000hours.org/podcast/episodes/spencer-greenberg-bayesian-updating/#bayesian-updating&quot;&gt;80000 Hours’ interview of Spencer Greenberg&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Recall that Bayes Theorem states that:
@@ -536,116 +641,15 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 &lt;h2 id=&quot;final-remarks&quot;&gt;Final remarks&lt;/h2&gt;
 &lt;p&gt;I hope you gained some new insights into Bayes’ Theorem. If you have any other perspectives on it, please let me know! As I said at the start, it is always surprising how things that you feel you understand contain hidden layers and deeper insights.&lt;/p&gt;
 
-&lt;p&gt;Lastly, I recommend you listen to the &lt;a href=&quot;https://80000hours.org/podcast/episodes/spencer-greenberg-bayesian-updating/#bayesian-updating&quot;&gt;80000 Hours’ interview of Spencer Greenberg&lt;/a&gt;. First, you will hear Spencer’s description and perspectives on this odds framework. Second, you will learn a whole bunch of other insightful things: Spencer researches thinking and rationality and tries to develop software tools that take make use of his insights. For example, Spencer discusses their research on when people are over- or under-confident.&lt;/p&gt;</content><author><name></name></author><summary type="html">Introduction One of the big lessons I have learnt is that no matter how well (you think) you understand something, there is almost always a deeper or clearer level of understanding available. Even for trivially simple things, like addition. Today, I will describe my experience with this phenomena in the context of Baye’s Theorem, by going through four different ways I have of conceptualising it. The final way is surprisingly simple but largely unknown; I learnt about it from this 80000 Hours’ interview of Spencer Greenberg.</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;Lastly, I recommend you listen to the &lt;a href=&quot;https://80000hours.org/podcast/episodes/spencer-greenberg-bayesian-updating/#bayesian-updating&quot;&gt;80000 Hours’ interview of Spencer Greenberg&lt;/a&gt;. First, you will hear Spencer’s description and perspectives on this odds framework. Second, you will learn a whole bunch of other insightful things: Spencer researches thinking and rationality and tries to develop software tools that take make use of his insights. For example, Spencer discusses their research on when people are over- or under-confident.&lt;/p&gt;</content><author><name></name></author><summary type="html">Introduction One of the big lessons I have learnt is that no matter how well (you think) you understand something, there is almost always a deeper or clearer level of understanding available. Even for trivially simple things, like addition. Today, I will describe my experience with this phenomena in the context of Baye’s Theorem, by going through four different ways I have of conceptualising it. The final way is surprisingly simple but largely unknown; I learnt about it from this 80000 Hours’ interview of Spencer Greenberg.</summary></entry><entry><title type="html">Squash rankings, Part I, Scraping wikipedia and data analysis</title><link href="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html" rel="alternate" type="text/html" title="Squash rankings, Part I, Scraping wikipedia and data analysis" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/10/01/sgd4.html&quot;&gt;Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/11/01/squash3.html&quot;&gt;Squash rankings, Part III, All hail Bokeh!&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html&quot;&gt;Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/09/28/squash2.html&quot;&gt;Squash rankings, Part II, dimension reduction and clustering&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/09/10/sgd1.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;In the previous posts, I used gradient descent to model linear, quadratic and sinusoidal data. In the first post, the linear and quadratic models could be fit, but the sinusoidal data could not be fit.  In the second post, we saw how neural networks kind of fit the data, but not very well.&lt;/p&gt;
-
-&lt;p&gt;This time, I will add the stochasticity by introducing mini-batches. My hope is that I will be able to fit the sinusoidal data that I could not fit in the first post. I will discuss this example at the end, because it is the most interesting&lt;/p&gt;
-
-&lt;h2 id=&quot;models-with-neural-networks&quot;&gt;Models with neural networks&lt;/h2&gt;
-&lt;p&gt;Here are animations of a neural network trying to fit using stochastic gradient descent.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_linearnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_quadraticnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sinnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;The end results look similar to the end results without using mini-batches. The big difference is that the network converges much faster.&lt;/p&gt;
-
-&lt;h2 id=&quot;fitting-sinusoidal-data-using-a-sinusoidal-model&quot;&gt;Fitting sinusoidal data using a sinusoidal model&lt;/h2&gt;
-&lt;p&gt;Here is a representative example of my first attempts using SGD on sinusoidal data. Note that in all of the animations in this section, the same dataset and initial parameters were used, so the comparisons are more rigorous.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;To my dismay, we seem to have the same problem as with normal gradient descent. The system gets stuck in some local minimum where the amplitude is small. It still continues to ‘learn’ though.&lt;/p&gt;
-
-&lt;p&gt;At this point, I experimented a little (e.g. with some ‘regularisation’), which I plan to describe in a separate post (spoiler alert - they didn’t work). While planning this blogpost, I re-watched the animation above and thought that maybe the learning rate is too big. I presumably tried playing with the learning rate already but for the sake of completeness, I thought it would be good to produce a series of animations to show you that varying the learning rate does not help.&lt;/p&gt;
-
-&lt;p&gt;The learning rate in the animation above was 0.1.  Below is an animation for a learning rate of 0.01.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;! That was unexpected! It managed to find good parameters, but then jumped to some inferior local minimum. I managed to achieve something similar to this using the regularisation mentioned above (and which I will describe in a later post), but I was not expecting to see this by changing the learning rate. Clearly my memory is off and I had not experimented with the learning rate. I thought I would re-run the calculations to see if the same behaviour would occur again. (Note that the initial parameters are the same in all these animations, but there is still randomness from how the mini-batches are selected.)&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin2b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;So we get similar behaviour. For some time it looks like we are getting close to a good model but then it jumps away to some other set of parameters.&lt;/p&gt;
-
-&lt;p&gt;Looks like I should make the learning rate smaller, and see if that prevents jumping away from the correct model. The next animation is for a learning rate of 0.001.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin3.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;!!! Wow! Given that I had failed after several hours of trying, this was basically magic to me. The model gently and slides its way into position, increases its amplitude, then stays there. Fantastic!&lt;/p&gt;
-
-&lt;p&gt;Now a big question arises. Were the learning rates in the first post of this series too high, and that was the reason for the struggles with sinusoidal models? There’s only one way to find out, and that’s by doing the experiment. Below is the resulting animation.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin3b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;!!! All this time, it was as simple as changing the learning rate. How did I miss this?! What is noteworthy is how slow the learning is in gradient descent as compared to stochastic gradient descent.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;There are two big lessons I learnt from this.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;The first is to somehow take good notes of what I have tried and to be systematic. In my previous job teaching maths to STEM Foundation Year students, my colleague who taught Laboratory Skills was trying to explain the purpose of a lab-book to students: it should be a record of what you did, why you did it, what you observed, etc. so that somebody else (in particular, future-you) can read it and re-live your experience. It looks like I have only now learnt this lesson my colleague was trying to teach. Better late than never, I suppose.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The second is that the main benefit of stochastic gradient descent seems to be in efficiency/speed. I have read in places that it can help with preventing local minimums, but I am still unsure of this latter point.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Squash rankings, Part I, Scraping wikipedia and data analysis</title><link href="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html" rel="alternate" type="text/html" title="Squash rankings, Part I, Scraping wikipedia and data analysis" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;/blog/python/data%20science/2020/09/28/squash2.html&quot;&gt;Squash rankings, Part II, dimension reduction and clustering&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -845,7 +849,113 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 &lt;span class=&quot;n&quot;&gt;df_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df_m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url_to_pandas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;players_f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player_summaries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;players_m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player_summaries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part II, dimension reduction and clustering</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" /><published>2020-09-11T00:00:00-05:00</published><updated>2020-09-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part III, All hail Bokeh! Squash rankings, Part II, dimension reduction and clustering</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/10/01/sgd4.html&quot;&gt;Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html&quot;&gt;Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/09/10/sgd1.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In the previous posts, I used gradient descent to model linear, quadratic and sinusoidal data. In the first post, the linear and quadratic models could be fit, but the sinusoidal data could not be fit.  In the second post, we saw how neural networks kind of fit the data, but not very well.&lt;/p&gt;
+
+&lt;p&gt;This time, I will add the stochasticity by introducing mini-batches. My hope is that I will be able to fit the sinusoidal data that I could not fit in the first post. I will discuss this example at the end, because it is the most interesting&lt;/p&gt;
+
+&lt;h2 id=&quot;models-with-neural-networks&quot;&gt;Models with neural networks&lt;/h2&gt;
+&lt;p&gt;Here are animations of a neural network trying to fit using stochastic gradient descent.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_linearnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_quadraticnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sinnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;The end results look similar to the end results without using mini-batches. The big difference is that the network converges much faster.&lt;/p&gt;
+
+&lt;h2 id=&quot;fitting-sinusoidal-data-using-a-sinusoidal-model&quot;&gt;Fitting sinusoidal data using a sinusoidal model&lt;/h2&gt;
+&lt;p&gt;Here is a representative example of my first attempts using SGD on sinusoidal data. Note that in all of the animations in this section, the same dataset and initial parameters were used, so the comparisons are more rigorous.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;To my dismay, we seem to have the same problem as with normal gradient descent. The system gets stuck in some local minimum where the amplitude is small. It still continues to ‘learn’ though.&lt;/p&gt;
+
+&lt;p&gt;At this point, I experimented a little (e.g. with some ‘regularisation’), which I plan to describe in a separate post (spoiler alert - they didn’t work). While planning this blogpost, I re-watched the animation above and thought that maybe the learning rate is too big. I presumably tried playing with the learning rate already but for the sake of completeness, I thought it would be good to produce a series of animations to show you that varying the learning rate does not help.&lt;/p&gt;
+
+&lt;p&gt;The learning rate in the animation above was 0.1.  Below is an animation for a learning rate of 0.01.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;! That was unexpected! It managed to find good parameters, but then jumped to some inferior local minimum. I managed to achieve something similar to this using the regularisation mentioned above (and which I will describe in a later post), but I was not expecting to see this by changing the learning rate. Clearly my memory is off and I had not experimented with the learning rate. I thought I would re-run the calculations to see if the same behaviour would occur again. (Note that the initial parameters are the same in all these animations, but there is still randomness from how the mini-batches are selected.)&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin2b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;So we get similar behaviour. For some time it looks like we are getting close to a good model but then it jumps away to some other set of parameters.&lt;/p&gt;
+
+&lt;p&gt;Looks like I should make the learning rate smaller, and see if that prevents jumping away from the correct model. The next animation is for a learning rate of 0.001.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin3.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;!!! Wow! Given that I had failed after several hours of trying, this was basically magic to me. The model gently and slides its way into position, increases its amplitude, then stays there. Fantastic!&lt;/p&gt;
+
+&lt;p&gt;Now a big question arises. Were the learning rates in the first post of this series too high, and that was the reason for the struggles with sinusoidal models? There’s only one way to find out, and that’s by doing the experiment. Below is the resulting animation.&lt;/p&gt;
+
+&lt;figure class=&quot;video_container&quot;&gt;
+  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin3b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;/video&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;!!! All this time, it was as simple as changing the learning rate. How did I miss this?! What is noteworthy is how slow the learning is in gradient descent as compared to stochastic gradient descent.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
+&lt;p&gt;There are two big lessons I learnt from this.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;The first is to somehow take good notes of what I have tried and to be systematic. In my previous job teaching maths to STEM Foundation Year students, my colleague who taught Laboratory Skills was trying to explain the purpose of a lab-book to students: it should be a record of what you did, why you did it, what you observed, etc. so that somebody else (in particular, future-you) can read it and re-live your experience. It looks like I have only now learnt this lesson my colleague was trying to teach. Better late than never, I suppose.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The second is that the main benefit of stochastic gradient descent seems to be in efficiency/speed. I have read in places that it can help with preventing local minimums, but I am still unsure of this latter point.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
+&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" /><published>2020-09-11T00:00:00-05:00</published><updated>2020-09-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1194,867 +1304,4 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 
 &lt;p&gt;It may sound like I dislike FastAI and the course, but the opposite is true. Like I said in my first post on the FastAI course, I am impressed with the teaching and all the thought that has gone into it. I would strongly recommend this course to anybody interested in AI or Machine Learning. However, I think this may also be why I experience more frustration with it. I have such a high opinion of the course, that any negative stands out; I am holding the team to particularly high standards.&lt;/p&gt;
 
-&lt;p&gt;To end, I hope this blog entry has been useful for you in some way. I welcome any comments or thoughts or disagreements; please feel free to let me know.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series FastAI Course, Part II, Lesson 1 and sentiment analysis FastAI Course, Part I, Lessons 1 and 2</summary></entry><entry><title type="html">Analysing the movies I’ve watched, Part V, Data visualisation II</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/09/02/mymovies5.html" rel="alternate" type="text/html" title="Analysing the movies I've watched, Part V, Data visualisation II" /><published>2020-09-02T00:00:00-05:00</published><updated>2020-09-02T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/09/02/mymovies5</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/09/02/mymovies5.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/24/mymovies4.html&quot;&gt;Analysing the movies I’ve watched, Part IV, Data visualisation&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/19/mymovies3.html&quot;&gt;Analysing the movies I’ve watched, Part III, Joining the tables&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/03/mymovies2.html&quot;&gt;Analysing the movies I’ve watched, Part II, Data cleaning&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/08/02/mymovies1.html&quot;&gt;Analysing the movies I’ve watched, Part I, Data collection&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;In a previous post, I described how the joining missed out half the data. After making various plots, is turns out the joining was sometimes erroneous too. Hence, I bit the bullet and decided I to manually do the joining, and get a complete and clean dataset. Learning the lessons from past attempts at manual processing, it was a fairly smooth process. (Furthermore, things were significantly sped up by using Selenium - which allowed me to automate the process of searching for a movie on imdb). In the end, it took roughly 3 hours to tidy the dataset and have the official imdb id attached to each entry in my database. And now for the charts!&lt;/p&gt;
-
-&lt;h2 id=&quot;year-of-release&quot;&gt;Year of release&lt;/h2&gt;
-&lt;p&gt;Below are charts showing information about the year of release for the movies I have watched. The first one is just a histogram, and the second shows a scatter-chart showing the year I watched the movie against the year the movie released.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies5_releaseyear.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/blog/images/mymovies5_releaseyear2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Not sure if there is anything surprising about any of these charts. One neat thing is that one could probably get an idea of my age based on the first chart. The second chart seems to show that the majority of movies I watch are relatively new.&lt;/p&gt;
-
-&lt;h2 id=&quot;ratings&quot;&gt;Ratings&lt;/h2&gt;
-&lt;p&gt;Below is a chart showing the average ratings (by users of imdb) for the movies I have watched, along with the distribution of ratings for all the movies in imdb.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies5_ratings1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;It is clear from this chart that I tend to watch ‘decent’ movies, as judged by imdb users, and that I avoid ‘bad’ movies, but I also seem to avoid the ‘best’ movies.&lt;/p&gt;
-
-&lt;p&gt;Below is a chart comparing the ratings for all the movies I have watched with the ratings of the movie I would recommend.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies5_ratings2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;It is reassuring to see that, overall, the movies I recommend are generally better regarded than the movies I do not recommend.&lt;/p&gt;
-
-&lt;p&gt;Lastly, here is a chart showing the variation in ratings by the year I watched the movie.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/mymovies5_ratings3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I cannot really discern any patterns here, that aren’t revealed by other charts. Patterns that I can see are that I watched a lot more movies (and greater variety of quality of  movies) in 2008 and 2009, and that the movies I recommend tend to have higher ratings than those I don’t.&lt;/p&gt;
-
-&lt;p&gt;To end this section, here is a list of the most and least popular movies I have watched.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Movie&lt;/th&gt;
-      &lt;th&gt;Rating on imdb&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;the shawshank redemption&lt;/td&gt;
-      &lt;td&gt;9.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;the dark knight&lt;/td&gt;
-      &lt;td&gt;9.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;12 angry men&lt;/td&gt;
-      &lt;td&gt;8.9&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;the lord of the rings: the return of the king&lt;/td&gt;
-      &lt;td&gt;8.9&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;pulp fiction&lt;/td&gt;
-      &lt;td&gt;8.9&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;fight club&lt;/td&gt;
-      &lt;td&gt;8.8&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;the lord of the rings: the fellowship of the ring&lt;/td&gt;
-      &lt;td&gt;8.8&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;forrest gump&lt;/td&gt;
-      &lt;td&gt;8.8&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;inception&lt;/td&gt;
-      &lt;td&gt;8.8&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;the matrix&lt;/td&gt;
-      &lt;td&gt;8.7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;the lord of the rings: the two towers&lt;/td&gt;
-      &lt;td&gt;8.7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;goodfellas&lt;/td&gt;
-      &lt;td&gt;8.7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;star wars: episode v - the empire strikes back&lt;/td&gt;
-      &lt;td&gt;8.7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;se7en&lt;/td&gt;
-      &lt;td&gt;8.6&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;city of god&lt;/td&gt;
-      &lt;td&gt;8.6&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;interstellar&lt;/td&gt;
-      &lt;td&gt;8.6&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;saving private ryan&lt;/td&gt;
-      &lt;td&gt;8.6&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;the silence of the lambs&lt;/td&gt;
-      &lt;td&gt;8.6&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;star wars: episode iv - a new hope&lt;/td&gt;
-      &lt;td&gt;8.6&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;gladiator&lt;/td&gt;
-      &lt;td&gt;8.5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;the departed&lt;/td&gt;
-      &lt;td&gt;8.5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;casablanca&lt;/td&gt;
-      &lt;td&gt;8.5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;the usual suspects&lt;/td&gt;
-      &lt;td&gt;8.5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;dear zachary: a letter to a son about his father&lt;/td&gt;
-      &lt;td&gt;8.5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;whiplash&lt;/td&gt;
-      &lt;td&gt;8.5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;joker&lt;/td&gt;
-      &lt;td&gt;8.5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;psycho&lt;/td&gt;
-      &lt;td&gt;8.5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;senna&lt;/td&gt;
-      &lt;td&gt;8.5&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Movie&lt;/th&gt;
-      &lt;th&gt;Rating on imdb&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;steel&lt;/td&gt;
-      &lt;td&gt;2.8&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;troll 2&lt;/td&gt;
-      &lt;td&gt;2.9&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;the foreigner&lt;/td&gt;
-      &lt;td&gt;3.4&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;batman &amp;amp; robin&lt;/td&gt;
-      &lt;td&gt;3.7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;half a person&lt;/td&gt;
-      &lt;td&gt;3.8&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;friday the 13th part viii: jason takes manhattan&lt;/td&gt;
-      &lt;td&gt;4.6&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;barely legal&lt;/td&gt;
-      &lt;td&gt;4.7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;elektra&lt;/td&gt;
-      &lt;td&gt;4.7&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;doe: dead or alive&lt;/td&gt;
-      &lt;td&gt;4.8&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;friday the 13th: a new beginning&lt;/td&gt;
-      &lt;td&gt;4.8&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;uncut gem&lt;/td&gt;
-      &lt;td&gt;4.8&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;blair witch&lt;/td&gt;
-      &lt;td&gt;5.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;a teacher’s crime&lt;/td&gt;
-      &lt;td&gt;5.0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;tekken: the motion picture&lt;/td&gt;
-      &lt;td&gt;5.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;in their skin&lt;/td&gt;
-      &lt;td&gt;5.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;daredevil&lt;/td&gt;
-      &lt;td&gt;5.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;scary movie 2&lt;/td&gt;
-      &lt;td&gt;5.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;the circle&lt;/td&gt;
-      &lt;td&gt;5.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;friday the 13th part vii: the new blood&lt;/td&gt;
-      &lt;td&gt;5.3&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;little&lt;/td&gt;
-      &lt;td&gt;5.4&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;The one thing I feel slightly ashamed of is that I watched so many of the Friday the 13th movies. I think my reasoning was that if a series has that many movies, there must be something good about it. I kept going on, even though I thought the movies were bad, in the hope that there is a moment in the series where the movies become good. I did finally stop watching the series - it just took eight movies to make that decision…&lt;/p&gt;
-
-&lt;h2 id=&quot;genres&quot;&gt;Genres&lt;/h2&gt;
-&lt;p&gt;Below is a table showing a breakdown of the genres of movie I watched, ordered by which genre has the highest odds of me recommending it. Note that most movies had multiple genres.&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Genre&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Frequency&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Frequency Recommended&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Percent recommended&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;thriller&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;126&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;37&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.29&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;war&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;14&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.29&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;sport&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;18&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;5&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.28&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;drama&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;319&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;87&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.27&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;sci-fi&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;86&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;22&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.26&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;crime&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;146&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;36&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.25&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;biography&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;47&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;11&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.23&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;music&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;18&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.22&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;romance&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;56&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;11&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.20&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;comedy&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;210&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;42&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.20&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;mystery&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;80&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;15&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.19&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;animation&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;51&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;8&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.16&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;family&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;25&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.16&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;history&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;26&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.15&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;fantasy&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;70&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;10&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.14&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;documentary&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;31&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;4&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.13&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;adventure&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;188&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;23&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.12&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;horror&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;66&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;7&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.11&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;action&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;227&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;23&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.10&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;musical&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;6&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.00&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;news&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;2&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.00&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;western&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;1&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.00&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;The entries that stand out to me are those with the largest frequencies. There is strong evidence that I am more likely to recommend a thriller or a drama than a comedy, and that I am unlikely to recommend adventure or action movies.&lt;/p&gt;
-
-&lt;h2 id=&quot;directors&quot;&gt;Directors&lt;/h2&gt;
-&lt;p&gt;Below is a list of the directors, along with the movies, whose movies I have most watched.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Steven Spielberg
- a.i. artificial intelligence
-          catch me if you can
-                         jaws
-                jurassic park
-              minority report
-      raiders of the lost ark
-          saving private ryan
-     the adventures of tintin
-
-Peter Jackson
-                                         king kong
-                 the hobbit: an unexpected journey
-         the hobbit: the battle of the five armies
- the lord of the rings: the fellowship of the ring
-     the lord of the rings: the return of the king
-             the lord of the rings: the two towers
-
-Christopher Nolan
-               dunkirk
-             inception
-          interstellar
-               memento
-       the dark knight
- the dark knight rises
-
-Guy Ritchie
- lock, stock and two smoking barrels
-                          rocknrolla
-                     sherlock holmes
-  sherlock holmes: a game of shadows
-                              snatch
-             the man from u.n.c.l.e.
-
-Martin Scorsese
-               cape fear
-              goodfellas
-                 silence
-             taxi driver
-            the departed
- the wolf of wall street
-
-Quentin Tarantino
-             inglourious basterds
-                kill bill: vol. 1
- once upon a time... in hollywood
-                     pulp fiction
-                   reservoir dogs
-                the hateful eight
-
-Danny Boyle
-    28 days later
-       steve jobs
- t2 trainspotting
-    trainspotting
-        yesterday
-
-Matthew Vaughn
-                     kick-ass
- kingsman: the secret service
-                   layer cake
-                     stardust
-           x-men: first class
-
-David Fincher
-                          fight club
-                           gone girl
-                               se7en
- the curious case of benjamin button
-                  the social network
-
-M. Night Shyamalan
-             glass
- lady in the water
-             split
-   the sixth sense
-       unbreakable
-
-Darren Aronofsky
-          black swan
-             mother!
-                noah
- requiem for a dream
-        the wrestler
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;I tend not to pay any attention to who the director is, so for me, the interesting thing here is to see how movies that I would have said had no connection in fact have the same director. E.g. I did not realise I had watched that many movies by Spielberg. The other thing that stands out here is that all the directors are male.&lt;/p&gt;
-
-&lt;h2 id=&quot;actors&quot;&gt;Actors&lt;/h2&gt;
-&lt;p&gt;Below is a list of actors, along with the movies, that I have most watched.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Brad Pitt
-                    12 years a slave
-                              allied
-                  burn after reading
-                          fight club
-                inglourious basterds
-                 killing them softly
-                            megamind
-                           moneyball
-    once upon a time... in hollywood
-                               se7en
-                              snatch
-                       the big short
- the curious case of benjamin button
-                                troy
-                         war machine
-
-Bruce Willis
-                 alpha dog
-                  die hard
-                die hard 2
-              die hard 4.0
- die hard with a vengeance
-          fast food nation
-                     glass
-                    looper
-          moonrise kingdom
-              pulp fiction
-                  sin city
-           the sixth sense
-               unbreakable
-
-Samuel L. Jackson
-                    die hard with a vengeance
-                                        glass
-                                       jumper
-                 kingsman: the secret service
-                                 pulp fiction
- star wars: episode iii - revenge of the sith
-                            the hateful eight
-                       the hitman's bodyguard
-                              the incredibles
-                               the negotiator
-                                  unbreakable
-                                unicorn store
-
-Matt Damon
-          adjustment bureau
-                  contagion
-          good will hunting
-               jason bourne
-                      ponyo
-        saving private ryan
-        the bourne identity
-       the bourne ultimatum
-               the departed
- the legend of bagger vance
-                the martian
-    the talented mr. ripley
-
-Tom Hanks
-     angels &amp;amp; demons
- catch me if you can
-        forrest gump
- saving private ryan
-          the circle
-           toy story
-         toy story 2
- toy story of terror
-     you've got mail
-
-Robert De Niro
-     analyze this
-        cape fear
-    dirty grandpa
-       goodfellas
-    hide and seek
-            joker
- meet the parents
-   righteous kill
-      taxi driver
-
-Rachel McAdams
-                         about time
-                              aloha
-                     doctor strange
-                         mean girls
-                            red eye
-                    sherlock holmes
- sherlock holmes: a game of shadows
-                      state of play
-                   wedding crashers
-
-Natalie Portman
-                                 annihilation
-                                   black swan
-                                       closer
-    star wars: episode i - the phantom menace
- star wars: episode ii - attack of the clones
- star wars: episode iii - revenge of the sith
-                        the other boleyn girl
-                                         thor
-                               v for vendetta
-
-Leonardo DiCaprio
-                    blood diamond
-              catch me if you can
-                        inception
- once upon a time... in hollywood
-                     the departed
-         the man in the iron mask
-                     the revenant
-          the wolf of wall street
-
-Ben Affleck
-                               argo
- batman v superman: dawn of justice
-                          daredevil
-                          gone girl
-                  good will hunting
-                           paycheck
-                      state of play
-                     the accountant
-
-Jake Gyllenhaal
-      donnie darko
-           jarhead
-      nightcrawler
- nocturnal animals
-         prisoners
-             proof
-       source code
-    velvet buzzsaw
-
-Ian McKellen
-                                          stardust
-                 the hobbit: an unexpected journey
-         the hobbit: the battle of the five armies
- the lord of the rings: the fellowship of the ring
-     the lord of the rings: the return of the king
-             the lord of the rings: the two towers
-                                             x-men
-                                  x2: x-men united
-
-Christian Bale
-          3:10 to yuma
-       american psycho
-        public enemies
-  terminator salvation
-         the big short
-       the dark knight
- the dark knight rises
-         the machinist
-
-Morgan Freeman
-      along came a spider
-              deep impact
-                     lucy
-      million dollar baby
-                    se7en
-          the bucket list
- the shawshank redemption
-                   wanted
-
-Tom Cruise
-          collateral
-    edge of tomorrow
-     minority report
- mission: impossible
-            rain man
-    the last samurai
-            valkyrie
-         vanilla sky
-
-Johnny Depp
-                   a nightmare on elm street
- fantastic beasts: the crimes of grindelwald
-              fear and loathing in las vegas
-     pirate of the caribbean: at world's end
-  pirates of the caribbean: dead man's chest
-                              public enemies
-                                 the tourist
-
-Ewan McGregor
-                              angels &amp;amp; demons
-                              black hawk down
-    star wars: episode i - the phantom menace
- star wars: episode ii - attack of the clones
- star wars: episode iii - revenge of the sith
-                             t2 trainspotting
-                                trainspotting
-
-Laurence Fishburne
- john wick: chapter 3 - parabellum
-                        passengers
-                         predators
-                        the matrix
-               the matrix reloaded
-            the matrix revolutions
-                        the signal
-
-Robert Downey Jr.
-             avengers: infinity war
-                         iron man 2
-                         iron man 3
-                    sherlock holmes
- sherlock holmes: a game of shadows
-             spider-man: homecoming
-                       the avengers
-
-Jude Law
-       a.i. artificial intelligence
-                             closer
-                          contagion
-                            gattaca
-                    sherlock holmes
- sherlock holmes: a game of shadows
-            the talented mr. ripley
-
-Kevin Spacey
-       a bug's life
-    american beauty
-        margin call
-               moon
-              se7en
-     the negotiator
- the usual suspects
-
-Orlando Bloom
-                                       good doctor
-           pirate of the caribbean: at world's end
-        pirates of the caribbean: dead man's chest
- the lord of the rings: the fellowship of the ring
-     the lord of the rings: the return of the king
-             the lord of the rings: the two towers
-                                              troy
-
-Scarlett Johansson
-                   her
-           jojo rabbit
-   lost in translation
-                  lucy
-        marriage story
-          the avengers
- the other boleyn girl
-
-Angelina Jolie
-         alexander
- girl, interrupted
-     kung fu panda
-   kung fu panda 2
-       the tourist
-            wanted
-
-Paul Giamatti
-         duplicity
- lady in the water
-      private life
-          sideways
-   the illusionist
-           win win
-
-Joaquin Phoenix
-                  gladiator
-                        her
-               hotel rwanda
-                      joker
-                     quills
- you were never really here
-
-Jim Carrey
-            ace ventura: pet detective
-                       dumb and dumber
- eternal sunshine of the spotless mind
-                              the mask
-                       the truman show
-                               yes man
-
-Anthony Hopkins
-                alexander
-                     noah
-                    proof
-               red dragon
- the silence of the lambs
-                     thor
-
-Tom Hardy
-               dunkirk
-            layer cake
-                 locke
-    mad max: fury road
- the dark knight rises
-          the revenant
-
-Keanu Reeves
-                         john wick
-              john wick: chapter 2
- john wick: chapter 3 - parabellum
-                        the matrix
-               the matrix reloaded
-            the matrix revolutions
-
-Emma Watson
-                         beauty and the beast
- harry potter and the deathly hallows: part 1
-          harry potter and the goblet of fire
-       harry potter and the half-blood prince
-                                         noah
-                                   the circle
-
-Clive Owen
-     children of men
-              closer
-           duplicity
-          inside man
-            sin city
- the bourne identity
-
-Ethan Hawke
-               boyhood
-               gattaca
-           lord of war
-        predestination
- the magnificent seven
-             the purge
-
-John Malkovich
-     being john malkovich
-       burn after reading
-           johnny english
-            ripley's game
- the man in the iron mask
-              warm bodies
-
-Elijah Wood
-                                       deep impact
-                                        happy feet
-                                            maniac
- the lord of the rings: the fellowship of the ring
-     the lord of the rings: the return of the king
-             the lord of the rings: the two towers
-
-Cameron Diaz
-  being john malkovich
-   shrek forever after
-       shrek the third
-              the mask
-           vanilla sky
- what happens in vegas
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Nice list of some of the more famous actors in the industry. One thing that surprised is how many movies I have watched that starred Brad Pitt - I did not realise it was that many! Once again, it is worth noting that females are under-represented here.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;This project has probably been the one that I spent the most time on so far. I have learnt a whole bunch and managed to produce some nice visuals and summaries. Hopefully it was interesting to read!&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Analysing the movies I’ve watched, Part IV, Data visualisation Analysing the movies I’ve watched, Part III, Joining the tables Analysing the movies I’ve watched, Part II, Data cleaning Analysing the movies I’ve watched, Part I, Data collection</summary></entry></feed>
+&lt;p&gt;To end, I hope this blog entry has been useful for you in some way. I welcome any comments or thoughts or disagreements; please feel free to let me know.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series FastAI Course, Part II, Lesson 1 and sentiment analysis FastAI Course, Part I, Lessons 1 and 2</summary></entry></feed>

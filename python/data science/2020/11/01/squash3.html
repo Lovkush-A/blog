@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Squash rankings, Part III, All hail Bokeh! | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Squash rankings, Part III, All hail Bokeh!" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Bokeh is amazing! I learnt about it earlier this week and I want to illustrate its prowess by remaking plots from Part II in the series using Bokeh." />
+<meta property="og:description" content="Bokeh is amazing! I learnt about it earlier this week and I want to illustrate its prowess by remaking plots from Part II in the series using Bokeh." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Squash rankings, Part III, All hail Bokeh!","description":"Bokeh is amazing! I learnt about it earlier this week and I want to illustrate its prowess by remaking plots from Part II in the series using Bokeh.","datePublished":"2020-11-01T00:00:00-05:00","dateModified":"2020-11-01T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3.html"},"url":"https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Squash rankings, Part III, All hail Bokeh! | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Squash rankings, Part III, All hail Bokeh!" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Bokeh is amazing! I learnt about it earlier this week and I want to illustrate its prowess by remaking plots from Part II in the series using Bokeh." />
+<meta property="og:description" content="Bokeh is amazing! I learnt about it earlier this week and I want to illustrate its prowess by remaking plots from Part II in the series using Bokeh." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-11-01T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Squash rankings, Part III, All hail Bokeh!","description":"Bokeh is amazing! I learnt about it earlier this week and I want to illustrate its prowess by remaking plots from Part II in the series using Bokeh.","datePublished":"2020-11-01T00:00:00-05:00","dateModified":"2020-11-01T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3.html"},"url":"https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Squash rankings, Part III, All hail Bokeh!</h1><p class="page-description">Bokeh is amazing! I learnt about it earlier this week and I want to illustrate its prowess by remaking plots from Part II in the series using Bokeh.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-11-01T00:00:00-05:00" itemprop="datePublished">
+        Nov 1, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#bokeh-charts">Bokeh charts</a></li>
+</ul><h2 id="other-posts-in-series">
+<a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
+
+<ul>
+  <li>
+    <p><a href="/blog/python/data%20science/2020/09/28/squash2.html">Squash rankings, Part II, dimension reduction and clustering</a></p>
+  </li>
+  <li>
+    <p><a href="/blog/python/scraping/2020/09/17/squash1.html">Squash rankings, Part I, Scraping wikipedia and data analysis</a></p>
+  </li>
+</ul>
+
+<h2 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<p>One of my mentors at the Faculty Fellowship, Sania Jevtic, recommended I try using Bokeh to plot various charts I was making. I tried it and without too much effort I managed to get it to work. It is AMAZING! The interactivity you get from it is fantastic and allows for much easier understanding of your data and richer presentation of your data. I will try to illustrate by redrawing some of the charts from Part II of this series.</p>
+
+<p>I will be re-making the three charts below:</p>
+
+<p><img src="/blog/images/squash2_malecluster.png" alt="image"></p>
+
+<h2 id="bokeh-charts">
+<a class="anchor" href="#bokeh-charts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bokeh charts</h2>
+
+<p>&lt;!DOCTYPE html&gt;</p>
+
+  
+  
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js" integrity="sha384-T2yuo9Oe71Cz/I4X9Ac5+gpEa5a8PpJCDlqKYO0CfAuEszu1JrXLl8YugMqYe3sM" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  
+  
+  
+  
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="5896499d-cb1b-4c82-9338-87c574f11e41" data-root-id="2184"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="2448">
+          {"4414fc39-3b12-46cd-9e66-65330f4d0c1d":{"roots":{"references":[{"attributes":{"background_fill_color":"white","below":[{"id":"2193"}],"center":[{"id":"2196"},{"id":"2200"}],"left":[{"id":"2197"}],"renderers":[{"id":"2212"}],"title":{"id":"2215"},"toolbar":{"id":"2205"},"x_range":{"id":"2185"},"x_scale":{"id":"2189"},"y_range":{"id":"2187"},"y_scale":{"id":"2191"}},"id":"2184","subtype":"Figure","type":"Plot"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":"auto","active_tap":"auto","tools":[{"id":"2201"},{"id":"2202"},{"id":"2203"}]},"id":"2205","type":"Toolbar"},{"attributes":{"formatter":{"id":"2219"},"ticker":{"id":"2194"}},"id":"2193","type":"LinearAxis"},{"attributes":{"text":""},"id":"2215","type":"Title"},{"attributes":{},"id":"2198","type":"BasicTicker"},{"attributes":{},"id":"2191","type":"LinearScale"},{"attributes":{},"id":"2220","type":"UnionRenderers"},{"attributes":{},"id":"2221","type":"Selection"},{"attributes":{"data":{"best_rank":[1,1,1,1,1,1,1,2,2,1,1,1,4,4,1,1,3,1,2,5,6,6,5,2,5,4,4,1,5,7,7,4,3,7,4,5,7,5,5,3,7,8,9,9,8,9,9,10,10,10,10],"clusters":["0","2","0","0","1","1","1","0","0","1","1","1","0","0","1","1","0","1","2","0","0","0","2","0","2","2","2","0","2","2","0","0","0","0","0","0","2","1","0","2","0","0","2","0","2","2","0","0","2","2","2"],"earliest_year":["1996","2016","1996","1997","2010","2006","2003","1997","1996","2004","2000","2004","1998","2001","2001","2005","2002","2003","2015","1998","1996","1998","2016","1999","2017","2012","2014","2002","2015","2019","1999","2000","1996","1996","1996","1996","2013","2008","1996","2014","2001","1996","2010","1999","2007","2015","2000","1998","2011","2018","2012"],"players":[" Peter Nicol"," Ali Farag"," Jansher Khan"," Jonathon Power"," Mohamed El Shorbagy"," Ramy Ashour"," Gr\u00e9gory Gaultier"," Ahmed Barada"," Rodney Eyles"," Nick Matthew"," David Palmer"," Amr Shabana"," Paul Johnson"," Stewart Boswell"," Thierry Lincou"," James Willstrop"," Anthony Ricketts"," Karim Darwish"," Karim Abdel Gawad"," Martin Heath"," Del Harris"," Dan Jenson"," Marwan El Shorbagy"," John White"," Paul Coll"," Omar Mosaad"," Tarek Momen"," Lee Beachill"," Miguel \u00c1ngel Rodr\u00edguez"," Diego Elias"," Stefan Casteleyn"," David Evans"," Simon Parke"," Craig Rowland"," Chris Walker"," Brett Martin"," Borja Gol\u00e1n"," Peter Barker"," Anthony Hill"," Simon R\u00f6sner"," Ong Beng Hee"," Mark Chaloner"," Laurens Jan Anjema"," Alex Gough"," Wael El Hindi"," Mathieu Castagnet"," Paul Price"," Derek Ryan"," Mohd Azlan Iskandar"," Mohamed Abouelghar"," Daryl Selby"],"x":{"__ndarray__":"6UhB5GHoHcAojcaOrzkvQAhxhMmXlSrAe75Q4b9tG8AOASrFpo4oQBvkZLzOjx1ALxPLk31nHUAO6vfU9CwmwA8dG7gapirANUJq09W8HEDL7xCNDB/Mv9kilmgKnxJAZ7dMcoAMJcBxKm3pQrIcwK+F3k9H1ti/bVEc7PReHkAFSjlwJ3wKwIkKaXqWYglAwSV0hpFqLkDVFAB8vh4lwNv1fy+daizAekavFo91KMCPNeur0lkvQC7pIBNVpxDAg0B0LyI4MEBDvhjjXWMlQDyycOWA+yxA80dosim/CMB9dG6Vt/EtQMqhZFhrUTFAVMkVDBGUJcAXKWWiX9kgwOOp5jH5FCfAEdjQzrMCLsAQkl77jRcswFtSSztCLSzANiv/PppvI0BdnBIyaMAbQASICBpRAynAyL3SGnkvLUCfgB2hbRgZwPQpCtAPfiTAT7qcoqb1EkBvfrMPI8YjwMBjYNfb1wFAfiUyVJYyKUCWMlEfxOIgwOW6QkXFLSjAlrTPt6K4GEABKc47kQQwQKY50gXm1SBA","dtype":"float64","order":"little","shape":[51]},"y":{"__ndarray__":"ofkUQYeBIUBnMV8nQcTZP9//q5jorf8/AeCpTCB1HUCrWn9nxbkaQL0y7FHO6B9A7P3MIRjMKEDdyNBCLez/P+WHSiogrPI/u0qRU0DFJUCKi1+Y3qUhQG5vrl/kFyBApE74wNj/0b/jcelCScv5v+evDqxlbx1AbDmye2ewIEDifEks4yrpP6rt5HqkFR1Ap1Mg3rsh7z9O88gFDv7vv3BcyoUXOQLA8cI233iqC8CTCwiwp1ADwEcLHJHHBBJAa+Ccz+LmDMBR2fUuU9/+v74Cx6Zmr+K/YizlZZJAAUBUDXYkYdQGwIamBxPlZxvA+sqaOz9iEcBo6ULruDz/v9xojz1/e/0/r+2UtszCD8Bb0+s+NDj3v2EVHNrVsf+/w607OxOuFMAkxvCIYf3xPw418P9/0eu/17JwpFwO2D+axfpGHzQHwBeZ7CHfgP6/ZJqKdM/+HMC+auMmlMMTwMOUF/9N7xHAx4A60xjIG8Dxz99+BbsUwPxBg3QmCBrA8wFFIOlFIMDFDvgl5gYiwMckJHT6Ux3A","dtype":"float64","order":"little","shape":[51]},"years_in_top10":[10,4,3,9,10,11,15,4,3,14,11,11,3,2,10,11,4,10,6,3,2,1,4,7,3,3,5,5,3,1,1,2,5,1,2,2,2,7,3,6,3,3,1,2,3,2,2,1,1,1,2]},"selected":{"id":"2221"},"selection_policy":{"id":"2220"}},"id":"2182","type":"ColumnDataSource"},{"attributes":{"formatter":{"id":"2217"},"ticker":{"id":"2198"}},"id":"2197","type":"LinearAxis"},{"attributes":{"bottom_units":"screen","fill_alpha":0.5,"fill_color":"lightgrey","left_units":"screen","level":"overlay","line_alpha":1.0,"line_color":"black","line_dash":[4,4],"line_width":2,"right_units":"screen","top_units":"screen"},"id":"2204","type":"BoxAnnotation"},{"attributes":{},"id":"2194","type":"BasicTicker"},{"attributes":{},"id":"2187","type":"DataRange1d"},{"attributes":{},"id":"2185","type":"DataRange1d"},{"attributes":{},"id":"2219","type":"BasicTickFormatter"},{"attributes":{},"id":"2189","type":"LinearScale"},{"attributes":{},"id":"2203","type":"ResetTool"},{"attributes":{"data_source":{"id":"2182"},"glyph":{"id":"2210"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"2211"},"selection_glyph":null,"view":{"id":"2213"}},"id":"2212","type":"GlyphRenderer"},{"attributes":{"fill_color":{"field":"clusters","transform":{"id":"2183"}},"line_color":{"field":"clusters","transform":{"id":"2183"}},"x":{"field":"x"},"y":{"field":"y"}},"id":"2210","type":"Scatter"},{"attributes":{"axis":{"id":"2197"},"dimension":1,"grid_line_color":null,"ticker":null},"id":"2200","type":"Grid"},{"attributes":{"source":{"id":"2182"}},"id":"2213","type":"CDSView"},{"attributes":{"axis":{"id":"2193"},"grid_line_color":null,"ticker":null},"id":"2196","type":"Grid"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"field":"clusters","transform":{"id":"2183"}},"line_alpha":{"value":0.1},"line_color":{"field":"clusters","transform":{"id":"2183"}},"x":{"field":"x"},"y":{"field":"y"}},"id":"2211","type":"Scatter"},{"attributes":{"overlay":{"id":"2204"}},"id":"2201","type":"BoxZoomTool"},{"attributes":{"callback":null,"tooltips":[["Player","@players"],["Best rank","@best_rank"],["Years in Top 10","@years_in_top10"],["Earliest year","@earliest_year"]]},"id":"2202","type":"HoverTool"},{"attributes":{},"id":"2217","type":"BasicTickFormatter"},{"attributes":{"factors":["0","1","2"],"palette":["#1f77b4","#ff7f0e","#2ca02c"]},"id":"2183","type":"CategoricalColorMapper"}],"root_ids":["2184"]},"title":"Bokeh Application","version":"2.2.3"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('2448').textContent;
+                  var render_items = [{"docid":"4414fc39-3b12-46cd-9e66-65330f4d0c1d","root_ids":["2184"],"roots":{"2184":"5896499d-cb1b-4c82-9338-87c574f11e41"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts > 100) {
+                          clearInterval(timer);
+                          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  
+  
+
+
+  </div><a class="u-url" href="/blog/python/data%20science/2020/11/01/squash3.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
