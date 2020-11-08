@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Visualising L1 and L2 regularisation, Part II, Lessons learnt from an experienced programmer | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Visualising L1 and L2 regularisation, Part II, Lessons learnt from an experienced programmer" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The process I used to make the animations was inefficient and not programmatic. I could not work out how to adapt the matplotlib animation tools to my situation so I asked for help. Here I describe what I learnt from the help that I received." />
+<meta property="og:description" content="The process I used to make the animations was inefficient and not programmatic. I could not work out how to adapt the matplotlib animation tools to my situation so I asked for help. Here I describe what I learnt from the help that I received." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/18/l1l2reg2.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/python/2020/10/18/l1l2reg2.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-18T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Visualising L1 and L2 regularisation, Part II, Lessons learnt from an experienced programmer","description":"The process I used to make the animations was inefficient and not programmatic. I could not work out how to adapt the matplotlib animation tools to my situation so I asked for help. Here I describe what I learnt from the help that I received.","datePublished":"2020-10-18T00:00:00-05:00","dateModified":"2020-10-18T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/python/2020/10/18/l1l2reg2.html"},"url":"https://lovkush-a.github.io/blog/data%20science/python/2020/10/18/l1l2reg2.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Visualising L1 and L2 regularisation, Part II, Lessons learnt from an experienced programmer | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Visualising L1 and L2 regularisation, Part II, Lessons learnt from an experienced programmer" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The process I used to make the animations was inefficient and not programmatic. I could not work out how to adapt the matplotlib animation tools to my situation so I asked for help. Here I describe what I learnt from the help that I received." />
+<meta property="og:description" content="The process I used to make the animations was inefficient and not programmatic. I could not work out how to adapt the matplotlib animation tools to my situation so I asked for help. Here I describe what I learnt from the help that I received." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/18/l1l2reg2.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/python/2020/10/18/l1l2reg2.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-18T00:00:00-05:00" />
+<script type="application/ld+json">
+{"headline":"Visualising L1 and L2 regularisation, Part II, Lessons learnt from an experienced programmer","description":"The process I used to make the animations was inefficient and not programmatic. I could not work out how to adapt the matplotlib animation tools to my situation so I asked for help. Here I describe what I learnt from the help that I received.","datePublished":"2020-10-18T00:00:00-05:00","dateModified":"2020-10-18T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/python/2020/10/18/l1l2reg2.html"},"url":"https://lovkush-a.github.io/blog/data%20science/python/2020/10/18/l1l2reg2.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Visualising L1 and L2 regularisation, Part II, Lessons learnt from an experienced programmer</h1><p class="page-description">The process I used to make the animations was inefficient and not programmatic. I could not work out how to adapt the matplotlib animation tools to my situation so I asked for help. Here I describe what I learnt from the help that I received.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-10-18T00:00:00-05:00" itemprop="datePublished">
+        Oct 18, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#python">python</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#other-posts-in-series">Other posts in series</a></li>
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#lessons-learnt">Lessons learnt</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#automatic-code-formatting-for-notebooks">Automatic code formatting for notebooks</a></li>
+<li class="toc-entry toc-h3"><a href="#decorators">Decorators</a></li>
+<li class="toc-entry toc-h3"><a href="#defining-functions-with-functions">Defining functions with functions</a></li>
+<li class="toc-entry toc-h3"><a href="#how-to-use-ffmpegwriter">How to use FFMpegWriter</a></li>
+<li class="toc-entry toc-h3"><a href="#how-how-i-might-have-found-the-solution-myself">How how I might have found the solution myself</a></li>
+<li class="toc-entry toc-h3"><a href="#goal-for-the-future">Goal for the future</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#conclusion">Conclusion</a></li>
+<li class="toc-entry toc-h2"><a href="#github-repository">Github Repository</a></li>
+</ul><h2 id="other-posts-in-series">
+<a class="anchor" href="#other-posts-in-series" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other posts in series</h2>
+
+<ul>
+  <li><a href="/blog/data%20science/python/2020/10/11/l1l2reg.html">Visualising L1 and L2 regularisation</a></li>
+</ul>
+
+<h2 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<p>In the first post in this series, I produced various animations to help visualise L1 vs L2 regularisation. However, the way I produced those animations was not 100% programmatic. This is what I did:</p>
+<ul>
+  <li>Have a for loop which produces each chart then saves it as a png file.</li>
+  <li>Manually use an online gif tool to combine the png files.</li>
+</ul>
+
+<p>However, I knew it was possible to create a video programmatically in matplotlib, as I had done it before to <a href="/blog/data%20science/python/2020/09/10/sgd1.html">visualise gradient descent</a>. But I could not work out how to adapt the functions to this case.  Therefore, I decided to ask for help in the Faculty Slack channel. I got two helpful responses.</p>
+
+<ul>
+  <li>One by Will Fawcett which told me about the command line tool <code class="highlighter-rouge">convert</code> that can create the gifs</li>
+  <li>Second by Tom Begley who recommended using <code class="highlighter-rouge">FFMpegWriter</code>. Furthermore, he actually created a pull request in which he adapted my code to illustrate how to use it!</li>
+</ul>
+
+<p>This was the first time I had asked for help in the general Slack channel, so I was taken aback by the help that was provided.</p>
+
+<p>Anyway, in the pull request, in addition to illustrating how to use <code class="highlighter-rouge">FFMpegWriter</code>, there were various other little things that were changed and things I could learn from. Therefore, I am writing this blogpost to maximise how much I learn from the experience.</p>
+
+<h2 id="lessons-learnt">
+<a class="anchor" href="#lessons-learnt" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lessons learnt</h2>
+<h3 id="automatic-code-formatting-for-notebooks">
+<a class="anchor" href="#automatic-code-formatting-for-notebooks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Automatic code formatting for notebooks</h3>
+<p>A noticeable change in the pull request was that many of the changes concerned code formatting. BBelow is an example.</p>
+
+<p>Before:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">create_cost_fn</span><span class="p">(</span><span class="n">centre_x</span><span class="p">,</span> <span class="n">centre_y</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>  <span class="n">reg_const</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="s">"""
+    returns a convex cost function
+    """</span>
+    <span class="k">if</span> <span class="n">reg</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">centre_x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">centre_y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">elif</span> <span class="n">reg</span> <span class="o">==</span> <span class="s">'l1'</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">centre_x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">centre_y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">reg_const</span><span class="o">*</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">reg</span> <span class="o">==</span> <span class="s">'l2'</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">centre_x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">centre_y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">reg_const</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">reg</span> <span class="o">==</span> <span class="s">'max'</span><span class="p">:</span>
+        <span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">centre_x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">centre_y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">reg_const</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">10</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">10</span><span class="p">)</span><span class="o">**</span><span class="mf">0.1</span>
+
+    <span class="k">return</span> <span class="n">cost</span>
+</code></pre></div></div>
+
+<p>After:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">create_cost_fn</span><span class="p">(</span><span class="n">centre_x</span><span class="p">,</span> <span class="n">centre_y</span><span class="p">,</span> <span class="n">reg</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">reg_const</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="s">"""
+    returns a convex cost function
+    """</span>
+    <span class="k">if</span> <span class="n">reg</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+
+        <span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">centre_x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">centre_y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+
+    <span class="k">elif</span> <span class="n">reg</span> <span class="o">==</span> <span class="s">"l1"</span><span class="p">:</span>
+
+        <span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">centre_x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+                <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">centre_y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+                <span class="o">+</span> <span class="n">reg_const</span> <span class="o">*</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+            <span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">reg</span> <span class="o">==</span> <span class="s">"l2"</span><span class="p">:</span>
+
+        <span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">centre_x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+                <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">centre_y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+                <span class="o">+</span> <span class="n">reg_const</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">reg</span> <span class="o">==</span> <span class="s">"max"</span><span class="p">:</span>
+
+        <span class="k">def</span> <span class="nf">cost</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">centre_x</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+                <span class="o">+</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">centre_y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+                <span class="o">+</span> <span class="n">reg_const</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">**</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">10</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.1</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">cost</span>
+</code></pre></div></div>
+
+<p>I knew there was no way Tom did this manually so surmised he used an automatic code formatter. A quick Google search revealed various options and I will be sure to make use of these in the future.</p>
+
+<h3 id="decorators">
+<a class="anchor" href="#decorators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Decorators</h3>
+<p>I already knew about decorators, but somehow never thought of making use of them.</p>
+
+<p>Before:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">create_y_l1_coordinate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+<span class="o">...</span>
+<span class="n">create_y_l1_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">create_y_l1_coordinate</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>After:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">@</span><span class="n">np</span><span class="o">.</span><span class="n">vectorize</span>
+<span class="k">def</span> <span class="nf">create_y_l1_coordinate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+<span class="o">...</span>
+</code></pre></div></div>
+
+<h3 id="defining-functions-with-functions">
+<a class="anchor" href="#defining-functions-with-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Defining functions with functions</h3>
+<p>Again, this is something I know is possible, but it is not something I have ever done. However, I did learn something new about programming from this, namely, stuff to do with ‘garbage collection’. It is best explained by showing the example. Tom created the <code class="highlighter-rouge">update</code> function within an <code class="highlighter-rouge">initialise</code> function:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">initialise</span><span class="p">(</span><span class="n">angles</span><span class="p">,</span> <span class="n">ball_radius</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s">"l1"</span><span class="p">):</span>
+    <span class="n">centres_x</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
+    <span class="n">centres_y</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
+
+    <span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+    <span class="n">x_ball</span><span class="p">,</span> <span class="n">y_ball</span> <span class="o">=</span> <span class="n">create_ball_boundary</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s">"l1"</span><span class="p">)</span>
+    <span class="c1"># comma is needed to pull poly out of list length 1
+</span>    <span class="n">ax</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">x_ball</span><span class="p">,</span> <span class="n">y_ball</span><span class="p">,</span> <span class="s">"b"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+    <span class="p">(</span><span class="n">marker</span><span class="p">,)</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="mi">0</span><span class="p">,</span>
+        <span class="n">marker</span><span class="o">=</span><span class="s">"o"</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s">"Minimum value of cost within shaded region"</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+        <span class="n">cost</span> <span class="o">=</span> <span class="n">create_cost_fn</span><span class="p">(</span><span class="n">centres_x</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">centres_y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="p">(</span>
+            <span class="n">cost_inputs_x</span><span class="p">,</span>
+            <span class="n">cost_inputs_y</span><span class="p">,</span>
+            <span class="n">cost_outputs</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="n">create_cost_inputs_outputs</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+        <span class="n">cont</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span>
+            <span class="n">cost_inputs_x</span><span class="p">,</span>
+            <span class="n">cost_inputs_y</span><span class="p">,</span>
+            <span class="n">cost_outputs</span><span class="p">,</span>
+            <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="n">x_min</span><span class="p">,</span> <span class="n">y_min</span> <span class="o">=</span> <span class="n">minimise_cost</span><span class="p">(</span><span class="n">cost</span><span class="p">,</span> <span class="n">x_ball</span><span class="p">,</span> <span class="n">y_ball</span><span class="p">)</span>
+        <span class="n">marker</span><span class="o">.</span><span class="n">set_xdata</span><span class="p">(</span><span class="n">x_min</span><span class="p">)</span>
+        <span class="n">marker</span><span class="o">.</span><span class="n">set_ydata</span><span class="p">(</span><span class="n">y_min</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cont</span>
+
+    <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">update</span>
+</code></pre></div></div>
+
+<p>Before seeing this example, I would have said that <code class="highlighter-rouge">centres_x</code>, <code class="highlighter-rouge">centres_y</code> and <code class="highlighter-rouge">marker</code> would not be ‘garbage collected’ and the variables would not be preserved. However, the fact the program works means that those variables are preserved by virtue of the fact they are used in the <code class="highlighter-rouge">update</code> function (and <code class="highlighter-rouge">update</code> is returned by <code class="highlighter-rouge">initialise</code>).</p>
+
+<p>Though I cannot say I fully understand what is going, I have a better appreciation for things I have briefly read in the past about garbage collection in python, and how there is a counter that tracks the number of things that are somehow using/referring to a python object.</p>
+
+<p>Lastly, this example highlights some things I have read about bad programming practice. If something went wrong, the update function would be hard to debug, as it is making to changes to variables that are not parameters to the function.  I do not mind it in this example, as Tom was trying to illustrate how to use FFMpegWriter and it is not worth his time to use optimal programming practice in some little learning project. Furthermore, it has indirectly increased the amount I have learnt from the experience!</p>
+
+<h3 id="how-to-use-ffmpegwriter">
+<a class="anchor" href="#how-to-use-ffmpegwriter" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use <code class="highlighter-rouge">FFMpegWriter</code>
+</h3>
+<p>Of course, the main thing I learnt from Tom’s help was how to use <code class="highlighter-rouge">FFMpegWriter</code> and adjust for the different nature of these plots compared to other animation examples I had seen/created previously.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">f</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">update</span> <span class="o">=</span> <span class="n">initialise</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
+<span class="n">writer</span> <span class="o">=</span> <span class="n">FFMpegWriter</span><span class="p">(</span><span class="n">fps</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">writer</span><span class="o">.</span><span class="n">saving</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="s">"l1-cost.mp4"</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">angles</span><span class="p">)):</span>
+        <span class="n">cont</span> <span class="o">=</span> <span class="n">update</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">grab_frame</span><span class="p">()</span>
+        <span class="n">remove_contours</span><span class="p">(</span><span class="n">cont</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="how-how-i-might-have-found-the-solution-myself">
+<a class="anchor" href="#how-how-i-might-have-found-the-solution-myself" aria-hidden="true"><span class="octicon octicon-link"></span></a>How how I might have found the solution myself</h3>
+<p>I asked Tom: ‘How would I have found out about the syntax to remove the contours, given that standard animation examples use ‘updates’ (e.g. you use updates for the red marker).  What would I have googled for, or what documentation would I have read?’</p>
+
+<p>Their response: ‘Yeah that was the nastiest bit here. Normally I look at the return value of whatever plotting function I used and try to tab-complete <code class="highlighter-rouge">.set_</code> to see what’s available. In the case of the contour there was nothing obvious so I googled something like “update matplotlib contour animation” and got <a href="https://stackoverflow.com/questions/23250004/updating-contours-for-matplotlib-animation">this stackoverflow answer</a> which told me I can’t update contours, I have to remove them instead.’</p>
+
+<p>Nothing mind-blowing, but I always find it useful to find out how other people solve their problems. I cannot remember what I searched for when I was trying to solve the problem for myself, but I guess I must not have focussed my search on the key aspect of my plots that were causing the prblems, namely, the contours.</p>
+
+<h3 id="goal-for-the-future">
+<a class="anchor" href="#goal-for-the-future" aria-hidden="true"><span class="octicon octicon-link"></span></a>Goal for the future</h3>
+<p>To guage where I am at, I asked Tom how long it took them to create the pull request. The answer was roughly 30 minutes! For me, that is incredibly fast. It is encouraging to see what I can strive for and what I will be able to achieve with continued practice and experience.</p>
+
+<h2 id="conclusion">
+<a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h2>
+<p>As you can see, I learnt a great deal from this experience. The main lesson of course is to learn from others. With enough effort, I probably could have arrived at a solution myself, however, it is much faster this way <em>and</em> I learnt a whole bunch of other little things on the side.</p>
+
+<h2 id="github-repository">
+<a class="anchor" href="#github-repository" aria-hidden="true"><span class="octicon octicon-link"></span></a>Github Repository</h2>
+<p>Here is the link to the <a href="https://github.com/Lovkush-A/l1l2_regularisation">Github repository</a> in case you’re interested in looking at the full code and comparing things for yourself.</p>
+
+  </div><a class="u-url" href="/blog/data%20science/python/2020/10/18/l1l2reg2.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
