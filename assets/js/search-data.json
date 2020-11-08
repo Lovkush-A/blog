@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "Squash rankings, Part III, All hail Bokeh!",
-            "content": "Other posts in series . Squash rankings, Part II, dimension reduction and clustering . | Squash rankings, Part I, Scraping wikipedia and data analysis . | . Introduction . One of my mentors at the Faculty Fellowship, Sania Jevtic, recommended I try using Bokeh to plot various charts I was making. I tried it and without too much effort I managed to get it to work. It is AMAZING! The interactivity you get from it is fantastic and allows for much easier understanding of your data and richer presentation of your data. I will try to illustrate by redrawing some of the charts from Part II of this series. . I will be re-making the three charts below: . . Bokeh charts . &lt;!DOCTYPE html&gt; . Bokeh Plot . .",
+            "content": "Other posts in series . Squash rankings, Part II, dimension reduction and clustering . | Squash rankings, Part I, Scraping wikipedia and data analysis . | . Introduction . One of my mentors at the Faculty Fellowship, Sania Jevtic, recommended I try using Bokeh to plot various charts I was making. I tried it and without too much effort I managed to get it to work. It is AMAZING! The interactivity you get from it is fantastic and allows for much easier understanding of your data and richer presentation of your data. I will try to illustrate by redrawing some of the charts from Part II of this series. . I will be re-making the three charts below: . . Bokeh charts . Bokeh Plot . .",
             "url": "https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3.html",
             "relUrl": "/python/data%20science/2020/11/01/squash3.html",
             "date": " • Nov 1, 2020"
