@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-11-08T05:59:04-06:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Squash rankings, Part III, All hail Bokeh!</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3.html" rel="alternate" type="text/html" title="Squash rankings, Part III, All hail Bokeh!" /><published>2020-11-01T00:00:00-05:00</published><updated>2020-11-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/11/01/squash3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-11-08T06:29:24-06:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Squash rankings, Part III, All hail Bokeh!</title><link href="https://lovkush-a.github.io/blog/python/data%20science/data%20viz/2020/11/01/squash3.html" rel="alternate" type="text/html" title="Squash rankings, Part III, All hail Bokeh!" /><published>2020-11-01T00:00:00-05:00</published><updated>2020-11-01T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/data%20viz/2020/11/01/squash3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/data%20viz/2020/11/01/squash3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -15,6 +15,8 @@
 &lt;p&gt;I will be re-making the three charts below:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/blog/images/squash2_malecluster.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Recall that the colours are clusters made by doing k-mean clustering on the original dataset, not doing clustering on each of the dimensionally-reduced datasets.&lt;/p&gt;
 
 &lt;h2 id=&quot;bokeh-charts&quot;&gt;Bokeh charts&lt;/h2&gt;
 
@@ -97,7 +99,237 @@
     
   &lt;/body&gt;
   
-&lt;/html&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part II, dimension reduction and clustering Squash rankings, Part I, Scraping wikipedia and data analysis</summary></entry><entry><title type="html">Visualising L1 and L2 regularisation</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html" rel="alternate" type="text/html" title="Visualising L1 and L2 regularisation" /><published>2020-10-11T00:00:00-05:00</published><updated>2020-10-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;/html&gt;
+
+&lt;html lang=&quot;en&quot;&gt;
+  
+  &lt;head&gt;
+    
+      &lt;meta charset=&quot;utf-8&quot; /&gt;
+      &lt;title&gt;Bokeh Plot&lt;/title&gt;
+      
+      
+        
+          
+        
+        
+          
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js&quot; integrity=&quot;sha384-T2yuo9Oe71Cz/I4X9Ac5+gpEa5a8PpJCDlqKYO0CfAuEszu1JrXLl8YugMqYe3sM&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            Bokeh.set_log_level(&quot;info&quot;);
+        &lt;/script&gt;
+        
+      
+      
+    
+  &lt;/head&gt;
+  
+  
+  &lt;body&gt;
+    
+      
+        
+          
+          
+            
+              &lt;div class=&quot;bk-root&quot; id=&quot;a1121850-5f93-4e82-a97f-6e47190ce637&quot; data-root-id=&quot;3676&quot;&gt;&lt;/div&gt;
+            
+          
+        
+      
+      
+        &lt;script type=&quot;application/json&quot; id=&quot;3968&quot;&gt;
+          {&quot;c67160e1-6f6b-4b1d-b68f-5b2a1204fa65&quot;:{&quot;roots&quot;:{&quot;references&quot;:[{&quot;attributes&quot;:{&quot;background_fill_color&quot;:&quot;white&quot;,&quot;below&quot;:[{&quot;id&quot;:&quot;3687&quot;}],&quot;center&quot;:[{&quot;id&quot;:&quot;3690&quot;},{&quot;id&quot;:&quot;3694&quot;}],&quot;left&quot;:[{&quot;id&quot;:&quot;3691&quot;}],&quot;renderers&quot;:[{&quot;id&quot;:&quot;3706&quot;}],&quot;title&quot;:{&quot;id&quot;:&quot;3677&quot;},&quot;toolbar&quot;:{&quot;id&quot;:&quot;3699&quot;},&quot;x_range&quot;:{&quot;id&quot;:&quot;3679&quot;},&quot;x_scale&quot;:{&quot;id&quot;:&quot;3683&quot;},&quot;y_range&quot;:{&quot;id&quot;:&quot;3681&quot;},&quot;y_scale&quot;:{&quot;id&quot;:&quot;3685&quot;}},&quot;id&quot;:&quot;3676&quot;,&quot;subtype&quot;:&quot;Figure&quot;,&quot;type&quot;:&quot;Plot&quot;},{&quot;attributes&quot;:{&quot;bottom_units&quot;:&quot;screen&quot;,&quot;fill_alpha&quot;:0.5,&quot;fill_color&quot;:&quot;lightgrey&quot;,&quot;left_units&quot;:&quot;screen&quot;,&quot;level&quot;:&quot;overlay&quot;,&quot;line_alpha&quot;:1.0,&quot;line_color&quot;:&quot;black&quot;,&quot;line_dash&quot;:[4,4],&quot;line_width&quot;:2,&quot;right_units&quot;:&quot;screen&quot;,&quot;top_units&quot;:&quot;screen&quot;},&quot;id&quot;:&quot;3698&quot;,&quot;type&quot;:&quot;BoxAnnotation&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3712&quot;,&quot;type&quot;:&quot;BasicTickFormatter&quot;},{&quot;attributes&quot;:{&quot;overlay&quot;:{&quot;id&quot;:&quot;3698&quot;}},&quot;id&quot;:&quot;3695&quot;,&quot;type&quot;:&quot;BoxZoomTool&quot;},{&quot;attributes&quot;:{&quot;text&quot;:&quot;PCA of Male Squash Player Rankings&quot;},&quot;id&quot;:&quot;3677&quot;,&quot;type&quot;:&quot;Title&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3714&quot;,&quot;type&quot;:&quot;Selection&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3713&quot;,&quot;type&quot;:&quot;UnionRenderers&quot;},{&quot;attributes&quot;:{&quot;fill_alpha&quot;:{&quot;value&quot;:0.1},&quot;fill_color&quot;:{&quot;field&quot;:&quot;clusters&quot;,&quot;transform&quot;:{&quot;id&quot;:&quot;3675&quot;}},&quot;line_alpha&quot;:{&quot;value&quot;:0.1},&quot;line_color&quot;:{&quot;field&quot;:&quot;clusters&quot;,&quot;transform&quot;:{&quot;id&quot;:&quot;3675&quot;}},&quot;x&quot;:{&quot;field&quot;:&quot;x&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;y&quot;}},&quot;id&quot;:&quot;3705&quot;,&quot;type&quot;:&quot;Scatter&quot;},{&quot;attributes&quot;:{&quot;fill_color&quot;:{&quot;field&quot;:&quot;clusters&quot;,&quot;transform&quot;:{&quot;id&quot;:&quot;3675&quot;}},&quot;line_color&quot;:{&quot;field&quot;:&quot;clusters&quot;,&quot;transform&quot;:{&quot;id&quot;:&quot;3675&quot;}},&quot;x&quot;:{&quot;field&quot;:&quot;x&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;y&quot;}},&quot;id&quot;:&quot;3704&quot;,&quot;type&quot;:&quot;Scatter&quot;},{&quot;attributes&quot;:{&quot;active_drag&quot;:&quot;auto&quot;,&quot;active_inspect&quot;:&quot;auto&quot;,&quot;active_multi&quot;:null,&quot;active_scroll&quot;:&quot;auto&quot;,&quot;active_tap&quot;:&quot;auto&quot;,&quot;tools&quot;:[{&quot;id&quot;:&quot;3695&quot;},{&quot;id&quot;:&quot;3696&quot;},{&quot;id&quot;:&quot;3697&quot;}]},&quot;id&quot;:&quot;3699&quot;,&quot;type&quot;:&quot;Toolbar&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3710&quot;,&quot;type&quot;:&quot;BasicTickFormatter&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3683&quot;,&quot;type&quot;:&quot;LinearScale&quot;},{&quot;attributes&quot;:{&quot;source&quot;:{&quot;id&quot;:&quot;3674&quot;}},&quot;id&quot;:&quot;3707&quot;,&quot;type&quot;:&quot;CDSView&quot;},{&quot;attributes&quot;:{&quot;axis&quot;:{&quot;id&quot;:&quot;3687&quot;},&quot;grid_line_color&quot;:null,&quot;ticker&quot;:null},&quot;id&quot;:&quot;3690&quot;,&quot;type&quot;:&quot;Grid&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3681&quot;,&quot;type&quot;:&quot;DataRange1d&quot;},{&quot;attributes&quot;:{&quot;formatter&quot;:{&quot;id&quot;:&quot;3710&quot;},&quot;ticker&quot;:{&quot;id&quot;:&quot;3692&quot;}},&quot;id&quot;:&quot;3691&quot;,&quot;type&quot;:&quot;LinearAxis&quot;},{&quot;attributes&quot;:{&quot;callback&quot;:null,&quot;tooltips&quot;:[[&quot;Player&quot;,&quot;@players&quot;],[&quot;Best rank&quot;,&quot;@best_rank&quot;],[&quot;Years in Top 10&quot;,&quot;@years_in_top10&quot;],[&quot;Earliest year&quot;,&quot;@earliest_year&quot;]]},&quot;id&quot;:&quot;3696&quot;,&quot;type&quot;:&quot;HoverTool&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3688&quot;,&quot;type&quot;:&quot;BasicTicker&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3685&quot;,&quot;type&quot;:&quot;LinearScale&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3692&quot;,&quot;type&quot;:&quot;BasicTicker&quot;},{&quot;attributes&quot;:{&quot;data&quot;:{&quot;best_rank&quot;:[1,1,1,1,1,1,1,2,2,1,1,1,4,4,1,1,3,1,2,5,6,6,5,2,5,4,4,1,5,7,7,4,3,7,4,5,7,5,5,3,7,8,9,9,8,9,9,10,10,10,10],&quot;clusters&quot;:[&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;,&quot;0&quot;,&quot;2&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;2&quot;,&quot;1&quot;,&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;2&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;],&quot;earliest_year&quot;:[&quot;1996&quot;,&quot;2016&quot;,&quot;1996&quot;,&quot;1997&quot;,&quot;2010&quot;,&quot;2006&quot;,&quot;2003&quot;,&quot;1997&quot;,&quot;1996&quot;,&quot;2004&quot;,&quot;2000&quot;,&quot;2004&quot;,&quot;1998&quot;,&quot;2001&quot;,&quot;2001&quot;,&quot;2005&quot;,&quot;2002&quot;,&quot;2003&quot;,&quot;2015&quot;,&quot;1998&quot;,&quot;1996&quot;,&quot;1998&quot;,&quot;2016&quot;,&quot;1999&quot;,&quot;2017&quot;,&quot;2012&quot;,&quot;2014&quot;,&quot;2002&quot;,&quot;2015&quot;,&quot;2019&quot;,&quot;1999&quot;,&quot;2000&quot;,&quot;1996&quot;,&quot;1996&quot;,&quot;1996&quot;,&quot;1996&quot;,&quot;2013&quot;,&quot;2008&quot;,&quot;1996&quot;,&quot;2014&quot;,&quot;2001&quot;,&quot;1996&quot;,&quot;2010&quot;,&quot;1999&quot;,&quot;2007&quot;,&quot;2015&quot;,&quot;2000&quot;,&quot;1998&quot;,&quot;2011&quot;,&quot;2018&quot;,&quot;2012&quot;],&quot;players&quot;:[&quot; Peter Nicol&quot;,&quot; Ali Farag&quot;,&quot; Jansher Khan&quot;,&quot; Jonathon Power&quot;,&quot; Mohamed El Shorbagy&quot;,&quot; Ramy Ashour&quot;,&quot; Gr\u00e9gory Gaultier&quot;,&quot; Ahmed Barada&quot;,&quot; Rodney Eyles&quot;,&quot; Nick Matthew&quot;,&quot; David Palmer&quot;,&quot; Amr Shabana&quot;,&quot; Paul Johnson&quot;,&quot; Stewart Boswell&quot;,&quot; Thierry Lincou&quot;,&quot; James Willstrop&quot;,&quot; Anthony Ricketts&quot;,&quot; Karim Darwish&quot;,&quot; Karim Abdel Gawad&quot;,&quot; Martin Heath&quot;,&quot; Del Harris&quot;,&quot; Dan Jenson&quot;,&quot; Marwan El Shorbagy&quot;,&quot; John White&quot;,&quot; Paul Coll&quot;,&quot; Omar Mosaad&quot;,&quot; Tarek Momen&quot;,&quot; Lee Beachill&quot;,&quot; Miguel \u00c1ngel Rodr\u00edguez&quot;,&quot; Diego Elias&quot;,&quot; Stefan Casteleyn&quot;,&quot; David Evans&quot;,&quot; Simon Parke&quot;,&quot; Craig Rowland&quot;,&quot; Chris Walker&quot;,&quot; Brett Martin&quot;,&quot; Borja Gol\u00e1n&quot;,&quot; Peter Barker&quot;,&quot; Anthony Hill&quot;,&quot; Simon R\u00f6sner&quot;,&quot; Ong Beng Hee&quot;,&quot; Mark Chaloner&quot;,&quot; Laurens Jan Anjema&quot;,&quot; Alex Gough&quot;,&quot; Wael El Hindi&quot;,&quot; Mathieu Castagnet&quot;,&quot; Paul Price&quot;,&quot; Derek Ryan&quot;,&quot; Mohd Azlan Iskandar&quot;,&quot; Mohamed Abouelghar&quot;,&quot; Daryl Selby&quot;],&quot;x&quot;:{&quot;__ndarray__&quot;:&quot;6UhB5GHoHcAojcaOrzkvQAhxhMmXlSrAe75Q4b9tG8AOASrFpo4oQBvkZLzOjx1ALxPLk31nHUAO6vfU9CwmwA8dG7gapirANUJq09W8HEDL7xCNDB/Mv9kilmgKnxJAZ7dMcoAMJcBxKm3pQrIcwK+F3k9H1ti/bVEc7PReHkAFSjlwJ3wKwIkKaXqWYglAwSV0hpFqLkDVFAB8vh4lwNv1fy+daizAekavFo91KMCPNeur0lkvQC7pIBNVpxDAg0B0LyI4MEBDvhjjXWMlQDyycOWA+yxA80dosim/CMB9dG6Vt/EtQMqhZFhrUTFAVMkVDBGUJcAXKWWiX9kgwOOp5jH5FCfAEdjQzrMCLsAQkl77jRcswFtSSztCLSzANiv/PppvI0BdnBIyaMAbQASICBpRAynAyL3SGnkvLUCfgB2hbRgZwPQpCtAPfiTAT7qcoqb1EkBvfrMPI8YjwMBjYNfb1wFAfiUyVJYyKUCWMlEfxOIgwOW6QkXFLSjAlrTPt6K4GEABKc47kQQwQKY50gXm1SBA&quot;,&quot;dtype&quot;:&quot;float64&quot;,&quot;order&quot;:&quot;little&quot;,&quot;shape&quot;:[51]},&quot;y&quot;:{&quot;__ndarray__&quot;:&quot;ofkUQYeBIUBnMV8nQcTZP9//q5jorf8/AeCpTCB1HUCrWn9nxbkaQL0y7FHO6B9A7P3MIRjMKEDdyNBCLez/P+WHSiogrPI/u0qRU0DFJUCKi1+Y3qUhQG5vrl/kFyBApE74wNj/0b/jcelCScv5v+evDqxlbx1AbDmye2ewIEDifEks4yrpP6rt5HqkFR1Ap1Mg3rsh7z9O88gFDv7vv3BcyoUXOQLA8cI233iqC8CTCwiwp1ADwEcLHJHHBBJAa+Ccz+LmDMBR2fUuU9/+v74Cx6Zmr+K/YizlZZJAAUBUDXYkYdQGwIamBxPlZxvA+sqaOz9iEcBo6ULruDz/v9xojz1/e/0/r+2UtszCD8Bb0+s+NDj3v2EVHNrVsf+/w607OxOuFMAkxvCIYf3xPw418P9/0eu/17JwpFwO2D+axfpGHzQHwBeZ7CHfgP6/ZJqKdM/+HMC+auMmlMMTwMOUF/9N7xHAx4A60xjIG8Dxz99+BbsUwPxBg3QmCBrA8wFFIOlFIMDFDvgl5gYiwMckJHT6Ux3A&quot;,&quot;dtype&quot;:&quot;float64&quot;,&quot;order&quot;:&quot;little&quot;,&quot;shape&quot;:[51]},&quot;years_in_top10&quot;:[10,4,3,9,10,11,15,4,3,14,11,11,3,2,10,11,4,10,6,3,2,1,4,7,3,3,5,5,3,1,1,2,5,1,2,2,2,7,3,6,3,3,1,2,3,2,2,1,1,1,2]},&quot;selected&quot;:{&quot;id&quot;:&quot;3714&quot;},&quot;selection_policy&quot;:{&quot;id&quot;:&quot;3713&quot;}},&quot;id&quot;:&quot;3674&quot;,&quot;type&quot;:&quot;ColumnDataSource&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3679&quot;,&quot;type&quot;:&quot;DataRange1d&quot;},{&quot;attributes&quot;:{&quot;formatter&quot;:{&quot;id&quot;:&quot;3712&quot;},&quot;ticker&quot;:{&quot;id&quot;:&quot;3688&quot;}},&quot;id&quot;:&quot;3687&quot;,&quot;type&quot;:&quot;LinearAxis&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3697&quot;,&quot;type&quot;:&quot;ResetTool&quot;},{&quot;attributes&quot;:{&quot;data_source&quot;:{&quot;id&quot;:&quot;3674&quot;},&quot;glyph&quot;:{&quot;id&quot;:&quot;3704&quot;},&quot;hover_glyph&quot;:null,&quot;muted_glyph&quot;:null,&quot;nonselection_glyph&quot;:{&quot;id&quot;:&quot;3705&quot;},&quot;selection_glyph&quot;:null,&quot;view&quot;:{&quot;id&quot;:&quot;3707&quot;}},&quot;id&quot;:&quot;3706&quot;,&quot;type&quot;:&quot;GlyphRenderer&quot;},{&quot;attributes&quot;:{&quot;factors&quot;:[&quot;0&quot;,&quot;1&quot;,&quot;2&quot;],&quot;palette&quot;:[&quot;#1f77b4&quot;,&quot;#ff7f0e&quot;,&quot;#2ca02c&quot;]},&quot;id&quot;:&quot;3675&quot;,&quot;type&quot;:&quot;CategoricalColorMapper&quot;},{&quot;attributes&quot;:{&quot;axis&quot;:{&quot;id&quot;:&quot;3691&quot;},&quot;dimension&quot;:1,&quot;grid_line_color&quot;:null,&quot;ticker&quot;:null},&quot;id&quot;:&quot;3694&quot;,&quot;type&quot;:&quot;Grid&quot;}],&quot;root_ids&quot;:[&quot;3676&quot;]},&quot;title&quot;:&quot;Bokeh Application&quot;,&quot;version&quot;:&quot;2.2.3&quot;}}
+        &lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('3968').textContent;
+                  var render_items = [{&quot;docid&quot;:&quot;c67160e1-6f6b-4b1d-b68f-5b2a1204fa65&quot;,&quot;root_ids&quot;:[&quot;3676&quot;],&quot;roots&quot;:{&quot;3676&quot;:&quot;a1121850-5f93-4e82-a97f-6e47190ce637&quot;}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts &gt; 100) {
+                          clearInterval(timer);
+                          console.log(&quot;Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing&quot;);
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != &quot;loading&quot;) fn();
+            else document.addEventListener(&quot;DOMContentLoaded&quot;, fn);
+          })();
+        &lt;/script&gt;
+    
+  &lt;/body&gt;
+  
+&lt;/html&gt;
+
+&lt;html lang=&quot;en&quot;&gt;
+  
+  &lt;head&gt;
+    
+      &lt;meta charset=&quot;utf-8&quot; /&gt;
+      &lt;title&gt;Bokeh Plot&lt;/title&gt;
+      
+      
+        
+          
+        
+        
+          
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.bokeh.org/bokeh/release/bokeh-2.2.3.min.js&quot; integrity=&quot;sha384-T2yuo9Oe71Cz/I4X9Ac5+gpEa5a8PpJCDlqKYO0CfAuEszu1JrXLl8YugMqYe3sM&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            Bokeh.set_log_level(&quot;info&quot;);
+        &lt;/script&gt;
+        
+      
+      
+    
+  &lt;/head&gt;
+  
+  
+  &lt;body&gt;
+    
+      
+        
+          
+          
+            
+              &lt;div class=&quot;bk-root&quot; id=&quot;a1121850-5f93-4e82-a97f-6e47190ce637&quot; data-root-id=&quot;3676&quot;&gt;&lt;/div&gt;
+            
+          
+        
+      
+      
+        &lt;script type=&quot;application/json&quot; id=&quot;3968&quot;&gt;
+          {&quot;c67160e1-6f6b-4b1d-b68f-5b2a1204fa65&quot;:{&quot;roots&quot;:{&quot;references&quot;:[{&quot;attributes&quot;:{&quot;background_fill_color&quot;:&quot;white&quot;,&quot;below&quot;:[{&quot;id&quot;:&quot;3687&quot;}],&quot;center&quot;:[{&quot;id&quot;:&quot;3690&quot;},{&quot;id&quot;:&quot;3694&quot;}],&quot;left&quot;:[{&quot;id&quot;:&quot;3691&quot;}],&quot;renderers&quot;:[{&quot;id&quot;:&quot;3706&quot;}],&quot;title&quot;:{&quot;id&quot;:&quot;3677&quot;},&quot;toolbar&quot;:{&quot;id&quot;:&quot;3699&quot;},&quot;x_range&quot;:{&quot;id&quot;:&quot;3679&quot;},&quot;x_scale&quot;:{&quot;id&quot;:&quot;3683&quot;},&quot;y_range&quot;:{&quot;id&quot;:&quot;3681&quot;},&quot;y_scale&quot;:{&quot;id&quot;:&quot;3685&quot;}},&quot;id&quot;:&quot;3676&quot;,&quot;subtype&quot;:&quot;Figure&quot;,&quot;type&quot;:&quot;Plot&quot;},{&quot;attributes&quot;:{&quot;bottom_units&quot;:&quot;screen&quot;,&quot;fill_alpha&quot;:0.5,&quot;fill_color&quot;:&quot;lightgrey&quot;,&quot;left_units&quot;:&quot;screen&quot;,&quot;level&quot;:&quot;overlay&quot;,&quot;line_alpha&quot;:1.0,&quot;line_color&quot;:&quot;black&quot;,&quot;line_dash&quot;:[4,4],&quot;line_width&quot;:2,&quot;right_units&quot;:&quot;screen&quot;,&quot;top_units&quot;:&quot;screen&quot;},&quot;id&quot;:&quot;3698&quot;,&quot;type&quot;:&quot;BoxAnnotation&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3712&quot;,&quot;type&quot;:&quot;BasicTickFormatter&quot;},{&quot;attributes&quot;:{&quot;overlay&quot;:{&quot;id&quot;:&quot;3698&quot;}},&quot;id&quot;:&quot;3695&quot;,&quot;type&quot;:&quot;BoxZoomTool&quot;},{&quot;attributes&quot;:{&quot;text&quot;:&quot;PCA of Male Squash Player Rankings&quot;},&quot;id&quot;:&quot;3677&quot;,&quot;type&quot;:&quot;Title&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3714&quot;,&quot;type&quot;:&quot;Selection&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3713&quot;,&quot;type&quot;:&quot;UnionRenderers&quot;},{&quot;attributes&quot;:{&quot;fill_alpha&quot;:{&quot;value&quot;:0.1},&quot;fill_color&quot;:{&quot;field&quot;:&quot;clusters&quot;,&quot;transform&quot;:{&quot;id&quot;:&quot;3675&quot;}},&quot;line_alpha&quot;:{&quot;value&quot;:0.1},&quot;line_color&quot;:{&quot;field&quot;:&quot;clusters&quot;,&quot;transform&quot;:{&quot;id&quot;:&quot;3675&quot;}},&quot;x&quot;:{&quot;field&quot;:&quot;x&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;y&quot;}},&quot;id&quot;:&quot;3705&quot;,&quot;type&quot;:&quot;Scatter&quot;},{&quot;attributes&quot;:{&quot;fill_color&quot;:{&quot;field&quot;:&quot;clusters&quot;,&quot;transform&quot;:{&quot;id&quot;:&quot;3675&quot;}},&quot;line_color&quot;:{&quot;field&quot;:&quot;clusters&quot;,&quot;transform&quot;:{&quot;id&quot;:&quot;3675&quot;}},&quot;x&quot;:{&quot;field&quot;:&quot;x&quot;},&quot;y&quot;:{&quot;field&quot;:&quot;y&quot;}},&quot;id&quot;:&quot;3704&quot;,&quot;type&quot;:&quot;Scatter&quot;},{&quot;attributes&quot;:{&quot;active_drag&quot;:&quot;auto&quot;,&quot;active_inspect&quot;:&quot;auto&quot;,&quot;active_multi&quot;:null,&quot;active_scroll&quot;:&quot;auto&quot;,&quot;active_tap&quot;:&quot;auto&quot;,&quot;tools&quot;:[{&quot;id&quot;:&quot;3695&quot;},{&quot;id&quot;:&quot;3696&quot;},{&quot;id&quot;:&quot;3697&quot;}]},&quot;id&quot;:&quot;3699&quot;,&quot;type&quot;:&quot;Toolbar&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3710&quot;,&quot;type&quot;:&quot;BasicTickFormatter&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3683&quot;,&quot;type&quot;:&quot;LinearScale&quot;},{&quot;attributes&quot;:{&quot;source&quot;:{&quot;id&quot;:&quot;3674&quot;}},&quot;id&quot;:&quot;3707&quot;,&quot;type&quot;:&quot;CDSView&quot;},{&quot;attributes&quot;:{&quot;axis&quot;:{&quot;id&quot;:&quot;3687&quot;},&quot;grid_line_color&quot;:null,&quot;ticker&quot;:null},&quot;id&quot;:&quot;3690&quot;,&quot;type&quot;:&quot;Grid&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3681&quot;,&quot;type&quot;:&quot;DataRange1d&quot;},{&quot;attributes&quot;:{&quot;formatter&quot;:{&quot;id&quot;:&quot;3710&quot;},&quot;ticker&quot;:{&quot;id&quot;:&quot;3692&quot;}},&quot;id&quot;:&quot;3691&quot;,&quot;type&quot;:&quot;LinearAxis&quot;},{&quot;attributes&quot;:{&quot;callback&quot;:null,&quot;tooltips&quot;:[[&quot;Player&quot;,&quot;@players&quot;],[&quot;Best rank&quot;,&quot;@best_rank&quot;],[&quot;Years in Top 10&quot;,&quot;@years_in_top10&quot;],[&quot;Earliest year&quot;,&quot;@earliest_year&quot;]]},&quot;id&quot;:&quot;3696&quot;,&quot;type&quot;:&quot;HoverTool&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3688&quot;,&quot;type&quot;:&quot;BasicTicker&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3685&quot;,&quot;type&quot;:&quot;LinearScale&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3692&quot;,&quot;type&quot;:&quot;BasicTicker&quot;},{&quot;attributes&quot;:{&quot;data&quot;:{&quot;best_rank&quot;:[1,1,1,1,1,1,1,2,2,1,1,1,4,4,1,1,3,1,2,5,6,6,5,2,5,4,4,1,5,7,7,4,3,7,4,5,7,5,5,3,7,8,9,9,8,9,9,10,10,10,10],&quot;clusters&quot;:[&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;,&quot;0&quot;,&quot;2&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;2&quot;,&quot;1&quot;,&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;2&quot;,&quot;0&quot;,&quot;2&quot;,&quot;2&quot;,&quot;0&quot;,&quot;0&quot;,&quot;2&quot;,&quot;2&quot;,&quot;2&quot;],&quot;earliest_year&quot;:[&quot;1996&quot;,&quot;2016&quot;,&quot;1996&quot;,&quot;1997&quot;,&quot;2010&quot;,&quot;2006&quot;,&quot;2003&quot;,&quot;1997&quot;,&quot;1996&quot;,&quot;2004&quot;,&quot;2000&quot;,&quot;2004&quot;,&quot;1998&quot;,&quot;2001&quot;,&quot;2001&quot;,&quot;2005&quot;,&quot;2002&quot;,&quot;2003&quot;,&quot;2015&quot;,&quot;1998&quot;,&quot;1996&quot;,&quot;1998&quot;,&quot;2016&quot;,&quot;1999&quot;,&quot;2017&quot;,&quot;2012&quot;,&quot;2014&quot;,&quot;2002&quot;,&quot;2015&quot;,&quot;2019&quot;,&quot;1999&quot;,&quot;2000&quot;,&quot;1996&quot;,&quot;1996&quot;,&quot;1996&quot;,&quot;1996&quot;,&quot;2013&quot;,&quot;2008&quot;,&quot;1996&quot;,&quot;2014&quot;,&quot;2001&quot;,&quot;1996&quot;,&quot;2010&quot;,&quot;1999&quot;,&quot;2007&quot;,&quot;2015&quot;,&quot;2000&quot;,&quot;1998&quot;,&quot;2011&quot;,&quot;2018&quot;,&quot;2012&quot;],&quot;players&quot;:[&quot; Peter Nicol&quot;,&quot; Ali Farag&quot;,&quot; Jansher Khan&quot;,&quot; Jonathon Power&quot;,&quot; Mohamed El Shorbagy&quot;,&quot; Ramy Ashour&quot;,&quot; Gr\u00e9gory Gaultier&quot;,&quot; Ahmed Barada&quot;,&quot; Rodney Eyles&quot;,&quot; Nick Matthew&quot;,&quot; David Palmer&quot;,&quot; Amr Shabana&quot;,&quot; Paul Johnson&quot;,&quot; Stewart Boswell&quot;,&quot; Thierry Lincou&quot;,&quot; James Willstrop&quot;,&quot; Anthony Ricketts&quot;,&quot; Karim Darwish&quot;,&quot; Karim Abdel Gawad&quot;,&quot; Martin Heath&quot;,&quot; Del Harris&quot;,&quot; Dan Jenson&quot;,&quot; Marwan El Shorbagy&quot;,&quot; John White&quot;,&quot; Paul Coll&quot;,&quot; Omar Mosaad&quot;,&quot; Tarek Momen&quot;,&quot; Lee Beachill&quot;,&quot; Miguel \u00c1ngel Rodr\u00edguez&quot;,&quot; Diego Elias&quot;,&quot; Stefan Casteleyn&quot;,&quot; David Evans&quot;,&quot; Simon Parke&quot;,&quot; Craig Rowland&quot;,&quot; Chris Walker&quot;,&quot; Brett Martin&quot;,&quot; Borja Gol\u00e1n&quot;,&quot; Peter Barker&quot;,&quot; Anthony Hill&quot;,&quot; Simon R\u00f6sner&quot;,&quot; Ong Beng Hee&quot;,&quot; Mark Chaloner&quot;,&quot; Laurens Jan Anjema&quot;,&quot; Alex Gough&quot;,&quot; Wael El Hindi&quot;,&quot; Mathieu Castagnet&quot;,&quot; Paul Price&quot;,&quot; Derek Ryan&quot;,&quot; Mohd Azlan Iskandar&quot;,&quot; Mohamed Abouelghar&quot;,&quot; Daryl Selby&quot;],&quot;x&quot;:{&quot;__ndarray__&quot;:&quot;6UhB5GHoHcAojcaOrzkvQAhxhMmXlSrAe75Q4b9tG8AOASrFpo4oQBvkZLzOjx1ALxPLk31nHUAO6vfU9CwmwA8dG7gapirANUJq09W8HEDL7xCNDB/Mv9kilmgKnxJAZ7dMcoAMJcBxKm3pQrIcwK+F3k9H1ti/bVEc7PReHkAFSjlwJ3wKwIkKaXqWYglAwSV0hpFqLkDVFAB8vh4lwNv1fy+daizAekavFo91KMCPNeur0lkvQC7pIBNVpxDAg0B0LyI4MEBDvhjjXWMlQDyycOWA+yxA80dosim/CMB9dG6Vt/EtQMqhZFhrUTFAVMkVDBGUJcAXKWWiX9kgwOOp5jH5FCfAEdjQzrMCLsAQkl77jRcswFtSSztCLSzANiv/PppvI0BdnBIyaMAbQASICBpRAynAyL3SGnkvLUCfgB2hbRgZwPQpCtAPfiTAT7qcoqb1EkBvfrMPI8YjwMBjYNfb1wFAfiUyVJYyKUCWMlEfxOIgwOW6QkXFLSjAlrTPt6K4GEABKc47kQQwQKY50gXm1SBA&quot;,&quot;dtype&quot;:&quot;float64&quot;,&quot;order&quot;:&quot;little&quot;,&quot;shape&quot;:[51]},&quot;y&quot;:{&quot;__ndarray__&quot;:&quot;ofkUQYeBIUBnMV8nQcTZP9//q5jorf8/AeCpTCB1HUCrWn9nxbkaQL0y7FHO6B9A7P3MIRjMKEDdyNBCLez/P+WHSiogrPI/u0qRU0DFJUCKi1+Y3qUhQG5vrl/kFyBApE74wNj/0b/jcelCScv5v+evDqxlbx1AbDmye2ewIEDifEks4yrpP6rt5HqkFR1Ap1Mg3rsh7z9O88gFDv7vv3BcyoUXOQLA8cI233iqC8CTCwiwp1ADwEcLHJHHBBJAa+Ccz+LmDMBR2fUuU9/+v74Cx6Zmr+K/YizlZZJAAUBUDXYkYdQGwIamBxPlZxvA+sqaOz9iEcBo6ULruDz/v9xojz1/e/0/r+2UtszCD8Bb0+s+NDj3v2EVHNrVsf+/w607OxOuFMAkxvCIYf3xPw418P9/0eu/17JwpFwO2D+axfpGHzQHwBeZ7CHfgP6/ZJqKdM/+HMC+auMmlMMTwMOUF/9N7xHAx4A60xjIG8Dxz99+BbsUwPxBg3QmCBrA8wFFIOlFIMDFDvgl5gYiwMckJHT6Ux3A&quot;,&quot;dtype&quot;:&quot;float64&quot;,&quot;order&quot;:&quot;little&quot;,&quot;shape&quot;:[51]},&quot;years_in_top10&quot;:[10,4,3,9,10,11,15,4,3,14,11,11,3,2,10,11,4,10,6,3,2,1,4,7,3,3,5,5,3,1,1,2,5,1,2,2,2,7,3,6,3,3,1,2,3,2,2,1,1,1,2]},&quot;selected&quot;:{&quot;id&quot;:&quot;3714&quot;},&quot;selection_policy&quot;:{&quot;id&quot;:&quot;3713&quot;}},&quot;id&quot;:&quot;3674&quot;,&quot;type&quot;:&quot;ColumnDataSource&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3679&quot;,&quot;type&quot;:&quot;DataRange1d&quot;},{&quot;attributes&quot;:{&quot;formatter&quot;:{&quot;id&quot;:&quot;3712&quot;},&quot;ticker&quot;:{&quot;id&quot;:&quot;3688&quot;}},&quot;id&quot;:&quot;3687&quot;,&quot;type&quot;:&quot;LinearAxis&quot;},{&quot;attributes&quot;:{},&quot;id&quot;:&quot;3697&quot;,&quot;type&quot;:&quot;ResetTool&quot;},{&quot;attributes&quot;:{&quot;data_source&quot;:{&quot;id&quot;:&quot;3674&quot;},&quot;glyph&quot;:{&quot;id&quot;:&quot;3704&quot;},&quot;hover_glyph&quot;:null,&quot;muted_glyph&quot;:null,&quot;nonselection_glyph&quot;:{&quot;id&quot;:&quot;3705&quot;},&quot;selection_glyph&quot;:null,&quot;view&quot;:{&quot;id&quot;:&quot;3707&quot;}},&quot;id&quot;:&quot;3706&quot;,&quot;type&quot;:&quot;GlyphRenderer&quot;},{&quot;attributes&quot;:{&quot;factors&quot;:[&quot;0&quot;,&quot;1&quot;,&quot;2&quot;],&quot;palette&quot;:[&quot;#1f77b4&quot;,&quot;#ff7f0e&quot;,&quot;#2ca02c&quot;]},&quot;id&quot;:&quot;3675&quot;,&quot;type&quot;:&quot;CategoricalColorMapper&quot;},{&quot;attributes&quot;:{&quot;axis&quot;:{&quot;id&quot;:&quot;3691&quot;},&quot;dimension&quot;:1,&quot;grid_line_color&quot;:null,&quot;ticker&quot;:null},&quot;id&quot;:&quot;3694&quot;,&quot;type&quot;:&quot;Grid&quot;}],&quot;root_ids&quot;:[&quot;3676&quot;]},&quot;title&quot;:&quot;Bokeh Application&quot;,&quot;version&quot;:&quot;2.2.3&quot;}}
+        &lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('3968').textContent;
+                  var render_items = [{&quot;docid&quot;:&quot;c67160e1-6f6b-4b1d-b68f-5b2a1204fa65&quot;,&quot;root_ids&quot;:[&quot;3676&quot;],&quot;roots&quot;:{&quot;3676&quot;:&quot;a1121850-5f93-4e82-a97f-6e47190ce637&quot;}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts &gt; 100) {
+                          clearInterval(timer);
+                          console.log(&quot;Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing&quot;);
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != &quot;loading&quot;) fn();
+            else document.addEventListener(&quot;DOMContentLoaded&quot;, fn);
+          })();
+        &lt;/script&gt;
+    
+  &lt;/body&gt;
+  
+&lt;/html&gt;
+
+&lt;p&gt;So what’s so amazing about these? They look basically the same. The big advantage is in their interactivity! Try hovering your mouse over the points. What happens?&lt;/p&gt;
+
+&lt;p&gt;Cool, right! I can’t stop being amazed at this. It makes the chart so much more informative and greatly aids in data exploration. For example, I can now just hover over the anomalous orange dot to find out what is going on: it is Peter Barker who has had a long successful career like the other orange dots, but has never actually reached the top few spots in the world rankings like the green dots. Another example is that I can understand some of the nuanced structure in the charts and find sub-clusters. For example, in the PCA diagram, the four points that are the highest in the green cluster form a sub-cluster of the players Ali Farag, Karim Abdel Gawad, Tarek Momen and Simon Rosner, who are excellent players who are consistently in the Top 5, but not legendary. (Ali Farag is an exception to this - he will undoubtedly join the orange cluster but his career is too short at the moment to join the cluster of elite players).&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Bokeh is amazing! This is what I managed to do after less than an hour of Googling around and adapting examples. If you look at the documentation, there is a whole load of other things that are possible, e.g. different kinds of interactivity.&lt;/p&gt;
+
+&lt;p&gt;I highly recommend you try using it.&lt;/p&gt;
+
+&lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
+&lt;p&gt;Below is a sample of the code to illustrate how to create the Bokeh plots above.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# import packages
+&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.manifold&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TSNE&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn.cluster&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KMeans&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bokeh.plotting&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;output_notebook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ColumnDataSource&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bokeh.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HoverTool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CategoricalColorMapper&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bokeh.palettes&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d3&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bokeh.transform&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;factor_cmap&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;output_notebook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# use tsne to do dimension reduction
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tsne_model&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TSNE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_components&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;perplexity&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;random_state&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;male_tsne&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tsne_model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit_transform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;players_m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# use kmeans on original dataset to determine clusters
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kmeans&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;KMeans&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n_clusters&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;random_state&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;players_m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# create the bokeh plot
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ColumnDataSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;male_tsne&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;male_tsne&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[:,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;clusters&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'{i}'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kmeans&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;labels_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;players&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;players_m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;best_rank&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;players_m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;best_rank&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;years_in_top10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;players_m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;years_in_top10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;earliest_year&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;players_m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;earliest_year&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;palette&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'Category10'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;color_map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CategoricalColorMapper&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'{i}'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)],&lt;/span&gt;
+                                   &lt;span class=&quot;n&quot;&gt;palette&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;palette&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;TOOLS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;box_zoom,hover,reset&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;PCA of Male Squash Player Rankings&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tools&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TOOLS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;background_fill_color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;white&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xgrid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid_line_color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ygrid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grid_line_color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;None&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scatter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'x'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'y'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'field'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'clusters'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'transform'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color_map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+          &lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;hover&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;HoverTool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;hover&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tooltips&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Player&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;@players&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Best rank&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;@best_rank&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Years in Top 10&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;@years_in_top10&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Earliest year&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;@earliest_year&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'squash3_malepca.html'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part II, dimension reduction and clustering Squash rankings, Part I, Scraping wikipedia and data analysis</summary></entry><entry><title type="html">Visualising L1 and L2 regularisation</title><link href="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html" rel="alternate" type="text/html" title="Visualising L1 and L2 regularisation" /><published>2020-10-11T00:00:00-05:00</published><updated>2020-10-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/python/2020/10/11/l1l2reg.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this &lt;a href=&quot;https://medium.com/@davidsotunbo/ridge-and-lasso-regression-an-illustration-and-explanation-using-sklearn-in-python-4853cd543898&quot;&gt;medium post comparing L1 and L2 regularisation&lt;/a&gt; there is an image showing how L1 regularisation is more likely to make one of the parameters equal to zero than L2 regularisation.&lt;/p&gt;
@@ -340,7 +572,7 @@
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/11/01/squash3.html&quot;&gt;Squash rankings, Part III, All hail Bokeh!&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/data%20viz/2020/11/01/squash3.html&quot;&gt;Squash rankings, Part III, All hail Bokeh!&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/python/scraping/2020/09/17/squash1.html&quot;&gt;Squash rankings, Part I, Scraping wikipedia and data analysis&lt;/a&gt;&lt;/p&gt;
@@ -644,7 +876,7 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/11/01/squash3.html&quot;&gt;Squash rankings, Part III, All hail Bokeh!&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/data%20viz/2020/11/01/squash3.html&quot;&gt;Squash rankings, Part III, All hail Bokeh!&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/2020/09/28/squash2.html&quot;&gt;Squash rankings, Part II, dimension reduction and clustering&lt;/a&gt;&lt;/p&gt;
