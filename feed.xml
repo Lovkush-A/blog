@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-12-20T11:53:12-06:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">A surprising bug caused by regex</title><link href="https://lovkush-a.github.io/blog/nlp/regex/2020/12/20/regex.html" rel="alternate" type="text/html" title="A surprising bug caused by regex" /><published>2020-12-20T00:00:00-06:00</published><updated>2020-12-20T00:00:00-06:00</updated><id>https://lovkush-a.github.io/blog/nlp/regex/2020/12/20/regex</id><content type="html" xml:base="https://lovkush-a.github.io/blog/nlp/regex/2020/12/20/regex.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-12-23T10:03:50-06:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Presentations. From good to great</title><link href="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html" rel="alternate" type="text/html" title="Presentations. From good to great" /><published>2020-12-23T00:00:00-06:00</published><updated>2020-12-23T00:00:00-06:00</updated><id>https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html">&lt;p&gt;&lt;img src=&quot;/blog/images/demoday1_1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">A surprising bug caused by regex</title><link href="https://lovkush-a.github.io/blog/nlp/regex/2020/12/20/regex.html" rel="alternate" type="text/html" title="A surprising bug caused by regex" /><published>2020-12-20T00:00:00-06:00</published><updated>2020-12-20T00:00:00-06:00</updated><id>https://lovkush-a.github.io/blog/nlp/regex/2020/12/20/regex</id><content type="html" xml:base="https://lovkush-a.github.io/blog/nlp/regex/2020/12/20/regex.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In my &lt;a href=&quot;https://faculty.ai/fellowship/&quot;&gt;Faculty Fellowship&lt;/a&gt;, my project was to analyse legal deposition transcripts using NLP. As always, the first step was to clean the data and extract the useful information from the raw text from the transcripts.&lt;/p&gt;
 
 &lt;p&gt;I created a bunch of functions to do this processing and tested it on a few documents, and it all seemed fine.  I then ran the program on the complete set of documents, but it would mysteriously get stuck on a particular transcript.  After spending a couple of hours combing through my code, I managed to isolate the problem to this innocent looking regex search:&lt;/p&gt;
@@ -1087,113 +1087,7 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 &lt;h2 id=&quot;final-remarks&quot;&gt;Final remarks&lt;/h2&gt;
 &lt;p&gt;I hope you gained some new insights into Bayes’ Theorem. If you have any other perspectives on it, please let me know! As I said at the start, it is always surprising how things that you feel you understand contain hidden layers and deeper insights.&lt;/p&gt;
 
-&lt;p&gt;Lastly, I recommend you listen to the &lt;a href=&quot;https://80000hours.org/podcast/episodes/spencer-greenberg-bayesian-updating/#bayesian-updating&quot;&gt;80000 Hours’ interview of Spencer Greenberg&lt;/a&gt;. First, you will hear Spencer’s description and perspectives on this odds framework. Second, you will learn a whole bunch of other insightful things: Spencer researches thinking and rationality and tries to develop software tools that take make use of his insights. For example, Spencer discusses their research on when people are over- or under-confident.&lt;/p&gt;</content><author><name></name></author><summary type="html">Introduction One of the big lessons I have learnt is that no matter how well (you think) you understand something, there is almost always a deeper or clearer level of understanding available. Even for trivially simple things, like addition. Today, I will describe my experience with this phenomena in the context of Baye’s Theorem, by going through four different ways I have of conceptualising it. The final way is surprisingly simple but largely unknown; I learnt about it from this 80000 Hours’ interview of Spencer Greenberg.</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/10/01/sgd4.html&quot;&gt;Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html&quot;&gt;Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/09/10/sgd1.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;In the previous posts, I used gradient descent to model linear, quadratic and sinusoidal data. In the first post, the linear and quadratic models could be fit, but the sinusoidal data could not be fit.  In the second post, we saw how neural networks kind of fit the data, but not very well.&lt;/p&gt;
-
-&lt;p&gt;This time, I will add the stochasticity by introducing mini-batches. My hope is that I will be able to fit the sinusoidal data that I could not fit in the first post. I will discuss this example at the end, because it is the most interesting&lt;/p&gt;
-
-&lt;h2 id=&quot;models-with-neural-networks&quot;&gt;Models with neural networks&lt;/h2&gt;
-&lt;p&gt;Here are animations of a neural network trying to fit using stochastic gradient descent.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_linearnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_quadraticnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sinnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;The end results look similar to the end results without using mini-batches. The big difference is that the network converges much faster.&lt;/p&gt;
-
-&lt;h2 id=&quot;fitting-sinusoidal-data-using-a-sinusoidal-model&quot;&gt;Fitting sinusoidal data using a sinusoidal model&lt;/h2&gt;
-&lt;p&gt;Here is a representative example of my first attempts using SGD on sinusoidal data. Note that in all of the animations in this section, the same dataset and initial parameters were used, so the comparisons are more rigorous.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;To my dismay, we seem to have the same problem as with normal gradient descent. The system gets stuck in some local minimum where the amplitude is small. It still continues to ‘learn’ though.&lt;/p&gt;
-
-&lt;p&gt;At this point, I experimented a little (e.g. with some ‘regularisation’), which I plan to describe in a separate post (spoiler alert - they didn’t work). While planning this blogpost, I re-watched the animation above and thought that maybe the learning rate is too big. I presumably tried playing with the learning rate already but for the sake of completeness, I thought it would be good to produce a series of animations to show you that varying the learning rate does not help.&lt;/p&gt;
-
-&lt;p&gt;The learning rate in the animation above was 0.1.  Below is an animation for a learning rate of 0.01.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;! That was unexpected! It managed to find good parameters, but then jumped to some inferior local minimum. I managed to achieve something similar to this using the regularisation mentioned above (and which I will describe in a later post), but I was not expecting to see this by changing the learning rate. Clearly my memory is off and I had not experimented with the learning rate. I thought I would re-run the calculations to see if the same behaviour would occur again. (Note that the initial parameters are the same in all these animations, but there is still randomness from how the mini-batches are selected.)&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin2b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;So we get similar behaviour. For some time it looks like we are getting close to a good model but then it jumps away to some other set of parameters.&lt;/p&gt;
-
-&lt;p&gt;Looks like I should make the learning rate smaller, and see if that prevents jumping away from the correct model. The next animation is for a learning rate of 0.001.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin3.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;!!! Wow! Given that I had failed after several hours of trying, this was basically magic to me. The model gently and slides its way into position, increases its amplitude, then stays there. Fantastic!&lt;/p&gt;
-
-&lt;p&gt;Now a big question arises. Were the learning rates in the first post of this series too high, and that was the reason for the struggles with sinusoidal models? There’s only one way to find out, and that’s by doing the experiment. Below is the resulting animation.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin3b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;!!! All this time, it was as simple as changing the learning rate. How did I miss this?! What is noteworthy is how slow the learning is in gradient descent as compared to stochastic gradient descent.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;There are two big lessons I learnt from this.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;The first is to somehow take good notes of what I have tried and to be systematic. In my previous job teaching maths to STEM Foundation Year students, my colleague who taught Laboratory Skills was trying to explain the purpose of a lab-book to students: it should be a record of what you did, why you did it, what you observed, etc. so that somebody else (in particular, future-you) can read it and re-live your experience. It looks like I have only now learnt this lesson my colleague was trying to teach. Better late than never, I suppose.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The second is that the main benefit of stochastic gradient descent seems to be in efficiency/speed. I have read in places that it can help with preventing local minimums, but I am still unsure of this latter point.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Squash rankings, Part I, Scraping wikipedia and data analysis</title><link href="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html" rel="alternate" type="text/html" title="Squash rankings, Part I, Scraping wikipedia and data analysis" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;p&gt;Lastly, I recommend you listen to the &lt;a href=&quot;https://80000hours.org/podcast/episodes/spencer-greenberg-bayesian-updating/#bayesian-updating&quot;&gt;80000 Hours’ interview of Spencer Greenberg&lt;/a&gt;. First, you will hear Spencer’s description and perspectives on this odds framework. Second, you will learn a whole bunch of other insightful things: Spencer researches thinking and rationality and tries to develop software tools that take make use of his insights. For example, Spencer discusses their research on when people are over- or under-confident.&lt;/p&gt;</content><author><name></name></author><summary type="html">Introduction One of the big lessons I have learnt is that no matter how well (you think) you understand something, there is almost always a deeper or clearer level of understanding available. Even for trivially simple things, like addition. Today, I will describe my experience with this phenomena in the context of Baye’s Theorem, by going through four different ways I have of conceptualising it. The final way is surprisingly simple but largely unknown; I learnt about it from this 80000 Hours’ interview of Spencer Greenberg.</summary></entry><entry><title type="html">Squash rankings, Part I, Scraping wikipedia and data analysis</title><link href="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html" rel="alternate" type="text/html" title="Squash rankings, Part I, Scraping wikipedia and data analysis" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/scraping/2020/09/17/squash1.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -1401,14 +1295,14 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 &lt;span class=&quot;n&quot;&gt;df_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df_m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url_to_pandas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;players_f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player_summaries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;players_m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player_summaries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part III, All hail Bokeh! Squash rankings, Part II, dimension reduction and clustering</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD" /><published>2020-09-11T00:00:00-05:00</published><updated>2020-09-11T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part III, All hail Bokeh! Squash rankings, Part II, dimension reduction and clustering</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/10/01/sgd4.html&quot;&gt;Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html&quot;&gt;Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and &lt;strong&gt;S&lt;/strong&gt;GD&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html&quot;&gt;Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/09/10/sgd1.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/p&gt;
@@ -1416,143 +1310,95 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;In the previous post, I showed my attempts at using gradient descent to fit linear, quadratic and sinusoidal data using (respectively) linear, quadratic and sinusoidal models. However, the universal approximation theorem says that the set of vanilla neural networks with one hidden layer can approximate any function to arbitrary precision. (An excellent and interactive sketch proof of this, where I first learnt about this theorem, is given in &lt;a href=&quot;http://neuralnetworksanddeeplearning.com/chap4.html&quot;&gt;Michael Nielsen’s online book on neural networks&lt;/a&gt;.) Therefore, it should be possible for a neural network to model the datasets I created in the first post, and it should be interesting to see the visualisations of the learning taking place.&lt;/p&gt;
+&lt;p&gt;In the previous posts, I used gradient descent to model linear, quadratic and sinusoidal data. In the first post, the linear and quadratic models could be fit, but the sinusoidal data could not be fit.  In the second post, we saw how neural networks kind of fit the data, but not very well.&lt;/p&gt;
 
-&lt;h2 id=&quot;linear-data&quot;&gt;Linear data&lt;/h2&gt;
-&lt;p&gt;I created some linear data &lt;code class=&quot;highlighter-rouge&quot;&gt;y = a*x + b + noise&lt;/code&gt;, and then tried to fit a neural network to it.&lt;/p&gt;
+&lt;p&gt;This time, I will add the stochasticity by introducing mini-batches. My hope is that I will be able to fit the sinusoidal data that I could not fit in the first post. I will discuss this example at the end, because it is the most interesting&lt;/p&gt;
 
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd2_linearnn_1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;This is enchanting. I never thought I’d see something so delicate and graceful from crunching a whole bunch of numbers. I could watch this over and over again.&lt;/p&gt;
-
-&lt;p&gt;You will probably notice that the learning suddenly speeds up at about 17 seconds in the video. This is a result of me increasing the learning rate (from &lt;code class=&quot;highlighter-rouge&quot;&gt;1e-5&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;1e-4&lt;/code&gt;) at a certain cut-off point. It is nice to be able to visually see the effect of changing the learning rate. Regarding the learning itself. it seems that the neural network struggles to fit the line well.&lt;/p&gt;
-
-&lt;p&gt;I next tried increasing the learning rate. This next video is an example when the learning rate was &lt;code class=&quot;highlighter-rouge&quot;&gt;1e-3&lt;/code&gt; throughout.&lt;/p&gt;
+&lt;h2 id=&quot;models-with-neural-networks&quot;&gt;Models with neural networks&lt;/h2&gt;
+&lt;p&gt;Here are animations of a neural network trying to fit using stochastic gradient descent.&lt;/p&gt;
 
 &lt;figure class=&quot;video_container&quot;&gt;
   &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd2_linearnn_3.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Changing the learning rate has improved the performance of the neural network considerably. The video is not as calm and satisfying to watch as the first one (though there is something comical about the jerky movements at the start), but it illustrates the value in choosing a good learning rate.&lt;/p&gt;
-
-&lt;p&gt;I next tried introducing a cutoff point where the learning rate increases from &lt;code class=&quot;highlighter-rouge&quot;&gt;1e-3&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;3e-3&lt;/code&gt;. I have two examples of this.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd2_linearnn_5.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+    &lt;source src=&quot;/blog/images/sgd3_linearnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
   &lt;/video&gt;
 &lt;/figure&gt;
 
 &lt;figure class=&quot;video_container&quot;&gt;
   &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd2_linearnn_6.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;In both of these videos, there is a moment in the middle where things go a bit wacky for a few iterations and then quickly settle back down. This wacky moment occurs precisely when the increase in the learning rate kicks in. My explanation for this is that we are seeing the algorithm jump away from one local minimum and moving towards another.&lt;/p&gt;
-
-&lt;p&gt;One thing I should have said is that in each of these videos, the training dataset remains the same, but the initialisation of the parameters of the neural network are different. So one other thing we are witnessing from these experiments is how different initialisation results in different models using gradient descent - i.e. there are many local minimums in the parameter space!&lt;/p&gt;
-
-&lt;h2 id=&quot;quadratic-data&quot;&gt;Quadratic data&lt;/h2&gt;
-&lt;p&gt;I created some quadratic data &lt;code class=&quot;highlighter-rouge&quot;&gt;y = a*x*x + b*x + c + noise&lt;/code&gt; and tried to fit a neural network to it. Below are three examples. Note that as above, the dataset is staying the same each time, but the parameters are initialised differently each time and I play with the learning rates a bit, too.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd2_quadraticnn_1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+    &lt;source src=&quot;/blog/images/sgd3_quadraticnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
   &lt;/video&gt;
 &lt;/figure&gt;
 
 &lt;figure class=&quot;video_container&quot;&gt;
   &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd2_quadraticnn_2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sinnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
   &lt;/video&gt;
 &lt;/figure&gt;
+
+&lt;p&gt;The end results look similar to the end results without using mini-batches. The big difference is that the network converges much faster.&lt;/p&gt;
+
+&lt;h2 id=&quot;fitting-sinusoidal-data-using-a-sinusoidal-model&quot;&gt;Fitting sinusoidal data using a sinusoidal model&lt;/h2&gt;
+&lt;p&gt;Here is a representative example of my first attempts using SGD on sinusoidal data. Note that in all of the animations in this section, the same dataset and initial parameters were used, so the comparisons are more rigorous.&lt;/p&gt;
 
 &lt;figure class=&quot;video_container&quot;&gt;
   &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd2_quadraticnn_4.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
   &lt;/video&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;All these examples have similar overall behaviour. It is quick to get close-ish to the quadratic, and then the learning dramatically slows (but there is still learning going on throughout). Again we see how the different initialisations leads to different final models, showing how we are finding different local minimums.&lt;/p&gt;
+&lt;p&gt;To my dismay, we seem to have the same problem as with normal gradient descent. The system gets stuck in some local minimum where the amplitude is small. It still continues to ‘learn’ though.&lt;/p&gt;
 
-&lt;h2 id=&quot;sinusoidal-data&quot;&gt;Sinusoidal data&lt;/h2&gt;
-&lt;p&gt;I created some sinusoidal data &lt;code class=&quot;highlighter-rouge&quot;&gt;y = a*sin(b*x+ c) + d&lt;/code&gt; and tried to fit a neural network to it. As before, same dataset but with different starting parameters.&lt;/p&gt;
+&lt;p&gt;At this point, I experimented a little (e.g. with some ‘regularisation’), which I plan to describe in a separate post (spoiler alert - they didn’t work). While planning this blogpost, I re-watched the animation above and thought that maybe the learning rate is too big. I presumably tried playing with the learning rate already but for the sake of completeness, I thought it would be good to produce a series of animations to show you that varying the learning rate does not help.&lt;/p&gt;
+
+&lt;p&gt;The learning rate in the animation above was 0.1.  Below is an animation for a learning rate of 0.01.&lt;/p&gt;
 
 &lt;figure class=&quot;video_container&quot;&gt;
   &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd2_sinnn_1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
   &lt;/video&gt;
 &lt;/figure&gt;
+
+&lt;p&gt;! That was unexpected! It managed to find good parameters, but then jumped to some inferior local minimum. I managed to achieve something similar to this using the regularisation mentioned above (and which I will describe in a later post), but I was not expecting to see this by changing the learning rate. Clearly my memory is off and I had not experimented with the learning rate. I thought I would re-run the calculations to see if the same behaviour would occur again. (Note that the initial parameters are the same in all these animations, but there is still randomness from how the mini-batches are selected.)&lt;/p&gt;
 
 &lt;figure class=&quot;video_container&quot;&gt;
   &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd2_sinnn_2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin2b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
   &lt;/video&gt;
 &lt;/figure&gt;
+
+&lt;p&gt;So we get similar behaviour. For some time it looks like we are getting close to a good model but then it jumps away to some other set of parameters.&lt;/p&gt;
+
+&lt;p&gt;Looks like I should make the learning rate smaller, and see if that prevents jumping away from the correct model. The next animation is for a learning rate of 0.001.&lt;/p&gt;
 
 &lt;figure class=&quot;video_container&quot;&gt;
   &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd2_sinnn_3.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin3.mp4&quot; type=&quot;video/mp4&quot; /&gt;
   &lt;/video&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;The first one shows some oscillating behaviour, similar to the first sinusoidal case in the first post of this series. Looks like the behaviour is not as unlikely as I previously thought. The second two produce mediocre results, at best.&lt;/p&gt;
+&lt;p&gt;!!! Wow! Given that I had failed after several hours of trying, this was basically magic to me. The model gently and slides its way into position, increases its amplitude, then stays there. Fantastic!&lt;/p&gt;
 
-&lt;p&gt;Looking at the graphs, there seem to be ‘too many wiggles’, so I thought I’d try reducing the number of neurons in the hidden layer. The next three videos show what happens with eight neurons.&lt;/p&gt;
+&lt;p&gt;Now a big question arises. Were the learning rates in the first post of this series too high, and that was the reason for the struggles with sinusoidal models? There’s only one way to find out, and that’s by doing the experiment. Below is the resulting animation.&lt;/p&gt;
 
 &lt;figure class=&quot;video_container&quot;&gt;
   &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd2_sinnn_4.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+    &lt;source src=&quot;/blog/images/sgd3_sin3b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
   &lt;/video&gt;
 &lt;/figure&gt;
 
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd2_sinnn_5.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd2_sinnn_6.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;These perform less well than with twenty neurons. The final video is interesting for its crazy behaviour at the start - the function seems to spin around and do all kinds of weird stuff before settling down. I do not know what to make of that.&lt;/p&gt;
-
-&lt;p&gt;There is lots more experimentation that can be done, but I feel this is a good place to stop and move on to other things to investigate.&lt;/p&gt;
+&lt;p&gt;!!! All this time, it was as simple as changing the learning rate. How did I miss this?! What is noteworthy is how slow the learning is in gradient descent as compared to stochastic gradient descent.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;There are various things I learnt doing this.&lt;/p&gt;
+&lt;p&gt;There are two big lessons I learnt from this.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;There is a lot to be learnt by playing around with the ideas. Though (I think) I understand the theory of gradient descent and of vanilla neural networks, it is evident that the whole is greater than the sum of its parts. I under-estimated what I could have learnt by experimenting.&lt;/p&gt;
+    &lt;p&gt;The first is to somehow take good notes of what I have tried and to be systematic. In my previous job teaching maths to STEM Foundation Year students, my colleague who taught Laboratory Skills was trying to explain the purpose of a lab-book to students: it should be a record of what you did, why you did it, what you observed, etc. so that somebody else (in particular, future-you) can read it and re-live your experience. It looks like I have only now learnt this lesson my colleague was trying to teach. Better late than never, I suppose.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;It seems neural networks are only useful for interpolation - i.e. making predictions for data similar to the training data. They are hopeless at extrapolating: I think they necessarily have horizontal asymptotes in both x-directions.&lt;/p&gt;
+    &lt;p&gt;The second is that the main benefit of stochastic gradient descent seems to be in efficiency/speed. I have read in places that it can help with preventing local minimums, but I am still unsure of this latter point.&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;The initialisation of parameters matters a lot for neural networks.
-    &lt;ul&gt;
-      &lt;li&gt;My very first settings were useless, and were seemingly only capable of modelling a sigmoid function. For a while, I thought my code was buggy, but after some experimentation, it turned out the initial parameter settings were inappropriate.&lt;/li&gt;
-      &lt;li&gt;Different initialisations resulted in vastly different final models. Presumably this is also the case with more complex tasks, but maybe it does not matter when doing a classification on real data.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The range of values in the data impacts the choice of parameters. As I mentioned in the first post, I have read that normalising is important. The fact that the parameter settings are sensitive to the range of values in the dataset could be a big reason why normalising is important.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Manually creating a neural network (even with only 1 layer) is a bit of faff; I should learn how to create one using the pytorch library.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;You can create some funky visuals with neural networks! Somebody more creative than I am could add some music to each of these to produce some interesting art. These animations may even be a weird alternative to &lt;a href=&quot;https://en.wikipedia.org/wiki/Rorschach_test&quot;&gt;Rorschach inkblot tests&lt;/a&gt;: ‘How does this video make you feel? What do you see in this video?’&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry></feed>
+&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry></feed>
