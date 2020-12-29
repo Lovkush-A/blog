@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-12-29T10:26:05-06:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Presentations. Turning good slides into great slides</title><link href="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html" rel="alternate" type="text/html" title="Presentations. Turning good slides into great slides" /><published>2020-12-23T00:00:00-06:00</published><updated>2020-12-23T00:00:00-06:00</updated><id>https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-12-29T12:35:13-06:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Presentations. Turning good slides into great slides</title><link href="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html" rel="alternate" type="text/html" title="Presentations. Turning good slides into great slides" /><published>2020-12-23T00:00:00-06:00</published><updated>2020-12-23T00:00:00-06:00</updated><id>https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this post, I will describe how I turned a decent presentation into a great one. But first some context.&lt;/p&gt;
 
 &lt;p&gt;At the end of the &lt;a href=&quot;https://faculty.ai/fellowship/&quot;&gt;Faculty Data Science Fellowship&lt;/a&gt;, Faculty hosts an event called ‘Demo Day’, in which the fellows each give a 5-minute presentatation to showcase what they achieved in the project. Over 300 people from the data science industry attend this event, so these presentations are a big deal.  You can see many of the demo day presentations on &lt;a href=&quot;https://www.youtube.com/channel/UCaiUkj_9GAncPqJxvbBUkWA/videos&quot;&gt;Faculty’s YouTube channel&lt;/a&gt;.&lt;/p&gt;
@@ -43,10 +43,194 @@ There are three changes here, and they were all suggested by a Graphic Designer 
   &lt;li&gt;Use different sizes of icons, to create ‘hierarchy’ in the slide. For me, this is the single big new idea I learnt from the whole experience. The idea is that on every slide, it should be clear what is the most important piece of information on it. In this case, Mo and the hospital are the two major people in the situation, followed by the lawyers, followed by the witnesses. That is not clear in the final slide of Version 1, but it is clear in Version 2.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Additional thoughts:
-First, it was such a pleasure to watch an expert at work. I am still taken aback by how Nadine provided feedback on my presentation: for every single slide, she instantly noticed if something was off and knew precisely what to do to improve it. It really was remarkable.&lt;/p&gt;
+&lt;p&gt;Additional thoughts:&lt;/p&gt;
 
-&lt;p&gt;Second, this idea of hierarchy is an ‘advanced’ idea. It only becomes relevant once you have removed all the basic errors (e.g. having too much information on the slide) &lt;em&gt;and&lt;/em&gt; if there is a difference in importance in the information in the slide. Another example of hierarchy is changing the font size or colour to indicate which words on a slide are vital and which are secondary.&lt;/p&gt;</content><author><name></name></author><summary type="html">Introduction In this post, I will describe how I turned a decent presentation into a great one. But first some context.</summary></entry><entry><title type="html">A surprising bug caused by regex</title><link href="https://lovkush-a.github.io/blog/nlp/regex/2020/12/20/regex.html" rel="alternate" type="text/html" title="A surprising bug caused by regex" /><published>2020-12-20T00:00:00-06:00</published><updated>2020-12-20T00:00:00-06:00</updated><id>https://lovkush-a.github.io/blog/nlp/regex/2020/12/20/regex</id><content type="html" xml:base="https://lovkush-a.github.io/blog/nlp/regex/2020/12/20/regex.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;First, it was such a pleasure to watch an expert at work. I am still taken aback by how Nadine provided feedback on my presentation: for every single slide, she instantly noticed if something was off and knew precisely what to do to improve it. It really was remarkable.&lt;/p&gt;
+
+&lt;p&gt;Second, this idea of hierarchy is an ‘advanced’ idea. It only becomes relevant once you have removed all the basic errors (e.g. having too much information on the slide) &lt;em&gt;and&lt;/em&gt; if there is a difference in importance in the information in the slide. Another example of hierarchy is changing the font size or colour to indicate which words on a slide are vital and which are secondary.&lt;/p&gt;
+
+&lt;h2 id=&quot;slides-2&quot;&gt;Slides 2&lt;/h2&gt;
+&lt;p&gt;Version 1:
+&lt;img src=&quot;/blog/images/demoday2_1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Context:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Each witness is interviewed one at a time. There is somebody in the room furiously typing away, and at the end of the interview a written record of everything that was said is created.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;How would you improve the slides? Big hint: I will be repeating myself quite a lot!&lt;/p&gt;
+
+&lt;p&gt;Version 2:
+&lt;img src=&quot;/blog/images/demoday2_2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Changes:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Have the icons of the lawyers, typewriter and table match the style of the other icons&lt;/li&gt;
+  &lt;li&gt;Have margins / white space on the outside of the slides&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Additional thoughts:
+There is going to be significant repetition in the slides, but that is the nature of these things. Lastly, in the final version of the presentation, these slides were actually cut because I had to shorten this part of the talk.&lt;/p&gt;
+
+&lt;h2 id=&quot;slides-3&quot;&gt;Slides 3&lt;/h2&gt;
+&lt;p&gt;Version 1:
+&lt;img src=&quot;/blog/images/demoday1_1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Context:&lt;/p&gt;
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;How would you improve the slides?&lt;/p&gt;
+
+&lt;p&gt;Version 2:
+&lt;img src=&quot;/blog/images/demoday1_2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Changes:&lt;/p&gt;
+
+&lt;h2 id=&quot;slides-2-1&quot;&gt;Slides 2&lt;/h2&gt;
+&lt;p&gt;Version 1:
+&lt;img src=&quot;/blog/images/demoday1_1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Context:&lt;/p&gt;
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;How would you improve the slides?&lt;/p&gt;
+
+&lt;p&gt;Version 2:
+&lt;img src=&quot;/blog/images/demoday1_2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Changes:&lt;/p&gt;
+
+&lt;h2 id=&quot;slides-2-2&quot;&gt;Slides 2&lt;/h2&gt;
+&lt;p&gt;Version 1:
+&lt;img src=&quot;/blog/images/demoday1_1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Context:&lt;/p&gt;
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;How would you improve the slides?&lt;/p&gt;
+
+&lt;p&gt;Version 2:
+&lt;img src=&quot;/blog/images/demoday1_2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Changes:&lt;/p&gt;
+
+&lt;h2 id=&quot;slides-2-3&quot;&gt;Slides 2&lt;/h2&gt;
+&lt;p&gt;Version 1:
+&lt;img src=&quot;/blog/images/demoday1_1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Context:&lt;/p&gt;
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;How would you improve the slides?&lt;/p&gt;
+
+&lt;p&gt;Version 2:
+&lt;img src=&quot;/blog/images/demoday1_2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Changes:&lt;/p&gt;
+
+&lt;h2 id=&quot;slides-2-4&quot;&gt;Slides 2&lt;/h2&gt;
+&lt;p&gt;Version 1:
+&lt;img src=&quot;/blog/images/demoday1_1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Context:&lt;/p&gt;
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;How would you improve the slides?&lt;/p&gt;
+
+&lt;p&gt;Version 2:
+&lt;img src=&quot;/blog/images/demoday1_2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Changes:&lt;/p&gt;
+
+&lt;h2 id=&quot;slides-2-5&quot;&gt;Slides 2&lt;/h2&gt;
+&lt;p&gt;Version 1:
+&lt;img src=&quot;/blog/images/demoday1_1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Context:&lt;/p&gt;
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;How would you improve the slides?&lt;/p&gt;
+
+&lt;p&gt;Version 2:
+&lt;img src=&quot;/blog/images/demoday1_2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Changes:&lt;/p&gt;
+
+&lt;h2 id=&quot;slides-2-6&quot;&gt;Slides 2&lt;/h2&gt;
+&lt;p&gt;Version 1:
+&lt;img src=&quot;/blog/images/demoday1_1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Context:&lt;/p&gt;
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;How would you improve the slides?&lt;/p&gt;
+
+&lt;p&gt;Version 2:
+&lt;img src=&quot;/blog/images/demoday1_2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Changes:&lt;/p&gt;
+
+&lt;h2 id=&quot;slides-2-7&quot;&gt;Slides 2&lt;/h2&gt;
+&lt;p&gt;Version 1:
+&lt;img src=&quot;/blog/images/demoday1_1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Context:&lt;/p&gt;
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;How would you improve the slides?&lt;/p&gt;
+
+&lt;p&gt;Version 2:
+&lt;img src=&quot;/blog/images/demoday1_2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Changes:&lt;/p&gt;
+
+&lt;h2 id=&quot;slides-2-8&quot;&gt;Slides 2&lt;/h2&gt;
+&lt;p&gt;Version 1:
+&lt;img src=&quot;/blog/images/demoday1_1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Context:&lt;/p&gt;
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;How would you improve the slides?&lt;/p&gt;
+
+&lt;p&gt;Version 2:
+&lt;img src=&quot;/blog/images/demoday1_2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Changes:&lt;/p&gt;
+
+&lt;h2 id=&quot;slides-2-9&quot;&gt;Slides 2&lt;/h2&gt;
+&lt;p&gt;Version 1:
+&lt;img src=&quot;/blog/images/demoday1_1.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Context:&lt;/p&gt;
+&lt;blockquote&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;How would you improve the slides?&lt;/p&gt;
+
+&lt;p&gt;Version 2:
+&lt;img src=&quot;/blog/images/demoday1_2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Changes:&lt;/p&gt;</content><author><name></name></author><summary type="html">Introduction In this post, I will describe how I turned a decent presentation into a great one. But first some context.</summary></entry><entry><title type="html">A surprising bug caused by regex</title><link href="https://lovkush-a.github.io/blog/nlp/regex/2020/12/20/regex.html" rel="alternate" type="text/html" title="A surprising bug caused by regex" /><published>2020-12-20T00:00:00-06:00</published><updated>2020-12-20T00:00:00-06:00</updated><id>https://lovkush-a.github.io/blog/nlp/regex/2020/12/20/regex</id><content type="html" xml:base="https://lovkush-a.github.io/blog/nlp/regex/2020/12/20/regex.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In my &lt;a href=&quot;https://faculty.ai/fellowship/&quot;&gt;Faculty Fellowship&lt;/a&gt;, my project was to analyse legal deposition transcripts using NLP. As always, the first step was to clean the data and extract the useful information from the raw text from the transcripts.&lt;/p&gt;
 
 &lt;p&gt;I created a bunch of functions to do this processing and tested it on a few documents, and it all seemed fine.  I then ran the program on the complete set of documents, but it would mysteriously get stuck on a particular transcript.  After spending a couple of hours combing through my code, I managed to isolate the problem to this innocent looking regex search:&lt;/p&gt;
