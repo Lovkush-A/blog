@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-12-30T06:26:42-06:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Presentations. Turning good slides into great slides</title><link href="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html" rel="alternate" type="text/html" title="Presentations. Turning good slides into great slides" /><published>2020-12-23T00:00:00-06:00</published><updated>2020-12-23T00:00:00-06:00</updated><id>https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-12-30T08:54:39-06:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Presentations. Turning good slides into great slides</title><link href="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html" rel="alternate" type="text/html" title="Presentations. Turning good slides into great slides" /><published>2020-12-23T00:00:00-06:00</published><updated>2020-12-23T00:00:00-06:00</updated><id>https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this post, I will describe how I turned a decent presentation into a great one. But first some context.&lt;/p&gt;
 
 &lt;p&gt;At the end of the &lt;a href=&quot;https://faculty.ai/fellowship/&quot;&gt;Faculty Data Science Fellowship&lt;/a&gt;, Faculty hosts an event called ‘Demo Day’, in which the fellows each give a 5-minute presentatation to showcase what they achieved in the project. Over 300 people from the data science industry attend this event, so these presentations are a big deal.  You can see many of the demo day presentations on &lt;a href=&quot;https://www.youtube.com/channel/UCaiUkj_9GAncPqJxvbBUkWA/videos&quot;&gt;Faculty’s YouTube channel&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Because Demo Day is important, we literally spend a whole week preparing the presentation, giving our talk to a dozen or so different people in Faculty, and iteratively improve based on their feedback.&lt;/p&gt;
 
-&lt;p&gt;I found this to be an insightful experience. My first draft of the presentation was decent, but it was incredible to get all the feedback on how I can improve. I find this to be a rare experience, because there is a societal norm to always be positive and avoid (constructive) criticism. (Or I just don’t know how to ask for feedback!)  Furthermore, if you search online or attend a workshop on presentations, you will be shown examples of terrible presentations and told about basic things (don’t have paragraphs of text, use consistent colours and fonts, etc.).  Sometimes you may get some real insights, e.g. &lt;a href=&quot;https://waitbutwhy.com/2016/03/doing-a-ted-talk-the-full-story.html&quot;&gt;Tim Urban’s&lt;/a&gt; post about how they prepared for their TED talk.&lt;/p&gt;
+&lt;p&gt;I found this to be an insightful experience. My first draft of the presentation was decent, but it was incredible to get all the feedback on how I can improve. I find this to be a rare experience, because there is a societal norm to always be positive and avoid (constructive) criticism. (Or I just don’t know how to ask for feedback!)  Furthermore, if you search online or attend a workshop on presentations, you will be shown examples of terrible presentations and told about basic things (don’t have paragraphs of text, use consistent colours and fonts, etc.).  Sometimes you do get some real insights, e.g. &lt;a href=&quot;https://waitbutwhy.com/2016/03/doing-a-ted-talk-the-full-story.html&quot;&gt;Tim Urban’s&lt;/a&gt; post about how they prepared for their TED talk.&lt;/p&gt;
 
 &lt;p&gt;So, I hope this blogpost will be useful, and will help you improve your presentations in the future as much as it will help me improve mine.&lt;/p&gt;
 
 &lt;h2 id=&quot;structure-of-blogpost&quot;&gt;Structure of blogpost&lt;/h2&gt;
 &lt;p&gt;I will focus on the visual aspect of the presentation, i.e. the slides. For each section of slides I will:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Show the earliest version of the slides&lt;/li&gt;
+  &lt;li&gt;Show the earliest version of the section&lt;/li&gt;
   &lt;li&gt;Provide context for the slides, by quoting roughly what I would say&lt;/li&gt;
   &lt;li&gt;Ask you to think how you might improve the slides&lt;/li&gt;
   &lt;li&gt;Show you different versions of the slides&lt;/li&gt;
@@ -111,7 +111,7 @@ There is going to be significant repetition in the slides, but that is the natur
 &lt;p&gt;Changes:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Change the icon of the lawyer&lt;/li&gt;
-  &lt;li&gt;Make the lawyer clearer to see. I made several attempts at this, and each time it was a consistent piece of feedback that it was hard to see. Looking at it now, I feel like I could have had it so that a few words are above the lawyers, to maintain some of the effect of the lawyers being swamped by all the information.&lt;/li&gt;
+  &lt;li&gt;Make the lawyer clearer to see. I made several attempts at this, and each time it was a consistent piece of feedback that it was hard to see. Looking at the final version now, I could have had a few words above the lawyers, to maintain the effect of the lawyers being swamped by all the information.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;slides-5&quot;&gt;Slides 5&lt;/h2&gt;
@@ -131,7 +131,7 @@ There is going to be significant repetition in the slides, but that is the natur
 &lt;p&gt;Changes:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Change the icons to match the style of other icons in the slides&lt;/li&gt;
-  &lt;li&gt;Change the phrasing of the title and the slide. These slides came after the explanation about depositions. &lt;a href=&quot;https://www.linkedin.com/in/mariadiaz2010/&quot;&gt;Maria Diaz&lt;/a&gt; noticed that this felt a bit jarring - and I agreed. However, to understand what Lexitas does, you first have to understand what a deposition is. The compromise I came up with is that instead of saying ‘Who are Lexitas Legal’, I would say ‘So how does Lexitas fit into all this?’. This created a smoother transition and less jarring moment.&lt;/li&gt;
+  &lt;li&gt;Change the phrasing of the title and the slide. These slides came after the explanation about depositions. &lt;a href=&quot;https://www.linkedin.com/in/mariadiaz2010/&quot;&gt;Maria Diaz&lt;/a&gt; noticed that this felt a bit jarring - and I agreed. However, to understand what Lexitas does, you first have to understand what a deposition is. The compromise I came up with is that instead of saying ‘Who are Lexitas Legal’, I would say ‘So how does Lexitas fit into all this?’. This created a smoother transition.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;slides-6&quot;&gt;Slides 6&lt;/h2&gt;
@@ -151,7 +151,7 @@ There is going to be significant repetition in the slides, but that is the natur
 &lt;p&gt;Changes:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.linkedin.com/in/elliotchristou/&quot;&gt;Elliot Christou&lt;/a&gt; pointed out how the transparency of all the icons made the mountain of transcripts look very untidy. I made them non-transparent, and also tidied up the mountain so the spacing was uniform.&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.linkedin.com/in/nadinedaouk/&quot;&gt;Nadine Daouk&lt;/a&gt; said how the nugget of gold was small and should be made more prominent.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.linkedin.com/in/nadinedaouk/&quot;&gt;Nadine Daouk&lt;/a&gt; said the nugget of gold was small and should be made more prominent.&lt;/li&gt;
   &lt;li&gt;And as for many of the previous slides, I adjusted the spacing to include a margin / white space around the outside of the slide.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -161,6 +161,7 @@ There is going to be significant repetition in the slides, but that is the natur
 &lt;p&gt;Changes:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Following the incredibly insightful advice of expert story-teller &lt;a href=&quot;https://www.linkedin.com/in/jonny-howell-70250855&quot;&gt;Jonny Howell&lt;/a&gt;, I removed the forced metaphor of the California Gold Rush and references to nuggets of gold, and used the phrase ‘hidden value’ instead.  However, as a result of removing the explicit verbal references to gold, my technical mentor &lt;a href=&quot;https://www.linkedin.com/in/saniajevtic/&quot;&gt;Sania Jevtic&lt;/a&gt; thought that gold nugget was actually a boxing glove punching its way through the mountain of transcripts! This is definitely not what I wanted, so following their suggestion, I replaced it with a pot of gold.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.linkedin.com/in/caroline-ames-6a709765/&quot;&gt;Caroline Ames&lt;/a&gt; made the suggestion of adding some text to these slides. I think it is nice to fill in the white space, and also emphasise the question.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;slides-7&quot;&gt;Slides 7&lt;/h2&gt;
@@ -229,11 +230,11 @@ There is going to be significant repetition in the slides, but that is the natur
 &lt;p&gt;How would you improve the slides?&lt;/p&gt;
 
 &lt;p&gt;Version 2:
-&lt;img src=&quot;/blog/images/demoday1_2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;/blog/images/demoday10_2.gif&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Changes:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Most people did not comment on the slides, but &lt;a href=&quot;Caroline Ames&quot;&gt;https://www.linkedin.com/in/caroline-ames-6a709765/&lt;/a&gt; suggested creating a flowchart so that even people without any technical knowledge and get some vague sense of the process.&lt;/li&gt;
+  &lt;li&gt;Most people did not comment on these slides, but &lt;a href=&quot;https://www.linkedin.com/in/caroline-ames-6a709765/&quot;&gt;Caroline Ames&lt;/a&gt; suggested creating a flowchart so that even people without any technical knowledge can get some vague sense of the process.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Additional thoughts:
