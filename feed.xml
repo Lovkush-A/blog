@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2020-12-30T09:11:18-06:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Presentations. Turning good slides into great slides</title><link href="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html" rel="alternate" type="text/html" title="Presentations. Turning good slides into great slides" /><published>2020-12-23T00:00:00-06:00</published><updated>2020-12-23T00:00:00-06:00</updated><id>https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2021-01-01T11:22:10-06:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Using Data Science to Create Art</title><link href="https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/01/01/art.html" rel="alternate" type="text/html" title="Using Data Science to Create Art" /><published>2021-01-01T00:00:00-06:00</published><updated>2021-01-01T00:00:00-06:00</updated><id>https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/01/01/art</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/01/01/art.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;While working with Lexitas to process deposition transcripts, I was trying to find the best tools and settings to visual clusters of questions. Several of the choices lead to visually striking plots. I was pleasantly surprised by this. My mentors enjoyed looking at these, so I figured other people mght like them as well.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-the-art-was-created&quot;&gt;How the art was created&lt;/h2&gt;
+&lt;p&gt;The dataset was a list of questions taken from a single deposition transcript. Importantly, and surprisingly, all the images to follow are all representations of this &lt;em&gt;same dataset&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I then vectorised the sentences using various tools (e.g. tfidf and glove vectors) and did dimension reduction using either tSNE or UMAP. I then plotted the resulting data using Bokeh.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-art&quot;&gt;The art&lt;/h2&gt;
+&lt;h3 id=&quot;the-firework&quot;&gt;The Firework&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/art_firework.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;the-cell&quot;&gt;The Cell&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/art_cell.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;the-dipole&quot;&gt;The Dipole&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/art_dipole.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;the-meteor&quot;&gt;The Meteor&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/art_meteor.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;the-rabbit&quot;&gt;The Rabbit&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/art_rabbit.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h2&gt;
+&lt;p&gt;What do you think? The main thing that surprised me about this is that these are all representations of the same underlying dataset! When I showed these to my mentors, they said that there is a little joke that if you spend long enough, you can get whatever you want in unsupervised learning.&lt;/p&gt;
+
+&lt;p&gt;Lastly, I think it is nice that while I am grinding away trying to determine what is the most valuable for my clients, I can get these little pleasant surprises on the side.&lt;/p&gt;</content><author><name></name></author><summary type="html">Introduction While working with Lexitas to process deposition transcripts, I was trying to find the best tools and settings to visual clusters of questions. Several of the choices lead to visually striking plots. I was pleasantly surprised by this. My mentors enjoyed looking at these, so I figured other people mght like them as well.</summary></entry><entry><title type="html">Presentations. Turning good slides into great slides</title><link href="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html" rel="alternate" type="text/html" title="Presentations. Turning good slides into great slides" /><published>2020-12-23T00:00:00-06:00</published><updated>2020-12-23T00:00:00-06:00</updated><id>https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/communication/2020/12/23/demoday.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;In this post, I will describe how I turned a decent presentation into a great one. But first some context.&lt;/p&gt;
 
 &lt;p&gt;At the end of the &lt;a href=&quot;https://faculty.ai/fellowship/&quot;&gt;Faculty Data Science Fellowship&lt;/a&gt;, Faculty hosts an event called ‘Demo Day’, in which the fellows each give a 5-minute presentatation to showcase what they achieved in the project. Over 300 people from the data science industry attend this event, so these presentations are a big deal.  You can see many of the demo day presentations on &lt;a href=&quot;https://www.youtube.com/channel/UCaiUkj_9GAncPqJxvbBUkWA/videos&quot;&gt;Faculty’s YouTube channel&lt;/a&gt;.&lt;/p&gt;
@@ -1547,110 +1574,4 @@ P(A|B) = \frac{P(A) P(B|A)}{P(B)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&
 &lt;span class=&quot;n&quot;&gt;df_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;df_m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url_to_pandas&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;players_f&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player_summaries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_f&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;players_m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;player_summaries&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;df_m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part III, All hail Bokeh! Squash rankings, Part II, dimension reduction and clustering</summary></entry><entry><title type="html">Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD</title><link href="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html" rel="alternate" type="text/html" title="Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and **S**GD" /><published>2020-09-17T00:00:00-05:00</published><updated>2020-09-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/neural%20network/python/2020/09/17/sgd3.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/10/01/sgd4.html&quot;&gt;Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/neural%20network/python/2020/09/11/sgd2.html&quot;&gt;Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/data%20science/python/2020/09/10/sgd1.html&quot;&gt;Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;In the previous posts, I used gradient descent to model linear, quadratic and sinusoidal data. In the first post, the linear and quadratic models could be fit, but the sinusoidal data could not be fit.  In the second post, we saw how neural networks kind of fit the data, but not very well.&lt;/p&gt;
-
-&lt;p&gt;This time, I will add the stochasticity by introducing mini-batches. My hope is that I will be able to fit the sinusoidal data that I could not fit in the first post. I will discuss this example at the end, because it is the most interesting&lt;/p&gt;
-
-&lt;h2 id=&quot;models-with-neural-networks&quot;&gt;Models with neural networks&lt;/h2&gt;
-&lt;p&gt;Here are animations of a neural network trying to fit using stochastic gradient descent.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_linearnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_quadraticnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sinnn.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;The end results look similar to the end results without using mini-batches. The big difference is that the network converges much faster.&lt;/p&gt;
-
-&lt;h2 id=&quot;fitting-sinusoidal-data-using-a-sinusoidal-model&quot;&gt;Fitting sinusoidal data using a sinusoidal model&lt;/h2&gt;
-&lt;p&gt;Here is a representative example of my first attempts using SGD on sinusoidal data. Note that in all of the animations in this section, the same dataset and initial parameters were used, so the comparisons are more rigorous.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin1.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;To my dismay, we seem to have the same problem as with normal gradient descent. The system gets stuck in some local minimum where the amplitude is small. It still continues to ‘learn’ though.&lt;/p&gt;
-
-&lt;p&gt;At this point, I experimented a little (e.g. with some ‘regularisation’), which I plan to describe in a separate post (spoiler alert - they didn’t work). While planning this blogpost, I re-watched the animation above and thought that maybe the learning rate is too big. I presumably tried playing with the learning rate already but for the sake of completeness, I thought it would be good to produce a series of animations to show you that varying the learning rate does not help.&lt;/p&gt;
-
-&lt;p&gt;The learning rate in the animation above was 0.1.  Below is an animation for a learning rate of 0.01.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin2.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;! That was unexpected! It managed to find good parameters, but then jumped to some inferior local minimum. I managed to achieve something similar to this using the regularisation mentioned above (and which I will describe in a later post), but I was not expecting to see this by changing the learning rate. Clearly my memory is off and I had not experimented with the learning rate. I thought I would re-run the calculations to see if the same behaviour would occur again. (Note that the initial parameters are the same in all these animations, but there is still randomness from how the mini-batches are selected.)&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin2b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;So we get similar behaviour. For some time it looks like we are getting close to a good model but then it jumps away to some other set of parameters.&lt;/p&gt;
-
-&lt;p&gt;Looks like I should make the learning rate smaller, and see if that prevents jumping away from the correct model. The next animation is for a learning rate of 0.001.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin3.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;!!! Wow! Given that I had failed after several hours of trying, this was basically magic to me. The model gently and slides its way into position, increases its amplitude, then stays there. Fantastic!&lt;/p&gt;
-
-&lt;p&gt;Now a big question arises. Were the learning rates in the first post of this series too high, and that was the reason for the struggles with sinusoidal models? There’s only one way to find out, and that’s by doing the experiment. Below is the resulting animation.&lt;/p&gt;
-
-&lt;figure class=&quot;video_container&quot;&gt;
-  &lt;video controls=&quot;true&quot; allowfullscreen=&quot;true&quot;&gt;
-    &lt;source src=&quot;/blog/images/sgd3_sin3b.mp4&quot; type=&quot;video/mp4&quot; /&gt;
-  &lt;/video&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;!!! All this time, it was as simple as changing the learning rate. How did I miss this?! What is noteworthy is how slow the learning is in gradient descent as compared to stochastic gradient descent.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;There are two big lessons I learnt from this.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;The first is to somehow take good notes of what I have tried and to be systematic. In my previous job teaching maths to STEM Foundation Year students, my colleague who taught Laboratory Skills was trying to explain the purpose of a lab-book to students: it should be a record of what you did, why you did it, what you observed, etc. so that somebody else (in particular, future-you) can read it and re-live your experience. It looks like I have only now learnt this lesson my colleague was trying to teach. Better late than never, I suppose.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The second is that the main benefit of stochastic gradient descent seems to be in efficiency/speed. I have read in places that it can help with preventing local minimums, but I am still unsure of this latter point.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;the-code&quot;&gt;The code&lt;/h2&gt;
-&lt;p&gt;The code for this project is in this &lt;a href=&quot;https://github.com/Lovkush-A/pytorch_sgd&quot;&gt;GitHub repository&lt;/a&gt;. I encourage you to play around and see what you can learn. If there is anything you do not understand in the code, please ask.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part IV, Experimenting with sinusoidal case Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part III, All hail Bokeh! Squash rankings, Part II, dimension reduction and clustering</summary></entry></feed>
