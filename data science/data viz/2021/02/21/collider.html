@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Using Data Science to Create Art | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Using Data Science to Create Art" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic." />
+<meta property="og:description" content="While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-21T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic.","@type":"BlogPosting","headline":"Using Data Science to Create Art","dateModified":"2021-02-21T00:00:00-06:00","datePublished":"2021-02-21T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html"},"url":"https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Using Data Science to Create Art | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Using Data Science to Create Art" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic." />
+<meta property="og:description" content="While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-02-21T00:00:00-06:00" />
+<script type="application/ld+json">
+{"description":"While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic.","@type":"BlogPosting","headline":"Using Data Science to Create Art","dateModified":"2021-02-21T00:00:00-06:00","datePublished":"2021-02-21T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html"},"url":"https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Using Data Science to Create Art</h1><p class="page-description">While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-21T00:00:00-06:00" itemprop="datePublished">
+        Feb 21, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#data viz">data viz</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#introduction">Introduction</a></li>
+<li class="toc-entry toc-h2"><a href="#main-intuition-of-collider-bias">Main intuition of collider bias</a></li>
+<li class="toc-entry toc-h2"><a href="#example-1-movie-stars">Example 1. Movie stars.</a></li>
+<li class="toc-entry toc-h2"><a href="#example-2-elite-students">Example 2. Elite students.</a></li>
+<li class="toc-entry toc-h2"><a href="#example-3-low-birth-weight-paradox">Example 3. Low birth weight paradox</a></li>
+<li class="toc-entry toc-h2"><a href="#example-4-gender-pay-gap">Example 4. Gender pay gap</a></li>
+<li class="toc-entry toc-h2"><a href="#conclusion">Conclusion</a></li>
+</ul><h2 id="introduction">
+<a class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h2>
+<p>In this post, I will describe four different examples of collider bias. In the past couple of months, it is probably the single biggest idea I have learnt and opened my eyes to new possibilities and subtleties in data. In particular, it reveals and explains why conditioning on some variable Z when you are trying to understand the effect of X on Y can make things worse; I used to think one ought to condition on as many variables as possible!</p>
+
+<p>I will describe a few examples that illustrate what collider bias is, rather than giving a formal definition, because I admittedly do not yet know the formal definition of a collider!</p>
+
+<p>The examples I describe are from <a href="https://mixtape.scunning.com">Causal Reasoning: The Mixtape</a> and from <a href="https://www.stitcher.com/show/the-turing-podcast/episode/being-an-epidemiologist-in-2020-76960769">this interview of Peter Tenant</a> on the Turing Podcast.</p>
+
+<h2 id="main-intuition-of-collider-bias">
+<a class="anchor" href="#main-intuition-of-collider-bias" aria-hidden="true"><span class="octicon octicon-link"></span></a>Main intuition of collider bias</h2>
+<p>The main intuition I have is that a variable Z is a collider if by conditioning on Z you create a spurious correlation between two other variables A and B (which in turn muddles up our analysis of the causal effect of X on Y).</p>
+
+<h2 id="example-1-movie-stars">
+<a class="anchor" href="#example-1-movie-stars" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 1. Movie stars.</h2>
+<p>Let us assume that to become a highly successful movie star, you must be either particularly talented or particularly good-looking (yes yes, looks are subjective, but you know what I mean). Let us also reasonably assume that in the whole population, there is no correlation between talent and looks.</p>
+
+<p>With that set up, we can now say that if you condition on whether someone is a movie star, you create a negative correlation between talent and looks.</p>
+
+<p>For a fuller explanation and some diagrams to visualise what is happening, see Section 3.1.6 from <a href="https://mixtape.scunning.com/dag.html">Causal Inference: The Mixtape</a>.</p>
+
+<h2 id="example-2-elite-students">
+<a class="anchor" href="#example-2-elite-students" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 2. Elite students.</h2>
+<p>This is similar to the movie stars example, except this time we have the effect that by conditioning on whether somebody is at an elite institution or not will create a spurious negative correlation between talent and hardwork. A genius does not need to work hard to succeed whereas merely excellent individuals also need to work hard to get in.</p>
+
+<h2 id="example-3-low-birth-weight-paradox">
+<a class="anchor" href="#example-3-low-birth-weight-paradox" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 3. Low birth weight paradox</h2>
+<p>This is a real example and it stumped the medical community for many years. The effect of smoking on infant mortality was being investigated. It was already known that smoking caused a higher risk of low-birth weight and that low birth weight increases the risk of infant mortality. We would like to know whether smoking has any other effects on infant mortality apart from causing low birth weight. So, you do what is natural and you condition on birthweight and now look at the effect of smoking on mortality. This is where the paradox comes in: it was found that smoking had a protective effect!</p>
+
+<p>One’s first instinct is there is a mistake in the data, but that is not the case. The explanation, as you might guess, is that it is a result of collider bias! Here are the relevant facts:</p>
+<ul>
+  <li>There are various causes of birthweight. Smoking is one of them, but there are others.</li>
+  <li>The other causes of low birthweight have a greater negative risk on infant mortality, separate to their effect on low birthweight.</li>
+</ul>
+
+<p>As a challenge, combine all these facts to work out how conditioning on birthweight can create the finding that smoking has a protective effect.</p>
+
+<p>…</p>
+
+<p>…</p>
+
+<p>…</p>
+
+<p>Really, have a go. You learn more by actively engaging with an idea, than just reading somebody else’s thoughts.</p>
+
+<p>…</p>
+
+<p>…</p>
+
+<p>…</p>
+
+<p>The explanation is as follows.</p>
+<ul>
+  <li>When you condition on birthweight, you create a correlation between smoking and the other causes of birthweight. Specifically, a negative correlation.</li>
+  <li>Hence, more smoking ‘causes’ less of the other causes of low birthweight, which causes a reduction in mortality.</li>
+</ul>
+
+<p>If you did not follow that, there is a good chance my explanation is not ideal. I recommend you read through <a href="https://mixtape.scunning.com/dag.html">Chapter 3 on Causal Diagrams</a>, and then look at <a href="https://twitter.com/pwgtennant/status/1030896340891586560?lang=en">Peter Tennant’s tweet</a> containing the causal diagram for this situation.</p>
+
+<h2 id="example-4-gender-pay-gap">
+<a class="anchor" href="#example-4-gender-pay-gap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 4. Gender pay gap</h2>
+<p>Disclaimer: In the discussion that follows, I only refer to men and women. I do not intend to exclude people of other genders. If you are bothered by this, apply the principle of charity and replace the word ‘women’ with ‘non-male’ in all that follows.</p>
+
+<p>When understanding the gender pay gap, it is obvious that one should condition on the job: there is a big difference to saying women are paid less for doing the same work versus women are paid less because they tend to be in lower paying jobs.</p>
+
+<p>However, the thing that is not obvious is that conditioning on the job can create a spurious correlation. Let us make the following two assumptions:</p>
+<ul>
+  <li>Women face discrimination in the job-hunting process</li>
+  <li>There is a positive correlation between ability/talent and pay</li>
+</ul>
+
+<p>Now, conditioning on jobs will create a spurious correlation between gender and ability - because women are discriminated against in the job-hunting process, women will tend to have a higher ability then men in the same job. Because of the second assumption, we would then observe that women are paid more than men, after conditioning on jobs! Could you imagine the headlines if this were found.</p>
+
+<p>For a fuller discussion and explanation (along with causal diagrams), see <a href="https://mixtape.scunning.com/dag.html">Section 3.1.5 in Causal Inference The Mixtape</a>.</p>
+
+<h2 id="conclusion">
+<a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h2>
+<p>I hope these examples of collider bias were insightful! Like I said at the start, the main insight for me was that conditioning on a variable can sometimes create noise, and the reason is that two variables A and B both cause Z, then conditioning on Z will create a spurious correlation between A and B.</p>
+
+<p>The worrying thing about this is it reveals just how difficult answering causal questions is. As seen in the birthweight and gender examples above, you can observe the totally opposite effect as a result of collider bias. As far as I can tell, the only way to avoid collider bias is to have considered all the possible causes and effects, and to appropriately condition on the necessary variables. I guess I will just have to add the clause ‘assuming all relevant causes have been taken into account’ at the start of any claim I now read!</p>
+
+  </div><a class="u-url" href="/blog/data%20science/data%20viz/2021/02/21/collider.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
