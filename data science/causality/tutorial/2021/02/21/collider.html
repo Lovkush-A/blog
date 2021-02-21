@@ -3,19 +3,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Using Data Science to Create Art | Lovkush Agarwal</title>
+<title>Examples of collider bias | Lovkush Agarwal</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Using Data Science to Create Art" />
+<meta property="og:title" content="Examples of collider bias" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic." />
-<meta property="og:description" content="While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic." />
-<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html" />
-<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html" />
+<meta name="description" content="Collider bias can completely skew research findings. I describe some examples that highlight how this non-obvious bias arises." />
+<meta property="og:description" content="Collider bias can completely skew research findings. I describe some examples that highlight how this non-obvious bias arises." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/causality/tutorial/2021/02/21/collider.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/causality/tutorial/2021/02/21/collider.html" />
 <meta property="og:site_name" content="Lovkush Agarwal" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-02-21T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic.","@type":"BlogPosting","headline":"Using Data Science to Create Art","dateModified":"2021-02-21T00:00:00-06:00","datePublished":"2021-02-21T00:00:00-06:00","url":"https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html"},"@context":"https://schema.org"}</script>
+{"description":"Collider bias can completely skew research findings. I describe some examples that highlight how this non-obvious bias arises.","@type":"BlogPosting","headline":"Examples of collider bias","dateModified":"2021-02-21T00:00:00-06:00","datePublished":"2021-02-21T00:00:00-06:00","url":"https://lovkush-a.github.io/blog/data%20science/causality/tutorial/2021/02/21/collider.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/causality/tutorial/2021/02/21/collider.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -28,19 +28,19 @@
 
 
 <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Using Data Science to Create Art | Lovkush Agarwal</title>
+<title>Examples of collider bias | Lovkush Agarwal</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Using Data Science to Create Art" />
+<meta property="og:title" content="Examples of collider bias" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic." />
-<meta property="og:description" content="While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic." />
-<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html" />
-<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html" />
+<meta name="description" content="Collider bias can completely skew research findings. I describe some examples that highlight how this non-obvious bias arises." />
+<meta property="og:description" content="Collider bias can completely skew research findings. I describe some examples that highlight how this non-obvious bias arises." />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/causality/tutorial/2021/02/21/collider.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/causality/tutorial/2021/02/21/collider.html" />
 <meta property="og:site_name" content="Lovkush Agarwal" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-02-21T00:00:00-06:00" />
 <script type="application/ld+json">
-{"description":"While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic.","@type":"BlogPosting","headline":"Using Data Science to Create Art","dateModified":"2021-02-21T00:00:00-06:00","datePublished":"2021-02-21T00:00:00-06:00","url":"https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/data%20viz/2021/02/21/collider.html"},"@context":"https://schema.org"}</script>
+{"description":"Collider bias can completely skew research findings. I describe some examples that highlight how this non-obvious bias arises.","@type":"BlogPosting","headline":"Examples of collider bias","dateModified":"2021-02-21T00:00:00-06:00","datePublished":"2021-02-21T00:00:00-06:00","url":"https://lovkush-a.github.io/blog/data%20science/causality/tutorial/2021/02/21/collider.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/causality/tutorial/2021/02/21/collider.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -117,7 +117,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Using Data Science to Create Art</h1><p class="page-description">While trying to find the best clustering of some text data, I unintentionally stumbled upon some visually striking plots, which I think are highly aesthetic and artistic.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-21T00:00:00-06:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Examples of collider bias</h1><p class="page-description">Collider bias can completely skew research findings. I describe some examples that highlight how this non-obvious bias arises.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-02-21T00:00:00-06:00" itemprop="datePublished">
         Feb 21, 2021
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -133,7 +133,10 @@ window.onload = wrap_img;
         <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
         &nbsp;
       
-        <a class="category-tags-link" href="/blog/categories/#data viz">data viz</a>
+        <a class="category-tags-link" href="/blog/categories/#causality">causality</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#tutorial">tutorial</a>
         
       
       </p>
@@ -210,9 +213,11 @@ window.onload = wrap_img;
 
 <h2 id="example-4-gender-pay-gap">
 <a class="anchor" href="#example-4-gender-pay-gap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example 4. Gender pay gap</h2>
-<p>Disclaimer: In the discussion that follows, I only refer to men and women. I do not intend to exclude people of other genders. If you are bothered by this, apply the principle of charity and replace the word ‘women’ with ‘non-male’ in all that follows.</p>
-
-<p>When understanding the gender pay gap, it is obvious that one should condition on the job: there is a big difference to saying women are paid less for doing the same work versus women are paid less because they tend to be in lower paying jobs.</p>
+<p>When understanding the gender pay gap, it is obvious that one should condition on the job. There is a big difference between:</p>
+<ul>
+  <li>Pay gap being a result of women being paid less than men for the same job</li>
+  <li>Pay gap being a result of women tending to do lower paid jobs than men do</li>
+</ul>
 
 <p>However, the thing that is not obvious is that conditioning on the job can create a spurious correlation. Let us make the following two assumptions:</p>
 <ul>
@@ -220,17 +225,19 @@ window.onload = wrap_img;
   <li>There is a positive correlation between ability/talent and pay</li>
 </ul>
 
-<p>Now, conditioning on jobs will create a spurious correlation between gender and ability - because women are discriminated against in the job-hunting process, women will tend to have a higher ability then men in the same job. Because of the second assumption, we would then observe that women are paid more than men, after conditioning on jobs! Could you imagine the headlines if this were found.</p>
+<p>Now, conditioning on jobs will create a spurious correlation between gender and ability - because women are discriminated against in the job-hunting process, women will tend to have a higher ability then men in the same job. Because of the second assumption, we would then observe that women are paid more than men, after conditioning on jobs!</p>
+
+<p>To summarise, in this simplistic model women are facing discrimination but the standard approach of conditioning on jobs will make it look like it is in fact men who are being discriminated against.</p>
 
 <p>For a fuller discussion and explanation (along with causal diagrams), see <a href="https://mixtape.scunning.com/dag.html">Section 3.1.5 in Causal Inference The Mixtape</a>.</p>
 
 <h2 id="conclusion">
 <a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h2>
-<p>I hope these examples of collider bias were insightful! Like I said at the start, the main insight for me was that conditioning on a variable can sometimes create noise, and the reason is that two variables A and B both cause Z, then conditioning on Z will create a spurious correlation between A and B.</p>
+<p>I hope these examples of collider bias were insightful. Like I said at the start, the main insight for me was that conditioning on a variable can sometimes create noise, and the reason is that if two variables A and B both cause Z, then conditioning on Z will create a spurious correlation between A and B.</p>
 
-<p>The worrying thing about this is it reveals just how difficult answering causal questions is. As seen in the birthweight and gender examples above, you can observe the totally opposite effect as a result of collider bias. As far as I can tell, the only way to avoid collider bias is to have considered all the possible causes and effects, and to appropriately condition on the necessary variables. I guess I will just have to add the clause ‘assuming all relevant causes have been taken into account’ at the start of any claim I now read!</p>
+<p>A worrying thing about this is it reveals just how difficult answering causal questions is. As seen in the birthweight and gender examples above, you can observe the totally opposite effect as a result of collider bias. As far as I can tell, the only way to avoid collider bias is to have considered all the possible causes and effects, and to appropriately condition on the necessary variables. I guess I will just have to add the clause ‘assuming all relevant causes have been taken into account’ at the start of any claim I now read!</p>
 
-  </div><a class="u-url" href="/blog/data%20science/data%20viz/2021/02/21/collider.html" hidden></a>
+  </div><a class="u-url" href="/blog/data%20science/causality/tutorial/2021/02/21/collider.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
