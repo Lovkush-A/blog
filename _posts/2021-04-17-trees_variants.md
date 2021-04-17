@@ -1,7 +1,7 @@
 ---
 toc: true
 layout: post
-description: I summarise the two main ideas in Sathe and Aggarwal's paper *Similarity Forests*.
+description: I summarise the two main ideas in Sathe and Aggarwal's paper Similarity Forests.
 categories: [data science]
 title: Similarity trees and NaN trees
 ---
@@ -30,9 +30,9 @@ So suppose we have access to the similarities between all data points `S`, where
 * Let `a` be a constant
 * Then `X_i` is in the left or right child node depending on whether `S_ij - S_ik` is smaller than or bigger than `a`
 
-The intuition for this is that you are projecting all your datapoints onto the line joining `X_j` and `X_k`, and then picking a point on the line to split the datapoints in two. For a derivation of why `S_ij - S_ik` corresponds to this projecct and a visualisation of what is going on, you can read the original paper.
+The intuition for this is that you are projecting all your datapoints onto the line joining `X_j` and `X_k`, and then picking a point on the line to split the datapoints in two. For a derivation of why `S_ij - S_ik` corresponds to this projection, and a diagram that helps visualise this projection, you can read the original paper.
 
-And that's the main idea! There are various details I have skipped over (e.g. how to choose `j` and `k` at each node), but using `S_ij - S_ik` instead of `X_id` is the central idea.
+And that's it! There are various details I have skipped over (e.g. how to choose `j` and `k` at each node), but using `S_ij - S_ik` instead of `X_id` is the central idea.
 
 ## Trees with `NaN` values
 What happens if `X_id` is a NaN value? The standard algorithm will not work. In the paper, they describe a possible way of dealing with this. I do not know if this paper is the first to come up with this idea, but it is where I found out about it so I am giving them the credit.
@@ -53,7 +53,7 @@ No really, I recommend you give it some thought. You will learn more by actively
 
 ...
 
-The idea in their paper is quite neat. In the standard decision tree, each node has two children nodes. To deal with with NaN values, just introduce a third child containing the NaN entries! From here, there are various ways of dealing with these NaN-nodes. In the paper, Sathe and Aggarwal make all these nodes be leaf nodes and the prediction at these NaN-nodes is equal to the modal class of its parent. Another option is to just treat these NaN-nodes like any other node, and continue to split on them.  I imagine the strategy one chooses will depend on the particular situation one is in, and whether there is are any patterns in the NaN values.
+The idea in their paper is quite neat. In the standard decision tree, each node has two children nodes. To deal with with NaN values, just introduce a third child containing the NaN entries! From here, there are various ways of dealing with these NaN-nodes. In the paper, Sathe and Aggarwal make all these nodes be leaf nodes and the prediction at these NaN-nodes is equal to the modal class of its parent. Another option is to just treat these NaN-nodes like any other node, and continue to split on them.  I imagine the strategy one chooses will depend on the particular situation one is in, and whether there are any patterns in the NaN values.
 
 ## Conclusion
 To summarise, the paper contains two main new ideas:
