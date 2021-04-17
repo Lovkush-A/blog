@@ -117,7 +117,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Similarity trees and NaN trees</h1><p class="page-description">I summarise the two main ideas in Sathe and Aggarwal's paper *Similarity Forests*.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-04-17T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Similarity trees and NaN trees</h1><p class="page-description">I summarise the two main ideas in Sathe and Aggarwal's paper Similarity Forests.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-04-17T00:00:00-05:00" itemprop="datePublished">
         Apr 17, 2021
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -182,9 +182,9 @@ window.onload = wrap_img;
 </li>
 </ul>
 
-<p>The intuition for this is that you are projecting all your datapoints onto the line joining <code class="highlighter-rouge">X_j</code> and <code class="highlighter-rouge">X_k</code>, and then picking a point on the line to split the datapoints in two. For a derivation of why <code class="highlighter-rouge">S_ij - S_ik</code> corresponds to this projecct and a visualisation of what is going on, you can read the original paper.</p>
+<p>The intuition for this is that you are projecting all your datapoints onto the line joining <code class="highlighter-rouge">X_j</code> and <code class="highlighter-rouge">X_k</code>, and then picking a point on the line to split the datapoints in two. For a derivation of why <code class="highlighter-rouge">S_ij - S_ik</code> corresponds to this projection, and a diagram that helps visualise this projection, you can read the original paper.</p>
 
-<p>And that’s the main idea! There are various details I have skipped over (e.g. how to choose <code class="highlighter-rouge">j</code> and <code class="highlighter-rouge">k</code> at each node), but using <code class="highlighter-rouge">S_ij - S_ik</code> instead of <code class="highlighter-rouge">X_id</code> is the central idea.</p>
+<p>And that’s it! There are various details I have skipped over (e.g. how to choose <code class="highlighter-rouge">j</code> and <code class="highlighter-rouge">k</code> at each node), but using <code class="highlighter-rouge">S_ij - S_ik</code> instead of <code class="highlighter-rouge">X_id</code> is the central idea.</p>
 
 <h2 id="trees-with-nan-values">
 <a class="anchor" href="#trees-with-nan-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trees with <code class="highlighter-rouge">NaN</code> values</h2>
@@ -206,7 +206,7 @@ window.onload = wrap_img;
 
 <p>…</p>
 
-<p>The idea in their paper is quite neat. In the standard decision tree, each node has two children nodes. To deal with with NaN values, just introduce a third child containing the NaN entries! From here, there are various ways of dealing with these NaN-nodes. In the paper, Sathe and Aggarwal make all these nodes be leaf nodes and the prediction at these NaN-nodes is equal to the modal class of its parent. Another option is to just treat these NaN-nodes like any other node, and continue to split on them.  I imagine the strategy one chooses will depend on the particular situation one is in, and whether there is are any patterns in the NaN values.</p>
+<p>The idea in their paper is quite neat. In the standard decision tree, each node has two children nodes. To deal with with NaN values, just introduce a third child containing the NaN entries! From here, there are various ways of dealing with these NaN-nodes. In the paper, Sathe and Aggarwal make all these nodes be leaf nodes and the prediction at these NaN-nodes is equal to the modal class of its parent. Another option is to just treat these NaN-nodes like any other node, and continue to split on them.  I imagine the strategy one chooses will depend on the particular situation one is in, and whether there are any patterns in the NaN values.</p>
 
 <h2 id="conclusion">
 <a class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h2>
