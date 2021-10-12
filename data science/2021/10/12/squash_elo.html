@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Using data to improve professional squash rankings | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Using data to improve professional squash rankings" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Improving the ratings of professional squash players using data and the ELO rating system" />
+<meta property="og:description" content="Improving the ratings of professional squash players using data and the ELO rating system" />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-10-12T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Improving the ratings of professional squash players using data and the ELO rating system","@type":"BlogPosting","headline":"Using data to improve professional squash rankings","dateModified":"2021-10-12T00:00:00-05:00","datePublished":"2021-10-12T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+
+
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Using data to improve professional squash rankings | Lovkush Agarwal</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Using data to improve professional squash rankings" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Improving the ratings of professional squash players using data and the ELO rating system" />
+<meta property="og:description" content="Improving the ratings of professional squash players using data and the ELO rating system" />
+<link rel="canonical" href="https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html" />
+<meta property="og:url" content="https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html" />
+<meta property="og:site_name" content="Lovkush Agarwal" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-10-12T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Improving the ratings of professional squash players using data and the ELO rating system","@type":"BlogPosting","headline":"Using data to improve professional squash rankings","dateModified":"2021-10-12T00:00:00-05:00","datePublished":"2021-10-12T00:00:00-05:00","url":"https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://lovkush-a.github.io/blog/feed.xml" title="Lovkush Agarwal" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-29327017-2','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Lovkush Agarwal</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Using data to improve professional squash rankings</h1><p class="page-description">Improving the ratings of professional squash players using data and the ELO rating system</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-10-12T00:00:00-05:00" itemprop="datePublished">
+        Oct 12, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#data science">data science</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#project-overview">Project Overview</a></li>
+<li class="toc-entry toc-h2"><a href="#elo">ELO</a></li>
+<li class="toc-entry toc-h2"><a href="#the-data">The data</a></li>
+<li class="toc-entry toc-h2"><a href="#cleaning">Cleaning</a></li>
+<li class="toc-entry toc-h2"><a href="#analysis">Analysis</a></li>
+<li class="toc-entry toc-h2"><a href="#possible-improvements">Possible improvements</a></li>
+</ul><h2 id="project-overview">
+<a class="anchor" href="#project-overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project Overview</h2>
+<p>Using the ELO rating system and past few decades of squash match data, I created ratings that are superior to the current simplistic ratings used by the Professional Squash Association (PSA). Code for this project is available in the <a href="https://github.com/Lovkush-A/squash_elo">GitHub repository for this project</a>.</p>
+
+<p>The two main improvements ELO ratings provide over PSA ratings are:</p>
+<ol>
+  <li>In ELO, a person gets rating points based on who they play against, rather than which round of a tournament they reach. It is more impressive to beat the world’s best player in Round 1, then to get to the quarter-final of a tournament by beating low ranking players.</li>
+  <li>In ELO, the rating is predictive and interpretable. The difference between two players’ ELO ratings provides a simple way of estimating the odds of the higher rated player beating the lower rated player. In PSA’s system, the rating values have little useful information; it is revealing that the ratings are never shown or commentated on during squash broadcasts.</li>
+</ol>
+
+<p>The first improvement is guaranteed by how the ELO rating system works; see the explanation below.</p>
+
+<p>The second improvement is not guaranteed but requires empirical verification. This is done by computing the following ‘calibration metric’ for various values of <code class="highlighter-rouge">p</code>:</p>
+
+<ul>
+  <li>In all the matches in which the ELO rating system predicts that the higher-rated player has probability <code class="highlighter-rouge">p</code> of winning, what is the true rate at which the higher-rated player actually wins.</li>
+</ul>
+
+<p>After doing some hyper-parameter tuning, I was able to achieve the following values for these metrics:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Predicted probability of higher rated player winning. Rounded to nearest 0.05</th>
+      <th style="text-align: right">Number of predictions</th>
+      <th style="text-align: right">Observed fraction of matches that higher rated player won</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">0.50</td>
+      <td style="text-align: right">2566</td>
+      <td style="text-align: right">0.518316</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.55</td>
+      <td style="text-align: right">5315</td>
+      <td style="text-align: right">0.559548</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.60</td>
+      <td style="text-align: right">5292</td>
+      <td style="text-align: right">0.611678</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.65</td>
+      <td style="text-align: right">5238</td>
+      <td style="text-align: right">0.668385</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.70</td>
+      <td style="text-align: right">5401</td>
+      <td style="text-align: right">0.700796</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.75</td>
+      <td style="text-align: right">5642</td>
+      <td style="text-align: right">0.755583</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.80</td>
+      <td style="text-align: right">6024</td>
+      <td style="text-align: right">0.813081</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.85</td>
+      <td style="text-align: right">6507</td>
+      <td style="text-align: right">0.849393</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.90</td>
+      <td style="text-align: right">7258</td>
+      <td style="text-align: right">0.900248</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.95</td>
+      <td style="text-align: right">8834</td>
+      <td style="text-align: right">0.937967</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1.00</td>
+      <td style="text-align: right">5831</td>
+      <td style="text-align: right">0.967930</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You can see that the predictions are well callibrated! In the rest of this blog, I will describe the process taken to do this.</p>
+
+<h2 id="elo">
+<a class="anchor" href="#elo" aria-hidden="true"><span class="octicon octicon-link"></span></a>ELO</h2>
+
+<p>The surprising thing about ELO is how simple it is, given the results it can achieve.</p>
+
+<p>The underlying ideas are straightforward:</p>
+<ul>
+  <li>Use the difference between ratings to compute an expected score for an individual match.</li>
+  <li>Changes in ratings after an individual match are proportional to the difference between the true score and the expected score.</li>
+</ul>
+
+<p>The full details are as follows:</p>
+
+<ul>
+  <li>If two players have ratings <code class="highlighter-rouge">r1</code> and <code class="highlighter-rouge">r2</code> respectively, then the predicted odds of player 1 beating player 2 is <code class="highlighter-rouge">p(r1, r2) = 1 / (1 + 10**((r2 - r1) / 400))</code>
+    <ul>
+      <li>Note there is nothing fundamentally important about the numbers 10 or 400 here. These are simply the numbers used in chess, the most famous use case of the ELO rating system.</li>
+      <li>And yes, this is just (a scaled version) of the sigmoid function!</li>
+    </ul>
+  </li>
+  <li>If Player 1 with rating <code class="highlighter-rouge">r1</code> beats Player 2 with rating <code class="highlighter-rouge">r2</code>, then the ratings are updated as follows:
+    <ul>
+      <li>The change in rating is <code class="highlighter-rouge">delta = K*(1 - p(r1, r2))</code>.
+        <ul>
+          <li>The variable <code class="highlighter-rouge">K</code> is a hyper-parameter. The larger <code class="highlighter-rouge">K</code> is, the bigger the changes in ratings will be.</li>
+          <li>The quantity <code class="highlighter-rouge">1-p(r1, r2)</code> is the difference between the true score of 1 (representing victory) and predicted score of <code class="highlighter-rouge">p(r1, r2)</code>.</li>
+        </ul>
+      </li>
+      <li>Player 1’s new rating is <code class="highlighter-rouge">r1+delta</code>
+</li>
+      <li>Player 2’s new rating is <code class="highlighter-rouge">r2-delta</code>
+</li>
+    </ul>
+  </li>
+  <li>If a player has not yet played any matches, we assign them a default starting rating of 1500.
+    <ul>
+      <li>This is arbitrary, since ELO ratings only depend on differences in ratings.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>And that’s it!</p>
+
+<h2 id="the-data">
+<a class="anchor" href="#the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>The data</h2>
+<p>The raw data I used contains the male match history from the past few decades. It includes players’ names, their seed for the tournmanet, who won the match, the scores of the games in the match (usually) and some other minor details.</p>
+
+<p>Here are a few entries from the dataframe to illustrate:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">tournament_index</th>
+      <th style="text-align: right">round</th>
+      <th style="text-align: right">players</th>
+      <th style="text-align: right">result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">Quarter-finals</td>
+      <td style="text-align: right">[1] Tayyab Aslam (PAK) bt Farhan Hashmi (PAK)</td>
+      <td style="text-align: right">7-11, 11-9, 11-5, 11-5 (32m)</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">Quarter-finals</td>
+      <td style="text-align: right">[7] Israr Ahmed (PAK) bt [9/16] Waqas Mehboob …</td>
+      <td style="text-align: right">11-3, 11-3, 11-8 (23m)</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0</td>
+      <td style="text-align: right">Quarter-finals</td>
+      <td style="text-align: right">[4] Amaad Fareed (PAK) bt [5] Farhan Zaman (PAK)</td>
+      <td style="text-align: right">11-8, 11-7, 12-10 (25m)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cleaning">
+<a class="anchor" href="#cleaning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cleaning</h2>
+<p>There were several parts to cleaning the raw data.</p>
+<ul>
+  <li>Dropping columns that were not useful for the analysis (<code class="highlighter-rouge">round</code> and <code class="highlighter-rouge">tournament_index</code>).</li>
+  <li>Extracting the score in games from the score in points provided in the <code class="highlighter-rouge">result</code> column. In retrospect, this was not needed for the project, but it is still useful if I want to extend the project to make use of games scores. See possible improvements below.</li>
+  <li>Keeping only those rows in which one player beat another player and dropping all other rows.
+    <ul>
+      <li>The vast majority of rows dropped were because a player automatically gets through in a particular round. E.g. if there are 48 players in a tournament, then in Round 1, players seeded 1 to 16 will automatically get through to Round 1 without having to beat anybody.</li>
+      <li>There were exactly two other rows that got dropped. One is recorded as “No shows” and the other is recorded as “Final not played due to unsafe court conditions.”</li>
+    </ul>
+  </li>
+  <li>Parsing the <code class="highlighter-rouge">players</code> column of the raw data.
+    <ul>
+      <li>Extract the name (and seed and country) of the winner and loser of the match.</li>
+      <li>This was done using regex. If you are interested, the regex patterns used are in the <code class="highlighter-rouge">parse_player_entry</code> function in the <a href="https://github.com/Lovkush-A/squash_elo/blob/main/notebooks/01-la-processing.ipynb">processing notebook</a>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="analysis">
+<a class="anchor" href="#analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analysis</h2>
+<p>The analysis is done in the <a href="http://localhost:8888/notebooks/notebooks/02-la-analysis.ipynb">analysis notebook</a>.</p>
+
+<p>The analysis consisted of looping through all the matches (chronologically), updating ELO ratings one match at a time using the rules/formulae described above, and then computing the calibration metrics described above.</p>
+
+<p>I first tried doing this when <code class="highlighter-rouge">K</code> is 32, the value used in chess. Here are the calibration metrics this achieves:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Predicted probability of higher &lt;/br&gt;rated player winning.&lt;/br&gt; Rounded to nearest 0.05</th>
+      <th style="text-align: right">Number of predictions</th>
+      <th style="text-align: right">Observed fraction of matches that &lt;/br&gt;higher rated player won</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">0.50</td>
+      <td style="text-align: right">7386</td>
+      <td style="text-align: right">0.466152</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.55</td>
+      <td style="text-align: right">11801</td>
+      <td style="text-align: right">0.566647</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.60</td>
+      <td style="text-align: right">9542</td>
+      <td style="text-align: right">0.657514</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.65</td>
+      <td style="text-align: right">8010</td>
+      <td style="text-align: right">0.746067</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.70</td>
+      <td style="text-align: right">6759</td>
+      <td style="text-align: right">0.803817</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.75</td>
+      <td style="text-align: right">5772</td>
+      <td style="text-align: right">0.867983</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.80</td>
+      <td style="text-align: right">4967</td>
+      <td style="text-align: right">0.900946</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.85</td>
+      <td style="text-align: right">4062</td>
+      <td style="text-align: right">0.932546</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.90</td>
+      <td style="text-align: right">3128</td>
+      <td style="text-align: right">0.953005</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.95</td>
+      <td style="text-align: right">2112</td>
+      <td style="text-align: right">0.974905</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1.00</td>
+      <td style="text-align: right">369</td>
+      <td style="text-align: right">0.981030</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The pattern here is that the predicted odds of winning are underconfident: if the ELO rating thinks that the higher-rated player has 80% odds of winning, they actually win 90% of the time.
+My instinct was that the ELO rating was not updating quick enough based on the data, i.e. that <code class="highlighter-rouge">K</code> is too small.
+But I was not 100% sure of this, so I did some (basic and manual) hyperparamter tuning, creating a function that loops through several values of <code class="highlighter-rouge">K</code> (namely 10, 50, 100, 200 and 500).</p>
+
+<p>Manually looking at the tables shows that <code class="highlighter-rouge">K</code> = 100 is the best value out of these, and it with this hyper-parameter that I achieved the calibration results given in the overview.</p>
+
+<h2 id="possible-improvements">
+<a class="anchor" href="#possible-improvements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Possible improvements</h2>
+<p>There are numerous ways this project could be improved or extended. Here are three possibilities:</p>
+
+<ul>
+  <li>Automatically update ratings as new results come in, by scraping live match data.</li>
+  <li>Create a web app with these squash ratings. Allow users to see predictions for upcoming matches and tournaments, and explore past data.</li>
+  <li>Currently we only use the final result of the match. However, we should be able to use the score in games to improve the ratings: winning 3-0 is more impressive than winning 3-2 and that should be reflected in the update rule. The way to do this is to have more refined definition of ‘true score’. Right now true score is 1 for victory, but can imagine having true score of 0.9 for winning 3-0 and true score of 0.7 for winning 3-2. This would require some tuning.</li>
+  <li>Creating a general purpose ELO-rating package that people can use to create ELO ratings and predictions for any sports or competitions they are interested in.</li>
+</ul>
+
+  </div><a class="u-url" href="/blog/data%20science/2021/10/12/squash_elo.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A blog for my data science learning and projects</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/lovkush-a" title="lovkush-a"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/lovkushatleeds" title="lovkushatleeds"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

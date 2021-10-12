@@ -1,4 +1,275 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2021-10-01T17:11:06-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Similarity trees and NaN trees</title><link href="https://lovkush-a.github.io/blog/data%20science/2021/04/17/trees_variants.html" rel="alternate" type="text/html" title="Similarity trees and NaN trees" /><published>2021-04-17T00:00:00-05:00</published><updated>2021-04-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/2021/04/17/trees_variants</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/2021/04/17/trees_variants.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2021-10-12T17:04:04-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Using data to improve professional squash rankings</title><link href="https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html" rel="alternate" type="text/html" title="Using data to improve professional squash rankings" /><published>2021-10-12T00:00:00-05:00</published><updated>2021-10-12T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html">&lt;h2 id=&quot;project-overview&quot;&gt;Project Overview&lt;/h2&gt;
+&lt;p&gt;Using the ELO rating system and past few decades of squash match data, I created ratings that are superior to the current simplistic ratings used by the Professional Squash Association (PSA). Code for this project is available in the &lt;a href=&quot;https://github.com/Lovkush-A/squash_elo&quot;&gt;GitHub repository for this project&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The two main improvements ELO ratings provide over PSA ratings are:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;In ELO, a person gets rating points based on who they play against, rather than which round of a tournament they reach. It is more impressive to beat the world’s best player in Round 1, then to get to the quarter-final of a tournament by beating low ranking players.&lt;/li&gt;
+  &lt;li&gt;In ELO, the rating is predictive and interpretable. The difference between two players’ ELO ratings provides a simple way of estimating the odds of the higher rated player beating the lower rated player. In PSA’s system, the rating values have little useful information; it is revealing that the ratings are never shown or commentated on during squash broadcasts.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The first improvement is guaranteed by how the ELO rating system works; see the explanation below.&lt;/p&gt;
+
+&lt;p&gt;The second improvement is not guaranteed but requires empirical verification. This is done by computing the following ‘calibration metric’ for various values of &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In all the matches in which the ELO rating system predicts that the higher-rated player has probability &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt; of winning, what is the true rate at which the higher-rated player actually wins.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;After doing some hyper-parameter tuning, I was able to achieve the following values for these metrics:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Predicted probability of higher rated player winning. Rounded to nearest 0.05&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Number of predictions&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Observed fraction of matches that higher rated player won&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.50&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2566&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.518316&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.55&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5315&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.559548&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.60&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5292&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.611678&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.65&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5238&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.668385&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.70&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5401&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.700796&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.75&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5642&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.755583&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.80&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6024&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.813081&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.85&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6507&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.849393&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.90&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7258&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.900248&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.95&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8834&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.937967&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.00&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5831&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.967930&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;You can see that the predictions are well callibrated! In the rest of this blog, I will describe the process taken to do this.&lt;/p&gt;
+
+&lt;h2 id=&quot;elo&quot;&gt;ELO&lt;/h2&gt;
+
+&lt;p&gt;The surprising thing about ELO is how simple it is, given the results it can achieve.&lt;/p&gt;
+
+&lt;p&gt;The underlying ideas are straightforward:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Use the difference between ratings to compute an expected score for an individual match.&lt;/li&gt;
+  &lt;li&gt;Changes in ratings after an individual match are proportional to the difference between the true score and the expected score.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The full details are as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If two players have ratings &lt;code class=&quot;highlighter-rouge&quot;&gt;r1&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;r2&lt;/code&gt; respectively, then the predicted odds of player 1 beating player 2 is &lt;code class=&quot;highlighter-rouge&quot;&gt;p(r1, r2) = 1 / (1 + 10**((r2 - r1) / 400))&lt;/code&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Note there is nothing fundamentally important about the numbers 10 or 400 here. These are simply the numbers used in chess, the most famous use case of the ELO rating system.&lt;/li&gt;
+      &lt;li&gt;And yes, this is just (a scaled version) of the sigmoid function!&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;If Player 1 with rating &lt;code class=&quot;highlighter-rouge&quot;&gt;r1&lt;/code&gt; beats Player 2 with rating &lt;code class=&quot;highlighter-rouge&quot;&gt;r2&lt;/code&gt;, then the ratings are updated as follows:
+    &lt;ul&gt;
+      &lt;li&gt;The change in rating is &lt;code class=&quot;highlighter-rouge&quot;&gt;delta = K*(1 - p(r1, r2))&lt;/code&gt;.
+        &lt;ul&gt;
+          &lt;li&gt;The variable &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; is a hyper-parameter. The larger &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; is, the bigger the changes in ratings will be.&lt;/li&gt;
+          &lt;li&gt;The quantity &lt;code class=&quot;highlighter-rouge&quot;&gt;1-p(r1, r2)&lt;/code&gt; is the difference between the true score of 1 (representing victory) and predicted score of &lt;code class=&quot;highlighter-rouge&quot;&gt;p(r1, r2)&lt;/code&gt;.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Player 1’s new rating is &lt;code class=&quot;highlighter-rouge&quot;&gt;r1+delta&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Player 2’s new rating is &lt;code class=&quot;highlighter-rouge&quot;&gt;r2-delta&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;If a player has not yet played any matches, we assign them a default starting rating of 1500.
+    &lt;ul&gt;
+      &lt;li&gt;This is arbitrary, since ELO ratings only depend on differences in ratings.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And that’s it!&lt;/p&gt;
+
+&lt;h2 id=&quot;the-data&quot;&gt;The data&lt;/h2&gt;
+&lt;p&gt;The raw data I used contains the male match history from the past few decades. It includes players’ names, their seed for the tournmanet, who won the match, the scores of the games in the match (usually) and some other minor details.&lt;/p&gt;
+
+&lt;p&gt;Here are a few entries from the dataframe to illustrate:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;tournament_index&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;round&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;players&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;result&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Quarter-finals&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;[1] Tayyab Aslam (PAK) bt Farhan Hashmi (PAK)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7-11, 11-9, 11-5, 11-5 (32m)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Quarter-finals&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;[7] Israr Ahmed (PAK) bt [9/16] Waqas Mehboob …&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;11-3, 11-3, 11-8 (23m)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Quarter-finals&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;[4] Amaad Fareed (PAK) bt [5] Farhan Zaman (PAK)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;11-8, 11-7, 12-10 (25m)&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;cleaning&quot;&gt;Cleaning&lt;/h2&gt;
+&lt;p&gt;There were several parts to cleaning the raw data.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dropping columns that were not useful for the analysis (&lt;code class=&quot;highlighter-rouge&quot;&gt;round&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;tournament_index&lt;/code&gt;).&lt;/li&gt;
+  &lt;li&gt;Extracting the score in games from the score in points provided in the &lt;code class=&quot;highlighter-rouge&quot;&gt;result&lt;/code&gt; column. In retrospect, this was not needed for the project, but it is still useful if I want to extend the project to make use of games scores. See possible improvements below.&lt;/li&gt;
+  &lt;li&gt;Keeping only those rows in which one player beat another player and dropping all other rows.
+    &lt;ul&gt;
+      &lt;li&gt;The vast majority of rows dropped were because a player automatically gets through in a particular round. E.g. if there are 48 players in a tournament, then in Round 1, players seeded 1 to 16 will automatically get through to Round 1 without having to beat anybody.&lt;/li&gt;
+      &lt;li&gt;There were exactly two other rows that got dropped. One is recorded as “No shows” and the other is recorded as “Final not played due to unsafe court conditions.”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Parsing the &lt;code class=&quot;highlighter-rouge&quot;&gt;players&lt;/code&gt; column of the raw data.
+    &lt;ul&gt;
+      &lt;li&gt;Extract the name (and seed and country) of the winner and loser of the match.&lt;/li&gt;
+      &lt;li&gt;This was done using regex. If you are interested, the regex patterns used are in the &lt;code class=&quot;highlighter-rouge&quot;&gt;parse_player_entry&lt;/code&gt; function in the &lt;a href=&quot;https://github.com/Lovkush-A/squash_elo/blob/main/notebooks/01-la-processing.ipynb&quot;&gt;processing notebook&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;analysis&quot;&gt;Analysis&lt;/h2&gt;
+&lt;p&gt;The analysis is done in the &lt;a href=&quot;http://localhost:8888/notebooks/notebooks/02-la-analysis.ipynb&quot;&gt;analysis notebook&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The analysis consisted of looping through all the matches (chronologically), updating ELO ratings one match at a time using the rules/formulae described above, and then computing the calibration metrics described above.&lt;/p&gt;
+
+&lt;p&gt;I first tried doing this when &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; is 32, the value used in chess. Here are the calibration metrics this achieves:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Predicted probability of higher &amp;lt;/br&amp;gt;rated player winning.&amp;lt;/br&amp;gt; Rounded to nearest 0.05&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Number of predictions&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Observed fraction of matches that &amp;lt;/br&amp;gt;higher rated player won&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.50&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7386&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.466152&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.55&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;11801&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.566647&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.60&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9542&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.657514&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.65&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8010&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.746067&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.70&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6759&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.803817&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.75&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5772&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.867983&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.80&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4967&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.900946&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.85&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4062&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.932546&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.90&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3128&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.953005&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.95&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2112&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.974905&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.00&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;369&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.981030&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;The pattern here is that the predicted odds of winning are underconfident: if the ELO rating thinks that the higher-rated player has 80% odds of winning, they actually win 90% of the time.
+My instinct was that the ELO rating was not updating quick enough based on the data, i.e. that &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; is too small.
+But I was not 100% sure of this, so I did some (basic and manual) hyperparamter tuning, creating a function that loops through several values of &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; (namely 10, 50, 100, 200 and 500).&lt;/p&gt;
+
+&lt;p&gt;Manually looking at the tables shows that &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; = 100 is the best value out of these, and it with this hyper-parameter that I achieved the calibration results given in the overview.&lt;/p&gt;
+
+&lt;h2 id=&quot;possible-improvements&quot;&gt;Possible improvements&lt;/h2&gt;
+&lt;p&gt;There are numerous ways this project could be improved or extended. Here are three possibilities:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Automatically update ratings as new results come in, by scraping live match data.&lt;/li&gt;
+  &lt;li&gt;Create a web app with these squash ratings. Allow users to see predictions for upcoming matches and tournaments, and explore past data.&lt;/li&gt;
+  &lt;li&gt;Currently we only use the final result of the match. However, we should be able to use the score in games to improve the ratings: winning 3-0 is more impressive than winning 3-2 and that should be reflected in the update rule. The way to do this is to have more refined definition of ‘true score’. Right now true score is 1 for victory, but can imagine having true score of 0.9 for winning 3-0 and true score of 0.7 for winning 3-2. This would require some tuning.&lt;/li&gt;
+  &lt;li&gt;Creating a general purpose ELO-rating package that people can use to create ELO ratings and predictions for any sports or competitions they are interested in.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Project Overview Using the ELO rating system and past few decades of squash match data, I created ratings that are superior to the current simplistic ratings used by the Professional Squash Association (PSA). Code for this project is available in the GitHub repository for this project.</summary></entry><entry><title type="html">Similarity trees and NaN trees</title><link href="https://lovkush-a.github.io/blog/data%20science/2021/04/17/trees_variants.html" rel="alternate" type="text/html" title="Similarity trees and NaN trees" /><published>2021-04-17T00:00:00-05:00</published><updated>2021-04-17T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/2021/04/17/trees_variants</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/2021/04/17/trees_variants.html">&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;I summarise the two main ideas of the paper &lt;a href=&quot;http://saketsathe.net/downloads/simforest.pdf&quot;&gt;Similarity Forests&lt;/a&gt; by Sathe and Aggarwal: trees via similarities and trees with &lt;code class=&quot;highlighter-rouge&quot;&gt;NaN&lt;/code&gt; values.&lt;/p&gt;
 
 &lt;h2 id=&quot;notation&quot;&gt;Notation&lt;/h2&gt;
@@ -1197,84 +1468,4 @@ Though the new version is aesthetically nicer than the old version, in retrospec
 &lt;p&gt;Again, this is consistent with the frequncy vs loss charts above, where you can see there are local minima to the left of the global minimum.&lt;/p&gt;
 
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;This has been a bit of a topsy-turvy learning experience. I am still surprised at how much I learnt from this basic example. And having struggled with this simple example, I better appreciate how impressive it is to get complicated neural networks to learn.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry><entry><title type="html">Squash rankings, Part II, dimension reduction and clustering</title><link href="https://lovkush-a.github.io/blog/python/data%20science/2020/09/28/squash2.html" rel="alternate" type="text/html" title="Squash rankings, Part II, dimension reduction and clustering" /><published>2020-09-28T00:00:00-05:00</published><updated>2020-09-28T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/python/data%20science/2020/09/28/squash2</id><content type="html" xml:base="https://lovkush-a.github.io/blog/python/data%20science/2020/09/28/squash2.html">&lt;h2 id=&quot;other-posts-in-series&quot;&gt;Other posts in series&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/data%20science/data%20viz/2020/11/01/squash3.html&quot;&gt;Squash rankings, Part III, All hail Bokeh!&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/blog/python/scraping/2020/09/17/squash1.html&quot;&gt;Squash rankings, Part I, Scraping wikipedia and data analysis&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;In the previous post, I scraped squash ranking data and produced a dataframe out of it. I then simply eye-balled the table to see the patterns. However, doing some kind of visualisation is always better than just listing a table, so that is what I did next.  Furthermore, I decided to finally try out some dimension reduction algorithms and clustering to help with the visualisations and pattern-finding.&lt;/p&gt;
-
-&lt;h2 id=&quot;male-rankings&quot;&gt;Male Rankings&lt;/h2&gt;
-&lt;h3 id=&quot;pca&quot;&gt;PCA&lt;/h3&gt;
-&lt;p&gt;I first tried using PCA on the data.
-&lt;img src=&quot;/blog/images/squash2_malepca1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Hmm.  Not sure what to make of this as it is. To better understand it, I visualised how this plots relates to the various features in the frame created in Part 1.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/squash2_malepca2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;From this, I can better understand what is going on. The 1st PCA component is highly correlated with the years that the players played and the 2nd PCE component is correlated with rank.&lt;/p&gt;
-
-&lt;h3 id=&quot;tsne&quot;&gt;tSNE&lt;/h3&gt;
-&lt;p&gt;Next I tried tSNE.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/squash2_maletsne1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Hmm. This does not look good. It does not seem to have spotted any patterns and just created a grid of points.  I suspected that maybe I have to change the parameters of tSNE, so I looked at the documentation. In the documentation, it said that a good choice of perplexity often depends on the size of the dataset, with larger perplexities working better with larger datasets. I had a small dataset so I tried setting  small value of perplexity, 5, in comparison to the default of 30.  The result is this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/squash2_maletsne2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Hooray! Clearly the algorithm has found three distinct clusters in the dataset.  To understand what these clusters correspond to, I again visualised how this plots relates to the various features in the dataset.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/squash2_maletsne3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;By looking at these charts, the clusters seem to have these patterns:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;The bottom left cluster corresponds to those players who have been in the top 10 longest&lt;/li&gt;
-  &lt;li&gt;The top cluster corresponds to those players whose career ended in the 90s or early 2000s&lt;/li&gt;
-  &lt;li&gt;The bottom right cluster corresponds to those players whose career has started quite recently&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;umap&quot;&gt;UMAP&lt;/h3&gt;
-&lt;p&gt;Finally I tried UMAP.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/squash2_maleumap1.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/blog/images/squash2_maleumap2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This is incredible! This has captured the same three clusters as tSNE, but has presented them in a more coherent way. Moving from top left to bottom right corresponds to going from younger to older players, with the chunk in the middle being the most successful players with good rankings and many years in the top 10.&lt;/p&gt;
-
-&lt;h3 id=&quot;clustering&quot;&gt;Clustering&lt;/h3&gt;
-&lt;p&gt;Based on the above dimension reduction visualisations, the data fits into three clusters. Hence, I tried to identify those clusters by using k-means clustering on the original dataset (i.e. without any dimension reduction). I then visualised how those clusters look in the different dimension reductions:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/squash2_malecluster.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Woohoo! This is really pleasing. As my first experience using these tools, I do not know if I should be surprised or not to see that the different tools are overall consistent with each other. There are a couple of interesting subsets of players though.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;There are five cluster-0 players who seem to form their own cluster between cluster 0 and cluster 1. Doing a search in the dataframe reveals that these are players who ended their careers in late 90s/early 2000s but have been in top 10 for several years.&lt;/li&gt;
-  &lt;li&gt;There is a single purple cluster-1 player who seems better being treated as a cluster between cluster 1 and cluster 2. Again doing a search reveals that this is a player who has many years in the top 10 like the elite cluster-1 players, but who is not actully an elite player themselves (e.g. their top ranking is 5, whereas everybody in cluster 1 has reached world number 1 ranking).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Based on this single example, it looks like UMAP has the best representation of the data. PCA does not do a great job distinguishing the clusters strongly whereas tSNE forces things into clusters and does not allow for ‘grey’ areas in the space.&lt;/p&gt;
-
-&lt;h2 id=&quot;female-rankings&quot;&gt;Female Rankings&lt;/h2&gt;
-&lt;p&gt;Here are the analagous plots for female players.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/blog/images/squash2_femalepca1.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/blog/images/squash2_femalepca2.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/blog/images/squash2_femaletsne1.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/blog/images/squash2_femaletsne2.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/blog/images/squash2_femaleumap1.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/blog/images/squash2_femaleumap2.png&quot; alt=&quot;image&quot; /&gt;
-&lt;img src=&quot;/blog/images/squash2_femalecluster.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;The patterns here are far less clear as for the mens. I guess I was correct to be surprised at how nicely things worked out earlier! However, the way the algorithms have organised the data is roughly similar: the two important characteristics of a player according to these algorithms are the years they played and their rankings in that time. Also, the clusters have been broken up into similar chunks: players with good rankings, older players and younger players.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusions&quot;&gt;Conclusions&lt;/h2&gt;
-&lt;p&gt;Like I said at the start, this is my first experience using these techniques. The main takeaway for me is how cool (and useful) these algorithms are! Up till now I had only done supervised classification or plotted standard charts for EDA. However, having gone through this experience and got a basic feel what the algorithms can achieve, I will be sure to make more use of it in the future.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Squash rankings, Part III, All hail Bokeh! Squash rankings, Part I, Scraping wikipedia and data analysis</summary></entry></feed>
+&lt;p&gt;This has been a bit of a topsy-turvy learning experience. I am still surprised at how much I learnt from this basic example. And having struggled with this simple example, I better appreciate how impressive it is to get complicated neural networks to learn.&lt;/p&gt;</content><author><name></name></author><summary type="html">Other posts in series Stochastic Gradient Descent, Part III, Fitting linear, quadratic and sinusoidal data using a neural network and SGD Stochastic Gradient Descent, Part II, Fitting linear, quadratic and sinusoidal data using a neural network and GD Stochastic Gradient Descent, Part I, Gradient descent on linear, quadratic and sinusoidal data</summary></entry></feed>
