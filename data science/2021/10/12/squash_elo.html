@@ -123,7 +123,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      7 min read
+      8 min read
     
 </span></p>
 
@@ -141,108 +141,37 @@ window.onload = wrap_img;
   <div class="post-content e-content" itemprop="articleBody">
     <ul class="section-nav">
 <li class="toc-entry toc-h2"><a href="#project-overview">Project Overview</a></li>
-<li class="toc-entry toc-h2"><a href="#elo">ELO</a></li>
-<li class="toc-entry toc-h2"><a href="#the-data">The data</a></li>
-<li class="toc-entry toc-h2"><a href="#cleaning">Cleaning</a></li>
-<li class="toc-entry toc-h2"><a href="#analysis">Analysis</a></li>
-<li class="toc-entry toc-h2"><a href="#possible-improvements">Possible improvements</a></li>
+<li class="toc-entry toc-h2"><a href="#problem-statement">Problem Statement</a></li>
+<li class="toc-entry toc-h2"><a href="#metrics">Metrics</a></li>
+<li class="toc-entry toc-h2"><a href="#data-exploration">Data Exploration</a></li>
+<li class="toc-entry toc-h2"><a href="#data-visualisation">Data Visualisation</a></li>
+<li class="toc-entry toc-h2"><a href="#data-preprocessing">Data Preprocessing</a></li>
+<li class="toc-entry toc-h2"><a href="#implementation">Implementation</a></li>
+<li class="toc-entry toc-h2"><a href="#refinement">Refinement</a></li>
+<li class="toc-entry toc-h2"><a href="#results">Results</a></li>
+<li class="toc-entry toc-h2"><a href="#reflection">Reflection</a></li>
+<li class="toc-entry toc-h2"><a href="#improvement">Improvement</a></li>
 </ul><h2 id="project-overview">
 <a class="anchor" href="#project-overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project Overview</h2>
 <p>Using the ELO rating system and past few decades of squash match data, I created ratings that are superior to the current simplistic ratings used by the Professional Squash Association (PSA). Code for this project is available in the <a href="https://github.com/Lovkush-A/squash_elo">GitHub repository for this project</a>.</p>
 
-<p>The two main improvements ELO ratings provide over PSA ratings are:</p>
+<h2 id="problem-statement">
+<a class="anchor" href="#problem-statement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Problem Statement</h2>
+<p>There are two big problems in the current way squash ratings are determined by PSA.</p>
+
 <ol>
-  <li>In ELO, a person gets rating points based on who they play against, rather than which round of a tournament they reach. It is more impressive to beat the world’s best player in Round 1, then to get to the quarter-final of a tournament by beating low ranking players.</li>
-  <li>In ELO, the rating is predictive and interpretable. The difference between two players’ ELO ratings provides a simple way of estimating the odds of the higher rated player beating the lower rated player. In PSA’s system, the rating values have little useful information; it is revealing that the ratings are never shown or commentated on during squash broadcasts.</li>
+  <li>
+    <p>A player gets rating points depending on which tournment they play in and which round they reach in the tournament. There is zero weight put on who you actually play against. E.g. it ought to be more impressive to beat the world’s best player in Round 1, then to reach a quarter-final by beating low ranked players (because you had a lucky draw).</p>
+  </li>
+  <li>
+    <p>The current rating points are not meaningful. It is revealing that ratings point are never mentioned in squash broadcasts.</p>
+  </li>
 </ol>
 
-<p>The first improvement is guaranteed by how the ELO rating system works; see the explanation below.</p>
-
-<p>The second improvement is not guaranteed but requires empirical verification. This is done by computing the following ‘calibration metric’ for various values of <code class="highlighter-rouge">p</code>:</p>
-
+<p>The proposed strategy is to use the ELO rating system.
+The underlying ideas behind ELO are straightforward:</p>
 <ul>
-  <li>In all the matches in which the ELO rating system predicts that the higher-rated player has probability <code class="highlighter-rouge">p</code> of winning, what is the true rate at which the higher-rated player actually wins.</li>
-</ul>
-
-<p>After doing some hyper-parameter tuning, I was able to achieve the following values for these metrics:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: right">Predicted probability of higher rated player winning. Rounded to nearest 0.05</th>
-      <th style="text-align: right">Number of predictions</th>
-      <th style="text-align: right">Observed fraction of matches that higher rated player won</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: right">0.50</td>
-      <td style="text-align: right">2566</td>
-      <td style="text-align: right">0.518316</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">0.55</td>
-      <td style="text-align: right">5315</td>
-      <td style="text-align: right">0.559548</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">0.60</td>
-      <td style="text-align: right">5292</td>
-      <td style="text-align: right">0.611678</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">0.65</td>
-      <td style="text-align: right">5238</td>
-      <td style="text-align: right">0.668385</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">0.70</td>
-      <td style="text-align: right">5401</td>
-      <td style="text-align: right">0.700796</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">0.75</td>
-      <td style="text-align: right">5642</td>
-      <td style="text-align: right">0.755583</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">0.80</td>
-      <td style="text-align: right">6024</td>
-      <td style="text-align: right">0.813081</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">0.85</td>
-      <td style="text-align: right">6507</td>
-      <td style="text-align: right">0.849393</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">0.90</td>
-      <td style="text-align: right">7258</td>
-      <td style="text-align: right">0.900248</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">0.95</td>
-      <td style="text-align: right">8834</td>
-      <td style="text-align: right">0.937967</td>
-    </tr>
-    <tr>
-      <td style="text-align: right">1.00</td>
-      <td style="text-align: right">5831</td>
-      <td style="text-align: right">0.967930</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>You can see that the predictions are well callibrated! In the rest of this blog, I will describe the process taken to do this.</p>
-
-<h2 id="elo">
-<a class="anchor" href="#elo" aria-hidden="true"><span class="octicon octicon-link"></span></a>ELO</h2>
-
-<p>The surprising thing about ELO is how simple it is, given the results it can achieve.</p>
-
-<p>The underlying ideas are straightforward:</p>
-<ul>
-  <li>Use the difference between ratings to compute an expected score for an individual match.</li>
+  <li>Use the difference between ratings of players to compute an expected score for an individual match.</li>
   <li>Changes in ratings after an individual match are proportional to the difference between the true score and the expected score.</li>
 </ul>
 
@@ -278,9 +207,25 @@ window.onload = wrap_img;
 
 <p>And that’s it!</p>
 
-<h2 id="the-data">
-<a class="anchor" href="#the-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>The data</h2>
-<p>The raw data I used contains the male match history from the past few decades. It includes players’ names, their seed for the tournmanet, who won the match, the scores of the games in the match (usually) and some other minor details.</p>
+<p>By construction, ELO gaurantees to fix problem 1 because the ratings are completely based on who you beat, rather than which round of a tournament you reach.</p>
+
+<p>However, the second problem is not guaranteed to be fixed by ELO, and will require empirical verification. This leads on to the metrics used to evaluate ELO.</p>
+
+<h2 id="metrics">
+<a class="anchor" href="#metrics" aria-hidden="true"><span class="octicon octicon-link"></span></a>Metrics</h2>
+<p>We evaluate ELO by computing the following ‘calibration metric’ for various values of <code class="highlighter-rouge">p</code>:</p>
+
+<ul>
+  <li>In all the matches in which the ELO rating system predicts that the higher-rated player has probability <code class="highlighter-rouge">p</code> of winning, what is the true rate at which the higher-rated player actually wins.</li>
+</ul>
+
+<p>For example, if the ELO rating system believes that the higher rated player has 70% odds of winning, then we should observe the higher rated player winning approximately 70% of the time.</p>
+
+<p>These calibration metrics provide a measure of how well (or not) a rating system can fix problem 2.</p>
+
+<h2 id="data-exploration">
+<a class="anchor" href="#data-exploration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Exploration</h2>
+<p>The raw data I used contains the male match history from the past few decades. It includes players’ names, their seed for the tournament, who won the match, the scores of the games in the match (usually) and some other minor details.</p>
 
 <p>Here are a few entries from the dataframe to illustrate:</p>
 
@@ -315,9 +260,7 @@ window.onload = wrap_img;
   </tbody>
 </table>
 
-<h2 id="cleaning">
-<a class="anchor" href="#cleaning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cleaning</h2>
-<p>There were several parts to cleaning the raw data.</p>
+<p>Not all of the data in this dataframe was needed for the project and there was a little bit of dirty data. Here are the cleaning and feature extraction steps taken:</p>
 <ul>
   <li>Dropping columns that were not useful for the analysis (<code class="highlighter-rouge">round</code> and <code class="highlighter-rouge">tournament_index</code>).</li>
   <li>Extracting the score in games from the score in points provided in the <code class="highlighter-rouge">result</code> column. In retrospect, this was not needed for the project, but it is still useful if I want to extend the project to make use of games scores. See possible improvements below.</li>
@@ -335,13 +278,31 @@ window.onload = wrap_img;
   </li>
 </ul>
 
-<h2 id="analysis">
-<a class="anchor" href="#analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analysis</h2>
-<p>The analysis is done in the <a href="http://localhost:8888/notebooks/notebooks/02-la-analysis.ipynb">analysis notebook</a>.</p>
+<p>At the end of this exploration, cleaning and feature extraction, the key information we end up with is a dataframe with two columns (name of winner and name of loser) where each row is a single match, and it is ordered chronologically.</p>
+<h2 id="data-visualisation">
+<a class="anchor" href="#data-visualisation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Visualisation</h2>
+<p>As far as I know, there are no data visualisations that help with the next task of calculating ELO ratings. If you run the <a href="https://github.com/Lovkush-A/squash_elo/blob/main/notebooks/01-la-processing.ipynb">processing notebook</a>, you will see some visuals (e.g. showing distribution of players’ win percentages) but they have no influence on the next steps.</p>
 
-<p>The analysis consisted of looping through all the matches (chronologically), updating ELO ratings one match at a time using the rules/formulae described above, and then computing the calibration metrics described above.</p>
+<h2 id="data-preprocessing">
+<a class="anchor" href="#data-preprocessing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Preprocessing</h2>
+<p>This has already been discussed in the data exploration section above.</p>
 
-<p>I first tried doing this when <code class="highlighter-rouge">K</code> is 32, the value used in chess. Here are the calibration metrics this achieves:</p>
+<h2 id="implementation">
+<a class="anchor" href="#implementation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Implementation</h2>
+<p>The code to calculcate the ELO rating systems is in the <a href="https://github.com/Lovkush-A/squash_elo/blob/main/notebooks/02-la-analysis.ipynb">analysis notebook</a>.</p>
+
+<p>Surprisingly, there were minimal complications in the implementation of the ELO rating system. I just had to write functions that calculate how to update ELO ratings based on a single match, then loop through all matches and update ELO ratings one-by-one.</p>
+
+<p>One implementation detail worth noting is how I chose an initial value for the hyper-parameter <code class="highlighter-rouge">K</code> (see problem statement section). The choice was based on the values used in chess (the most famous place ELO ratings are used) and they are given in the <a href="https://en.wikipedia.org/wiki/Elo_rating_system#Mathematical_details">wikipedia article on ELO rating system</a>.</p>
+
+<h2 id="refinement">
+<a class="anchor" href="#refinement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Refinement</h2>
+<p>The refinement process was straightforward: I simply tried various values for the hyper-parameter <code class="highlighter-rouge">K</code> and looked at how their values in the ‘calibration metrics’ compared. The first solution tried used <code class="highlighter-rouge">K=32</code> and the final solution uses <code class="highlighter-rouge">K=100</code>.</p>
+
+<h2 id="results">
+<a class="anchor" href="#results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Results</h2>
+
+<p>Here is table of ‘calibration metrics’ for <code class="highlighter-rouge">K=32</code>:</p>
 
 <table>
   <thead>
@@ -412,13 +373,88 @@ window.onload = wrap_img;
 
 <p>The pattern here is that the predicted odds of winning are underconfident: if the ELO rating thinks that the higher-rated player has 80% odds of winning, they actually win 90% of the time.
 My instinct was that the ELO rating was not updating quick enough based on the data, i.e. that <code class="highlighter-rouge">K</code> is too small.
-But I was not 100% sure of this, so I did some (basic and manual) hyperparamter tuning, creating a function that loops through several values of <code class="highlighter-rouge">K</code> (namely 10, 50, 100, 200 and 500).</p>
+But I was not 100% sure of this, so I did some (basic and manual) hyperparameter tuning, creating a function that loops through several values of <code class="highlighter-rouge">K</code> (namely 10, 50, 100, 200 and 500).</p>
 
-<p>Manually looking at the tables shows that <code class="highlighter-rouge">K</code> = 100 is the best value out of these, and it with this hyper-parameter that I achieved the calibration results given in the overview.</p>
+<p>Manually looking at the tables shows that <code class="highlighter-rouge">K</code> = 100 is the best value out of these. Here are the values for the calibration metrics we get:</p>
 
-<h2 id="possible-improvements">
-<a class="anchor" href="#possible-improvements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Possible improvements</h2>
-<p>There are numerous ways this project could be improved or extended. Here are three possibilities:</p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Predicted probability of higher rated player winning. Rounded to nearest 0.05</th>
+      <th style="text-align: right">Number of predictions</th>
+      <th style="text-align: right">Observed fraction of matches that higher rated player won</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">0.50</td>
+      <td style="text-align: right">2566</td>
+      <td style="text-align: right">0.518316</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.55</td>
+      <td style="text-align: right">5315</td>
+      <td style="text-align: right">0.559548</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.60</td>
+      <td style="text-align: right">5292</td>
+      <td style="text-align: right">0.611678</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.65</td>
+      <td style="text-align: right">5238</td>
+      <td style="text-align: right">0.668385</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.70</td>
+      <td style="text-align: right">5401</td>
+      <td style="text-align: right">0.700796</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.75</td>
+      <td style="text-align: right">5642</td>
+      <td style="text-align: right">0.755583</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.80</td>
+      <td style="text-align: right">6024</td>
+      <td style="text-align: right">0.813081</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.85</td>
+      <td style="text-align: right">6507</td>
+      <td style="text-align: right">0.849393</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.90</td>
+      <td style="text-align: right">7258</td>
+      <td style="text-align: right">0.900248</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">0.95</td>
+      <td style="text-align: right">8834</td>
+      <td style="text-align: right">0.937967</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1.00</td>
+      <td style="text-align: right">5831</td>
+      <td style="text-align: right">0.967930</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You can see that the predictions are well callibrated!</p>
+
+<h2 id="reflection">
+<a class="anchor" href="#reflection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reflection</h2>
+<p>I personally find these results astonishing. By using a straightforward rule to update players’ ratings based on their old ratings, we are able to get a meaningful rating system that provides callibrated odds on who will win a match.</p>
+
+<p>I was not expecting this at all! Before doing the project, I was anticipating having to tweak the algorithm (e.g. by including some ‘domain knowledge’ somehow), but the ELO rating system just worked out-of-the-box. It is always nice when things simply work out!</p>
+
+<h2 id="improvement">
+<a class="anchor" href="#improvement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Improvement</h2>
+<p>There are numerous ways this project could be improved or extended. Here are just a few possibilities:</p>
 
 <ul>
   <li>Automatically update ratings as new results come in, by scraping live match data.</li>
@@ -426,6 +462,7 @@ But I was not 100% sure of this, so I did some (basic and manual) hyperparamter 
   <li>Currently we only use the final result of the match. However, we should be able to use the score in games to improve the ratings: winning 3-0 is more impressive than winning 3-2 and that should be reflected in the update rule. The way to do this is to have more refined definition of ‘true score’. Right now true score is 1 for victory, but can imagine having true score of 0.9 for winning 3-0 and true score of 0.7 for winning 3-2. This would require some tuning.</li>
   <li>Creating a general purpose ELO-rating package that people can use to create ELO ratings and predictions for any sports or competitions they are interested in.</li>
 </ul>
+
 
   </div><a class="u-url" href="/blog/data%20science/2021/10/12/squash_elo.html" hidden></a>
 </article>

@@ -1,98 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2021-10-12T17:04:04-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Using data to improve professional squash rankings</title><link href="https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html" rel="alternate" type="text/html" title="Using data to improve professional squash rankings" /><published>2021-10-12T00:00:00-05:00</published><updated>2021-10-12T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html">&lt;h2 id=&quot;project-overview&quot;&gt;Project Overview&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://lovkush-a.github.io/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="https://lovkush-a.github.io/blog/" rel="alternate" type="text/html" /><updated>2021-10-15T12:26:16-05:00</updated><id>https://lovkush-a.github.io/blog/feed.xml</id><title type="html">Lovkush Agarwal</title><subtitle>A blog for my data science learning and projects</subtitle><entry><title type="html">Using data to improve professional squash rankings</title><link href="https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html" rel="alternate" type="text/html" title="Using data to improve professional squash rankings" /><published>2021-10-12T00:00:00-05:00</published><updated>2021-10-12T00:00:00-05:00</updated><id>https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo</id><content type="html" xml:base="https://lovkush-a.github.io/blog/data%20science/2021/10/12/squash_elo.html">&lt;h2 id=&quot;project-overview&quot;&gt;Project Overview&lt;/h2&gt;
 &lt;p&gt;Using the ELO rating system and past few decades of squash match data, I created ratings that are superior to the current simplistic ratings used by the Professional Squash Association (PSA). Code for this project is available in the &lt;a href=&quot;https://github.com/Lovkush-A/squash_elo&quot;&gt;GitHub repository for this project&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;The two main improvements ELO ratings provide over PSA ratings are:&lt;/p&gt;
+&lt;h2 id=&quot;problem-statement&quot;&gt;Problem Statement&lt;/h2&gt;
+&lt;p&gt;There are two big problems in the current way squash ratings are determined by PSA.&lt;/p&gt;
+
 &lt;ol&gt;
-  &lt;li&gt;In ELO, a person gets rating points based on who they play against, rather than which round of a tournament they reach. It is more impressive to beat the world’s best player in Round 1, then to get to the quarter-final of a tournament by beating low ranking players.&lt;/li&gt;
-  &lt;li&gt;In ELO, the rating is predictive and interpretable. The difference between two players’ ELO ratings provides a simple way of estimating the odds of the higher rated player beating the lower rated player. In PSA’s system, the rating values have little useful information; it is revealing that the ratings are never shown or commentated on during squash broadcasts.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A player gets rating points depending on which tournment they play in and which round they reach in the tournament. There is zero weight put on who you actually play against. E.g. it ought to be more impressive to beat the world’s best player in Round 1, then to reach a quarter-final by beating low ranked players (because you had a lucky draw).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The current rating points are not meaningful. It is revealing that ratings point are never mentioned in squash broadcasts.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;The first improvement is guaranteed by how the ELO rating system works; see the explanation below.&lt;/p&gt;
-
-&lt;p&gt;The second improvement is not guaranteed but requires empirical verification. This is done by computing the following ‘calibration metric’ for various values of &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt;:&lt;/p&gt;
-
+&lt;p&gt;The proposed strategy is to use the ELO rating system.
+The underlying ideas behind ELO are straightforward:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;In all the matches in which the ELO rating system predicts that the higher-rated player has probability &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt; of winning, what is the true rate at which the higher-rated player actually wins.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;After doing some hyper-parameter tuning, I was able to achieve the following values for these metrics:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Predicted probability of higher rated player winning. Rounded to nearest 0.05&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Number of predictions&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Observed fraction of matches that higher rated player won&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.50&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;2566&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.518316&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.55&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;5315&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.559548&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.60&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;5292&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.611678&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.65&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;5238&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.668385&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.70&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;5401&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.700796&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.75&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;5642&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.755583&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.80&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;6024&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.813081&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.85&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;6507&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.849393&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.90&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;7258&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.900248&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.95&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;8834&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.937967&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;1.00&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;5831&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;0.967930&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;You can see that the predictions are well callibrated! In the rest of this blog, I will describe the process taken to do this.&lt;/p&gt;
-
-&lt;h2 id=&quot;elo&quot;&gt;ELO&lt;/h2&gt;
-
-&lt;p&gt;The surprising thing about ELO is how simple it is, given the results it can achieve.&lt;/p&gt;
-
-&lt;p&gt;The underlying ideas are straightforward:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Use the difference between ratings to compute an expected score for an individual match.&lt;/li&gt;
+  &lt;li&gt;Use the difference between ratings of players to compute an expected score for an individual match.&lt;/li&gt;
   &lt;li&gt;Changes in ratings after an individual match are proportional to the difference between the true score and the expected score.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -126,8 +50,23 @@
 
 &lt;p&gt;And that’s it!&lt;/p&gt;
 
-&lt;h2 id=&quot;the-data&quot;&gt;The data&lt;/h2&gt;
-&lt;p&gt;The raw data I used contains the male match history from the past few decades. It includes players’ names, their seed for the tournmanet, who won the match, the scores of the games in the match (usually) and some other minor details.&lt;/p&gt;
+&lt;p&gt;By construction, ELO gaurantees to fix problem 1 because the ratings are completely based on who you beat, rather than which round of a tournament you reach.&lt;/p&gt;
+
+&lt;p&gt;However, the second problem is not guaranteed to be fixed by ELO, and will require empirical verification. This leads on to the metrics used to evaluate ELO.&lt;/p&gt;
+
+&lt;h2 id=&quot;metrics&quot;&gt;Metrics&lt;/h2&gt;
+&lt;p&gt;We evaluate ELO by computing the following ‘calibration metric’ for various values of &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt;:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In all the matches in which the ELO rating system predicts that the higher-rated player has probability &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt; of winning, what is the true rate at which the higher-rated player actually wins.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For example, if the ELO rating system believes that the higher rated player has 70% odds of winning, then we should observe the higher rated player winning approximately 70% of the time.&lt;/p&gt;
+
+&lt;p&gt;These calibration metrics provide a measure of how well (or not) a rating system can fix problem 2.&lt;/p&gt;
+
+&lt;h2 id=&quot;data-exploration&quot;&gt;Data Exploration&lt;/h2&gt;
+&lt;p&gt;The raw data I used contains the male match history from the past few decades. It includes players’ names, their seed for the tournament, who won the match, the scores of the games in the match (usually) and some other minor details.&lt;/p&gt;
 
 &lt;p&gt;Here are a few entries from the dataframe to illustrate:&lt;/p&gt;
 
@@ -162,8 +101,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;h2 id=&quot;cleaning&quot;&gt;Cleaning&lt;/h2&gt;
-&lt;p&gt;There were several parts to cleaning the raw data.&lt;/p&gt;
+&lt;p&gt;Not all of the data in this dataframe was needed for the project and there was a little bit of dirty data. Here are the cleaning and feature extraction steps taken:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Dropping columns that were not useful for the analysis (&lt;code class=&quot;highlighter-rouge&quot;&gt;round&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;tournament_index&lt;/code&gt;).&lt;/li&gt;
   &lt;li&gt;Extracting the score in games from the score in points provided in the &lt;code class=&quot;highlighter-rouge&quot;&gt;result&lt;/code&gt; column. In retrospect, this was not needed for the project, but it is still useful if I want to extend the project to make use of games scores. See possible improvements below.&lt;/li&gt;
@@ -181,12 +119,26 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;analysis&quot;&gt;Analysis&lt;/h2&gt;
-&lt;p&gt;The analysis is done in the &lt;a href=&quot;http://localhost:8888/notebooks/notebooks/02-la-analysis.ipynb&quot;&gt;analysis notebook&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;At the end of this exploration, cleaning and feature extraction, the key information we end up with is a dataframe with two columns (name of winner and name of loser) where each row is a single match, and it is ordered chronologically.&lt;/p&gt;
+&lt;h2 id=&quot;data-visualisation&quot;&gt;Data Visualisation&lt;/h2&gt;
+&lt;p&gt;As far as I know, there are no data visualisations that help with the next task of calculating ELO ratings. If you run the &lt;a href=&quot;https://github.com/Lovkush-A/squash_elo/blob/main/notebooks/01-la-processing.ipynb&quot;&gt;processing notebook&lt;/a&gt;, you will see some visuals (e.g. showing distribution of players’ win percentages) but they have no influence on the next steps.&lt;/p&gt;
 
-&lt;p&gt;The analysis consisted of looping through all the matches (chronologically), updating ELO ratings one match at a time using the rules/formulae described above, and then computing the calibration metrics described above.&lt;/p&gt;
+&lt;h2 id=&quot;data-preprocessing&quot;&gt;Data Preprocessing&lt;/h2&gt;
+&lt;p&gt;This has already been discussed in the data exploration section above.&lt;/p&gt;
 
-&lt;p&gt;I first tried doing this when &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; is 32, the value used in chess. Here are the calibration metrics this achieves:&lt;/p&gt;
+&lt;h2 id=&quot;implementation&quot;&gt;Implementation&lt;/h2&gt;
+&lt;p&gt;The code to calculcate the ELO rating systems is in the &lt;a href=&quot;https://github.com/Lovkush-A/squash_elo/blob/main/notebooks/02-la-analysis.ipynb&quot;&gt;analysis notebook&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Surprisingly, there were minimal complications in the implementation of the ELO rating system. I just had to write functions that calculate how to update ELO ratings based on a single match, then loop through all matches and update ELO ratings one-by-one.&lt;/p&gt;
+
+&lt;p&gt;One implementation detail worth noting is how I chose an initial value for the hyper-parameter &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; (see problem statement section). The choice was based on the values used in chess (the most famous place ELO ratings are used) and they are given in the &lt;a href=&quot;https://en.wikipedia.org/wiki/Elo_rating_system#Mathematical_details&quot;&gt;wikipedia article on ELO rating system&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;refinement&quot;&gt;Refinement&lt;/h2&gt;
+&lt;p&gt;The refinement process was straightforward: I simply tried various values for the hyper-parameter &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; and looked at how their values in the ‘calibration metrics’ compared. The first solution tried used &lt;code class=&quot;highlighter-rouge&quot;&gt;K=32&lt;/code&gt; and the final solution uses &lt;code class=&quot;highlighter-rouge&quot;&gt;K=100&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;results&quot;&gt;Results&lt;/h2&gt;
+
+&lt;p&gt;Here is table of ‘calibration metrics’ for &lt;code class=&quot;highlighter-rouge&quot;&gt;K=32&lt;/code&gt;:&lt;/p&gt;
 
 &lt;table&gt;
   &lt;thead&gt;
@@ -257,12 +209,86 @@
 
 &lt;p&gt;The pattern here is that the predicted odds of winning are underconfident: if the ELO rating thinks that the higher-rated player has 80% odds of winning, they actually win 90% of the time.
 My instinct was that the ELO rating was not updating quick enough based on the data, i.e. that &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; is too small.
-But I was not 100% sure of this, so I did some (basic and manual) hyperparamter tuning, creating a function that loops through several values of &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; (namely 10, 50, 100, 200 and 500).&lt;/p&gt;
+But I was not 100% sure of this, so I did some (basic and manual) hyperparameter tuning, creating a function that loops through several values of &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; (namely 10, 50, 100, 200 and 500).&lt;/p&gt;
 
-&lt;p&gt;Manually looking at the tables shows that &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; = 100 is the best value out of these, and it with this hyper-parameter that I achieved the calibration results given in the overview.&lt;/p&gt;
+&lt;p&gt;Manually looking at the tables shows that &lt;code class=&quot;highlighter-rouge&quot;&gt;K&lt;/code&gt; = 100 is the best value out of these. Here are the values for the calibration metrics we get:&lt;/p&gt;
 
-&lt;h2 id=&quot;possible-improvements&quot;&gt;Possible improvements&lt;/h2&gt;
-&lt;p&gt;There are numerous ways this project could be improved or extended. Here are three possibilities:&lt;/p&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Predicted probability of higher rated player winning. Rounded to nearest 0.05&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Number of predictions&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Observed fraction of matches that higher rated player won&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.50&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;2566&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.518316&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.55&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5315&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.559548&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.60&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5292&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.611678&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.65&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5238&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.668385&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.70&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5401&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.700796&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.75&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5642&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.755583&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.80&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6024&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.813081&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.85&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6507&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.849393&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.90&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7258&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.900248&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.95&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8834&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.937967&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.00&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5831&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.967930&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;You can see that the predictions are well callibrated!&lt;/p&gt;
+
+&lt;h2 id=&quot;reflection&quot;&gt;Reflection&lt;/h2&gt;
+&lt;p&gt;I personally find these results astonishing. By using a straightforward rule to update players’ ratings based on their old ratings, we are able to get a meaningful rating system that provides callibrated odds on who will win a match.&lt;/p&gt;
+
+&lt;p&gt;I was not expecting this at all! Before doing the project, I was anticipating having to tweak the algorithm (e.g. by including some ‘domain knowledge’ somehow), but the ELO rating system just worked out-of-the-box. It is always nice when things simply work out!&lt;/p&gt;
+
+&lt;h2 id=&quot;improvement&quot;&gt;Improvement&lt;/h2&gt;
+&lt;p&gt;There are numerous ways this project could be improved or extended. Here are just a few possibilities:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Automatically update ratings as new results come in, by scraping live match data.&lt;/li&gt;
